@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './css/index.css';
 //import App from './App';
-import Tes from './tes';
+import Tes from './components/tes';
 
 
 /*ReactDOM.render(
