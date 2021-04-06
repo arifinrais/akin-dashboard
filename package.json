@@ -13,6 +13,7 @@
     "express": "^4.17.1",
     "mongoose": "^5.12.3",
     "nodemon": "^2.0.7",
+    "normalize.css": "^8.0.1",
     "polished": "^3.7.1",
     "react": "^17.0.2",
     "react-bootstrap": "^1.5.2",
