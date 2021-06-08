@@ -8,7 +8,15 @@ const AkinDashboard = props => {
         <Container>
             <Row className="justify-content-md-center">
                 <Col md="auto">
-                    <AkinViz />
+                    <Row>
+                        <AkinViz />
+                    </Row>
+                    <Row>
+                        <h1>CATEGORY</h1>
+                    </Row>
+                    <Row>
+                        <h1>SLIDER</h1>
+                    </Row>
                 </Col>
                 <Col xs lg="2">
                     <AkinPanel />

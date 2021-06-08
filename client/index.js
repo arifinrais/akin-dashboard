@@ -4,6 +4,7 @@ import './css/index.css';
 import App from './components/App';
 import Tes from './components/tes';
 import AkinNavbar from './components/AkinNavbar';
+import AkinDashboard from './components/AkinDashboard';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -14,9 +15,9 @@ ReactDOM.render(
 
 ReactDOM.render(
   <React.StrictMode>
-    <AkinNavbar />
+    <AkinDashboard />
   </React.StrictMode>,
-  document.getElementById('navbar')
+  document.getElementById('dashboard')
 );
 
 ReactDOM.render(
