@@ -14,6 +14,13 @@ ReactDOM.render(
 
 ReactDOM.render(
   <React.StrictMode>
+    <AkinNavbar />
+  </React.StrictMode>,
+  document.getElementById('navbar')
+);
+
+ReactDOM.render(
+  <React.StrictMode>
     <App />
   </React.StrictMode>,
   document.getElementById('root')
