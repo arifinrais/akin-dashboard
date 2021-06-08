@@ -1,17 +1,22 @@
-import React from 'react';
-import {Container} from 'react-bootstrap';
+import React, {Component} from 'react';
+import * as d3 from 'd3';
 
-const AkinDashboard = props => {
-    return(
-        <Container>
-            <Row className="justify-content-md-center">
-                <Col md="auto"><AkinViz /></Col>
-                <Col xs lg="2">
-                    <AkinPanel />
-                </Col>
-            </Row>
-        </Container>
-    )
+class AkinViz extends Component {
+    state = {
+        dimension: 'region', //'KI'
+        category: 'province', //'city, patent, publication, trademark'
+        specific: 'jawa barat' //
+    };
+
+    chart = {
+        const svg = d3.create("svg")
+    }
+
+    render() {
+        return (
+            chart
+        );
+    } 
 }
 
-export default AkinDashboard;
+export default AkinViz;
