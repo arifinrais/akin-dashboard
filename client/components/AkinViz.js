@@ -169,12 +169,6 @@ const RootDatum = {
       "fill": "#499894",
       "children": [
          {
-           "id": "ICT",
-           "label": "ICT",
-           "tooltipContent": "ICT",
-           "size": 61
-         },
-         {
            "id": "TravelandTourism",
            "label": "Travel and Tourism",
            "tooltipContent": "TravelandTourism",

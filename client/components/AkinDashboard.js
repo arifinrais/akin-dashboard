@@ -6,19 +6,22 @@ import AkinPanel from './AkinPanel';
 const AkinDashboard = props => {
     return(
         <Container>
-            <Row className="justify-content-md-center">
-                <Col md="auto">
+            <Row>
+                <Col xs="8" sm="8" md="8" lg="8">
+                    <Row>
+                        <h2>TITLE</h2>
+                    </Row>
                     <Row>
                         <AkinViz />
                     </Row>
                     <Row>
-                        <h1>CATEGORY</h1>
+                        <h2>CATEGORY</h2>
                     </Row>
                     <Row>
-                        <h1>SLIDER</h1>
+                        <h2>SLIDER</h2>
                     </Row>
                 </Col>
-                <Col xs lg="2">
+                <Col xs="4" sm="4" md="4" lg="4">
                     <AkinPanel />
                 </Col>
             </Row>
