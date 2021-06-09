@@ -21,6 +21,7 @@ const AkinNavbar = props => {
                         <NavDropdown.Item href="/learn#network">Jejaring Bimodal</NavDropdown.Item>
                         <NavDropdown.Item href="/learn#reflection">Metode Refleksi</NavDropdown.Item>
                     </NavDropdown>
+                    <Nav.Link href="/about">TENTANG</Nav.Link>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
