@@ -22,24 +22,30 @@ const AkinPanel = props => {
             <Row>
                 <Col>
                     <Dropdown>
-                        TINGKAT
-                    </Dropdown>
-                </Col>
-                <Col>
-                    <Dropdown>
-                        JENIS KI
+                        <Dropdown.Toggle id="dropdown-basic">
+                            Pilih tingkat daerah/jenis kekayaan intelektual
+                        </Dropdown.Toggle>
+
+                        <Dropdown.Menu>
+                            <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                        </Dropdown.Menu>
                     </Dropdown>
                 </Col>
             </Row>
             <Row>
                 <Col>
                     <Dropdown>
-                        Pilih Daerah
-                    </Dropdown>
-                </Col>
-                <Col>
-                    <Dropdown>
-                        Pilih KI
+                        <Dropdown.Toggle id="dropdown-basic">
+                            Pilih kota/kabupaten/provinsi/kode IPC paten/kode NCL merek/kode CIP publikasi ilmiah
+                        </Dropdown.Toggle>
+
+                        <Dropdown.Menu>
+                            <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                        </Dropdown.Menu>
                     </Dropdown>
                 </Col>
             </Row>
