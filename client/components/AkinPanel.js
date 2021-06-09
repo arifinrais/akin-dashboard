@@ -5,7 +5,7 @@ const AkinPanel = props => {
     return(
         <Container>
             <Row>
-                <h3>PENGATURAN</h3>
+                <h4>PENGATURAN</h4>
             </Row>
             <Row>
                 <Col>
@@ -15,7 +15,7 @@ const AkinPanel = props => {
                 </Col>
                 <Col>
                     <Button>
-                        KI
+                        KEKAYAAN INTELEKTUAL
                     </Button>
                 </Col>
             </Row>
@@ -27,9 +27,11 @@ const AkinPanel = props => {
                         </Dropdown.Toggle>
 
                         <Dropdown.Menu>
-                            <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                            <Dropdown.Item href="#/action-1">Provinsi</Dropdown.Item>
+                            <Dropdown.Item href="#/action-2">Kota/Kabupaten</Dropdown.Item>
+                            <Dropdown.Item href="#/action-3">Paten</Dropdown.Item>
+                            <Dropdown.Item href="#/action-3">Merek Dagang</Dropdown.Item>
+                            <Dropdown.Item href="#/action-3">Publikasi Ilmiah</Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
                 </Col>
@@ -42,15 +44,18 @@ const AkinPanel = props => {
                         </Dropdown.Toggle>
 
                         <Dropdown.Menu>
-                            <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                            <Dropdown.Item href="#/action-1">Jawa Barat</Dropdown.Item>
+                            <Dropdown.Item href="#/action-2">Jawa Tengah</Dropdown.Item>
+                            <Dropdown.Item href="#/action-3">Jawa Timur</Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
                 </Col>
             </Row>
             <Row>
-                <h3>TIPE VISUALISASI</h3>
+                <h4>TIPE VISUALISASI</h4>
+            </Row>
+            <Row>
+                <h6>VISUALISASI PATEN</h6>
             </Row>
             <Row>
                 <Col>
@@ -63,18 +68,14 @@ const AkinPanel = props => {
                         Geo Map
                     </Button>
                 </Col>
-            </Row>
-            <Row>
-                <Col>
-                    <Button>
-                        Over Time
-                    </Button>
-                </Col>
                 <Col>
                     <Button>
                         National Share
                     </Button>
                 </Col>
+            </Row>
+            <Row>
+                <h6>VISUALISASI KOMPLEKSITAS</h6>
             </Row>
             <Row>
                 <Col>
