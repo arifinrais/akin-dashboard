@@ -6,7 +6,7 @@ const AkinNavbar = props => {
     return(
         <Navbar bg="light" expand="lg">
             <Nav.Link href="/home">
-                <img src="/res/logowarnagelap.png" width="84.88" height="45" alt="" />
+                <img src="/res/logo-2.png" width="101.81" height="45" alt="" />
             </Nav.Link>
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="ml-auto">
