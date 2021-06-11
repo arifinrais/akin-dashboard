@@ -4,7 +4,7 @@ var router = express.Router();
 var bodyParser = require('body-parser');
 
 
-/*const MongoClient = new require('mongodb').MongoClient;
+const MongoClient = new require('mongodb').MongoClient;
 const client = new MongoClient('mongodb://mongo:admin@localhost:27017', { useUnifiedTopology: true, useNewUrlParser: true });
 console.log("tes1")
 
@@ -23,7 +23,7 @@ async function run() {
 }
 
 
-run().catch(console.dir);*/
+run().catch(console.dir);
 
 //gagal di connect karena i.unescape is not a function, katanya mongodb gabisa diakses dari browser?
 /*var MongoClient = require('mongodb').MongoClient;
