@@ -2,6 +2,20 @@ import React, {Component} from 'react';
 import {DataViz, VizType} from 'react-fast-charts';
 import * as d3 from 'd3';
 
+const MongoClient = new require('mongodb').MongoClient;
+const client = new MongoClient('mongodb://localhost:27017', { useUnifiedTopology: true, useNewUrlParser: true });
+console.log("tes1")
+//gagal diconnect keanya harus setup user dan password mongodb duls
+client.connect(err => {
+  const coll = client.db('akin-dashboard').collection('viz-patent')
+   .then(db => console.log('DB conectada'))
+   .catch(err => console.log(error));
+  console.log("tes2")
+ });
+//const docs = coll.find({ test: 1 }, { readPreference: 'secondary' }).toArray();
+//console.dir({ docs });
+client.close();
+console.log("tes3")
 const RootDatum = {
     "id": "example-tree-map-data",
     "label": "example-tree-map-data",
@@ -206,6 +220,7 @@ class AkinViz extends Component {
 
     render() {
         if (this.state.vtype=='treemap') {
+            console.log("test")
             return (
                 <DataViz
                 id={'example-tree-map'}
