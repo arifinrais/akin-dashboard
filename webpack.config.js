@@ -32,5 +32,13 @@ module.exports = {
     ],
   }
   ]
- }
+ },
+ node: {
+  fs: 'empty',
+  crypto: 'empty',
+  net: 'empty',
+  tls: 'empty',
+  dns: 'empty'
+ },
+ externals: ['mongodb-client-encryption']
 }
