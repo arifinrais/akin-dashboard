@@ -12,8 +12,8 @@ router.get('/', function(req, res){
 //explore
 router.get('/explore',function(req, res) {
     var focusRec = req.query.focus;
-    var regdimRec = req.query.reg_dimension;
-    var iprdimRec = req.query.ipr_dimension;
+    var regdimRec = req.query.regDim;
+    var iprdimRec = req.query.iprDim;
     var codeRec = req.query.code;
     var vtypeRec = req.query.vtype;
     var yearRec = req.query.year;

@@ -1,7 +1,38 @@
-var Patent = require('../../models/Patent');
-var PatentTMV = require('../models/PatentTMV');
+var model = require('../providers/modelProvider');
+var dbURI = 'mongodb://mongo:admin@localhost:27017';
+
+async function run() {
+  const MongoClient = new require('mongodb').MongoClient;
+  const client = new MongoClient(dbURI, { useUnifiedTopology: true, useNewUrlParser: true });
+  console.log("tes1")
+  try {
+    console.log("tes2")
+    await client.connect();
+    const coll = client.db('akin-dashboard').collection('viz_patent')
+    const cursor = coll.find({year:2001})
+    await cursor.forEach(console.dir);
+    console.log("tes2b")
+  } finally {
+    await client.close();
+    console.log("tes3")
+  }
+}
+
+//run().catch(console.dir); //dimasukin ke exports dibawah
 
 exports.default = (req,res) => {
+  var focusRec = req.query.focus;
+  if (focusRec == 'ipr') {
+    //ambil database
+    //transform ke model Treemap
+    //res json
+  } else {
+    //ambil database
+    var rootDatum = new model.TreeMap({
+      //map dari database document ke treemap
+    });
+    //res.json
+  }
     //if req.query.focus == ipr
     // default ipr
     //else default region
@@ -20,7 +51,7 @@ exports.treemap = (req, res) => {
 }
 
 exports.geomap = (req, res) => {
-  
+
 }
 /*
 const MongoClient = new require('mongodb').MongoClient;

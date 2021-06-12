@@ -1,24 +1,24 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-const subccategoryTMVSchema = new Schema({
+const grandchildSchema = new Schema({
     id: String,
     label: String,
     tooltipContent: String,
     children: Number
 });
 
-const categoryTMVSchema = new Schema({
+const childSchema = new Schema({
     id: String,
     label: String,
     fill: String,
-    children: [subccategoryTMVSchema]
+    children: [grandchildSchema]
 });
 
-const patentTMVSchema = new Schema({
+const rootSchema = new Schema({
     id: String,
     label: String,
-    children: [categoryTMVSchema]
+    children: [childSchema]
 });
 
-module.exports = mongoose.model('PatentTMV', patentTMVSchema);
+module.exports = mongoose.model('Treemap', rootSchema);
