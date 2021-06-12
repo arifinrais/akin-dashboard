@@ -193,18 +193,27 @@ const RootDatum = {
       }
     ]
    };
-
+/*
+   dimension: 'reg', //'reg/ipr'
+  focus: 'prv', //'prv, cty, ptn, pub, trd'
+  code: '12', //1-34, 1-500an
+  vtype: 'treemap',
+  year: 2020,
+  modifier_hid: [],
+  modifier_iso: [],
+  data: null*/
 class PatentViz extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            dimension: 'reg', //'reg/ipr'
-            focus: 'prv', //'prv, cty, ptn, pub, trd'
-            code: '12', //1-34, 1-500an
-            vtype: 'treemap',
-            year: 2020,
+            dimension: '',
+            focus: '',
+            code: '',
+            vtype: '',
+            year: 0,
             modifier_hid: [],
-            modifier_iso: []
+            modifier_iso: [],
+            data: null
         };
     }
 
