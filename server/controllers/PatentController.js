@@ -20,7 +20,7 @@ exports.default = (req,res) => {
     //res json
   } else {
     //ambil database
-    //bisa diabstraksi lagi buat dimasukin ke treemap aja pake parameter 2018, 12,
+    //BISA DIABSTRAKSI lagi buat dimasukin ke treemap aja pake parameter 2018, 12,
     model.Patent.find({year: 2018}, function(err, patent){
       if(err)
         res.send(err)
@@ -29,11 +29,8 @@ exports.default = (req,res) => {
       defReg.id = "default-regional-treemap";
       defReg.label = "default-regional-treemap";
       defReg.children = [];
-      //console.log(defRec.provinces[12]);
       for(let ctg in defRec.provinces[12]) {
         let totalProv = defRec.provinces[12]["total_prov"];
-        //console.log(typeof ctg);
-        //console.log(ctg);
         if (ctg.length == 1 && defRec.provinces[12][ctg]!=null) {
           let ptClass = getPatent(ctg);
           let ptColor = getColor(ctg);
@@ -44,7 +41,7 @@ exports.default = (req,res) => {
             child["fill"]=ptColor;
             child["children"]=[];
           }
-          for(let subctg in defRec.provinces[12][ctg]){ //[ctg]??
+          for(let subctg in defRec.provinces[12][ctg]){
             if (subctg.length == 3 && subctg != '_id' && defRec.provinces[12][ctg][subctg]!=null) {
               let subptClass = getPatent(subctg);
               var grandchild = {}
