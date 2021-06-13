@@ -40,36 +40,37 @@ exports.default = (req,res) => {
         //console.log(typeof ctg);
         //console.log(ctg);
         if (ctg.length == 1) {
-          console.log(ctg);
+          //console.log(ctg);
           let ptClass = getPatent(ctg);
           let ptColor = getColor(ctg);
-          console.log(ptClass);
-          console.log(ptColor);
           var child = {}
-          if (ptClass instanceof String && ptColor instanceof String) {
+          if (typeof ptClass === "string" && typeof ptColor === "string") {
             child["id"]=ptClass;
             child["label"]=ptClass;
             child["fill"]=ptColor;
             child["children"]=[];
-          } else {
-            res.send(ptClass)
           }
           for(let subctg in defRec.provinces[12][ctg]){ //[ctg]??
             if (subctg.length == 3 && subctg != '_id') {
-              let subptClass = getPatentClass(subctg);
+              let subptClass = getPatent(subctg);
               var grandchild = {}
-              if (subptClass instanceof String) {
+              if (typeof subptClass === "string") {
                 grandchild["id"]=subptClass;
                 grandchild["label"]=subptClass;
                 grandchild["tooltipContent"]=subptClass;
-                grandchild["size"]=parseFloat(defRec.provinces[12][ctg][subctg]/totalProv).toFixed(2);
+                //console.log(defRec.provinces[12][ctg][subctg]);
+                //console.log(totalProv);
+                grandchild["size"]=parseFloat(defRec.provinces[12][ctg][subctg]/totalProv);//.toFixed(3);
+                if (grandchild["size"]!='NaN')
+                  child["children"].push(grandchild);
               }
-              child["children"].push(grandchild);
             }
           }
+          //console.log(child);
           defReg.children.push(child);
         }
       }
+      //console.log(defReg)
       res.json(defReg);
     });
   }
