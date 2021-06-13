@@ -5,7 +5,7 @@ const grandchildSchema = new Schema({
     id: String,
     label: String,
     tooltipContent: String,
-    children: Number
+    size: Number
 });
 
 const childSchema = new Schema({

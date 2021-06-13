@@ -1,7 +1,6 @@
 //server/routes/routes.js
 var express = require('express');
 var router = express.Router();
-var bodyParser = require('body-parser');
 var controller = require('../providers/controllerProvider');
 
 //homepage

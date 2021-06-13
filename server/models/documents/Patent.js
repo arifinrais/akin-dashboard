@@ -195,4 +195,4 @@ const patentSchema = new Schema({
     total_nation: Number
 });
 
-module.exports = mongoose.model('Patent', patentSchema);
+module.exports = mongoose.model('Patent', patentSchema, 'viz_patent');
