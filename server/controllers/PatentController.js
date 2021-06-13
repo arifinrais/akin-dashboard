@@ -1,4 +1,4 @@
-const axios = require('axios');
+//const axios = require('axios');
 var resources = require('../providers/resourceProvider');
 var model = require('../providers/modelProvider');
 
@@ -11,12 +11,6 @@ function getColor(code) {
 }
 
 exports.default = (req,res) => {
-  var focusRec = req.query.focus;
-  var regdimRec = req.query.regDim;
-  var iprdimRec = req.query.iprDim;
-  var codeRec = req.query.code;
-  var vtypeRec = req.query.vtype;
-  var yearRec = req.query.year;
     //if req.query.focus == ipr
     // default ipr
     //else default region
@@ -26,6 +20,7 @@ exports.default = (req,res) => {
     //res json
   } else {
     //ambil database
+    //bisa diabstraksi lagi buat dimasukin ke treemap aja pake parameter 2018, 12,
     model.Patent.find({year: 2018}, function(err, patent){
       if(err)
         res.send(err)
@@ -39,8 +34,7 @@ exports.default = (req,res) => {
         let totalProv = defRec.provinces[12]["total_prov"];
         //console.log(typeof ctg);
         //console.log(ctg);
-        if (ctg.length == 1) {
-          //console.log(ctg);
+        if (ctg.length == 1 && defRec.provinces[12][ctg]!=null) {
           let ptClass = getPatent(ctg);
           let ptColor = getColor(ctg);
           var child = {}
@@ -51,18 +45,15 @@ exports.default = (req,res) => {
             child["children"]=[];
           }
           for(let subctg in defRec.provinces[12][ctg]){ //[ctg]??
-            if (subctg.length == 3 && subctg != '_id') {
+            if (subctg.length == 3 && subctg != '_id' && defRec.provinces[12][ctg][subctg]!=null) {
               let subptClass = getPatent(subctg);
               var grandchild = {}
               if (typeof subptClass === "string") {
                 grandchild["id"]=subptClass;
                 grandchild["label"]=subptClass;
                 grandchild["tooltipContent"]=subptClass;
-                //console.log(defRec.provinces[12][ctg][subctg]);
-                //console.log(totalProv);
                 grandchild["size"]=parseFloat(defRec.provinces[12][ctg][subctg]/totalProv);//.toFixed(3);
-                if (grandchild["size"]!='NaN')
-                  child["children"].push(grandchild);
+                child["children"].push(grandchild);
               }
             }
           }
