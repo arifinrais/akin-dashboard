@@ -3,7 +3,6 @@ var express = require('express');
 var router = require('./routes/routes.js')
 var path = require('path');
 var app = express();
-//var url = "mongodb://localhost:27017/";
 var mongoose = require('mongoose')
 
 app.set('view engine', 'ejs');

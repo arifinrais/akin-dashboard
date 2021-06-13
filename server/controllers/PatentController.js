@@ -55,6 +55,8 @@ exports.default = (req,res) => {
   } else {
     //ambil database
     model.Patent.find({year: 2018}, function(err, patent){
+      if(err)
+        res.send(err)
       let defReg = new model.TreeMap();
       let defRec = patent.toObject();
       defReg.id = "default-regional-treemap";
@@ -88,7 +90,7 @@ exports.default = (req,res) => {
           defReg.children.push(child);
         }
       }
-    //res.json
+      res.json(defReg);
     });
   }
 }
