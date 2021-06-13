@@ -1,41 +1,13 @@
+const axios = require('axios');
+var resources = require('../providers/resourceProvider');
 var model = require('../providers/modelProvider');
 
-/*
-var dbURI = 'mongodb://mongo:admin@localhost:27017';
-
-async function run() {
-  const MongoClient = new require('mongodb').MongoClient;
-  const client = new MongoClient(dbURI, { useUnifiedTopology: true, useNewUrlParser: true });
-  console.log("tes1")
-  try {
-    console.log("tes2")
-    await client.connect();
-    const coll = client.db('akin-dashboard').collection('viz_patent')
-    const cursor = coll.find({year:2001})
-    await cursor.forEach(console.dir);
-    console.log("tes2b")
-  } finally {
-    await client.close();
-    console.log("tes3")
-  }
-}
-*/
-//run().catch(console.dir); //dimasukin ke exports dibawah
-
-function getPatentClass(code) {
-  model.PatentCode.find({dim: "ipc"}, function(err, pCode) {
-    if (err)
-      return(err);
-    return pCode.toObject().item[code];
-  });
+function getPatent(code) {
+  return resources.PatentCode[code];
 }
 
-function getColorCode(code) {
-  model.ColorCode.find({dim: "color"}, function(err, cCode) {
-    if (err)
-      return(err);
-    return cCode.toObject().item[code];
-  });
+function getColor(code) {
+  return resources.ColorCode[code];
 }
 
 exports.default = (req,res) => {
@@ -49,7 +21,7 @@ exports.default = (req,res) => {
     // default ipr
     //else default region
   if (focusRec == 'ipr') {
-    //ambil database
+    //ambil database  
     //transform ke model Treemap
     //res json
   } else {
@@ -58,24 +30,32 @@ exports.default = (req,res) => {
       if(err)
         res.send(err)
       let defReg = new model.TreeMap();
-      let defRec = patent.toObject();
+      let defRec = patent[0];
       defReg.id = "default-regional-treemap";
       defReg.label = "default-regional-treemap";
       defReg.children = [];
+      //console.log(defRec.provinces[12]);
       for(let ctg in defRec.provinces[12]) {
-        let totalProv = defRev.provinces[12]["total_prov"];
+        let totalProv = defRec.provinces[12]["total_prov"];
+        //console.log(typeof ctg);
+        //console.log(ctg);
         if (ctg.length == 1) {
-          let ptClass = getPatentClass(ctg);
-          let ptColor = getColorCode(ctg);
+          console.log(ctg);
+          let ptClass = getPatent(ctg);
+          let ptColor = getColor(ctg);
+          console.log(ptClass);
+          console.log(ptColor);
           var child = {}
           if (ptClass instanceof String && ptColor instanceof String) {
             child["id"]=ptClass;
             child["label"]=ptClass;
             child["fill"]=ptColor;
             child["children"]=[];
+          } else {
+            res.send(ptClass)
           }
           for(let subctg in defRec.provinces[12][ctg]){ //[ctg]??
-            if (subctg.length == 3) {
+            if (subctg.length == 3 && subctg != '_id') {
               let subptClass = getPatentClass(subctg);
               var grandchild = {}
               if (subptClass instanceof String) {
