@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {DataViz, VizType} from 'react-fast-charts';
+import axios from 'axios';
 import * as d3 from 'd3';
 
 const RootDatum = {
@@ -196,21 +197,34 @@ class AkinViz extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            dimension: 'region', //'KI'
-            category: 'province', //'city, patent, publication, trademark'
-            specific: 'jawa barat', //
-            vtype: 'treemap',
-            year: 2020
+            /*focus: 'region', //'KI'
+            regional_dimension: 'province', //'city, patent, publication, trademark'
+            ipr_dimension: 'paten', //
+            code: '12',
+            viz_type: 'treemap',
+            year: 2020,
+            modifier_hid: [],
+            modifier_iso: []*/
+            data: {}
         };
+        this.getData = this.getData.bind(this);
     }
 
+    getData(ev) {
+      axios.get('/explore')
+        .then(function(res){
+          ev.setState({data: res.data});
+        });
+    }
+
+    //data={RootDatum}
     render() {
         if (this.state.vtype=='treemap') {
             return (
                 <DataViz
                 id={'example-tree-map'}
                 vizType={VizType.TreeMap}
-                data={RootDatum}
+                data={this.state.data}
               />
             );
         } else {
