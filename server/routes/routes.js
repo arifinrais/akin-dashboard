@@ -9,7 +9,7 @@ router.get('/', function(req, res){
 });
 
 //explore
-router.get('/explore',function(req, res) {
+router.get('/api/explore',function(req, res) {
     var focusRec = req.query.focus;
     var regdimRec = req.query.regDim;
     var iprdimRec = req.query.iprDim;

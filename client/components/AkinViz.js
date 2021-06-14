@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import ReactDOM from 'react-dom';
 import {DataViz, VizType} from 'react-fast-charts';
 import axios from 'axios';
 import * as d3 from 'd3';
@@ -205,21 +206,53 @@ class AkinViz extends Component {
             year: 2020,
             modifier_hid: [],
             modifier_iso: []*/
+            dataIsReturned: false,
+            vtype: 'treemap',
             data: {}
         };
         this.getData = this.getData.bind(this);
     }
 
+    componentDidMount(){
+      this.getData(this);
+    }
+
+    componentWillReceiveProps(nextProps) {
+      this.getData(this);
+    }
+    
+
     getData(ev) {
-      axios.get('/explore')
+      //console.log('tes')
+      axios.get('/api/explore')
         .then(function(res){
+          //console.log(res.data)
           ev.setState({data: res.data});
         });
     }
 
     //data={RootDatum}
     render() {
-        if (this.state.vtype=='treemap') {
+
+      console.log('tes');
+      console.log(this.state.vtype);
+      console.log(this.state.data);
+
+      //dataIsReturned 
+      return (
+        <DataViz
+          id={'example-tree-map'}
+          vizType={VizType.TreeMap}
+          data={RootDatum}
+        />
+        
+      );
+    } 
+}
+
+export default AkinViz;
+
+/*if (this.state.vtype=='treemap') {
             return (
                 <DataViz
                 id={'example-tree-map'}
@@ -231,8 +264,4 @@ class AkinViz extends Component {
             return (
                 <h1>TES</h1>
             );
-        }   
-    } 
-}
-
-export default AkinViz;
+        }  */
