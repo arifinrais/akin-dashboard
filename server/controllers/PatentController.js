@@ -11,6 +11,7 @@ function getColor(code) {
 }
 
 exports.default = (req,res) => {
+  var focusRec = req.query.focus;
     //if req.query.focus == ipr
     // default ipr
     //else default region
@@ -49,7 +50,7 @@ exports.default = (req,res) => {
                 grandchild["id"]=subptClass;
                 grandchild["label"]=subptClass;
                 grandchild["tooltipContent"]=subptClass;
-                grandchild["size"]=parseFloat(defRec.provinces[12][ctg][subctg]/totalProv);//.toFixed(3);
+                grandchild["size"]=parseFloat(defRec.provinces[12][ctg][subctg]*100/totalProv).toFixed(2);
                 child["children"].push(grandchild);
               }
             }
