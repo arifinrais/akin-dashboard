@@ -1,4 +1,3 @@
-//const axios = require('axios');
 var resources = require('../providers/resourceProvider');
 var model = require('../providers/modelProvider');
 

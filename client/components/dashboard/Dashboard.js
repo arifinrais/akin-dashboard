@@ -1,6 +1,7 @@
 import React from 'react';
 import {Container, Row, Col} from 'react-bootstrap';
 import Visualization from './Visualization';
+import Slider from './Slider.js';
 import AkinPanel from './Panel';
 
 const AkinDashboard = props => {
@@ -18,7 +19,7 @@ const AkinDashboard = props => {
                         <h2>CATEGORY</h2>
                     </Row>
                     <Row>
-                        <h2>SLIDER</h2>
+                        <Slider />
                     </Row>
                 </Col>
                 <Col xs="4" sm="4" md="4" lg="4">
