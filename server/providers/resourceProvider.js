@@ -1,8 +1,8 @@
 const main = {};
 
-main.ProvinceCode = require("../resources/stdProv.json");
-main.CityCode = require("../resources/stdCity.json");
-main.PatentCode = require("../resources/stdIpc.json");
-main.ColorCode = require("../resources/stdColor.json");
+main.ProvinceCode = require("../res/stdProv.json");
+main.CityCode = require("../res/stdCity.json");
+main.PatentCode = require("../res/stdIpc.json");
+main.ColorCode = require("../res/stdColor.json");
 
 module.exports = main;
