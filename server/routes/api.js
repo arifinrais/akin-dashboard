@@ -3,13 +3,8 @@ var express = require('express');
 var router = express.Router();
 var controller = require('../providers/controllerProvider');
 
-//homepage
-router.get('/', function(req, res){
-  res.render('index')
-});
-
 //explore
-router.get('/api/explore',function(req, res) {
+router.get('/explore',function(req, res) {
     var focusRec = req.query.focus;
     var regdimRec = req.query.regDim;
     var iprdimRec = req.query.iprDim;
