@@ -27,8 +27,8 @@ exports.default = (req,res) => {
         res.send(err)
       let defReg = new model.TreeMap();
       let defRec = patent[0];
-      defReg.id = "default-regional-treemap";
-      defReg.label = "default-regional-treemap";
+      defReg.id = "dfr";
+      defReg.label = "dfr";
       defReg.children = [];
       for(let ctg in defRec.provinces[12]) {
         let totalProv = defRec.provinces[12]["total_prov"];

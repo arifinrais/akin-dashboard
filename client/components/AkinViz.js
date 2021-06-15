@@ -272,7 +272,7 @@ class AkinViz extends Component {
           <DataViz
           id={'example-tree-map'}
           vizType={VizType.TreeMap}
-          data={DefaultDatum}
+          data={this.state.data}
         /> 
         );
       }
