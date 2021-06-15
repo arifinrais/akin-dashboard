@@ -9,7 +9,7 @@ const AkinDashboard = props => {
             <Row>
                 <Col xs="8" sm="8" md="8" lg="8">
                     <Row>
-                        <h2>TITLE</h2>
+                        <h2>Paten apa saja yang dihasilkan Jawa Barat pada tahun 2018?</h2>
                     </Row>
                     <Row>
                         <AkinViz />
