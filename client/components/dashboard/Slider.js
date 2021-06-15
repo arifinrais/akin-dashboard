@@ -16,7 +16,6 @@ const useStyles = makeStyles((theme) => ({
 
 function ValueLabelComponent(props) {
   const { children, open, value } = props;
-
   return (
     <Tooltip arrow open={open} enterTouchDelay={0} placement="top" title={value}>
       {children}
@@ -211,35 +210,41 @@ const TimerangeSlider = withStyles({
 })(Slider);
 
 export default function CustomizedSlider() {
-  const classes = useStyles();
-
-  return (
-      //if this.state.vtype => range | line | none
-    <div className={classes.root}>
-      <div className={classes.margin} />
-      <TimerangeSlider
-        ValueLabelComponent={ValueLabelComponent}
-        marks={marks}
-        step={1}
-        min={2000}
-        max={2018}
-        aria-labelledby="discrete-slider-custom"
-        valueLabelDisplay="auto"
-        defaultValue={[2016, 2018]}
-      />
-      <div className={classes.margin} />
-      <TimelineSlider
-        ValueLabelComponent={ValueLabelComponent}
-        marks={marks}
-        step={1}
-        min={2000}
-        max={2018}
-        aria-labelledby="discrete-slider-custom"
-        valueLabelDisplay="auto"
-        defaultValue={2018}
-      />
-    </div>
-  );
+    const classes = useStyles();
+    var temp = true
+    //conditional vtype
+    if (temp){
+        return (
+            <div className={classes.root}>
+                <div className={classes.margin} />
+                <TimerangeSlider
+                    ValueLabelComponent={ValueLabelComponent}
+                    marks={marks}
+                    step={1}
+                    min={2000}
+                    max={2018}
+                    aria-labelledby="discrete-slider-custom"
+                    valueLabelDisplay="auto"
+                    defaultValue={[2016, 2018]}
+                />
+            </div>
+        );
+    } else if (true) {
+        return(
+            <div className={classes.root}>
+                <TimelineSlider
+                ValueLabelComponent={ValueLabelComponent}
+                marks={marks}
+                step={1}
+                min={2000}
+                max={2018}
+                aria-labelledby="discrete-slider-custom"
+                valueLabelDisplay="auto"
+                defaultValue={2018}
+                />
+            </div>
+        );
+    }
 }
 
 //getAriaValueText={valuetext}
