@@ -1,7 +1,7 @@
 import React from 'react';
 import {Container, Row, Col} from 'react-bootstrap';
-import AkinViz from './AkinViz';
-import AkinPanel from './AkinPanel';
+import Visualization from './Visualization';
+import AkinPanel from './Panel';
 
 const AkinDashboard = props => {
     return(
@@ -12,7 +12,7 @@ const AkinDashboard = props => {
                         <h2>Paten apa saja yang dihasilkan Jawa Barat pada tahun 2018?</h2>
                     </Row>
                     <Row>
-                        <AkinViz />
+                        <Visualization />
                     </Row>
                     <Row>
                         <h2>CATEGORY</h2>

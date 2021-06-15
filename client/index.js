@@ -1,21 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './css/index.css';
-import App from './components/App';
-import Tes from './components/tes';
-import AkinNavbar from './components/AkinNavbar';
-import AkinDashboard from './components/AkinDashboard';
+import Navbar from './components/Navbar';
+import Dashboard from './components/dashboard/Dashboard';
 
 ReactDOM.render(
   <React.StrictMode>
-    <AkinNavbar />
+    <Navbar />
   </React.StrictMode>,
   document.getElementById('navbar')
 );
 
 ReactDOM.render(
   <React.StrictMode>
-    <AkinDashboard />
+    <Dashboard />
   </React.StrictMode>,
   document.getElementById('dashboard')
 );
