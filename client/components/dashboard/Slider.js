@@ -7,7 +7,7 @@ import Tooltip from "@material-ui/core/Tooltip";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: 300 + theme.spacing(3) * 2
+    width: 600 + theme.spacing(3) * 2
   },
   margin: {
     height: theme.spacing(3)
@@ -33,20 +33,73 @@ ValueLabelComponent.propTypes = {
 const iOSBoxShadow =
   "0 3px 1px rgba(0,0,0,0.1),0 4px 8px rgba(0,0,0,0.13),0 0 0 1px rgba(0,0,0,0.02)";
 
-const marks = [
-  {
-    value: 0
+const marks = [{
+    value: 2000,
+    label: '2000'
   },
   {
-    value: 20
+    value: 2001
   },
   {
-    value: 37
+    value: 2002,
+    label: '2002'
   },
   {
-    value: 100
-  }
-];
+    value: 2003
+  },
+  {
+    value: 2004,
+    label: '2004'
+  },
+  {
+    value: 2005
+  },
+  {
+    value: 2006,
+    label: '2006'
+  },
+  {
+    value: 2007
+  },
+  {
+    value: 2008,
+    label: '2008'
+  },
+  {
+    value: 2009
+  },
+  {
+    value: 2010,
+    label: '2010'
+  },
+  {
+    value: 2011
+  },
+  {
+    value: 2012,
+    label: '2012'
+  },
+  {
+    value: 2013
+  },
+  {
+    value: 2014,
+    label: '2014'
+  },
+  {
+    value: 2015
+  },
+  {
+    value: 2016,
+    label: '2016'
+  },
+  {
+    value: 2017
+  },
+  {
+    value: 2018,
+    label: '2018'
+  }];
 
 const IOSSlider = withStyles({
   root: {
@@ -135,15 +188,15 @@ const AirbnbSlider = withStyles({
   root: {
     color: "#dcdcdc",
     height: 3,
-    padding: "13px 0"
+    padding: "8px 0"
   },
   thumb: {
-    height: 27,
-    width: 27,
+    height: 10,
+    width: 10,
     backgroundColor: "#fff",
     border: "1px solid currentColor",
-    marginTop: -12,
-    marginLeft: -13,
+    marginTop: -3,
+    marginLeft: -3,
     boxShadow: "#ebebeb 0 2px 2px",
     "&:focus, &:hover, &$active": {
       boxShadow: "#ccc 0 2px 3px 1px"
@@ -159,24 +212,19 @@ const AirbnbSlider = withStyles({
   },
   active: {},
   track: {
-    height: 3
+    height: 8,
+    borderRadius: 3
   },
   rail: {
-    color: "#d8d8d8",
+    height:3,
     opacity: 1,
-    height: 3
+    borderRadius: 3
   }
 })(Slider);
 
-function AirbnbThumbComponent(props) {
-  return (
-    <span {...props}>
-      <span className="bar" />
-      <span className="bar" />
-      <span className="bar" />
-    </span>
-  );
-}
+function valuetext(value) {
+    return `${value}`;
+  }
 
 export default function CustomizedSlider() {
   const classes = useStyles();
@@ -212,17 +260,22 @@ export default function CustomizedSlider() {
       <div className={classes.margin} />
       <Typography gutterBottom>Airbnb</Typography>
       <AirbnbSlider
-        ThumbComponent={AirbnbThumbComponent}
-        getAriaLabel={(index) =>
-          index === 0 ? "Minimum price" : "Maximum price"
+        getAriaValueText={(index) =>
+          index%2 === 0 ? `${index}` : ''
         }
-        marks
+        marks={marks}
         step={1}
         min={2000}
         max={2018}
+        aria-labelledby="discrete-slider-custom"
         valueLabelDisplay="on"
         defaultValue={[2016, 2018]}
       />
     </div>
   );
 }
+
+//getAriaValueText={valuetext}
+/*getAriaLabel={(index) =>
+          index === 0 ? "Minimum price" : "Maximum price"
+        } */
