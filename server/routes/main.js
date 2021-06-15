@@ -8,4 +8,9 @@ router.get('/', function(req, res){
   res.render('index')
 });
 
+//explore
+router.get('/explore', function(req, res){
+  res.render('explore')
+});
+
 module.exports = router;

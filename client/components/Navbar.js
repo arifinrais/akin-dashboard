@@ -5,7 +5,7 @@ import {Nav, Navbar, NavDropdown} from 'react-bootstrap';
 const AkinNavbar = props => {
     return(
         <Navbar bg="light" expand="lg">
-            <Nav.Link href="/home">
+            <Nav.Link href="/">
                 <img src="/res/logo-2.png" width="101.81" height="45" alt="" />
             </Nav.Link>
             <Navbar.Collapse id="basic-navbar-nav">
@@ -16,10 +16,10 @@ const AkinNavbar = props => {
                         <NavDropdown.Item href="/ranking">Peringkat Daerah</NavDropdown.Item>
                     </NavDropdown>
                     <NavDropdown alignRight title="PELAJARI" id="basic-nav-dropdown">
-                        <NavDropdown.Item href="/learn#data">Pengolahan Data</NavDropdown.Item>
-                        <NavDropdown.Item href="/learn#rca">RCA</NavDropdown.Item>
-                        <NavDropdown.Item href="/learn#network">Jejaring Bimodal</NavDropdown.Item>
-                        <NavDropdown.Item href="/learn#reflection">Metode Refleksi</NavDropdown.Item>
+                        <NavDropdown.Item href="/materials#data">Pengolahan Data</NavDropdown.Item>
+                        <NavDropdown.Item href="/materials#rca">RCA</NavDropdown.Item>
+                        <NavDropdown.Item href="/materials#network">Jejaring Bimodal</NavDropdown.Item>
+                        <NavDropdown.Item href="/materials#reflection">Metode Refleksi</NavDropdown.Item>
                     </NavDropdown>
                     <Nav.Link href="/about">TENTANG</Nav.Link>
                 </Nav>
