@@ -212,7 +212,8 @@ class AkinViz extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            dataIsReturned: false,
+            error: null,
+            isLoaded: false,
             data: {},
             vtype: ''
         };
@@ -221,10 +222,11 @@ class AkinViz extends Component {
 
     componentDidMount(){
        fetch(routes.Explore)
-        .then(
+       .then(res => res.json()) 
+       .then(
           (res) => {
             this.setState({data: res});
-            this.setState({dataIsReturned : true});
+            this.setState({isLoaded : true});
             this.setState({vtype: 'treemap'});
           }
         )
@@ -240,7 +242,7 @@ class AkinViz extends Component {
           this.setState({dataIsReturned : true});
           this.setState({vtype: 'treemap'});
         })*/
-        .catch( err => console.error(err));
+        .catch( err => this.setState({error: err}));
       }
     
 
@@ -255,21 +257,26 @@ class AkinViz extends Component {
 
     //data={RootDatum}
     render() {
+      const { error, isLoaded, items } = this.state;
 
-      console.log('tes');
       console.log(this.state.vtype);
       console.log(this.state.data);
-      console.log(this.state.dataIsReturned);
-      //dataIsReturned 
-      return (
-        this.dataIsReturned ?
-        <DataViz
+      console.log(this.state.isLoaded);
+      console.log(DefaultDatum);
+      if (error) {
+        return <div>Error: {error.message}</div>;
+      } else if (!isLoaded) {
+        return <div>Loading...</div>;
+      } else {
+        return (
+          <DataViz
           id={'example-tree-map'}
           vizType={VizType.TreeMap}
-          data={this.data}
-        /> :
-        <h1> Loading </h1>
-      );
+          data={DefaultDatum}
+        /> 
+        );
+      }
+      
     } 
 }
 
