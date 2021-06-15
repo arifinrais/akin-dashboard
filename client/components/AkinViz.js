@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import {DataViz, VizType} from 'react-fast-charts';
 import axios from 'axios';
+import routes from '../../server/providers/routesProvider'; 
 import * as d3 from 'd3';
 
 const RootDatum = {
@@ -219,16 +220,26 @@ class AkinViz extends Component {
     }
 
     componentDidMount(){
-      fetch()
-       .then(async (data) => {
+       fetch(routes.Explore)
+        .then(
+          (res) => {
+            this.setState({data: res});
+            this.setState({dataIsReturned : true});
+            this.setState({vtype: 'treemap'});
+          }
+        )
+
+        
+       /* INI SALAH KARENA FETCHNYA GAJELAS
+       fetch().then(async (data) => {
           let vizData = await axios.get('/api/explore')
             .then(function(res){
               return res.data;
             });
-          this.npmsetState({data: vizData});
+          this.setState({data: vizData});
           this.setState({dataIsReturned : true});
           this.setState({vtype: 'treemap'});
-        })
+        })*/
         .catch( err => console.error(err));
       }
     
@@ -248,16 +259,16 @@ class AkinViz extends Component {
       console.log('tes');
       console.log(this.state.vtype);
       console.log(this.state.data);
+      console.log(this.state.dataIsReturned);
       //dataIsReturned 
       return (
-        dataIsReturned ?
+        this.dataIsReturned ?
         <DataViz
           id={'example-tree-map'}
           vizType={VizType.TreeMap}
-          data={DefaultDatum}
+          data={this.data}
         /> :
         <h1> Loading </h1>
-        
       );
     } 
 }
