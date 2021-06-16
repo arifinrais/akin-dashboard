@@ -12,8 +12,10 @@ function getColor(code) {
 function buildTreemap(fc, yr, rDim, iDim, cd) {
   if (fc === 'reg') {
     model.Patent.find({year: yr}, function(err, patent){
-      if(err)
+      if(err) {
         res.send(err)
+        return;
+      }
       let code = parseInt(cd);
       let defReg = new model.TreeMap();
       let defRec = rDim=='prov'? patent[0].provinces : patent[0].cities;
@@ -68,8 +70,10 @@ exports.default = (req,res) => {
     //ambil database
     //BISA DIABSTRAKSI lagi buat dimasukin ke treemap aja pake parameter 2018, 12,
     model.Patent.find({year: 2018}, function(err, patent){
-      if(err)
+      if(err) {
         res.send(err)
+        return;
+      }
       let defReg = new model.TreeMap();
       let defRec = patent[0];
       defReg.id = "dfr";
@@ -106,6 +110,7 @@ exports.default = (req,res) => {
       }
       //console.log(defReg)
       res.json(defReg);
+      return;
     });
   }
 }
@@ -129,7 +134,9 @@ exports.treemap = (req, res) => {
   console.log(iprdimRec);
   console.log(codeRec);
   console.log(yearRec);
-  res.json(buildTreemap(focusRec, yearRec, regdimRec, iprdimRec, codeRec));
+  var treemapViz = buildTreemap(focusRec, yearRec, regdimRec, iprdimRec, codeRec);
+  res.json(treemapViz);
+  return;
 }
 
 exports.geomap = (req, res) => {

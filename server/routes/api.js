@@ -20,27 +20,18 @@ router.get('/explore',function(req, res) {
     //default_case
     if(focusRec == null || regdimRec == null || iprdimRec == null || codeRec == null || vtypeRec == null || yearRec == null){
       controller.PatentController.default(req,res)
-    } else if (focusRec == 'reg') {
-      if (vtype = 'nsv') { //specified case
-        controller.PatentController.nationalshare(req,res)
-      } else if (vtype == 'otv') { //specified case
-        controller.PatentController.overtime(req,res)
-      } else if (vtype == 'tmv') { //specified case
-        console.log('tes');
-        controller.PatentController.treemap(req,res)
-      } else {
-        controller.PatentController.default(req, res)
-      }
-    } else if (focusRec == 'ipr') {
-      if (vtype == 'nsv') { //specified case
-        controller.PatentController.geomap(req,res)
-      } else if (vtype == 'otv') { //specified case
-        controller.PatentController.overtime(req,res)
-      } else if (vtype == 'tmv') { //specified case
-        controller.PatentController.treemap(req,res)
-      } else {
-        controller.PatentController.default(req, res)
-      }
+    }
+    if (vtypeRec == 'nsv') { //specified case
+      controller.PatentController.nationalshare(req,res)
+    } else if (vtypeRec == 'otv') { //specified case
+      controller.PatentController.overtime(req,res)
+    } else if (vtypeRec == 'tmv') { //specified case
+      console.log('tes');
+      controller.PatentController.treemap(req,res)
+    } else if (vtypeRec == 'gmv') { //specified case
+      controller.PatentController.geomap(req,res)
+    } else {
+      controller.PatentController.default(req, res)
     }
 });
 

@@ -34,8 +34,7 @@ class Dashboard extends Component {
     }
 
     updateData() {
-        fetch(`${routes.Explore}?vtype=${this.state.vtype}&year=${this.state.year}&focus=${this.state.focus}
-            &regdim=${this.state.reg_dimension}&iprdim=${this.state.ipr_dimension}&code=${this.state.code}`)
+        fetch(`${routes.Explore}?vtype=${this.state.vtype}&year=${this.state.year}&focus=${this.state.focus}&regdim=${this.state.reg_dimension}&iprdim=${this.state.ipr_dimension}&code=${this.state.code}`)
         .then(res => res.json()) 
         /*.then((res) => {
             this.setState({data: res});
@@ -50,14 +49,15 @@ class Dashboard extends Component {
        fetch(routes.Explore)
         .then(res => res.json()) 
         .then((res) => {
-            this.setState({data: res});
-            this.setState({isLoaded : true});
-            this.setState({vtype: 'tmv'});
-            this.setState({year: 2018});
-            this.setState({focus: 'reg'});
-            this.setState({reg_dimension: 'prov'});
-            this.setState({ipr_dimension: 'ptn'});
-            this.setState({code: '12'});
+            this.setState({data: res, 
+                isLoaded : true,
+                vtype: 'tmv',
+                year: 2018,
+                focus: 'reg',
+                reg_dimension: 'prov',
+                ipr_dimension: 'ptn',
+                code: '12'
+            });
           })
         .catch( err => this.setState({error: err}));
       }
