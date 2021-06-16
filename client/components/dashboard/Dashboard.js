@@ -17,6 +17,10 @@ class Dashboard extends Component {
         };
     }
 
+    getYear(yr) {
+        this.setState({year: yr});
+    }
+
     componentDidMount(){
        fetch(routes.Explore)
         .then(res => res.json()) 
@@ -30,6 +34,7 @@ class Dashboard extends Component {
       }
       
     render(){
+        console.log(this.state.year)
         return(
             <Container>
                 <Row>
@@ -44,7 +49,7 @@ class Dashboard extends Component {
                             <h2>CATEGORY</h2>
                         </Row>
                         <Row>
-                            <Slider {...this.state}/>
+                            <Slider {...this.state} />
                         </Row>
                     </Col>
                     <Col xs="4" sm="4" md="4" lg="4">

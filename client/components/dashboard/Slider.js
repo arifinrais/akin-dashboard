@@ -211,23 +211,28 @@ const TimerangeSlider = withStyles({
 
 export default function CustomizedSlider(props) {
     const classes = useStyles();
+
+    const handleChange = (ev, val) => {
+      console.log(val+'handlechange');
+      props.year=val;
+    };
     //var temp = true
     //conditional vtype
-    console.log(props)
-    console.log(props.vtype)
     if (props.vtype == "overtime"){
         return (
             <div className={classes.root}>
                 <div className={classes.margin} />
                 <TimerangeSlider
-                    ValueLabelComponent={ValueLabelComponent}
-                    marks={marks}
-                    step={1}
-                    min={2000}
-                    max={2018}
-                    aria-labelledby="discrete-slider-custom"
-                    valueLabelDisplay="auto"
-                    defaultValue={[2016, 2018]}
+                  ValueLabelComponent={ValueLabelComponent}
+                  marks={marks}
+                  step={1}
+                  min={2000}
+                  max={2018}
+                  aria-labelledby="discrete-slider-custom"
+                  valueLabelDisplay="auto"
+                  defaultValue={[2016, 2018]}
+                  onChange={handleChange}
+                  onChangeCommitted={handleChange}
                 />
             </div>
         );
@@ -243,7 +248,9 @@ export default function CustomizedSlider(props) {
                 max={2018}
                 aria-labelledby="discrete-slider-custom"
                 valueLabelDisplay="auto"
-                defaultValue={2018}
+                defaultValue={props.year}
+                onChange={handleChange}
+                onChangeCommitted={handleChange}
                 />
             </div>
         );
