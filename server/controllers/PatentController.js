@@ -16,7 +16,6 @@ function buildTreemap(fc, yr, rDim, iDim, cd, res) {
         res.send(err)
         return;
       }
-      console.log('tes')
       let code = parseInt(cd);
       let defReg = new model.TreeMap();
       let defRec = rDim=='prov'? patent[0].provinces : patent[0].cities;
@@ -90,11 +89,11 @@ exports.treemap = (req, res) => {
   var iprdimRec = req.query.iprdim;
   var codeRec = req.query.code;
   var yearRec = req.query.year;
-  console.log(focusRec);
+  /*console.log(focusRec);
   console.log(regdimRec);
   console.log(iprdimRec);
   console.log(codeRec);
-  console.log(yearRec);
+  console.log(yearRec);*/
   buildTreemap(focusRec, yearRec, regdimRec, iprdimRec, codeRec, res);
   return;
 }

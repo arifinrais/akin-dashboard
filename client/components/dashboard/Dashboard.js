@@ -4,6 +4,7 @@ import Visualization from './Visualization';
 import Slider from './Slider.js';
 import Panel from './Panel';
 import routes from '../../../server/providers/routesProvider'; 
+import files from '../../../server/providers/resourceProvider';
 //import axios from 'axios';
 
 const defaultParam = {
@@ -27,10 +28,16 @@ class Dashboard extends Component {
             code: ''
         };
         this.updateYear = this.updateYear.bind(this);
+        this.loading = this.loading.bind(this);
+
     }
 
     updateYear(yr) {
         this.setState({year: yr});
+    }
+    
+    loading() {
+        this.setState({isLoaded: false});
     }
 
     updateData() {
@@ -66,7 +73,7 @@ class Dashboard extends Component {
                 <Row>
                     <Col xs="8" sm="8" md="8" lg="8">
                         <Row>
-                            <h3>Paten apa saja yang dihasilkan Jawa Barat pada tahun 2018?</h3>
+                            <h3>Paten apa saja yang dihasilkan di {files.ProvinceCode[this.state.code]} pada tahun {this.state.year} ?</h3>
                         </Row>
                         <Row>
                             <Visualization {...this.state}/>
