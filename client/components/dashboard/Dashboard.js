@@ -37,12 +37,12 @@ class Dashboard extends Component {
         fetch(`${routes.Explore}?vtype=${this.state.vtype}&year=${this.state.year}&focus=${this.state.focus}
             &regdim=${this.state.reg_dimension}&iprdim=${this.state.ipr_dimension}&code=${this.state.code}`)
         .then(res => res.json()) 
-        .then((res) => {
+        /*.then((res) => {
             this.setState({data: res});
             this.setState({isLoaded : true});
             this.setState({vtype: 'tmv'});
-            //this.setState({year: 2018});
-          })
+            this.setState({year: 2018});
+          })*/
         .catch( err => this.setState({error: err}));      
     }
 
@@ -55,6 +55,9 @@ class Dashboard extends Component {
             this.setState({vtype: 'tmv'});
             this.setState({year: 2018});
             this.setState({focus: 'reg'});
+            this.setState({reg_dimension: 'prov'});
+            this.setState({ipr_dimension: 'ptn'});
+            this.setState({code: '12'});
           })
         .catch( err => this.setState({error: err}));
       }
