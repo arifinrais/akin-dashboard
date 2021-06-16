@@ -35,13 +35,10 @@ class Dashboard extends Component {
 
     updateData() {
         fetch(`${routes.Explore}?vtype=${this.state.vtype}&year=${this.state.year}&focus=${this.state.focus}&regdim=${this.state.reg_dimension}&iprdim=${this.state.ipr_dimension}&code=${this.state.code}`)
-        .then(res => res.json()) 
-        /*.then((res) => {
+        .then(res => res.json())
+        .then((res) => {
             this.setState({data: res});
-            this.setState({isLoaded : true});
-            this.setState({vtype: 'tmv'});
-            this.setState({year: 2018});
-          })*/
+          })
         .catch( err => this.setState({error: err}));      
     }
 

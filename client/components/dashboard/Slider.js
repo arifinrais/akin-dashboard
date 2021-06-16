@@ -217,7 +217,7 @@ export default function CustomizedSlider(props) {
     };
     //var temp = true
     //conditional vtype
-    if (props.vtype == "overtime"){
+    if (props.vtype == "otv"){
         return (
             <div className={classes.root}>
                 <div className={classes.margin} />
@@ -235,7 +235,7 @@ export default function CustomizedSlider(props) {
                 />
             </div>
         );
-    } else if (props.vtype === "treemap") {
+    } else if (props.vtype === "tmv") {
         return(
             <div className={classes.root}>
               <div className={classes.margin} />

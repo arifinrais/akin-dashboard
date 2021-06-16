@@ -71,7 +71,8 @@ exports.default = (req,res) => {
   } else {
     //ambil database
     //BISA DIABSTRAKSI lagi buat dimasukin ke treemap aja pake parameter 2018, 12,
-    console.log(buildTreemap('reg', 2018, 'prov', 'ptn', '12', res));
+    buildTreemap('reg', 2018, 'prov', 'ptn', '12', res);
+    return;
   }
 }
 
@@ -89,12 +90,13 @@ exports.treemap = (req, res) => {
   var iprdimRec = req.query.iprdim;
   var codeRec = req.query.code;
   var yearRec = req.query.year;
-  /*console.log(focusRec);
+  console.log(focusRec);
   console.log(regdimRec);
   console.log(iprdimRec);
   console.log(codeRec);
-  console.log(yearRec);*/
+  console.log(yearRec);
   buildTreemap(focusRec, yearRec, regdimRec, iprdimRec, codeRec, res);
+  return;
 }
 
 exports.geomap = (req, res) => {
