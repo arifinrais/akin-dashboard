@@ -34,8 +34,8 @@ class Dashboard extends Component {
     }
 
     updateData() {
-        fetch(routes.Explore+'?vtype='+this.vtype+'&year='+this.year+'&focus='+this.focus
-            +'&regdim='+this.reg_dimension+'&iprdim='+this.ipr_dimension+'&code='+this.code)
+        fetch(`${routes.Explore}?vtype=${this.state.vtype}&year=${this.state.year}&focus=${this.state.focus}
+            &regdim=${this.state.reg_dimension}&iprdim=${this.state.ipr_dimension}&code=${this.state.code}`)
         .then(res => res.json()) 
         .then((res) => {
             this.setState({data: res});
@@ -54,11 +54,13 @@ class Dashboard extends Component {
             this.setState({isLoaded : true});
             this.setState({vtype: 'treemap'});
             this.setState({year: 2018});
+            this.setState({focus: 'reg'});
           })
         .catch( err => this.setState({error: err}));
       }
       
     render(){
+        console.log(this.state.year);
         this.updateData();
         return(
             <Container>

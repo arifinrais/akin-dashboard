@@ -11,6 +11,9 @@ router.get('/explore',function(req, res) {
     var codeRec = req.query.code;
     var vtypeRec = req.query.vtype;
     var yearRec = req.query.year;
+    console.log(yearRec);
+    console.log(vtypeRec);
+    console.log(focusRec);
     //default_case
     if(focusRec == null || regdimRec == null || iprdimRec == null || codeRec == null || vtypeRec == null || yearRec == null){
       controller.PatentController.default(req,res)
