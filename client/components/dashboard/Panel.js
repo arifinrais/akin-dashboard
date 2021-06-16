@@ -71,21 +71,24 @@ const AkinPanel = props => {
                     </FormControl>
                 </Grid>
             </Grid>
-            <Row>
-                <Col>
-                    <Dropdown>
-                        <Dropdown.Toggle id="dropdown-basic">
-                            Pilih kota/kabupaten/provinsi/kode IPC paten/kode NCL merek/kode CIP publikasi ilmiah
-                        </Dropdown.Toggle>
-
-                        <Dropdown.Menu>
-                            <Dropdown.Item href="#/action-1">Jawa Barat</Dropdown.Item>
-                            <Dropdown.Item href="#/action-2">Jawa Tengah</Dropdown.Item>
-                            <Dropdown.Item href="#/action-3">Jawa Timur</Dropdown.Item>
-                        </Dropdown.Menu>
-                    </Dropdown>
-                </Col>
-            </Row>
+            <Grid container spacing={2} direction="column" alignItems="center">
+            <Grid item>
+                    <FormControl /*className={classes.formControl}*/>
+                        <NativeSelect
+                        /*value={state.age}
+                        onChange={handleChange}
+                        name="age"
+                        className={classes.selectEmpty}
+                        inputProps={{ 'aria-label': 'age' }}
+                        Pilih kota/kabupaten/provinsi/kode IPC paten/kode NCL merek/kode CIP publikasi ilmiah*/
+                        >
+                            <option value="">Provinsi</option>
+                            <option value="12">Jawa Barat</option>
+                            <option value="13">Jawa Tengah</option>
+                        </NativeSelect>
+                    </FormControl>
+                </Grid>
+            </Grid>
             <Row>
                 <h4>TIPE VISUALISASI</h4>
             </Row>
