@@ -1,33 +1,11 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import {DataViz, VizType} from 'react-fast-charts';
-import routes from '../../../server/providers/routesProvider'; 
-import * as d3 from 'd3';
+//import * as d3 from 'd3';
 
 class Visualization extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            error: null,
-            isLoaded: false,
-            data: {},
-            vtype: ''
-        };
-    }
-
-    componentDidMount(){
-       fetch(routes.Explore)
-        .then(res => res.json()) 
-        .then((res) => {
-            this.setState({data: res});
-            this.setState({isLoaded : true});
-            this.setState({vtype: 'treemap'});
-          })
-        .catch( err => this.setState({error: err}));
-      }
-
     render() {
-      const { error, isLoaded, data } = this.state;
+      var { error, isLoaded, data } = this.props;
       
       if (error) {
         return <div>Error: {error.message}</div>;

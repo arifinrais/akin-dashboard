@@ -3,8 +3,30 @@ import {Container, Row, Col} from 'react-bootstrap';
 import Visualization from './Visualization';
 import Slider from './Slider.js';
 import Panel from './Panel';
+import routes from '../../../server/providers/routesProvider'; 
 
 class Dashboard extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            error: null,
+            isLoaded: false,
+            data: {},
+            vtype: ''
+        };
+    }
+
+    componentDidMount(){
+       fetch(routes.Explore)
+        .then(res => res.json()) 
+        .then((res) => {
+            this.setState({data: res});
+            this.setState({isLoaded : true});
+            this.setState({vtype: 'treemap'});
+          })
+        .catch( err => this.setState({error: err}));
+      }
+      
     render(){
         return(
             <Container>
@@ -14,7 +36,7 @@ class Dashboard extends Component {
                             <h3>Paten apa saja yang dihasilkan Jawa Barat pada tahun 2018?</h3>
                         </Row>
                         <Row>
-                            <Visualization />
+                            <Visualization {...this.state}/>
                         </Row>
                         <Row>
                             <h2>CATEGORY</h2>
