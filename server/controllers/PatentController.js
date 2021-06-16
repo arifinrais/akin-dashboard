@@ -9,13 +9,14 @@ function getColor(code) {
   return resources.ColorCode[code];
 }
 
-function buildTreemap(fc, yr, rDim, iDim, cd) {
+function buildTreemap(fc, yr, rDim, iDim, cd, res) {
   if (fc === 'reg') {
     model.Patent.find({year: yr}, function(err, patent){
       if(err) {
         res.send(err)
         return;
       }
+      console.log('tes')
       let code = parseInt(cd);
       let defReg = new model.TreeMap();
       let defRec = rDim=='prov'? patent[0].provinces : patent[0].cities;
@@ -50,7 +51,8 @@ function buildTreemap(fc, yr, rDim, iDim, cd) {
           defReg.children.push(child);
         }
       }
-      return defReg;  
+      res.json(defReg);
+      return;  
     });
   } else if (fc === 'ipr') {
     //bikin model ipr duls, ada geomap inget
@@ -69,49 +71,7 @@ exports.default = (req,res) => {
   } else {
     //ambil database
     //BISA DIABSTRAKSI lagi buat dimasukin ke treemap aja pake parameter 2018, 12,
-    model.Patent.find({year: 2018}, function(err, patent){
-      if(err) {
-        res.send(err)
-        return;
-      }
-      let defReg = new model.TreeMap();
-      let defRec = patent[0];
-      defReg.id = "dfr";
-      defReg.label = "dfr";
-      defReg.children = [];
-      for(let ctg in defRec.provinces[12]) {
-        let totalProv = defRec.provinces[12]["total_prov"];
-        if (ctg.length == 1 && defRec.provinces[12][ctg]!=null) {
-          let ptClass = getPatent(ctg);
-          let ptColor = getColor(ctg);
-          var child = {}
-          if (typeof ptClass === "string" && typeof ptColor === "string") {
-            child["id"]=ptClass;
-            child["label"]=ptClass;
-            child["fill"]=ptColor;
-            child["children"]=[];
-          }
-          for(let subctg in defRec.provinces[12][ctg]){
-            if (subctg.length == 3 && subctg != '_id' && defRec.provinces[12][ctg][subctg]!=null) {
-              let subptClass = getPatent(subctg);
-              var grandchild = {}
-              if (typeof subptClass === "string") {
-                grandchild["id"]=subptClass;
-                grandchild["label"]=subptClass;
-                grandchild["tooltipContent"]=subptClass;
-                grandchild["size"]=parseFloat(defRec.provinces[12][ctg][subctg]*100/totalProv).toFixed(2);
-                child["children"].push(grandchild);
-              }
-            }
-          }
-          //console.log(child);
-          defReg.children.push(child);
-        }
-      }
-      //console.log(defReg)
-      res.json(defReg);
-      return;
-    });
+    console.log(buildTreemap('reg', 2018, 'prov', 'ptn', '12', res));
   }
 }
 
@@ -129,14 +89,12 @@ exports.treemap = (req, res) => {
   var iprdimRec = req.query.iprdim;
   var codeRec = req.query.code;
   var yearRec = req.query.year;
-  console.log(focusRec);
+  /*console.log(focusRec);
   console.log(regdimRec);
   console.log(iprdimRec);
   console.log(codeRec);
-  console.log(yearRec);
-  var treemapViz = buildTreemap(focusRec, yearRec, regdimRec, iprdimRec, codeRec);
-  res.json(treemapViz);
-  return;
+  console.log(yearRec);*/
+  buildTreemap(focusRec, yearRec, regdimRec, iprdimRec, codeRec, res);
 }
 
 exports.geomap = (req, res) => {
