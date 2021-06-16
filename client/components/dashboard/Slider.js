@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import Slider from "@material-ui/core/Slider";
-import Typography from "@material-ui/core/Typography";
+//import Typography from "@material-ui/core/Typography";
 import Tooltip from "@material-ui/core/Tooltip";
 
 const useStyles = makeStyles((theme) => ({
@@ -211,10 +211,9 @@ const TimerangeSlider = withStyles({
 
 export default function CustomizedSlider(props) {
     const classes = useStyles();
-
     const handleChange = (ev, val) => {
-      console.log(val+'handlechange');
       props.year=val;
+      props.updateYear(val);
     };
     //var temp = true
     //conditional vtype

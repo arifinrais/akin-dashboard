@@ -15,9 +15,11 @@ class Dashboard extends Component {
             vtype: '',
             year: null
         };
+        this.updateYear = this.updateYear.bind(this);
     }
 
-    getYear(yr) {
+    updateYear(yr) {
+        console.log(yr+'getYear');
         this.setState({year: yr});
     }
 
@@ -49,7 +51,7 @@ class Dashboard extends Component {
                             <h2>CATEGORY</h2>
                         </Row>
                         <Row>
-                            <Slider {...this.state} />
+                            <Slider {...this.state} updateYear={this.updateYear}/>
                         </Row>
                     </Col>
                     <Col xs="4" sm="4" md="4" lg="4">
