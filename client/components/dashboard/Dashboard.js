@@ -12,7 +12,8 @@ class Dashboard extends Component {
             error: null,
             isLoaded: false,
             data: {},
-            vtype: ''
+            vtype: '',
+            year: null
         };
     }
 
@@ -23,6 +24,7 @@ class Dashboard extends Component {
             this.setState({data: res});
             this.setState({isLoaded : true});
             this.setState({vtype: 'treemap'});
+            this.setState({year: 2018});
           })
         .catch( err => this.setState({error: err}));
       }
@@ -42,7 +44,7 @@ class Dashboard extends Component {
                             <h2>CATEGORY</h2>
                         </Row>
                         <Row>
-                            <Slider />
+                            <Slider {...this.state}/>
                         </Row>
                     </Col>
                     <Col xs="4" sm="4" md="4" lg="4">

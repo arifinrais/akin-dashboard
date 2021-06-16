@@ -209,11 +209,13 @@ const TimerangeSlider = withStyles({
   }
 })(Slider);
 
-export default function CustomizedSlider() {
+export default function CustomizedSlider(props) {
     const classes = useStyles();
-    var temp = true
+    //var temp = true
     //conditional vtype
-    if (temp){
+    console.log(props)
+    console.log(props.vtype)
+    if (props.vtype == "overtime"){
         return (
             <div className={classes.root}>
                 <div className={classes.margin} />
@@ -229,9 +231,10 @@ export default function CustomizedSlider() {
                 />
             </div>
         );
-    } else if (true) {
+    } else if (props.vtype === "treemap") {
         return(
             <div className={classes.root}>
+              <div className={classes.margin} />
                 <TimelineSlider
                 ValueLabelComponent={ValueLabelComponent}
                 marks={marks}
@@ -244,6 +247,9 @@ export default function CustomizedSlider() {
                 />
             </div>
         );
+    } else {
+      //handling not-needed slider
+      return null
     }
 }
 
