@@ -66,8 +66,8 @@ exports.default = (req,res) => {
 
 exports.nationalshare = (req, res) => {
   var focusRec = req.query.focus;
-  var regdimRec = req.query.regDim;
-  var iprdimRec = req.query.iprDim;
+  var regdimRec = req.query.regdim;
+  var iprdimRec = req.query.iprdim;
   var codeRec = req.query.code;
   var vtypeRec = req.query.vtype;
   var yearRec = req.query.year;

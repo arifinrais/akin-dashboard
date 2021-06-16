@@ -4,6 +4,11 @@ import Visualization from './Visualization';
 import Slider from './Slider.js';
 import Panel from './Panel';
 import routes from '../../../server/providers/routesProvider'; 
+//import axios from 'axios';
+
+const defaultParam = {
+    //define if needed
+}
 
 class Dashboard extends Component {
     constructor(props) {
@@ -12,15 +17,33 @@ class Dashboard extends Component {
             error: null,
             isLoaded: false,
             data: {},
+            hid_modifier: [],
+            iso_modifier: [],
             vtype: '',
-            year: null
+            year: null,
+            focus: '',
+            reg_dimension: '',
+            ipr_dimension: '',
+            code: ''
         };
         this.updateYear = this.updateYear.bind(this);
     }
 
     updateYear(yr) {
-        console.log(yr+'getYear');
         this.setState({year: yr});
+    }
+
+    updateData() {
+        fetch(routes.Explore+'?vtype='+this.vtype+'&year='+this.year+'&focus='+this.focus
+            +'&regdim='+this.reg_dimension+'&iprdim='+this.ipr_dimension+'&code='+this.code)
+        .then(res => res.json()) 
+        .then((res) => {
+            this.setState({data: res});
+            this.setState({isLoaded : true});
+            this.setState({vtype: 'treemap'});
+            //this.setState({year: 2018});
+          })
+        .catch( err => this.setState({error: err}));      
     }
 
     componentDidMount(){
@@ -36,7 +59,7 @@ class Dashboard extends Component {
       }
       
     render(){
-        console.log(this.state.year)
+        this.updateData();
         return(
             <Container>
                 <Row>
