@@ -145,11 +145,11 @@ const TimelineSlider = withStyles({
       borderRadius: 5
     },
     mark: {
-      backgroundColor: "#bfbfbf",
+      backgroundColor: "#000000",
       height: 8,
       width: 1,
       marginTop: 0,
-      color: "bfbfbf"
+      color: "#000000"
     }
   })(Slider);  
 
@@ -201,11 +201,11 @@ const TimerangeSlider = withStyles({
     borderRadius: 5
   },
   mark: {
-    backgroundColor: "#bfbfbf",
+    backgroundColor: "#000000",
     height: 8,
     width: 1,
     marginTop: 0,
-    color: "bfbfbf"
+    color: "#000000"
   }
 })(Slider);
 

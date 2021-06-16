@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 //import {Link} from 'react-router-dom';
 import {Nav, Navbar, NavDropdown} from 'react-bootstrap';
 
-const AkinNavbar = props => {
+const NavBar = props => {
     return(
         <Navbar bg="light" expand="lg">
             <Nav.Link href="/">
@@ -28,4 +28,4 @@ const AkinNavbar = props => {
     )
 }
 
-export default AkinNavbar;
+export default NavBar;

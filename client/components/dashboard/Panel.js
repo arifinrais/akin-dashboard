@@ -1,51 +1,76 @@
 import React from 'react';
 import {Container, Row, Col, Button, Dropdown} from 'react-bootstrap';
+import ToggleButton from "@material-ui/lab/ToggleButton";
+import ToggleButtonGroup from "@material-ui/lab/ToggleButtonGroup";
+import Grid from "@material-ui/core/Grid";
+import { makeStyles } from '@material-ui/core/styles';
+import InputLabel from '@material-ui/core/InputLabel';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import NativeSelect from '@material-ui/core/NativeSelect';
 
 const AkinPanel = props => {
+    const [alignment, setAlignment] = React.useState("left");
+
+    const handleAlignment = (event, newAlignment) => {
+        setAlignment(newAlignment);
+    };
+
     return(
         <Container>
             <Row>
                 <h4>PENGATURAN</h4>
             </Row>
-            <Row>
-                <Col>
-                    <Button>
-                        DAERAH
-                    </Button>
-                </Col>
-                <Col>
-                    <Button>
-                        KEKAYAAN INTELEKTUAL
-                    </Button>
-                </Col>
-            </Row>
-            <Row>
-                <Col>
-                    <Dropdown>
-                        <Dropdown.Toggle id="dropdown-basic">
-                            Pilih tingkat daerah
-                        </Dropdown.Toggle>
-
-                        <Dropdown.Menu>
-                            <Dropdown.Item href="#/action-1">Provinsi</Dropdown.Item>
-                            <Dropdown.Item href="#/action-2">Kota/Kabupaten</Dropdown.Item>
-                        </Dropdown.Menu>
-                    </Dropdown>
-                </Col>
-                <Col>
-                    <Dropdown>
-                        <Dropdown.Toggle id="dropdown-basic">
-                            Pilih jenis kekayaan intelektual
-                        </Dropdown.Toggle>
-
-                        <Dropdown.Menu>
-                            <Dropdown.Item href="#/action-3">Paten</Dropdown.Item>
-                            <Dropdown.Item href="#/action-3">Merek Dagang</Dropdown.Item>
-                            <Dropdown.Item href="#/action-3">Publikasi Ilmiah</Dropdown.Item>
-                        </Dropdown.Menu>
-                    </Dropdown>
-                </Col>
-            </Row>
+            <Grid container spacing={2} direction="column" alignItems="center">
+                <Grid item> 
+                    <ToggleButtonGroup
+                        value={alignment}
+                        exclusive
+                        onChange={handleAlignment}
+                        aria-label="text alignment"
+                    >
+                        <ToggleButton size="small" value="justify" aria-label="reg">
+                            &nbsp;&nbsp;&nbsp;&nbsp;DAERAH&nbsp;&nbsp;&nbsp;&nbsp;
+                        </ToggleButton>
+                        <ToggleButton size="small" value="center" aria-label="ipr">
+                            KEKAYAAN<br/>INTELEKTUAL
+                        </ToggleButton>
+                    </ToggleButtonGroup>
+                </Grid>
+            </Grid>
+            <Grid container spacing={2} direction="column" alignItems="center">
+                <Grid item>
+                    <FormControl /*className={classes.formControl}*/>
+                        <NativeSelect
+                        /*value={state.age}
+                        onChange={handleChange}
+                        name="age"
+                        className={classes.selectEmpty}
+                        inputProps={{ 'aria-label': 'age' }}*/
+                        >
+                            <option value="">Tingkat Daerah</option>
+                            <option value="prov">Provinsi</option>
+                            <option value="city">Kabupaten/Kota</option>
+                        </NativeSelect>
+                    </FormControl>
+                    &nbsp;&nbsp;
+                    <FormControl /*className={classes.formControl}*/>
+                        <NativeSelect
+                        /*value={state.age}
+                        onChange={handleChange}
+                        name="age"
+                        className={classes.selectEmpty}
+                        inputProps={{ 'aria-label': 'age' }}*/
+                        >
+                            <option value="">Jenis KI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+                            <option value="ptn">Paten</option>
+                            <option value="pub">Publikasi Ilmiah</option>
+                            <option value="trd">Merek Dagang</option>
+                        </NativeSelect>
+                    </FormControl>
+                </Grid>
+            </Grid>
             <Row>
                 <Col>
                     <Dropdown>
