@@ -40,7 +40,7 @@ class Dashboard extends Component {
         .then((res) => {
             this.setState({data: res});
             this.setState({isLoaded : true});
-            this.setState({vtype: 'treemap'});
+            this.setState({vtype: 'tmv'});
             //this.setState({year: 2018});
           })
         .catch( err => this.setState({error: err}));      
@@ -52,7 +52,7 @@ class Dashboard extends Component {
         .then((res) => {
             this.setState({data: res});
             this.setState({isLoaded : true});
-            this.setState({vtype: 'treemap'});
+            this.setState({vtype: 'tmv'});
             this.setState({year: 2018});
             this.setState({focus: 'reg'});
           })
@@ -60,7 +60,6 @@ class Dashboard extends Component {
       }
       
     render(){
-        console.log(this.state.year);
         this.updateData();
         return(
             <Container>
