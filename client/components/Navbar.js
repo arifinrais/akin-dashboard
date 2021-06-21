@@ -15,11 +15,12 @@ const NavBar = props => {
                         <NavDropdown.Item href="/region">Profil Daerah</NavDropdown.Item>
                         <NavDropdown.Item href="/ranking">Peringkat Daerah</NavDropdown.Item>
                     </NavDropdown>
-                    <NavDropdown alignRight title="PELAJARI" id="basic-nav-dropdown">
-                        <NavDropdown.Item href="/materials#data">Pengolahan Data</NavDropdown.Item>
-                        <NavDropdown.Item href="/materials#rca">RCA</NavDropdown.Item>
-                        <NavDropdown.Item href="/materials#network">Jejaring Bimodal</NavDropdown.Item>
-                        <NavDropdown.Item href="/materials#reflection">Metode Refleksi</NavDropdown.Item>
+                    <NavDropdown alignRight title="DATA" id="basic-nav-dropdown">
+                        <NavDropdown.Item href="/data#source">Sumber</NavDropdown.Item>
+                        <NavDropdown.Item href="/data#processing">Pengolahan</NavDropdown.Item>
+                        <NavDropdown.Item href="/data#analysis">Analisis</NavDropdown.Item>
+                        <NavDropdown.Item href="/data#visualization">Visualisasi</NavDropdown.Item>
+                        <NavDropdown.Item href="/data#download">Unduh</NavDropdown.Item>
                     </NavDropdown>
                     <Nav.Link href="/about">TENTANG</Nav.Link>
                 </Nav>
