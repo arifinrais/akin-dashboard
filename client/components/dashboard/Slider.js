@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
     width: '100%'
   },
   margin: {
-    height: theme.spacing(3)
+    height: theme.spacing(1)
   }
 }));
 

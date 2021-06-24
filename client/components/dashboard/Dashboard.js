@@ -3,6 +3,7 @@ import {Container, Row, Col} from 'react-bootstrap';
 import Visualization from './Visualization';
 import Slider from './Slider.js';
 import Panel from './Panel';
+import Modifier from './Modifier';
 import routes from '../../../server/providers/routesProvider'; 
 import files from '../../../server/providers/resourceProvider';
 //import axios from 'axios';
@@ -79,7 +80,7 @@ class Dashboard extends Component {
                             <Visualization {...this.state}/>
                         </Row>
                         <Row>
-                            <h2>CATEGORY</h2>
+                            <Modifier {...this.state} />
                         </Row>
                         <Row>
                             <Slider {...this.state} updateYear={this.updateYear}/>
