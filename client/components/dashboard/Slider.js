@@ -212,7 +212,6 @@ const TimerangeSlider = withStyles({
 export default function CustomizedSlider(props) {
     const classes = useStyles();
     const handleChange = (ev, val) => {
-      props.year=val;
       props.updateYear(val);
     };
     //var temp = true

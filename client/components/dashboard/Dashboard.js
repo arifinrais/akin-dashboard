@@ -19,8 +19,7 @@ class Dashboard extends Component {
             error: null,
             isLoaded: false,
             data: {},
-            hid_modifier: [],
-            iso_modifier: [],
+            modifier: [],
             vtype: '',
             year: null,
             focus: '',
@@ -30,7 +29,7 @@ class Dashboard extends Component {
         };
         this.updateYear = this.updateYear.bind(this);
         this.loading = this.loading.bind(this);
-
+        this.updateModifier = this.updateModifier.bind(this);
     }
 
     updateYear(yr) {
@@ -39,6 +38,16 @@ class Dashboard extends Component {
     
     loading() {
         this.setState({isLoaded: false});
+    }
+
+    updateModifier(lst) {
+        if (this.state.modifier.includes(lst[0])) {
+            this.state.modifier = this.state.modifier.filter((x)=>x!=lst[0]);
+        } else {
+            this.state.modifier.push(lst[0]);
+        }
+        //this.setState({modifier: lst});   
+        console.log(this.state.modifier);
     }
 
     updateData() {
@@ -61,7 +70,8 @@ class Dashboard extends Component {
                 focus: 'reg',
                 reg_dimension: 'prov',
                 ipr_dimension: 'ptn',
-                code: '12'
+                code: '12',
+                modifier: this.state.modifier
             });
           })
         .catch( err => this.setState({error: err}));
@@ -80,7 +90,7 @@ class Dashboard extends Component {
                             <Visualization {...this.state}/>
                         </Row>
                         <Row>
-                            <Modifier {...this.state} />
+                            <Modifier {...this.state} updateModifier={this.updateModifier}/>
                         </Row>
                         <Row>
                             <Slider {...this.state} updateYear={this.updateYear}/>

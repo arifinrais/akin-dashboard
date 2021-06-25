@@ -30,18 +30,11 @@ const StyledToggleButtonGroup = withStyles((theme) => ({
   }
 }))(ToggleButtonGroup);
 
-export default function CustomizedDividers() {
-  const [alignment, setAlignment] = React.useState("left");
-  const [formats, setFormats] = React.useState(() => ["italic"]);
-
-  const handleFormat = (event, newFormats) => {
-    setFormats(newFormats);
-  };
-
-  const handleAlignment = (event, newAlignment) => {
-    setAlignment(newAlignment);
-  };
-
+export default function CustomizedToggler(props) {
+    const [activeModifier, setMod] =React.useState([]); 
+    const handleChange = (ev, val) => {
+        props.updateModifier(val);
+    };
   const classes = useStyles();
 
   return (
@@ -49,33 +42,33 @@ export default function CustomizedDividers() {
       <Paper elevation={0} className={classes.paper}>
         <StyledToggleButtonGroup
           size="small"
-          value={alignment}
-          onChange={handleAlignment}
+          value={activeModifier}
+          onChange={handleChange}
           aria-label="text alignment"
         >
-          <ToggleButton value="left" aria-label="left aligned">
-            <img src="/res/classicon/A.png" height="25" alt="" />
+          <ToggleButton value="A" aria-label="Human Necessities">
+            <img src={props.modifier.includes("A")?"/res/classicon/A_.png":"/res/classicon/A.png"} height="25" alt="" />
           </ToggleButton>
-          <ToggleButton value="center" aria-label="centered">
-            <img src="/res/classicon/B.png" height="25" alt="" />
+          <ToggleButton value="B" aria-label="Operations and Transporting">
+            <img src={props.modifier.includes("B")?"/res/classicon/B_.png":"/res/classicon/B.png"} height="25" alt="" />
           </ToggleButton>
-          <ToggleButton value="right" aria-label="right aligned">
-            <img src="/res/classicon/C.png" height="25" alt="" />
+          <ToggleButton value="C" aria-label="Chemistry and Metallurgy">
+            <img src={props.modifier.includes("C")?"/res/classicon/C_.png":"/res/classicon/C.png"} height="25" alt="" />
           </ToggleButton>
-          <ToggleButton value="justify" aria-label="justified" >
-            <img src="/res/classicon/D.png" width="25" alt="" />
+          <ToggleButton value="D" aria-label="Textiles and Paper" >
+            <img src={props.modifier.includes("D")?"/res/classicon/D_.png":"/res/classicon/D.png"} width="25" alt="" />
           </ToggleButton>
-          <ToggleButton value="bold" aria-label="bold">
-            <img src="/res/classicon/E.png" height="25" alt="" />
+          <ToggleButton value="E" aria-label="Fixed Construction">
+            <img src={props.modifier.includes("E")?"/res/classicon/E_.png":"/res/classicon/E.png"} height="25" alt="" />
           </ToggleButton>
-          <ToggleButton value="italic" aria-label="italic">
-            <img src="/res/classicon/F.png" height="25" alt="" />
+          <ToggleButton value="F" aria-label="Mechanical Engineering">
+            <img src={props.modifier.includes("F")?"/res/classicon/F_.png":"/res/classicon/F.png"} height="25" alt="" />
           </ToggleButton>
-          <ToggleButton value="underlined" aria-label="underlined">
-            <img src="/res/classicon/G.png" height="25" alt="" />
+          <ToggleButton value="G" aria-label="Physics">
+            <img src={props.modifier.includes("G")?"/res/classicon/G_.png":"/res/classicon/G.png"} height="25" alt="" />
           </ToggleButton>
-          <ToggleButton value="color" aria-label="color">
-            <img src="/res/classicon/H.png" height="25" alt="" />
+          <ToggleButton value="H" aria-label="Electricity">
+            <img src={props.modifier.includes("H")?"/res/classicon/H_.png":"/res/classicon/H.png"} height="25" alt="" />
           </ToggleButton>
         </StyledToggleButtonGroup>
       </Paper>
