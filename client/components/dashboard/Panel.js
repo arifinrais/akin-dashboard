@@ -9,12 +9,77 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import NativeSelect from '@material-ui/core/NativeSelect';
+import Resources from '../../../server/providers/resourceProvider';
 
 const AkinPanel = props => {
-    const [alignment, setAlignment] = React.useState("left");
+    //const [alignment, setAlignment] = React.useState("left");
+    //var { isLoaded, vtype, focus, reg_dimension, ipr_dimension, code } = props;
+    var code_options = {};
+//console.log(props);
 
-    const handleAlignment = (event, newAlignment) => {
-        setAlignment(newAlignment);
+    const handleFocus = (ev, newFocus) => {
+        //console.log(newFocus);
+        props.updateFocus(newFocus);
+        getOptions();
+    };
+
+    const handleRegDim = (ev, newRegDim) => {
+        //console.log(newFocus);
+        props.updateRegDim(newRegDim);
+        getOptions();
+    };
+
+    const handleIprDim = (ev, newIprDim) => {
+        //console.log(newFocus);
+        props.updateIprDim(newIprDim);
+        getOptions();
+        console.log(props.focus);
+        console.log(props.reg_dimension);
+        console.log(props.ipr_dimension);
+    };
+
+    const handleCode = (ev, newCode) => {
+        //console.log(newFocus);
+        props.updateCode(newCode);
+    };
+
+    /*const jsonToDict = (jsonObject) => {
+        temp = {};
+        var data = JSON.parse(Resources.ProvinceCode);
+        for (var key in data) {
+            console.log(data);
+            temp[key] = data[key];
+        }
+        re
+    }*/
+
+    const getOptions = () => {
+        if (props.focus == "reg") {
+            if (props.reg_dimension == "prov") {
+                code_options = JSON.parse(Resources.ProvinceCode);
+                console.log(code_options);
+            } else if (props.reg_dimension == "city") {
+                code_options = Resources.CityCode;
+            }
+        } else if (props.focus == "ipr") {
+            if (props.ipr_dimension == "ptn") {
+                code_options = Resources.PatentCode;
+            } else if (props.ipr_dimension == "trd") {
+                code_options = {};
+            } else if (props.ipr_dimension == "pub") {
+                code_options = {};
+            }
+        }
+        console.log(code_options);
+        if (Object.keys(code_options).length === 0) {
+            return(<option value="">Please Select Focus and Dimension</option>);
+        } else {
+            let itemList = []
+            for (var [key, value] of code_options.entries()) {
+                itemList.push(<option value={key}>{value}</option>);
+            }
+            return itemList;
+        }
     };
 
     return(
@@ -25,15 +90,15 @@ const AkinPanel = props => {
             <Grid container spacing={2} direction="column" alignItems="center">
                 <Grid item> 
                     <ToggleButtonGroup
-                        value={alignment}
+                        value={props.focus}
                         exclusive
-                        onChange={handleAlignment}
-                        aria-label="text alignment"
+                        onChange={handleFocus}
+                        aria-label="viz-focus"
                     >
-                        <ToggleButton size="small" value="justify" aria-label="reg">
+                        <ToggleButton size="small" value="reg" aria-label="reg">
                             &nbsp;&nbsp;&nbsp;&nbsp;DAERAH&nbsp;&nbsp;&nbsp;&nbsp;
                         </ToggleButton>
-                        <ToggleButton size="small" value="center" aria-label="ipr">
+                        <ToggleButton size="small" value="ipr" aria-label="ipr">
                             KEKAYAAN<br/>INTELEKTUAL
                         </ToggleButton>
                     </ToggleButtonGroup>
@@ -43,11 +108,9 @@ const AkinPanel = props => {
                 <Grid item>
                     <FormControl /*className={classes.formControl}*/>
                         <NativeSelect
-                        /*value={state.age}
-                        onChange={handleChange}
-                        name="age"
-                        className={classes.selectEmpty}
-                        inputProps={{ 'aria-label': 'age' }}*/
+                        value={props.reg_dimension}
+                        onChange={handleRegDim}
+                        /*className={classes.selectEmpty}*/
                         >
                             <option value="">Tingkat Daerah</option>
                             <option value="prov">Provinsi</option>
@@ -57,11 +120,9 @@ const AkinPanel = props => {
                     &nbsp;&nbsp;
                     <FormControl /*className={classes.formControl}*/>
                         <NativeSelect
-                        /*value={state.age}
-                        onChange={handleChange}
-                        name="age"
-                        className={classes.selectEmpty}
-                        inputProps={{ 'aria-label': 'age' }}*/
+                        value={props.ipr_dimension}
+                        onChange={handleIprDim}
+                        /*className={classes.selectEmpty}*/
                         >
                             <option value="">Jenis KI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
                             <option value="ptn">Paten</option>
@@ -75,16 +136,11 @@ const AkinPanel = props => {
             <Grid item>
                     <FormControl /*className={classes.formControl}*/>
                         <NativeSelect
-                        /*value={state.age}
-                        onChange={handleChange}
-                        name="age"
-                        className={classes.selectEmpty}
-                        inputProps={{ 'aria-label': 'age' }}
-                        Pilih kota/kabupaten/provinsi/kode IPC paten/kode NCL merek/kode CIP publikasi ilmiah*/
+                        value={props.code}
+                        onChange={handleCode}
+                        /*className={classes.selectEmpty}*/
                         >
-                            <option value="">Provinsi</option>
-                            <option value="12">Jawa Barat</option>
-                            <option value="13">Jawa Tengah</option>
+                            {getOptions}
                         </NativeSelect>
                     </FormControl>
                 </Grid>

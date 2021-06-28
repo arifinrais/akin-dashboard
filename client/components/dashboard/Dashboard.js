@@ -30,6 +30,10 @@ class Dashboard extends Component {
         this.updateYear = this.updateYear.bind(this);
         this.loading = this.loading.bind(this);
         this.updateModifier = this.updateModifier.bind(this);
+        this.updateFocus = this.updateFocus.bind(this);
+        this.updateRegDim = this.updateRegDim.bind(this);
+        this.updateIprDim = this.updateIprDim.bind(this);
+        this.updateCode = this.updateCode.bind(this);
     }
 
     updateYear(yr) {
@@ -46,8 +50,22 @@ class Dashboard extends Component {
         } else {
             this.state.modifier.push(lst[0]);
         }
-        //this.setState({modifier: lst});   
-        console.log(this.state.modifier);
+    }
+
+    updateFocus(foc) {
+        this.setState({focus: foc});
+    }
+
+    updateRegDim(regdim) {
+        this.setState({reg_dimension: regdim});
+    }
+
+    updateIprDim(iprdim) {
+        this.setState({ipr_dimension: iprdim});
+    }
+
+    updateCode(cd) {
+        this.setState({code: cd});
     }
 
     updateData() {
@@ -67,10 +85,10 @@ class Dashboard extends Component {
                 isLoaded : true,
                 vtype: 'tmv',
                 year: 2018,
-                focus: 'reg',
-                reg_dimension: 'prov',
-                ipr_dimension: 'ptn',
-                code: '12',
+                focus: 'reg', //this.state.focus,
+                reg_dimension: 'prov', //this.state.reg_dimension,
+                ipr_dimension: 'ptn', //this.state.ipr_dimension,
+                code: '12', //this.state.code,
                 modifier: this.state.modifier
             });
           })
@@ -97,7 +115,11 @@ class Dashboard extends Component {
                         </Row>
                     </Col>
                     <Col xs="4" sm="4" md="4" lg="4">
-                        <Panel />
+                        <Panel {...this.state}
+                            updateFocus={this.updateFocus} 
+                            updateRegDim={this.updateRegDim}
+                            updateIprDim={this.updateIprDim}
+                            updateCode={this.updateCode} />
                     </Col>
                 </Row>
             </Container>
