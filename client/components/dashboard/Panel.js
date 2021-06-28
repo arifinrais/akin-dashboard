@@ -16,27 +16,27 @@ const AkinPanel = props => {
     //const [alignment, setAlignment] = React.useState("left");
     //var { isLoaded, vtype, focus, reg_dimension, ipr_dimension, code } = props;
     var code_options = {};
-//console.log(props);
+    var isFnDSelected = false;
 
     const handleFocus = (ev, newFocus) => {
         //console.log(newFocus);
         console.log(newFocus);
         props.updateFocus(newFocus);
-        getOptions();
+        //getOptions();
     };
 
     const handleRegDim = (ev, newRegDim) => {
         //console.log(newFocus);
         console.log(newRegDim.props.value);
         props.updateRegDim(newRegDim.props.value);
-        getOptions();
+        //getOptions();
     };
 
     const handleIprDim = (ev, newIprDim) => {
         //console.log(newFocus);
         console.log(newIprDim.props.value);
         props.updateIprDim(newIprDim.props.value);
-        getOptions();
+        //getOptions();
         console.log(props.focus);
         console.log(props.reg_dimension);
         console.log(props.ipr_dimension);
@@ -44,7 +44,7 @@ const AkinPanel = props => {
 
     const handleCode = (ev, newCode) => {
         //console.log(newFocus);
-        props.updateCode(newCode);
+        props.updateCode(newCode.props.value);
     };
 
     /*const jsonToDict = (jsonObject) => {
@@ -56,13 +56,20 @@ const AkinPanel = props => {
         return temp;
     }*/
 
+    const updateOptions = () => {
+        isFnDSelected = props.focus !== '' && props.reg_dimension !== '' && props.ipr_dimension !== '';
+        if (isFnDSelected) {
+            getOptions();
+        }
+    }
+
     const getOptions = () => {
         if (props.focus == "reg") {
             if (props.reg_dimension == "prov") {
                 //console.log('masuk ga');
                 //code_options = jsonToDict(Resources.ProvinceCode);
                 code_options = Resources.ProvinceCode;
-                console.log(code_options);
+                //console.log(code_options); ///////
             } else if (props.reg_dimension == "city") {
                 code_options = Resources.CityCode;
             }
@@ -75,22 +82,16 @@ const AkinPanel = props => {
                 code_options = {};
             }
         }
-        console.log(typeof code_options);
-        if (Object.keys(code_options).length === 0) {
-            return(<MenuItem value={""}>Please Select Focus and Dimension</MenuItem>);
-        } else {
-            let itemList = []
-            for (var [key, value] of Object.entries(code_options)) {
-                itemList.push(<MenuItem value={key}>{value}</MenuItem>);
-            }
-            /*itemList = code_options.map((key,value)=> {
-                itemList.push(<MenuItem value={key}>{value}</MenuItem>);
-            })*/
-            console.log(itemList);
-            return itemList;
+        /*var itemList = []
+        for (var [key, value] of Object.entries(code_options)) {
+            itemList.push(<MenuItem value={key}>{value}</MenuItem>);
         }
+        console.log(itemList); //////
+        return(itemList);*/
+        
     };
 
+    updateOptions();
     return(
         <Container>
             <Row>
@@ -135,8 +136,8 @@ const AkinPanel = props => {
                         >
                             <MenuItem value={""}>Jenis KI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</MenuItem>
                             <MenuItem value={"ptn"}>Paten</MenuItem>
-                            <MenuItem value={"pub"}>Publikasi Ilmiah</MenuItem>
-                            <MenuItem value={"trd"}>Merek Dagang</MenuItem>
+                            <MenuItem value={"pub"}>Publikasi Ilmiah (WIP)</MenuItem>
+                            <MenuItem value={"trd"}>Merek Dagang </MenuItem>
                         </Select>
                     </FormControl>
                 </Grid>
@@ -144,13 +145,15 @@ const AkinPanel = props => {
             <Grid container spacing={2} direction="column" alignItems="center">
             <Grid item>
                     <FormControl /*className={classes.formControl}*/>
-                        <NativeSelect
+                        <Select
                         value={props.code}
                         onChange={handleCode}
                         /*className={classes.selectEmpty}*/
                         >
-                            {getOptions()}
-                        </NativeSelect>
+                            {isFnDSelected? Object.keys(code_options).map((key) => ( 
+                                <MenuItem value={key}>{code_options[key]}</MenuItem> ))
+                                : <MenuItem value={""}>Please Select Focus and Dimension</MenuItem>}
+                        </Select>
                     </FormControl>
                 </Grid>
             </Grid>
