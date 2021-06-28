@@ -48,19 +48,20 @@ const AkinPanel = props => {
     };
 
     /*const jsonToDict = (jsonObject) => {
-        temp = {};
-        var data = JSON.parse(Resources.ProvinceCode);
+        var temp = {};
+        var data = jsonObject;
         for (var key in data) {
-            console.log(data);
             temp[key] = data[key];
         }
-        re
+        return temp;
     }*/
 
     const getOptions = () => {
         if (props.focus == "reg") {
             if (props.reg_dimension == "prov") {
-                code_options = JSON.parse(Resources.ProvinceCode);
+                //console.log('masuk ga');
+                //code_options = jsonToDict(Resources.ProvinceCode);
+                code_options = Resources.ProvinceCode;
                 console.log(code_options);
             } else if (props.reg_dimension == "city") {
                 code_options = Resources.CityCode;
@@ -79,9 +80,13 @@ const AkinPanel = props => {
             return(<MenuItem value={""}>Please Select Focus and Dimension</MenuItem>);
         } else {
             let itemList = []
-            for (var [key, value] of code_options.entries()) {
+            for (var [key, value] of Object.entries(code_options)) {
                 itemList.push(<MenuItem value={key}>{value}</MenuItem>);
             }
+            /*itemList = code_options.map((key,value)=> {
+                itemList.push(<MenuItem value={key}>{value}</MenuItem>);
+            })*/
+            console.log(itemList);
             return itemList;
         }
     };
@@ -144,7 +149,7 @@ const AkinPanel = props => {
                         onChange={handleCode}
                         /*className={classes.selectEmpty}*/
                         >
-                            {getOptions}
+                            {getOptions()}
                         </NativeSelect>
                     </FormControl>
                 </Grid>
