@@ -19,42 +19,20 @@ const AkinPanel = props => {
     var isFnDSelected = false;
 
     const handleFocus = (ev, newFocus) => {
-        //console.log(newFocus);
-        console.log(newFocus);
         props.updateFocus(newFocus);
-        //getOptions();
     };
 
     const handleRegDim = (ev, newRegDim) => {
-        //console.log(newFocus);
-        console.log(newRegDim.props.value);
         props.updateRegDim(newRegDim.props.value);
-        //getOptions();
     };
 
     const handleIprDim = (ev, newIprDim) => {
-        //console.log(newFocus);
-        console.log(newIprDim.props.value);
         props.updateIprDim(newIprDim.props.value);
-        //getOptions();
-        console.log(props.focus);
-        console.log(props.reg_dimension);
-        console.log(props.ipr_dimension);
     };
 
     const handleCode = (ev, newCode) => {
-        //console.log(newFocus);
         props.updateCode(newCode.props.value);
     };
-
-    /*const jsonToDict = (jsonObject) => {
-        var temp = {};
-        var data = jsonObject;
-        for (var key in data) {
-            temp[key] = data[key];
-        }
-        return temp;
-    }*/
 
     const updateOptions = () => {
         isFnDSelected = props.focus !== '' && props.reg_dimension !== '' && props.ipr_dimension !== '';
@@ -66,10 +44,7 @@ const AkinPanel = props => {
     const getOptions = () => {
         if (props.focus == "reg") {
             if (props.reg_dimension == "prov") {
-                //console.log('masuk ga');
-                //code_options = jsonToDict(Resources.ProvinceCode);
                 code_options = Resources.ProvinceCode;
-                //console.log(code_options); ///////
             } else if (props.reg_dimension == "city") {
                 code_options = Resources.CityCode;
             }
@@ -82,13 +57,6 @@ const AkinPanel = props => {
                 code_options = {};
             }
         }
-        /*var itemList = []
-        for (var [key, value] of Object.entries(code_options)) {
-            itemList.push(<MenuItem value={key}>{value}</MenuItem>);
-        }
-        console.log(itemList); //////
-        return(itemList);*/
-        
     };
 
     updateOptions();
