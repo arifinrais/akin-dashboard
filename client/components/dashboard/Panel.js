@@ -10,6 +10,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import NativeSelect from '@material-ui/core/NativeSelect';
 import Resources from '../../../server/providers/resourceProvider';
+import MenuItem from '@material-ui/core/MenuItem';
 
 const AkinPanel = props => {
     //const [alignment, setAlignment] = React.useState("left");
@@ -19,19 +20,22 @@ const AkinPanel = props => {
 
     const handleFocus = (ev, newFocus) => {
         //console.log(newFocus);
+        console.log(newFocus);
         props.updateFocus(newFocus);
         getOptions();
     };
 
     const handleRegDim = (ev, newRegDim) => {
         //console.log(newFocus);
-        props.updateRegDim(newRegDim);
+        console.log(newRegDim.props.value);
+        props.updateRegDim(newRegDim.props.value);
         getOptions();
     };
 
     const handleIprDim = (ev, newIprDim) => {
         //console.log(newFocus);
-        props.updateIprDim(newIprDim);
+        console.log(newIprDim.props.value);
+        props.updateIprDim(newIprDim.props.value);
         getOptions();
         console.log(props.focus);
         console.log(props.reg_dimension);
@@ -70,13 +74,13 @@ const AkinPanel = props => {
                 code_options = {};
             }
         }
-        console.log(code_options);
+        console.log(typeof code_options);
         if (Object.keys(code_options).length === 0) {
-            return(<option value="">Please Select Focus and Dimension</option>);
+            return(<MenuItem value={""}>Please Select Focus and Dimension</MenuItem>);
         } else {
             let itemList = []
             for (var [key, value] of code_options.entries()) {
-                itemList.push(<option value={key}>{value}</option>);
+                itemList.push(<MenuItem value={key}>{value}</MenuItem>);
             }
             return itemList;
         }
@@ -107,28 +111,28 @@ const AkinPanel = props => {
             <Grid container spacing={2} direction="column" alignItems="center">
                 <Grid item>
                     <FormControl /*className={classes.formControl}*/>
-                        <NativeSelect
+                        <Select
                         value={props.reg_dimension}
                         onChange={handleRegDim}
                         /*className={classes.selectEmpty}*/
                         >
-                            <option value="">Tingkat Daerah</option>
-                            <option value="prov">Provinsi</option>
-                            <option value="city">Kabupaten/Kota</option>
-                        </NativeSelect>
+                            <MenuItem value={""}>Tingkat Daerah</MenuItem>
+                            <MenuItem value={"prov"}>Provinsi</MenuItem>
+                            <MenuItem value={"city"}>Kabupaten/Kota</MenuItem>
+                        </Select>
                     </FormControl>
                     &nbsp;&nbsp;
                     <FormControl /*className={classes.formControl}*/>
-                        <NativeSelect
+                        <Select
                         value={props.ipr_dimension}
                         onChange={handleIprDim}
                         /*className={classes.selectEmpty}*/
                         >
-                            <option value="">Jenis KI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
-                            <option value="ptn">Paten</option>
-                            <option value="pub">Publikasi Ilmiah</option>
-                            <option value="trd">Merek Dagang</option>
-                        </NativeSelect>
+                            <MenuItem value={""}>Jenis KI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</MenuItem>
+                            <MenuItem value={"ptn"}>Paten</MenuItem>
+                            <MenuItem value={"pub"}>Publikasi Ilmiah</MenuItem>
+                            <MenuItem value={"trd"}>Merek Dagang</MenuItem>
+                        </Select>
                     </FormControl>
                 </Grid>
             </Grid>

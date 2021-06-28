@@ -89,11 +89,11 @@ exports.treemap = (req, res) => {
   var iprdimRec = req.query.iprdim;
   var codeRec = req.query.code;
   var yearRec = req.query.year;
-  /*console.log(focusRec);
+  console.log(focusRec);
   console.log(regdimRec);
   console.log(iprdimRec);
   console.log(codeRec);
-  console.log(yearRec);*/
+  console.log(yearRec);
   buildTreemap(focusRec, yearRec, regdimRec, iprdimRec, codeRec, res);
   return;
 }
