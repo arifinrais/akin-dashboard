@@ -34,6 +34,7 @@ class Dashboard extends Component {
         this.updateRegDim = this.updateRegDim.bind(this);
         this.updateIprDim = this.updateIprDim.bind(this);
         this.updateCode = this.updateCode.bind(this);
+        this.updateVtype = this.updateVtype.bind(this);
     }
 
     updateYear(yr) {
@@ -71,6 +72,11 @@ class Dashboard extends Component {
         this.setState({code: cd});
     }
 
+    updateVtype(vtp) {
+        console.log(vtp);
+        this.setState({vtype: vtp});
+    }
+
     updateData() {
         fetch(`${routes.Explore}?vtype=${this.state.vtype}&year=${this.state.year}&focus=${this.state.focus}&regdim=${this.state.reg_dimension}&iprdim=${this.state.ipr_dimension}&code=${this.state.code}&hide=${this.state.modifier}`)
         .then(res => res.json())
@@ -106,10 +112,10 @@ class Dashboard extends Component {
                         files.CityCode[this.state.code]} pada tahun {this.state.year}?</h3>); 
                 case 'otv':
                     return(<h3>{iprop} apa saja yang dihasilkan di {region=='Provinsi'? files.ProvinceCode[this.state.code] :
-                     files.CityCode[this.state.code]} pada tahun {this.state.year[0]} hingga {this.state.year[1]}?</h3>); 
+                        files.CityCode[this.state.code]} pada tahun {this.state.year[0]} hingga {this.state.year[1]}?</h3>); 
                 case 'nsv':
                     return(<h3>Berapa persen kontribusi {region=='Provinsi'? files.ProvinceCode[this.state.code] :
-                    files.CityCode[this.state.code]} terhadap perkembangan jumlah {iprop.toLowerCase()} di Indonesia?</h3>);
+                        files.CityCode[this.state.code]} terhadap perkembangan jumlah {iprop.toLowerCase()} di Indonesia?</h3>);
                 case 'isv':
                     return;
                 case 'rcv':
@@ -173,7 +179,8 @@ class Dashboard extends Component {
                             updateFocus={this.updateFocus} 
                             updateRegDim={this.updateRegDim}
                             updateIprDim={this.updateIprDim}
-                            updateCode={this.updateCode} />
+                            updateCode={this.updateCode} 
+                            updateVtype={this.updateVtype} />
                     </Col>
                 </Row>
             </Container>
