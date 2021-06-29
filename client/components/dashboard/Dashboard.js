@@ -34,15 +34,17 @@ class Dashboard extends Component {
         this.updateRegDim = this.updateRegDim.bind(this);
         this.updateIprDim = this.updateIprDim.bind(this);
         this.updateCode = this.updateCode.bind(this);
-        this.getTitle = this.getTitle.bind(this);
     }
 
     updateYear(yr) {
+        //this.loading();
         this.setState({year: yr});
     }
     
     loading() {
-        this.setState({isLoaded: false});
+        this.setState({
+            data: {},
+            isLoaded: false});
     }
 
     updateModifier(lst) {
@@ -88,6 +90,7 @@ class Dashboard extends Component {
     }
 
     getTitle() {
+        //lojiknya lebih ripuh
         return(<h3>Paten apa saja yang dihasilkan di {this.state.reg_dimension=='prov'? files.ProvinceCode[this.state.code]:files.CityCode[this.state.code]} pada tahun {this.state.year} ?</h3>);
     }
 
@@ -99,11 +102,11 @@ class Dashboard extends Component {
                 isLoaded : true,
                 vtype: 'tmv',
                 year: 2018,
-                focus: 'reg', //this.state.focus,
-                reg_dimension: 'prov', //this.state.reg_dimension,
-                ipr_dimension: 'ptn', //this.state.ipr_dimension,
-                code: '12', //this.state.code,
-                modifier: this.state.modifier
+                focus: 'reg', 
+                reg_dimension: 'city', //prov
+                ipr_dimension: 'ptn',
+                code: '51', //12
+                modifier: []
             });
           })
         .catch( err => this.setState({error: err}));
