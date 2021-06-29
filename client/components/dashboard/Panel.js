@@ -104,8 +104,8 @@ const AkinPanel = props => {
                         >
                             <MenuItem value={""}>Jenis KI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</MenuItem>
                             <MenuItem value={"ptn"}>Paten</MenuItem>
-                            <MenuItem value={"pub"}>Publikasi Ilmiah (WIP)</MenuItem>
-                            <MenuItem value={"trd"}>Merek Dagang (WIP)</MenuItem>
+                            <MenuItem disabled value={"pub"}>Publikasi Ilmiah (WIP)</MenuItem>
+                            <MenuItem disabled value={"trd"}>Merek Dagang (WIP)</MenuItem>
                         </Select>
                     </FormControl>
                 </Grid>

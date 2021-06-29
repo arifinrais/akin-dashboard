@@ -34,6 +34,7 @@ class Dashboard extends Component {
         this.updateRegDim = this.updateRegDim.bind(this);
         this.updateIprDim = this.updateIprDim.bind(this);
         this.updateCode = this.updateCode.bind(this);
+        this.getTitle = this.getTitle.bind(this);
     }
 
     updateYear(yr) {
@@ -86,6 +87,10 @@ class Dashboard extends Component {
         .catch( err => this.setState({error: err}));      
     }
 
+    getTitle() {
+        return(<h3>Paten apa saja yang dihasilkan di {this.state.reg_dimension=='prov'? files.ProvinceCode[this.state.code]:files.CityCode[this.state.code]} pada tahun {this.state.year} ?</h3>);
+    }
+
     componentDidMount(){
        fetch(routes.Explore)
         .then(res => res.json()) 
@@ -111,7 +116,7 @@ class Dashboard extends Component {
                 <Row>
                     <Col xs="8" sm="8" md="8" lg="8">
                         <Row>
-                            <h3>Paten apa saja yang dihasilkan di {files.ProvinceCode[this.state.code]} pada tahun {this.state.year} ?</h3>
+                            {this.getTitle()}
                         </Row>
                         <Row>
                             <Visualization {...this.state}/>

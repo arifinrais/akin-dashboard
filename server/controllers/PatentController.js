@@ -22,6 +22,10 @@ function buildTreemap(fc, yr, rDim, iDim, cd, hid, res) {
       defReg.id = "dfr";
       defReg.label = "dfr";
       defReg.children = [];
+      if (!defRec[code]) {
+        res.send(err);
+        return;
+      }
       for(let ctg in defRec[code]) {
         let totalProv = rDim=='prov'? defRec[code]["total_prov"]:defRec[code]["total_city"];
         if (ctg.length == 1 && defRec[code][ctg]!=null) {
@@ -95,12 +99,6 @@ exports.treemap = (req, res) => {
   var codeRec = req.query.code;
   var yearRec = req.query.year;
   var hideRec = String(req.query.hide).split(',');
-  /*console.log(focusRec);
-  console.log(regdimRec);
-  console.log(iprdimRec);
-  console.log(codeRec);
-  console.log(yearRec);
-  console.log(hideRec);*/
   buildTreemap(focusRec, yearRec, regdimRec, iprdimRec, codeRec, hideRec, res);
   return;
 }
