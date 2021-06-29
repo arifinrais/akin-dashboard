@@ -9,7 +9,7 @@ function getColor(code) {
   return resources.ColorCode[code];
 }
 
-function buildTreemap(fc, yr, rDim, iDim, cd, res) {
+function buildTreemap(fc, yr, rDim, iDim, cd, hid, res) {
   if (fc === 'reg') {
     model.Patent.find({year: yr}, function(err, patent){
       if(err) {
@@ -28,7 +28,7 @@ function buildTreemap(fc, yr, rDim, iDim, cd, res) {
           let ptClass = getPatent(ctg);
           let ptColor = getColor(ctg);
           var child = {}
-          if (typeof ptClass === "string" && typeof ptColor === "string") {
+          if (typeof ptClass === "string" && typeof ptColor === "string") {            
             child["id"]=ptClass;
             child["label"]=ptClass;
             child["fill"]=ptColor;
@@ -48,6 +48,11 @@ function buildTreemap(fc, yr, rDim, iDim, cd, res) {
             }
           }
           defReg.children.push(child);
+        }
+      }
+      if (hid.length >= 1 && !hid.includes('')) {
+        for (var x of hid) {
+          defReg.children = defReg.children.filter((item) => item.fill != getColor(x));
         }
       }
       res.json(defReg);
@@ -70,7 +75,7 @@ exports.default = (req,res) => {
   } else {
     //ambil database
     //BISA DIABSTRAKSI lagi buat dimasukin ke treemap aja pake parameter 2018, 12,
-    buildTreemap('reg', 2018, 'prov', 'ptn', '12', res);
+    buildTreemap('reg', 2018, 'prov', 'ptn', '12', [], res);
     return;
   }
 }
@@ -89,12 +94,14 @@ exports.treemap = (req, res) => {
   var iprdimRec = req.query.iprdim;
   var codeRec = req.query.code;
   var yearRec = req.query.year;
-  console.log(focusRec);
+  var hideRec = String(req.query.hide).split(',');
+  /*console.log(focusRec);
   console.log(regdimRec);
   console.log(iprdimRec);
   console.log(codeRec);
   console.log(yearRec);
-  buildTreemap(focusRec, yearRec, regdimRec, iprdimRec, codeRec, res);
+  console.log(hideRec);*/
+  buildTreemap(focusRec, yearRec, regdimRec, iprdimRec, codeRec, hideRec, res);
   return;
 }
 
