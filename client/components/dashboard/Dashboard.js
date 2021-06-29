@@ -90,8 +90,45 @@ class Dashboard extends Component {
     }
 
     getTitle() {
-        //lojiknya lebih ripuh
-        return(<h3>Paten apa saja yang dihasilkan di {this.state.reg_dimension=='prov'? files.ProvinceCode[this.state.code]:files.CityCode[this.state.code]} pada tahun {this.state.year} ?</h3>);
+        let region = this.state.reg_dimension=='prov'? "Provinsi" : "Kabupaten/Kota";
+        let iprop =  ""
+        if (this.state.ipr_dimension=='ptn') {
+            iprop="Paten";
+        } if (this.state.ipr_dimension=='trd') {
+            iprop="Merek dagang";
+        } if (this.state.ipr_dimension=='pub') {
+            iprop="Publikasi ilmiah";
+        }
+        if (this.state.focus == 'reg') {
+            switch (this.state.vtype) {
+                case 'tmv':
+                    return(<h3>{iprop} apa saja yang dihasilkan di {region=='Provinsi'? files.ProvinceCode[this.state.code] :
+                        files.CityCode[this.state.code]} pada tahun {this.state.year}?</h3>); 
+                case 'otv':
+                    return(<h3>{iprop} apa saja yang dihasilkan di {region=='Provinsi'? files.ProvinceCode[this.state.code] :
+                     files.CityCode[this.state.code]} pada tahun {this.state.year[0]} hingga {this.state.year[1]}?</h3>); 
+                case 'nsv':
+                    return(<h3>Berapa persen kontribusi {region=='Provinsi'? files.ProvinceCode[this.state.code] :
+                    files.CityCode[this.state.code]} terhadap perkembangan jumlah {iprop.toLowerCase()} di Indonesia?</h3>);
+                case 'isv':
+                    return;
+                case 'rcv':
+                    return;
+            }
+        } else if (this.state.focus == 'ipr') {
+            switch (this.state.vtype) {
+                case 'tmv':
+                    return(<h3>{region} apa saja yang menghasilkan {iprop.toLowerCase()} {iprop=="Paten"? files.PatentCode[this.state.code] : 
+                        iprop=="Merek Dagang"? "placeholder trd" : "placeholder pub"} pada tahun {this.state.year}?</h3>);     
+                case 'gmv':
+                    return(<h3>{region} apa saja yang menghasilkan {iprop.toLowerCase()} {iprop=="Paten"? files.PatentCode[this.state.code] : 
+                        iprop=="Merek Dagang"? "placeholder trd" : "placeholder pub"} pada tahun {this.state.year}?</h3>);
+                case 'otv':
+                    return(<h3>{region} apa saja yang menghasilkan {iprop.toLowerCase()} {iprop=="Paten"? files.PatentCode[this.state.code] : 
+                        iprop=="Merek Dagang"? "placeholder trd" : "placeholder pub"} pada tahun {this.state.year[0]} hingga {this.state.year[1]}?</h3>); 
+            }
+        }
+        
     }
 
     componentDidMount(){
