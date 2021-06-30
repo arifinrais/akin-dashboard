@@ -162,16 +162,23 @@ class Dashboard extends Component {
             <Grid container direction="row" justify="space-evenly">
                 <Grid item xs={8}>
                     <Grid container spacing={1} direction="column" justify="space-evenly">
-                        <Grid item xs={12}>
+                        <Grid item>
                             {this.getTitle()}
                         </Grid>
-                        <Grid item xs={12}>
+                        <Grid item>
                             <Visualization {...this.state}/>
                         </Grid>
-                        <Grid item xs={12}>
-                            <Modifier {...this.state} updateModifier={this.updateModifier}/>
+                        <Grid item>
+                            <Grid container direction="row" justify="space-evenly">
+                                <Grid item xs={3}></Grid>
+                                <Grid item xs={6}>
+                                    <Modifier {...this.state} updateModifier={this.updateModifier}/>
+                                </Grid>
+                                <Grid item xs={3}>
+                                </Grid>
+                            </Grid>
                         </Grid>
-                        <Grid item xs={12}>
+                        <Grid item>
                             <Slider {...this.state} updateYear={this.updateYear}/>
                         </Grid>
                     </Grid>
