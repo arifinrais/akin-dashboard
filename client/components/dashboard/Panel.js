@@ -95,7 +95,7 @@ const AkinPanel = props => {
     updateOptions();
     return(
         <Container>
-            <Grid container spacing={4} direction="column" alignItems="center">
+            <Grid container direction="column" justify="space-evenly" xs ={12}>
                 <Grid Item>
                     <Grid container spacing={1} direction="column" alignItems="center">
                         <Grid item>
@@ -171,7 +171,7 @@ const AkinPanel = props => {
                             <h6>VISUALISASI PATEN</h6>
                         </Grid>         
                         <Grid item>
-                            <Grid container spacing={2} direction="row" alignItems="center">
+                            <Grid container spacing={0.5} direction="row" alignItems="center">
                                 <Grid item>
                                     <Button 
                                         className={props.vtype=='tmv'? classes.selectedButton : classes.button}
@@ -235,7 +235,7 @@ const AkinPanel = props => {
                             <h6>VISUALISASI KOMPLEKSITAS</h6>
                         </Grid>   
                         <Grid item>
-                        <Grid container spacing={2} direction="row" alignItems="center">
+                        <Grid container spacing={0.5} direction="row" alignItems="center">
                                 <Grid item>
                                     <Button 
                                         className={props.vtype=='isv'? classes.selectedButton : classes.button}
