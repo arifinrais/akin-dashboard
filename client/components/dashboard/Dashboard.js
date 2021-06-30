@@ -6,6 +6,7 @@ import Panel from './Panel';
 import Modifier from './Modifier';
 import routes from '../../../server/providers/routesProvider'; 
 import files from '../../../server/providers/resourceProvider';
+import Grid from "@material-ui/core/Grid";
 //import axios from 'axios';
 
 const defaultParam = {
@@ -160,6 +161,42 @@ class Dashboard extends Component {
     render(){
         this.updateData();
         return(
+            <Grid container direction="row" justify="space-evenly">
+                <Grid item xs={8}>
+                    <Grid container spacing={1} direction="column" justify="space-evenly">
+                        <Grid item>
+                            {this.getTitle()}
+                        </Grid>
+                        <Grid item>
+                            <Visualization {...this.state}/>
+                        </Grid>
+                        <Grid item>
+                            <Grid container direction="row" justify="space-evenly">
+                                <Grid item xs={3}></Grid>
+                                <Grid item xs={6}>
+                                    <Modifier {...this.state} updateModifier={this.updateModifier}/>
+                                </Grid>
+                                <Grid item xs={3}>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                        <Grid item>
+                            <Slider {...this.state} updateYear={this.updateYear}/>
+                        </Grid>
+                    </Grid>
+                </Grid>
+                <Grid item xs={2.5}>
+                    <Panel {...this.state}
+                        updateFocus={this.updateFocus} 
+                        updateRegDim={this.updateRegDim}
+                        updateIprDim={this.updateIprDim}
+                        updateCode={this.updateCode} 
+                        updateVtype={this.updateVtype} 
+                    />
+                </Grid>
+            </Grid>
+        )
+        /*return(
             <Container>
                 <Row>
                     <Col xs="8" sm="8" md="8" lg="8">
@@ -186,7 +223,7 @@ class Dashboard extends Component {
                     </Col>
                 </Row>
             </Container>
-        )
+        )*/
     }
 }
 
