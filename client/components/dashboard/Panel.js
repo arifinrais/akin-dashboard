@@ -166,8 +166,8 @@ const AkinPanel = props => {
                         >
                             <MenuItem value={""}><em>Pilih {props.focus=='reg'? "Daerah" :
                                 props.ipr_dimension=='ptn'? "Kelas Paten" :
-                                props.ipr_dimension=='ptn'? "Kelas Merek Dagang" : 
-                                "Kelas Disiplin Ilmu"}</em></MenuItem>
+                                props.ipr_dimension=='ptn'? "Kelas Merek Dagang" : "Kelas Disiplin Ilmu"}</em>
+                            </MenuItem>
                             {isFnDSelected? Object.keys(code_options).map((key) => ( 
                                 <MenuItem value={key}>{code_options[key]}</MenuItem> ))
                                 : <MenuItem value={""}>Please Select Focus and Dimension</MenuItem>}
