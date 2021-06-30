@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
     minHeight: '70px',
     border: '1px solid black',
     backgroundColor: '#dedede',
-    color: '#blac',
+    color: '#black',
     padding: '5px 5px',
     fontSize: '12px',
     cursor: 'pointer',
@@ -118,11 +118,14 @@ const AkinPanel = props => {
                         onChange={handleFocus}
                         aria-label="viz-focus"
                     >
-                        <ToggleButton size="small" value="reg" aria-label="reg">
-                            &nbsp;&nbsp;&nbsp;&nbsp;DAERAH&nbsp;&nbsp;&nbsp;&nbsp;
+                        
+                        <ToggleButton size="small" value="reg" aria-label="reg" style={{height: 50, width: 129, border: "1px solid black", color: "black"}}>
+                            <img src="/res/setticon/reg.png" height="25" alt="" />
+                            &nbsp;DAERAH
                         </ToggleButton>
-                        <ToggleButton size="small" value="ipr" aria-label="ipr">
-                            KEKAYAAN<br/>INTELEKTUAL
+                        <ToggleButton size="small" value="ipr" aria-label="ipr" style={{height: 50, width: 129, border: "1px solid black", color: "black", fontSize: '10px'}}>
+                            <img src="/res/setticon/ipr.png" height="25" alt="" />
+                            &nbsp;KEKAYAAN<br/>&nbsp;INTELEKTUAL
                         </ToggleButton>
                     </ToggleButtonGroup>
                 </Grid>
@@ -158,7 +161,7 @@ const AkinPanel = props => {
                     </Grid>
                 </Grid>
                 <Grid item>
-                    <FormControl style={{width:260}}/*className={classes.formControl}*/>
+                    <FormControl style={{width:258}}/*className={classes.formControl}*/>
                         <Select
                         value={props.code}
                         onChange={handleCode}
