@@ -100,9 +100,11 @@ const AkinPanel = props => {
             display="flex"
             flexWrap="wrap"
             alignContent="space-between"
-            p={1}
+            p={2}
             m={1}
-            bgcolor="#fafafa"
+            bgcolor="#ffffff"
+            border="1px solid"
+            borderColor="#000000"
             css={{ maxWidth: 300, maxHeight: 600}}
         >
             <Grid container spacing={1} direction="column" alignItems="center">
