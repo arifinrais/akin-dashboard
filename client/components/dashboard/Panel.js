@@ -73,6 +73,26 @@ const AkinPanel = props => {
             getOptions();
         }
     }
+
+    const getOptions = () => {
+        //need to be filtered
+        if (props.focus == "reg") {
+            if (props.reg_dimension == "prov") {
+                code_options = Resources.ProvinceCode;
+            } else if (props.reg_dimension == "city") {
+                code_options = Resources.CityCode;
+            }
+        } else if (props.focus == "ipr") {
+            if (props.ipr_dimension == "ptn") {
+                code_options = Resources.PatentCode;
+            } else if (props.ipr_dimension == "trd") {
+                code_options = {};
+            } else if (props.ipr_dimension == "pub") {
+                code_options = {};
+            }
+        }
+    };
+
     const getComplexityViz = () => {
         if (props.focus=='reg') {
             return(<Grid container spacing={2} direction="row" alignItems="center">
@@ -104,25 +124,7 @@ const AkinPanel = props => {
         }
             
     }
-
-    const getOptions = () => {
-        if (props.focus == "reg") {
-            if (props.reg_dimension == "prov") {
-                code_options = Resources.ProvinceCode;
-            } else if (props.reg_dimension == "city") {
-                code_options = Resources.CityCode;
-            }
-        } else if (props.focus == "ipr") {
-            if (props.ipr_dimension == "ptn") {
-                code_options = Resources.PatentCode;
-            } else if (props.ipr_dimension == "trd") {
-                code_options = {};
-            } else if (props.ipr_dimension == "pub") {
-                code_options = {};
-            }
-        }
-    };
-
+    
     updateOptions();
     return(
         <Container>
@@ -262,17 +264,8 @@ const AkinPanel = props => {
                                 </Grid>
                             </Grid>
                         </Grid>
-                        {
-                            props.focus=='reg'?
-                                <Grid item>
-                                    <h6>VISUALISASI KOMPLEKSITAS</h6>
-                                </Grid> :
-                                <Grid item>
-                                </Grid>
-                        }  
-                        <Grid item>
-                            {getComplexityViz()}
-                        </Grid>       
+                        {props.focus=='reg'? <Grid item><h6>VISUALISASI KOMPLEKSITAS</h6></Grid> : <Grid item></Grid>}  
+                        <Grid item>{getComplexityViz()}</Grid>       
                     </Grid>
                 </Grid>      
             </Grid> 
