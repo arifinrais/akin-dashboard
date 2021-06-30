@@ -69,11 +69,11 @@ const AkinPanel = props => {
         <Container>
             <Grid container direction="column" alignItems="center">
                 <Grid Item>
-                    <Row>
-                        <h4>PENGATURAN</h4>
-                    </Row>
                     <Grid container spacing={2} direction="column" alignItems="center">
-                        <Grid item> 
+                        <Grid item>
+                            <h4>PENGATURAN</h4>
+                        </Grid>
+                        <Grid item>
                             <ToggleButtonGroup
                                 value={props.focus}
                                 exclusive
@@ -88,36 +88,37 @@ const AkinPanel = props => {
                                 </ToggleButton>
                             </ToggleButtonGroup>
                         </Grid>
-                    </Grid>
-                    <Grid container spacing={2} direction="column" alignItems="center">
                         <Grid item>
-                            <FormControl /*className={classes.formControl}*/>
-                                <Select
-                                value={props.reg_dimension}
-                                onChange={handleRegDim}
-                                /*className={classes.selectEmpty}*/
-                                >
-                                    <MenuItem value={""}>Tingkat Daerah</MenuItem>
-                                    <MenuItem value={"prov"}>Provinsi</MenuItem>
-                                    <MenuItem value={"city"}>Kabupaten/Kota</MenuItem>
-                                </Select>
-                            </FormControl>
-                            &nbsp;&nbsp;
-                            <FormControl /*className={classes.formControl}*/>
-                                <Select
-                                value={props.ipr_dimension}
-                                onChange={handleIprDim}
-                                /*className={classes.selectEmpty}*/
-                                >
-                                    <MenuItem value={""}>Jenis KI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</MenuItem>
-                                    <MenuItem value={"ptn"}>Paten</MenuItem>
-                                    <MenuItem disabled value={"pub"}>Publikasi Ilmiah (WIP)</MenuItem>
-                                    <MenuItem disabled value={"trd"}>Merek Dagang (WIP)</MenuItem>
-                                </Select>
-                            </FormControl>
+                            <Grid container spacing={2} direction="row" alignItems="center">
+                                <Grid item>
+                                    <FormControl /*className={classes.formControl}*/>
+                                        <Select
+                                        value={props.reg_dimension}
+                                        onChange={handleRegDim}
+                                        /*className={classes.selectEmpty}*/
+                                        >
+                                            <MenuItem value={""}>Tingkat Daerah</MenuItem>
+                                            <MenuItem value={"prov"}>Provinsi</MenuItem>
+                                            <MenuItem value={"city"}>Kabupaten/Kota</MenuItem>
+                                        </Select>
+                                    </FormControl>
+                                </Grid>
+                                <Grid item>
+                                    <FormControl /*className={classes.formControl}*/>
+                                        <Select
+                                        value={props.ipr_dimension}
+                                        onChange={handleIprDim}
+                                        /*className={classes.selectEmpty}*/
+                                        >
+                                            <MenuItem value={""}>Jenis KI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</MenuItem>
+                                            <MenuItem value={"ptn"}>Paten</MenuItem>
+                                            <MenuItem disabled value={"pub"}>Publikasi Ilmiah (WIP)</MenuItem>
+                                            <MenuItem disabled value={"trd"}>Merek Dagang (WIP)</MenuItem>
+                                        </Select>
+                                    </FormControl>
+                                </Grid>
+                            </Grid>
                         </Grid>
-                    </Grid>
-                    <Grid container spacing={2} direction="column" alignItems="center">
                         <Grid item>
                             <FormControl /*className={classes.formControl}*/>
                                 <Select
