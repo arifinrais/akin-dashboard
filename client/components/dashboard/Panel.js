@@ -68,88 +68,81 @@ const AkinPanel = props => {
     return(
         <Container>
             <Grid container direction="column" alignItems="center">
-            <Grid Item>
-                <Row>
-                    <h4>PENGATURAN</h4>
-                </Row>
-                <Grid container spacing={2} direction="column" alignItems="center">
-                    <Grid item> 
-                        <ToggleButtonGroup
-                            value={props.focus}
-                            exclusive
-                            onChange={handleFocus}
-                            aria-label="viz-focus"
-                        >
-                            <ToggleButton size="small" value="reg" aria-label="reg">
-                                &nbsp;&nbsp;&nbsp;&nbsp;DAERAH&nbsp;&nbsp;&nbsp;&nbsp;
-                            </ToggleButton>
-                            <ToggleButton size="small" value="ipr" aria-label="ipr">
-                                KEKAYAAN<br/>INTELEKTUAL
-                            </ToggleButton>
-                        </ToggleButtonGroup>
+                <Grid Item>
+                    <Row>
+                        <h4>PENGATURAN</h4>
+                    </Row>
+                    <Grid container spacing={2} direction="column" alignItems="center">
+                        <Grid item> 
+                            <ToggleButtonGroup
+                                value={props.focus}
+                                exclusive
+                                onChange={handleFocus}
+                                aria-label="viz-focus"
+                            >
+                                <ToggleButton size="small" value="reg" aria-label="reg">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;DAERAH&nbsp;&nbsp;&nbsp;&nbsp;
+                                </ToggleButton>
+                                <ToggleButton size="small" value="ipr" aria-label="ipr">
+                                    KEKAYAAN<br/>INTELEKTUAL
+                                </ToggleButton>
+                            </ToggleButtonGroup>
+                        </Grid>
+                    </Grid>
+                    <Grid container spacing={2} direction="column" alignItems="center">
+                        <Grid item>
+                            <FormControl /*className={classes.formControl}*/>
+                                <Select
+                                value={props.reg_dimension}
+                                onChange={handleRegDim}
+                                /*className={classes.selectEmpty}*/
+                                >
+                                    <MenuItem value={""}>Tingkat Daerah</MenuItem>
+                                    <MenuItem value={"prov"}>Provinsi</MenuItem>
+                                    <MenuItem value={"city"}>Kabupaten/Kota</MenuItem>
+                                </Select>
+                            </FormControl>
+                            &nbsp;&nbsp;
+                            <FormControl /*className={classes.formControl}*/>
+                                <Select
+                                value={props.ipr_dimension}
+                                onChange={handleIprDim}
+                                /*className={classes.selectEmpty}*/
+                                >
+                                    <MenuItem value={""}>Jenis KI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</MenuItem>
+                                    <MenuItem value={"ptn"}>Paten</MenuItem>
+                                    <MenuItem disabled value={"pub"}>Publikasi Ilmiah (WIP)</MenuItem>
+                                    <MenuItem disabled value={"trd"}>Merek Dagang (WIP)</MenuItem>
+                                </Select>
+                            </FormControl>
+                        </Grid>
+                    </Grid>
+                    <Grid container spacing={2} direction="column" alignItems="center">
+                        <Grid item>
+                            <FormControl /*className={classes.formControl}*/>
+                                <Select
+                                value={props.code}
+                                onChange={handleCode}
+                                /*className={classes.selectEmpty}*/
+                                >
+                                    {isFnDSelected? Object.keys(code_options).map((key) => ( 
+                                        <MenuItem value={key}>{code_options[key]}</MenuItem> ))
+                                        : <MenuItem value={""}>Please Select Focus and Dimension</MenuItem>}
+                                </Select>
+                            </FormControl>
+                        </Grid>
                     </Grid>
                 </Grid>
-                <Grid container spacing={2} direction="column" alignItems="center">
-                    <Grid item>
-                        <FormControl /*className={classes.formControl}*/>
-                            <Select
-                            value={props.reg_dimension}
-                            onChange={handleRegDim}
-                            /*className={classes.selectEmpty}*/
-                            >
-                                <MenuItem value={""}>Tingkat Daerah</MenuItem>
-                                <MenuItem value={"prov"}>Provinsi</MenuItem>
-                                <MenuItem value={"city"}>Kabupaten/Kota</MenuItem>
-                            </Select>
-                        </FormControl>
-                        &nbsp;&nbsp;
-                        <FormControl /*className={classes.formControl}*/>
-                            <Select
-                            value={props.ipr_dimension}
-                            onChange={handleIprDim}
-                            /*className={classes.selectEmpty}*/
-                            >
-                                <MenuItem value={""}>Jenis KI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</MenuItem>
-                                <MenuItem value={"ptn"}>Paten</MenuItem>
-                                <MenuItem disabled value={"pub"}>Publikasi Ilmiah (WIP)</MenuItem>
-                                <MenuItem disabled value={"trd"}>Merek Dagang (WIP)</MenuItem>
-                            </Select>
-                        </FormControl>
-                    </Grid>
-                </Grid>
-                <Grid container spacing={2} direction="column" alignItems="center">
-                    <Grid item>
-                        <FormControl /*className={classes.formControl}*/>
-                            <Select
-                            value={props.code}
-                            onChange={handleCode}
-                            /*className={classes.selectEmpty}*/
-                            >
-                                {isFnDSelected? Object.keys(code_options).map((key) => ( 
-                                    <MenuItem value={key}>{code_options[key]}</MenuItem> ))
-                                    : <MenuItem value={""}>Please Select Focus and Dimension</MenuItem>}
-                            </Select>
-                        </FormControl>
-                    </Grid>
-                </Grid>
-            </Grid>
-            <Grid container spacing={2} direction="column" alignItems="center">
-                <Row>
-                    <h4>TIPE VISUALISASI</h4>
-                </Row>
-                <Row>
-                    <h6>VISUALISASI PATEN</h6>
-                </Row>
-                
-                <Grid container spacing={2} direction="column" alignItems="center">
-
-                        <ToggleButtonGroup
-                            value={props.vtype}
-                            exclusive
-                            onChange={handleVtype}
-                            aria-label="viz-vtype"
-                        >
-                            <Grid container spacing={2} direction="row" alignItems="center" alignContent="space-between">
+                <Grid item>
+                    <Grid container spacing={2} direction="column" alignItems="center">
+                        <Grid item>
+                            <h4>TIPE VISUALISASI</h4>
+                        </Grid>
+                        <Grid item>
+                            <h6>VISUALISASI PATEN</h6>
+                        </Grid>         
+                        <Grid item>
+                            <Grid container spacing={2} direction="row" alignItems="center">
                                 <Grid item>
                                     <ToggleButton size="small" value="tmv" aria-label="tmv">
                                         Tree Map
@@ -170,26 +163,26 @@ const AkinPanel = props => {
                                     }
                                 </Grid>
                             </Grid>
-                            <Grid item>
-                                <h6>VISUALISASI KOMPLEKSITAS</h6>
+                        </Grid>
+                        <Grid item>
+                            <h6>VISUALISASI KOMPLEKSITAS</h6>
+                        </Grid>   
+                        <Grid item>
+                        <Grid container spacing={2} direction="row" alignItems="center">
+                                <Grid item>
+                                    <ToggleButton size="small" value="isv" aria-label="isv">
+                                        KI Space
+                                    </ToggleButton>
+                                </Grid>
+                                <Grid item>
+                                    <ToggleButton size="small" value="rcv" aria-label="rcv">
+                                        Ring Chart
+                                    </ToggleButton>
+                                </Grid>
                             </Grid>
-                            <Grid container spacing={2} direction="row" alignItems="center" alignContent="space-between">
-                            <Grid item>
-                            <ToggleButton size="small" value="isv" aria-label="isv">
-                                KI Space
-                            </ToggleButton>
-                            </Grid>
-                            <Grid item>
-                            <ToggleButton size="small" value="rcv" aria-label="rcv">
-                                Ring Chart
-                            </ToggleButton>
-                            </Grid>
-                            </Grid>
-                            
-                        </ToggleButtonGroup>
-                  </Grid>
-                
-            </Grid>     
+                        </Grid>        
+                    </Grid>
+                </Grid>      
             </Grid> 
         </Container>
     )
