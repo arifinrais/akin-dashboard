@@ -73,6 +73,37 @@ const AkinPanel = props => {
             getOptions();
         }
     }
+    const getComplexityViz = () => {
+        if (props.focus=='reg') {
+            return(<Grid container spacing={2} direction="row" alignItems="center">
+                        <Grid item>
+                            <Button 
+                                className={props.vtype=='isv'? classes.selectedButton : classes.button}
+                                variant="contained"
+                                value="isv"
+                                aria-label="isv"
+                                onClick={handleVtype}
+                            >
+                                <img src="/res/vizicon/isv.png" height="15" alt="" /><br/>KI<br/>Space
+                            </Button>
+                        </Grid>
+                        <Grid item>
+                            <Button 
+                                className={props.vtype=='rcv'? classes.selectedButton : classes.button}
+                                variant="contained"
+                                value="rcv"
+                                aria-label="rcv"
+                                onClick={handleVtype}
+                            >
+                                <img src="/res/vizicon/rcv.png" height="15" alt="" /><br/>Ring<br/>Chart
+                            </Button>
+                        </Grid>
+                    </Grid>)
+        } else {
+            return;
+        }
+            
+    }
 
     const getOptions = () => {
         if (props.focus == "reg") {
@@ -231,35 +262,17 @@ const AkinPanel = props => {
                                 </Grid>
                             </Grid>
                         </Grid>
-                        <Grid item>
-                            <h6>VISUALISASI KOMPLEKSITAS</h6>
-                        </Grid>   
-                        <Grid item>
-                        <Grid container spacing={2} direction="row" alignItems="center">
+                        {
+                            props.focus=='reg'?
                                 <Grid item>
-                                    <Button 
-                                        className={props.vtype=='isv'? classes.selectedButton : classes.button}
-                                        variant="contained"
-                                        value="isv"
-                                        aria-label="isv"
-                                        onClick={handleVtype}
-                                    >
-                                        <img src="/res/vizicon/isv.png" height="15" alt="" /><br/>KI<br/>Space
-                                    </Button>
-                                </Grid>
+                                    <h6>VISUALISASI KOMPLEKSITAS</h6>
+                                </Grid> :
                                 <Grid item>
-                                    <Button 
-                                        className={props.vtype=='rcv'? classes.selectedButton : classes.button}
-                                        variant="contained"
-                                        value="rcv"
-                                        aria-label="rcv"
-                                        onClick={handleVtype}
-                                    >
-                                        <img src="/res/vizicon/rcv.png" height="15" alt="" /><br/>Ring<br/>Chart
-                                    </Button>
                                 </Grid>
-                            </Grid>
-                        </Grid>        
+                        }  
+                        <Grid item>
+                            {getComplexityViz()}
+                        </Grid>       
                     </Grid>
                 </Grid>      
             </Grid> 
