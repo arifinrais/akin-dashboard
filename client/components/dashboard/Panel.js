@@ -124,16 +124,14 @@ const AkinPanel = props => {
         }
             
     }
-    
+
     updateOptions();
     return(
         <Container>
             <Grid container spacing={4} direction="column" alignItems="center">
                 <Grid Item>
                     <Grid container spacing={1} direction="column" alignItems="center">
-                        <Grid item>
-                            <h4>PENGATURAN</h4>
-                        </Grid>
+                        <Grid item><h4>PENGATURAN</h4></Grid>
                         <Grid item>
                             <ToggleButtonGroup
                                 value={props.focus}

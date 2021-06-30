@@ -117,9 +117,11 @@ class Dashboard extends Component {
                     return(<h3>Berapa persen kontribusi {region=='Provinsi'? files.ProvinceCode[this.state.code] :
                         files.CityCode[this.state.code]} terhadap perkembangan jumlah {iprop.toLowerCase()} di Indonesia?</h3>);
                 case 'isv':
-                    return;
+                    return(<h3>{iprop} apa saja yang dihasilkan di {region=='Provinsi'? files.ProvinceCode[this.state.code] :
+                        files.CityCode[this.state.code]} pada tahun {this.state.year}?</h3>);
                 case 'rcv':
-                    return;
+                    return(<h3>{iprop} apa saja yang dihasilkan di {region=='Provinsi'? files.ProvinceCode[this.state.code] :
+                        files.CityCode[this.state.code]} pada tahun {this.state.year}?</h3>);
             }
         } else if (this.state.focus == 'ipr') {
             switch (this.state.vtype) {
