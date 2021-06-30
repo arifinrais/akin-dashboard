@@ -12,11 +12,23 @@ import NativeSelect from '@material-ui/core/NativeSelect';
 import Resources from '../../../server/providers/resourceProvider';
 import MenuItem from '@material-ui/core/MenuItem';
 
+const useStyles = makeStyles((theme) => ({
+  button: {
+    margin: theme.spacing(1),
+    maxWidth: '50', 
+    maxHeight: '50', 
+    minWidth: '50', 
+    minHeight: '50'
+  },
+}));
+
 const AkinPanel = props => {
     //const [alignment, setAlignment] = React.useState("left");
     //var { isLoaded, vtype, focus, reg_dimension, ipr_dimension, code } = props;
+    const classes = useStyles();
     var code_options = {};
     var isFnDSelected = false;
+    var selectedButton = '';
 
     const handleFocus = (ev, newFocus) => {
         props.updateFocus(newFocus);
@@ -34,9 +46,9 @@ const AkinPanel = props => {
         props.updateCode(newCode.props.value);
     };
 
-    const handleVtype = (ev, newVtype) => {
-        console.log(newVtype.props.value);
-        props.updateVtype(newVtype.props.value);
+    const handleVtype = (ev) => {
+        selectedButton=ev.currentTarget.value;
+        props.updateVtype(ev.currentTarget.value);
     }
 
     const updateOptions = () => {
@@ -145,22 +157,47 @@ const AkinPanel = props => {
                         <Grid item>
                             <Grid container spacing={2} direction="row" alignItems="center">
                                 <Grid item>
-                                    <ToggleButton size="small" value="tmv" aria-label="tmv">
-                                        Tree Map
-                                    </ToggleButton>
+                                    <Button 
+                                        className={classes.button}
+                                        color={selectedButton=='tmv'? "primary" : "secondary"} 
+                                        variant="contained"
+                                        value="tmv"
+                                        aria-label="tmv"
+                                        onClick={handleVtype}
+                                    >
+                                        <img src="/res/vizicon/tmv.png" height="25" alt="" /><br/>Tree Map
+                                    </Button>
                                 </Grid>
                                 <Grid item>
                                     {
                                         props.focus=="reg"? 
-                                            <ToggleButton size="small" value="otv" aria-label="otv">Over Time</ToggleButton> :
-                                            <ToggleButton size="small" value="gmv" aria-label="gmv">Geo Map</ToggleButton>
+                                        <Button 
+                                            className={classes.button}
+                                            color={selectedButton=='otv'? "primary" : "secondary"} 
+                                            variant="contained"
+                                            value="otv"
+                                            aria-label="otv"
+                                            onClick={handleVtype}
+                                        >
+                                            <img src="/res/vizicon/otv.png" height="25" alt="" /><br/>Over Time
+                                        </Button> :
+                                        <Button 
+                                            className={classes.button}
+                                            color={selectedButton=='gmv'? "primary" : "secondary"} 
+                                            variant="contained"
+                                            value="gmv"
+                                            aria-label="gmv"
+                                            onClick={handleVtype}
+                                        >
+                                            <img src="/res/vizicon/gmv.png" height="25" alt="" /><br/>Geo Map
+                                        </Button> 
                                     }
                                 </Grid>
                                 <Grid item>
                                     {
                                         props.focus=="reg"? 
-                                            <ToggleButton size="small" value="nsv" aria-label="nsv">National Share</ToggleButton> :
-                                            <ToggleButton size="small" value="otv" aria-label="otv">Over Time</ToggleButton>
+                                            <Button size="small" value="nsv" aria-label="nsv">National Share</Button> :
+                                            <Button size="small" value="otv" aria-label="otv">Over Time</Button>
                                     }
                                 </Grid>
                             </Grid>
@@ -171,14 +208,14 @@ const AkinPanel = props => {
                         <Grid item>
                         <Grid container spacing={2} direction="row" alignItems="center">
                                 <Grid item>
-                                    <ToggleButton size="small" value="isv" aria-label="isv">
+                                    <Button size="small" value="isv" aria-label="isv">
                                         KI Space
-                                    </ToggleButton>
+                                    </Button>
                                 </Grid>
                                 <Grid item>
-                                    <ToggleButton size="small" value="rcv" aria-label="rcv">
+                                    <Button size="small" value="rcv" aria-label="rcv">
                                         Ring Chart
-                                    </ToggleButton>
+                                    </Button>
                                 </Grid>
                             </Grid>
                         </Grid>        
