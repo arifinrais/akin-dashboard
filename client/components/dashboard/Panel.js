@@ -99,7 +99,7 @@ const AkinPanel = props => {
         <Box
             display="flex"
             flexWrap="wrap"
-            alignContent="flex-end"
+            alignContent="space-between"
             p={1}
             m={1}
             bgcolor="#fafafa"
@@ -169,9 +169,9 @@ const AkinPanel = props => {
                     </FormControl>
                 </Grid>
             </Grid>
-            <Grid container spacing={2} direction="column" alignItems="center">
+            <Grid container direction="column" alignItems="center">
                 <Grid item>
-                    <h4>TIPE VISUALISASI</h4>
+                    <br/><h4>TIPE VISUALISASI</h4>
                 </Grid>
                 <Grid item>
                     <h6>VISUALISASI PATEN</h6>
@@ -237,36 +237,37 @@ const AkinPanel = props => {
                         </Grid>
                     </Grid>
                 </Grid>
-                <Grid item>
-                    <h6>VISUALISASI KOMPLEKSITAS</h6>
-                </Grid>   
-                <Grid item>
-                <Grid container spacing={0.5} direction="row" alignItems="center">
-                        <Grid item>
-                            <Button 
-                                className={props.vtype=='isv'? classes.selectedButton : classes.button}
-                                variant="contained"
-                                value="isv"
-                                aria-label="isv"
-                                onClick={handleVtype}
-                            >
-                                <img src="/res/vizicon/isv.png" height="15" alt="" /><br/>KI<br/>Space
-                            </Button>
+                {props.focus=='reg'? <Grid item><h6>VISUALISASI KOMPLEKSITAS</h6></Grid> : <Grid item></Grid>}
+                {
+                    props.focus=='reg'?
+                    <Grid item>
+                        <Grid container spacing={0.5} direction="row" alignItems="center">
+                            <Grid item>
+                                <Button 
+                                    className={props.vtype=='isv'? classes.selectedButton : classes.button}
+                                    variant="contained"
+                                    value="isv"
+                                    aria-label="isv"
+                                    onClick={handleVtype}
+                                >
+                                    <img src="/res/vizicon/isv.png" height="15" alt="" /><br/>KI<br/>Space
+                                </Button>
+                            </Grid>
+                            <Grid item>
+                                <Button 
+                                    className={props.vtype=='rcv'? classes.selectedButton : classes.button}
+                                    variant="contained"
+                                    value="rcv"
+                                    aria-label="rcv"
+                                    onClick={handleVtype}
+                                >
+                                    <img src="/res/vizicon/rcv.png" height="15" alt="" /><br/>Ring<br/>Chart
+                                </Button>
+                            </Grid>
                         </Grid>
-                        <Grid item>
-                            <Button 
-                                className={props.vtype=='rcv'? classes.selectedButton : classes.button}
-                                variant="contained"
-                                value="rcv"
-                                aria-label="rcv"
-                                onClick={handleVtype}
-                            >
-                                <img src="/res/vizicon/rcv.png" height="15" alt="" /><br/>Ring<br/>Chart
-                            </Button>
-                        </Grid>
-                    </Grid>
-                </Grid>      
-    </Grid> 
+                    </Grid> : <Grid item></Grid>
+                }    
+            </Grid> 
         </Box>
     )
 }
