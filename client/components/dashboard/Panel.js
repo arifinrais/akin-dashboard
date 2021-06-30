@@ -130,12 +130,12 @@ const AkinPanel = props => {
                     <Grid container spacing={2} direction="row" alignItems="center">
                         <Grid item>
                             <FormControl style={{width:120}}/*className={classes.formControl}*/>
-                                <InputLabel id="demo-controlled-open-select-label">Tingkat Daerah</InputLabel>
                                 <Select
                                     value={props.reg_dimension}
                                     onChange={handleRegDim}
                                     /*className={classes.selectEmpty}*/
                                 >
+                                    <MenuItem value={""}><em>Tingkat Daerah</em></MenuItem>
                                     <MenuItem value={"prov"}>Provinsi</MenuItem>
                                     <MenuItem value={"city"}>Kabupaten/Kota</MenuItem>
                                 </Select>
@@ -143,13 +143,12 @@ const AkinPanel = props => {
                         </Grid>
                         <Grid item>
                             <FormControl style={{width:120}}/*className={classes.formControl}*/>
-                                <InputLabel id="demo-controlled-open-select-label">Jenis KI</InputLabel>
                                 <Select
                                     value={props.ipr_dimension}
                                     onChange={handleIprDim}
                                     /*className={classes.selectEmpty}*/
                                 >
-                                    <MenuItem value={""}>Jenis KI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</MenuItem>
+                                    <MenuItem value={""}><em>Jenis KI</em></MenuItem>
                                     <MenuItem value={"ptn"}>Paten</MenuItem>
                                     <MenuItem disabled value={"pub"}>Publikasi Ilmiah (WIP)</MenuItem>
                                     <MenuItem disabled value={"trd"}>Merek Dagang (WIP)</MenuItem>
@@ -160,12 +159,15 @@ const AkinPanel = props => {
                 </Grid>
                 <Grid item>
                     <FormControl style={{width:260}}/*className={classes.formControl}*/>
-                        <InputLabel id="demo-controlled-open-select-label">Pilih {props.focus=='reg'?"Daerah":"Kelas KI"}</InputLabel>
                         <Select
                         value={props.code}
                         onChange={handleCode}
                         /*className={classes.selectEmpty}*/
                         >
+                            <MenuItem value={""}><em>Pilih {props.focus=='reg'? "Daerah" :
+                                props.ipr_dimension=='ptn'? "Kelas Paten" :
+                                props.ipr_dimension=='ptn'? "Kelas Merek Dagang" : 
+                                "Kelas Disiplin Ilmu"}</em></MenuItem>
                             {isFnDSelected? Object.keys(code_options).map((key) => ( 
                                 <MenuItem value={key}>{code_options[key]}</MenuItem> ))
                                 : <MenuItem value={""}>Please Select Focus and Dimension</MenuItem>}
