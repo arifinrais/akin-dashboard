@@ -15,11 +15,29 @@ import MenuItem from '@material-ui/core/MenuItem';
 const useStyles = makeStyles((theme) => ({
   button: {
     margin: theme.spacing(1),
-    maxWidth: '50', 
-    maxHeight: '50', 
-    minWidth: '50', 
-    minHeight: '50'
+    maxWidth: '70px', 
+    maxHeight: '70px', 
+    minWidth: '70px', 
+    minHeight: '70px',
+    border: '1px solid grey',
+    backgroundColor: 'white',
+    color: 'grey',
+    padding: '5px 5px',
+    fontSize: '12px',
+    cursor: 'pointer',
   },
+  selectedButton: {margin: theme.spacing(1),
+    maxWidth: '70px', 
+    maxHeight: '70px', 
+    minWidth: '70px', 
+    minHeight: '70px',
+    border: '1px solid black',
+    backgroundColor: '#dedede',
+    color: '#blac',
+    padding: '5px 5px',
+    fontSize: '12px',
+    cursor: 'pointer',
+  }
 }));
 
 const AkinPanel = props => {
@@ -28,7 +46,6 @@ const AkinPanel = props => {
     const classes = useStyles();
     var code_options = {};
     var isFnDSelected = false;
-    var selectedButton = '';
 
     const handleFocus = (ev, newFocus) => {
         props.updateFocus(newFocus);
@@ -47,7 +64,6 @@ const AkinPanel = props => {
     };
 
     const handleVtype = (ev) => {
-        selectedButton=ev.currentTarget.value;
         props.updateVtype(ev.currentTarget.value);
     }
 
@@ -158,46 +174,59 @@ const AkinPanel = props => {
                             <Grid container spacing={2} direction="row" alignItems="center">
                                 <Grid item>
                                     <Button 
-                                        className={classes.button}
-                                        color={selectedButton=='tmv'? "primary" : "secondary"} 
+                                        className={props.vtype=='tmv'? classes.selectedButton : classes.button}
                                         variant="contained"
                                         value="tmv"
                                         aria-label="tmv"
                                         onClick={handleVtype}
                                     >
-                                        <img src="/res/vizicon/tmv.png" height="25" alt="" /><br/>Tree Map
+                                        <img src="/res/vizicon/tmv.png" height="20" alt="" /><br/>Tree<br/>Map
                                     </Button>
                                 </Grid>
                                 <Grid item>
                                     {
                                         props.focus=="reg"? 
-                                        <Button 
-                                            className={classes.button}
-                                            color={selectedButton=='otv'? "primary" : "secondary"} 
-                                            variant="contained"
-                                            value="otv"
-                                            aria-label="otv"
-                                            onClick={handleVtype}
-                                        >
-                                            <img src="/res/vizicon/otv.png" height="25" alt="" /><br/>Over Time
-                                        </Button> :
-                                        <Button 
-                                            className={classes.button}
-                                            color={selectedButton=='gmv'? "primary" : "secondary"} 
-                                            variant="contained"
-                                            value="gmv"
-                                            aria-label="gmv"
-                                            onClick={handleVtype}
-                                        >
-                                            <img src="/res/vizicon/gmv.png" height="25" alt="" /><br/>Geo Map
-                                        </Button> 
+                                            <Button 
+                                                className={props.vtype=='otv'? classes.selectedButton : classes.button}
+                                                variant="contained"
+                                                value="otv"
+                                                aria-label="otv"
+                                                onClick={handleVtype}
+                                            >
+                                                <img src="/res/vizicon/otv.png" height="15" alt="" /><br/>Over<br/>Time
+                                            </Button> :
+                                            <Button 
+                                                className={props.vtype=='gmv'? classes.selectedButton : classes.button}
+                                                variant="contained"
+                                                value="gmv"
+                                                aria-label="gmv"
+                                                onClick={handleVtype}
+                                            >
+                                                <img src="/res/vizicon/gmv.png" height="15" alt="" /><br/>Geo<br/>Map
+                                            </Button> 
                                     }
                                 </Grid>
                                 <Grid item>
-                                    {
+                                {
                                         props.focus=="reg"? 
-                                            <Button size="small" value="nsv" aria-label="nsv">National Share</Button> :
-                                            <Button size="small" value="otv" aria-label="otv">Over Time</Button>
+                                            <Button 
+                                                className={props.vtype=='nsv'? classes.selectedButton : classes.button}
+                                                variant="contained"
+                                                value="nsv"
+                                                aria-label="nsv"
+                                                onClick={handleVtype}
+                                            >
+                                                <img src="/res/vizicon/nsv.png" height="15" alt="" /><br/>National<br/>Share
+                                            </Button> :
+                                            <Button 
+                                                className={props.vtype=='otv'? classes.selectedButton : classes.button}
+                                                variant="contained"
+                                                value="otv"
+                                                aria-label="otv"
+                                                onClick={handleVtype}
+                                            >
+                                                <img src="/res/vizicon/otv.png" height="15" alt="" /><br/>Over<br/>Time
+                                            </Button>
                                     }
                                 </Grid>
                             </Grid>
@@ -208,13 +237,25 @@ const AkinPanel = props => {
                         <Grid item>
                         <Grid container spacing={2} direction="row" alignItems="center">
                                 <Grid item>
-                                    <Button size="small" value="isv" aria-label="isv">
-                                        KI Space
+                                    <Button 
+                                        className={props.vtype=='isv'? classes.selectedButton : classes.button}
+                                        variant="contained"
+                                        value="isv"
+                                        aria-label="isv"
+                                        onClick={handleVtype}
+                                    >
+                                        <img src="/res/vizicon/isv.png" height="15" alt="" /><br/>KI<br/>Space
                                     </Button>
                                 </Grid>
                                 <Grid item>
-                                    <Button size="small" value="rcv" aria-label="rcv">
-                                        Ring Chart
+                                    <Button 
+                                        className={props.vtype=='rcv'? classes.selectedButton : classes.button}
+                                        variant="contained"
+                                        value="rcv"
+                                        aria-label="rcv"
+                                        onClick={handleVtype}
+                                    >
+                                        <img src="/res/vizicon/rcv.png" height="15" alt="" /><br/>Ring<br/>Chart
                                     </Button>
                                 </Grid>
                             </Grid>
