@@ -162,7 +162,6 @@ exports.nationalshare = async(req, res) => {
     });
   }
 
-  //console.log(tempCoords);
   let defReg = new model.NationalShare();
   defReg.lines = []
   for (let ptCd in tempCoords) {
@@ -179,8 +178,8 @@ exports.nationalshare = async(req, res) => {
       )
     } 
   }
-  console.log(defReg);
-  //console.log("TES");
+  res.json(defReg);
+  return;
 }
 
 exports.overtime = (req, res) => {
