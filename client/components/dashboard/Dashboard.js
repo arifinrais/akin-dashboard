@@ -196,34 +196,6 @@ class Dashboard extends Component {
                 </Grid>
             </Grid>
         )
-        /*return(
-            <Container>
-                <Row>
-                    <Col xs="8" sm="8" md="8" lg="8">
-                        <Row>
-                            {this.getTitle()}
-                        </Row>
-                        <Row>
-                            <Visualization {...this.state}/>
-                        </Row>
-                        <Row>
-                            <Modifier {...this.state} updateModifier={this.updateModifier}/>
-                        </Row>
-                        <Row>
-                            <Slider {...this.state} updateYear={this.updateYear}/>
-                        </Row>
-                    </Col>
-                    <Col xs="4" sm="4" md="4" lg="4">
-                        <Panel {...this.state}
-                            updateFocus={this.updateFocus} 
-                            updateRegDim={this.updateRegDim}
-                            updateIprDim={this.updateIprDim}
-                            updateCode={this.updateCode} 
-                            updateVtype={this.updateVtype} />
-                    </Col>
-                </Row>
-            </Container>
-        )*/
     }
 }
 
