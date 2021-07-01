@@ -97,6 +97,10 @@ exports.nationalshare = async(req, res) => {
   for (const ptCd of patentCd) {
     tempCoords[ptCd]=[];
   }
+  const sleep = ms => {
+    return new Promise(resolve => setTimeout(resolve, ms))
+  }
+
   for (let i=2000; i<2019; i++) {
     await model.Patent.find({year: i}, function(err, patent){
       if(err) {
@@ -125,6 +129,7 @@ exports.nationalshare = async(req, res) => {
         }
       } 
     });
+    if (i==2018) await sleep(1); //to stop 18/19 fethed items problems
   }
 
   let defReg = new model.NationalShare();
@@ -135,7 +140,7 @@ exports.nationalshare = async(req, res) => {
         {
           coords: tempCoords[ptCd],
           animationDuration: 0,
-          label: getPatent(ptCd),
+          //label: getPatent(ptCd),
           color: getColor(ptCd),
           labelColor: getColor(ptCd),
           width: 3,
@@ -145,7 +150,7 @@ exports.nationalshare = async(req, res) => {
       )
     }
   }
-  res.json(defReg);
+  res.json(defReg)
   return;
 }
 
