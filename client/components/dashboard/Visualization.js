@@ -43,7 +43,7 @@ class Visualization extends Component {
               //kayanya animasinya ngerender lebih lambat daripada react engine
               return(<DataViz vizType={VizType.LineChart} 
                 axisLabels={{left: 'Kontribusi terhadap Jumlah Paten Nasional (%)', bottom: 'Tahun'}}
-                axisMinMax={{minY: -1, maxY: getLineChartMaxY(data.lines)+5, minX: 2000, maxX: 2018}}
+                axisMinMax={{minY: 0, maxY: getLineChartMaxY(data.lines)+5, minX: 2000, maxX: 2018}}
                 formatAxis={{x: n => n.toString()}}
                 data={data.lines} />);
             } else {
