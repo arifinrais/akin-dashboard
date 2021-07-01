@@ -1,6 +1,10 @@
 var resources = require('../providers/resourceProvider');
 var model = require('../providers/modelProvider');
 
+const sleep = ms => {
+  return new Promise(resolve => setTimeout(resolve, ms))
+}
+
 function getPatent(code) {
   return resources.PatentCode[code];
 }
@@ -85,8 +89,6 @@ exports.default = (req,res) => {
   }
 }
 
-//async 
-
 exports.nationalshare = async(req, res) => {
   var rDim = req.query.regdim;
   //var iDim = req.query.iprdim;
@@ -97,9 +99,6 @@ exports.nationalshare = async(req, res) => {
   let tempCoords = {};
   for (const ptCd of patentCd) {
     tempCoords[ptCd]=[];
-  }
-  const sleep = ms => {
-    return new Promise(resolve => setTimeout(resolve, ms))
   }
 
   for (let i=2000; i<2019; i++) {
