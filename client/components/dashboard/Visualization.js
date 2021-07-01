@@ -27,27 +27,31 @@ class Visualization extends Component {
       } else if (!isLoaded) {
         return <div>Loading...</div>;
       } else {
+        if (data.vtype=='err') {
+          return(<DataViz id={'errorMssg'} vizType={VizType.Error} message={'Data tidak ditemukan'}/>);
+        }
         switch (vtype) {
           case 'tmv':
-            if (data.id=="dfr") {
+            if (data.vtype=="tmv") {
               return(<DataViz vizType={VizType.TreeMap} data={data} />);
             } else {
-              return <div>Loading...</div>;
+              return <DataViz id={'loadMssg'} vizType={VizType.Error} message={'Loading...'}/>;
             }
           case 'gmv':
             return(<div>Geo Map Viz is WIP</div>);
           case 'otv':
             return(<DataViz vizType={VizType.StackChart} data={data.lines} />);
           case 'nsv':
-            if (data.lines) { //ini harus dibenerin dibeda2in identifiernya
-              //kayanya animasinya ngerender lebih lambat daripada react engine
-              return(<DataViz vizType={VizType.LineChart} 
+            if (data.vtype=="nsv") { //ini harus dibenerin dibeda2in identifiernya misalnya data.vtype
+              let tempMaxY = getLineChartMaxY(data.lines);
+              return (tempMaxY==0? <DataViz id={'errorMssg'} vizType={VizType.Error} message={'Data tidak ditemukan'}/>:
+              <DataViz vizType={VizType.LineChart} 
                 axisLabels={{left: 'Kontribusi terhadap Jumlah Paten Nasional (%)', bottom: 'Tahun'}}
                 axisMinMax={{minY: 0, maxY: getLineChartMaxY(data.lines)+5, minX: 2000, maxX: 2018}}
                 formatAxis={{x: n => n.toString()}}
                 data={data.lines} />);
             } else {
-              return <div>Loading...</div>;
+              return <DataViz id={'loadMssg'} vizType={VizType.Error} message={'Loading...'}/>;
             }
           case 'isv':
             return(<div>KI Space Viz is WIP</div>); 

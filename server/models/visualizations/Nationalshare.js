@@ -18,6 +18,7 @@ const line = new Schema({
 });
 
 const lineChartSchema = new Schema({
+    vtype: String,
     lines: [line]
 });
 

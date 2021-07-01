@@ -16,6 +16,7 @@ const childSchema = new Schema({
 });
 
 const rootSchema = new Schema({
+    vtype: String,
     id: String,
     label: String,
     children: [childSchema]

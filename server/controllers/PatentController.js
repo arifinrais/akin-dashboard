@@ -23,7 +23,7 @@ function buildTreemap(fc, yr, rDim, iDim, cd, hid, res) {
       defReg.label = "dfr";
       defReg.children = [];
       if (!defRec[code]) {
-        res.send(err);
+        res.json({vtype: 'err'});
         return;
       }
       for(let ctg in defRec[code]) {
@@ -59,6 +59,7 @@ function buildTreemap(fc, yr, rDim, iDim, cd, hid, res) {
           defReg.children = defReg.children.filter((item) => item.fill != getColor(x));
         }
       }
+      defReg["vtype"]='tmv';
       res.json(defReg);
       return;  
     });
@@ -150,6 +151,7 @@ exports.nationalshare = async(req, res) => {
       )
     }
   }
+  defReg["vtype"]='nsv';
   res.json(defReg)
   return;
 }
