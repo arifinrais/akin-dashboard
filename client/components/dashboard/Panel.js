@@ -140,7 +140,7 @@ const AkinPanel = props => {
                                 >
                                     <MenuItem value={""}><em>Tingkat Daerah</em></MenuItem>
                                     <MenuItem value={"prov"}>Provinsi</MenuItem>
-                                    <MenuItem value={"city"}>Kabupaten/Kota</MenuItem>
+                                    <MenuItem value={"city"}>Kab/Kota</MenuItem>
                                 </Select>
                             </FormControl>
                         </Grid>
@@ -173,7 +173,7 @@ const AkinPanel = props => {
                             </MenuItem>
                             {isFnDSelected? Object.keys(code_options).map((key) => ( 
                                 <MenuItem value={key}>{code_options[key]}</MenuItem> ))
-                                : <MenuItem value={""}>Please Select Focus and Dimension</MenuItem>}
+                                : <MenuItem value={""}>Silahkan pilih fokus dan dimensi terlebih dahulu</MenuItem>}
                         </Select>
                     </FormControl>
                 </Grid>

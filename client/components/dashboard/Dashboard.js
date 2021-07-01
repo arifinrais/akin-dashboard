@@ -7,6 +7,7 @@ import Modifier from './Modifier';
 import routes from '../../../server/providers/routesProvider'; 
 import files from '../../../server/providers/resourceProvider';
 import Grid from "@material-ui/core/Grid";
+import {VizType} from 'react-fast-charts';
 //import axios from 'axios';
 
 const defaultParam = {

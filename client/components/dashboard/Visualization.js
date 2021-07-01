@@ -1,10 +1,6 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import {DataViz, 
-  VizType, 
-  LineChartDatum,
-  LabelPosition,
-  LabelAnchor} from 'react-fast-charts';
+import {DataViz, VizType} from 'react-fast-charts';
 
 //import * as d3 from 'd3';
 
@@ -36,7 +32,7 @@ class Visualization extends Component {
               return <DataViz id={'loadMssg'} vizType={VizType.Error} message={'Loading...'}/>;
             }
           case 'gmv':
-            return(<div>Geo Map Viz is WIP</div>);
+            return(<DataViz id={'wipMssg'} vizType={VizType.Error} message={'Visualisasi Geo Map masih dalam tahap pengembangan'}/>);
           case 'otv':
             return(<DataViz vizType={VizType.StackChart} data={data.lines} />);
           case 'nsv':
@@ -52,11 +48,11 @@ class Visualization extends Component {
               return <DataViz id={'loadMssg'} vizType={VizType.Error} message={'Loading...'}/>;
             }
           case 'isv':
-            return(<div>KI Space Viz is WIP</div>); 
+            return(<DataViz id={'wipMssg'} vizType={VizType.Error} message={'Visualisasi KI Space masih dalam tahap pengembangan'}/>); 
           case 'rcv':
-            return(<div>Ring Chart Viz is WIP</div>);
+            return(<DataViz id={'wipMssg'} vizType={VizType.Error} message={'Visualisasi Ring Chart masih dalam tahap pengembangan'}/>);
           default:
-            return(<div>Please set all the settings needed for visualization</div>);
+            return(<DataViz id={'settMssg'} vizType={VizType.Error} message={'Silahkan pilih pengaturan untuk menampilkan visualisasi'}/>);
         }
       }
       

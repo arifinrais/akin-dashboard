@@ -73,20 +73,8 @@ function buildTreemap(fc, yr, rDim, iDim, cd, hid, res) {
 }
 
 exports.default = (req,res) => {
-  var focusRec = req.query.focus;
-    //if req.query.focus == ipr
-    // default ipr
-    //else default region
-  if (focusRec == 'ipr') {
-    //ambil database  
-    //transform ke model Treemap
-    //res json
-  } else {
-    //ambil database
-    //BISA DIABSTRAKSI lagi buat dimasukin ke treemap aja pake parameter 2018, 12,
-    buildTreemap('reg', 2018, 'prov', 'ptn', '12', [], res);
-    return;
-  }
+  buildTreemap('reg', 2018, 'city', 'ptn', '181', [], res);
+  return;
 }
 
 exports.nationalshare = async(req, res) => {
