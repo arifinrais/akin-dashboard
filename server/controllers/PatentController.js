@@ -67,6 +67,41 @@ function buildTreemap(fc, yr, rDim, iDim, cd, hid, res) {
   }
 }
 
+function getSharesInAYear(yr, rdim, cd, cds) {
+  model.Patent.find({year: yr}, function(err, patent){
+    let tempCoords = {};
+    for (const ptCd of cds) {
+      tempCoords[ptCd]=[];
+    }
+    if(err) {
+      /*res.send(err)
+      return;*/
+      //if it's assumed not yet assigned
+      for (let ptCd in cds) {
+        tempCoords[ptCd].push({x: yr, y: 0});
+      }
+    } else {
+      let defRec = rdim=='prov'? patent[0].provinces : patent[0].cities;
+      let totalNat = patent[0].total_nation;
+      if (!defRec[cd]) {
+        for (const ptCd of cds) {
+          tempCoords[ptCd].push({x: yr, y: 0});
+        }
+      } else {
+        for (const ptCd of cds) {
+          if (defRec[cd][ptCd]) {
+            tempCoords[ptCd].push({x: yr, 
+              y: parseFloat(defRec[cd][ptCd]["total_ctg"]*100/totalNat[ptCd]).toFixed(2)});
+          } else {
+            tempCoords[ptCd].push({x: yr, y: 0});
+          }
+        }
+      }
+    } 
+    return tempCoords;
+  });
+}
+
 exports.default = (req,res) => {
   var focusRec = req.query.focus;
     //if req.query.focus == ipr
@@ -86,7 +121,7 @@ exports.default = (req,res) => {
 
 //async 
 
-exports.nationalshare = (req, res) => {
+exports.nationalshare = async(req, res) => {
   var rDim = req.query.regdim;
   //var iDim = req.query.iprdim;
   var cd = parseInt(req.query.code);
@@ -97,13 +132,11 @@ exports.nationalshare = (req, res) => {
   for (const ptCd of patentCd) {
     tempCoords[ptCd]=[];
   }
-  let tempLines = {}
   for (let i=2000; i<2019; i++) {
-    tempLines[i.toString()]=tempCoords;//ini misalnya harus async-await
-    model.Patent.find({year: i}, function(err, patent){
+    await model.Patent.find({year: i}, function(err, patent){
       if(err) {
-        /*res.send(err)
-        return;*/
+        //res.send(err)
+        //return;
         //if it's assumed not yet assigned
         for (let ptCd in patentCd) {
           tempCoords[ptCd].push({x: i, y: 0});
@@ -126,10 +159,10 @@ exports.nationalshare = (req, res) => {
           }
         }
       } 
-      console.log(tempCoords);
     });
   }
-  console.log(tempCoords);
+
+  //console.log(tempCoords);
   let defReg = new model.NationalShare();
   defReg.lines = []
   for (let ptCd in tempCoords) {
