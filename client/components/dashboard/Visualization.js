@@ -23,11 +23,11 @@ class Visualization extends Component {
           case 'gmv':
             return(<div>Geo Map Viz is WIP</div>);
           case 'otv':
-            return(<DataViz vizType={VizType.StackChart} data={data} />);
+            return(<DataViz vizType={VizType.StackChart} data={data.lines} />);
           case 'nsv':
             return(<DataViz vizType={VizType.LineChart} 
               axisLabels={{left: 'Jumlah Paten', bottom: 'Tahun'}}
-              axisMinMax={{minY: -10, maxY: 20, minX: 2000, maxX: 2018}}
+              axisMinMax={{minY: -10, maxY: 100, minX: 2000, maxX: 2018}}
               formatAxis={{x: n => n.toString()}}
               data={data} />);
           case 'isv':

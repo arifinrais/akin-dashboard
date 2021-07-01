@@ -83,112 +83,71 @@ exports.default = (req,res) => {
     return;
   }
 }
-const data: LineChartDatum[] = [
-  {
-    coords: [
-      {x: 2005, y: 5},
-      {x: 2006, y: 6},
-      {x: 2007, y: 8},
-      {x: 2008, y: 6},
-      {x: 2009, y: 5},
-      {x: 2010, y: 9},
-      {x: 2011, y: 8},
-      {x: 2012, y: 7},
-      {x: 2013, y: 6},
-      {x: 2014, y: 5},
-      {x: 2015, y: 5},
-      {x: 2016, y: 8},
-    ],
-    animationDuration: 0,
-    label: 'Green',
-    color: 'forestgreen',
-    labelColor: 'purple',
-    width: 3,
-    labelPosition: LabelPosition.Top,
-    labelAnchor: LabelAnchor.Middle,
-  }, {
-    coords: [
-      {x: 2005, y: 2},
-      {x: 2006, y: 4},
-      {x: 2007, y: 5},
-      {x: 2008, y: 3},
-      {x: 2009, y: 6},
-      {x: 2010, y: 5},
-      {x: 2011, y: 4},
-      {x: 2012, y: 3},
-      {x: 2013, y: 3},
-      {x: 2014, y: 4},
-      {x: 2015, y: 6},
-      {x: 2016, y: 7},
-    ],
-    animationDuration: 1000,
-    label: 'Salmon',
-    color: 'darksalmon',
-    labelColor: 'purple',
-    width: 3,
-    labelPosition: LabelPosition.Center,
-    labelAnchor: LabelAnchor.Left,
-  }
-];
+
+//async 
 
 exports.nationalshare = (req, res) => {
   var rDim = req.query.regdim;
   //var iDim = req.query.iprdim;
-  var cd = req.query.code;
-  var yr = req.query.year;
+  var cd = parseInt(req.query.code);
   var hid = String(req.query.hide).split(',');
 
-  model.Patent.find({year: yr}, function(err, patent){
-    if(err) {
-      res.send(err)
-      return;
-    }
-    let code = parseInt(cd);
-    let defReg = new model.TreeMap();
-    let defRec = rDim=='prov'? patent[0].provinces : patent[0].cities;
-    defReg.id = "dfr";
-    defReg.label = "dfr";
-    defReg.children = [];
-    if (!defRec[code]) {
-      res.send(err);
-      return;
-    }
-    for(let ctg in defRec[code]) {
-      let totalProv = rDim=='prov'? defRec[code]["total_prov"]:defRec[code]["total_city"];
-      if (ctg.length == 1 && defRec[code][ctg]!=null) {
-        let ptClass = getPatent(ctg);
-        let ptColor = getColor(ctg);
-        var child = {}
-        if (typeof ptClass === "string" && typeof ptColor === "string") {            
-          child["id"]=ptClass;
-          child["label"]=ptClass;
-          child["fill"]=ptColor;
-          child["children"]=[];
+  let patentCd = ["A", "B", "C", "D", "E", "F", "G", "H"];
+  let tempCoords = {};
+  for (const ptCd of patentCd) {
+    tempCoords[ptCd]=[];
+  }
+  let tempLines = {}
+  for (let i=2000; i<2019; i++) {
+    tempLines[i.toString()]=tempCoords;//ini misalnya harus async-await
+    model.Patent.find({year: i}, function(err, patent){
+      if(err) {
+        /*res.send(err)
+        return;*/
+        //if it's assumed not yet assigned
+        for (let ptCd in patentCd) {
+          tempCoords[ptCd].push({x: i, y: 0});
         }
-        for(let subctg in defRec[code][ctg]){
-          if (subctg.length == 3 && subctg != '_id' && defRec[code][ctg][subctg]!=null) {
-            let subptClass = getPatent(subctg);
-            var grandchild = {}
-            if (typeof subptClass === "string") {
-              grandchild["id"]=subptClass;
-              grandchild["label"]=subptClass;
-              grandchild["tooltipContent"]=subptClass;
-              grandchild["size"]=parseFloat(defRec[code][ctg][subctg]*100/totalProv).toFixed(2);
-              child["children"].push(grandchild);
+      } else {
+        let defRec = rDim=='prov'? patent[0].provinces : patent[0].cities;
+        let totalNat = patent[0].total_nation;
+        if (!defRec[cd]) {
+          for (const ptCd of patentCd) {
+            tempCoords[ptCd].push({x: i, y: 0});
+          }
+        } else {
+          for (const ptCd of patentCd) {
+            if (defRec[cd][ptCd]) {
+              tempCoords[ptCd].push({x: i, 
+                y: parseFloat(defRec[cd][ptCd]["total_ctg"]*100/totalNat[ptCd]).toFixed(2)});
+            } else {
+              tempCoords[ptCd].push({x: i, y: 0});
             }
           }
         }
-        defReg.children.push(child);
-      }
-    }
-    if (hid.length >= 1 && !hid.includes('')) {
-      for (var x of hid) {
-        defReg.children = defReg.children.filter((item) => item.fill != getColor(x));
-      }
-    }
-    res.json(defReg);
-    return;  
-  });
+      } 
+      console.log(tempCoords);
+    });
+  }
+  console.log(tempCoords);
+  let defReg = new model.NationalShare();
+  defReg.lines = []
+  for (let ptCd in tempCoords) {
+    if (!hid[ptCd]) {
+      defReg.lines.push(
+        {
+          coords: tempCoords[ptCd],
+          animationDuration: 0,
+          label: getPatent(ptCd),
+          color: getColor(ptCd),
+          labelColor: getColor(ptCd),
+          width: 3,
+        }
+      )
+    } 
+  }
+  console.log(defReg);
+  //console.log("TES");
 }
 
 exports.overtime = (req, res) => {

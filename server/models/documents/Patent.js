@@ -188,11 +188,22 @@ const citySchema = new Schema({
     total_city: Number
 });
 
+const totalNatSchema = new Schema({
+    A: Number,
+    B: Number,
+    C: Number,
+    D: Number,
+    E: Number,
+    F: Number,
+    G: Number,
+    H: Number
+});
+
 const patentSchema = new Schema({
     year: Number,
     provinces: [provinceSchema],
     cities: [citySchema],
-    total_nation: Number
+    total_nation: totalNatSchema
 });
 
 module.exports = mongoose.model('Patent', patentSchema, 'viz_patent');
