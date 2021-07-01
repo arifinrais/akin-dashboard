@@ -34,7 +34,11 @@ class Visualization extends Component {
           case 'gmv':
             return(<DataViz id={'wipMssg'} vizType={VizType.Error} message={'Visualisasi Geo Map masih dalam tahap pengembangan'}/>);
           case 'otv':
-            return(<DataViz vizType={VizType.StackChart} data={data.lines} />);
+            if (data.vtype=="otv") {
+              return(<DataViz vizType={VizType.StackChart} data={data.stacksReg} config={data.config} />);
+            } else {
+              return <DataViz id={'loadMssg'} vizType={VizType.Error} message={'Loading...'}/>;
+            }
           case 'nsv':
             if (data.vtype=="nsv") {
               let tempMaxY = getLineChartMaxY(data.lines);

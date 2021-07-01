@@ -143,8 +143,66 @@ exports.nationalshare = async(req, res) => {
   return;
 }
 
-exports.overtime = (req, res) => {
+exports.overtime = async(req, res) => {
+  var rDim = req.query.regdim;
+  //var iDim = req.query.iprdim;
+  var cd = parseInt(req.query.code);
+  var hid = String(req.query.hide).split(',');
+  var yr = String(req.query.year).split(',');
 
+  //if ipr then different
+  let patentCd = ["A", "B", "C", "D", "E", "F", "G", "H"];
+  let tempStacks = [];
+  
+
+  for (let i=2000; i<2019; i++) {
+    await model.Patent.find({year: i}, function(err, patent){
+      let tempStack = {};
+      for (const ptCd of patentCd) {
+        tempStack[ptCd]=0.0;
+      }
+      if(err) {
+      } else {
+        let defRec = rDim=='prov'? patent[0].provinces : patent[0].cities;
+        if (defRec[cd]) {
+          for (const ptCd of patentCd) {
+            if (defRec[cd][ptCd]) {
+              tempStack[ptCd]=parseFloat(defRec[cd][ptCd]["total_ctg"]).toFixed(2);
+            } else {
+              tempStack[ptCd]=0.0;
+            }
+          }
+        }
+      }
+      tempStack["year"]=i;
+      tempStacks.push(tempStack);
+    }); 
+    await sleep(1);
+  }
+  let defReg = new model.OverTime();
+  tempConfig = {primaryKey: 'year', groups: []};
+  console.log(typeof yr);
+  console.log(yr);
+  
+  tempStacks.filter((x) => x["year"]>=parseInt(yr[0]) || x["year"]<=parseInt(yr[1]));
+  for (const ptCd of patentCd) {
+    if (hid.includes(ptCd)) {
+      for (let i=0; i<tempStacks.length; i++) {
+        tempStacks[i][ptCd]=0;
+      }
+    }
+    tempConf={
+      key: ptCd,
+      label: getPatent(ptCd),
+      fill: getColor(ptCd)
+    }
+    tempConfig.groups.push(tempConf);
+  }
+  defReg.config = tempConfig;
+  defReg.stacksReg = tempStacks;
+  defReg["vtype"]='otv';
+  res.json(defReg)
+  return;
 }
 
 exports.treemap = (req, res) => {

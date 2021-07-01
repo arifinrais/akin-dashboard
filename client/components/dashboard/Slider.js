@@ -228,7 +228,7 @@ export default function CustomizedSlider(props) {
                   max={2018}
                   aria-labelledby="discrete-slider-custom"
                   valueLabelDisplay="auto"
-                  defaultValue={[2016, 2018]}
+                  defaultValue={[2000, 2018]}
                   onChange={handleChange}
                   onChangeCommitted={handleChange}
                 />
