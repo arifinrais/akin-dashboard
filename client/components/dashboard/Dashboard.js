@@ -82,6 +82,7 @@ class Dashboard extends Component {
         fetch(`${routes.Explore}?vtype=${this.state.vtype}&year=${this.state.year}&focus=${this.state.focus}&regdim=${this.state.reg_dimension}&iprdim=${this.state.ipr_dimension}&code=${this.state.code}&hide=${this.state.modifier}`)
         .then(res => res.json())
         .then((res) => {
+            //console.log(res);
             this.setState({data: res,
                 isLoaded : true,
                 vtype: this.state.vtype,

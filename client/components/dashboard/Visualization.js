@@ -19,17 +19,30 @@ class Visualization extends Component {
       } else {
         switch (vtype) {
           case 'tmv':
-            return(<DataViz vizType={VizType.TreeMap} data={data} />);     
+            if (data.id=="dfr") {
+              return(<DataViz vizType={VizType.TreeMap} data={data} />);
+            } else {
+              return <div>Loading...</div>;
+            }
           case 'gmv':
             return(<div>Geo Map Viz is WIP</div>);
           case 'otv':
             return(<DataViz vizType={VizType.StackChart} data={data.lines} />);
           case 'nsv':
-            return(<DataViz vizType={VizType.LineChart} 
-              axisLabels={{left: 'Jumlah Paten', bottom: 'Tahun'}}
-              axisMinMax={{minY: -10, maxY: 100, minX: 2000, maxX: 2018}}
-              formatAxis={{x: n => n.toString()}}
-              data={data} />);
+            if (data.lines) { //ini harus dibenerin dibeda2in identifiernya
+              for (let i=0; i<data.lines.length; i++) {
+                data.lines[i]["labelPosition"]=LabelPosition.Center;
+                data.lines[i]["labelAnchor"]=LabelAnchor.Left;
+              }
+              console.log(data.lines);
+              return(<DataViz vizType={VizType.LineChart} 
+                axisLabels={{left: 'Kontribusi terhadap Jumlah Paten Nasional (%)', bottom: 'Tahun'}}
+                axisMinMax={{minY: -1, maxY: 100, minX: 2000, maxX: 2019}}
+                formatAxis={{x: n => n.toString()}}
+                data={data.lines} />);
+            } else {
+              return <div>Loading...</div>;
+            }
           case 'isv':
             return(<div>KI Space Viz is WIP</div>); 
           case 'rcv':

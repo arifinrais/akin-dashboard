@@ -126,6 +126,7 @@ exports.nationalshare = async(req, res) => {
   //var iDim = req.query.iprdim;
   var cd = parseInt(req.query.code);
   var hid = String(req.query.hide).split(',');
+  console.log(hid);
 
   let patentCd = ["A", "B", "C", "D", "E", "F", "G", "H"];
   let tempCoords = {};
@@ -165,18 +166,18 @@ exports.nationalshare = async(req, res) => {
   let defReg = new model.NationalShare();
   defReg.lines = []
   for (let ptCd in tempCoords) {
-    if (!hid[ptCd]) {
+    if (!(ptCd in hid)) {
       defReg.lines.push(
         {
           coords: tempCoords[ptCd],
-          animationDuration: 0,
+          animationDuration: 0.0,
           label: getPatent(ptCd),
           color: getColor(ptCd),
           labelColor: getColor(ptCd),
           width: 3,
         }
       )
-    } 
+    }
   }
   res.json(defReg);
   return;
