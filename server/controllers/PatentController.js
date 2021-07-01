@@ -126,7 +126,6 @@ exports.nationalshare = async(req, res) => {
   //var iDim = req.query.iprdim;
   var cd = parseInt(req.query.code);
   var hid = String(req.query.hide).split(',');
-  console.log(hid);
 
   let patentCd = ["A", "B", "C", "D", "E", "F", "G", "H"];
   let tempCoords = {};
@@ -166,7 +165,7 @@ exports.nationalshare = async(req, res) => {
   let defReg = new model.NationalShare();
   defReg.lines = []
   for (let ptCd in tempCoords) {
-    if (!(ptCd in hid)) {
+    if (!hid.includes(ptCd)) {
       defReg.lines.push(
         {
           coords: tempCoords[ptCd],
@@ -175,6 +174,8 @@ exports.nationalshare = async(req, res) => {
           color: getColor(ptCd),
           labelColor: getColor(ptCd),
           width: 3,
+          //labelPosition="center" LabelPosition.Center bisa dicek di console.log browser viz
+          //labelAnchor="start" LabelPosition.Left
         }
       )
     }
