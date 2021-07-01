@@ -8,6 +8,16 @@ import {DataViz,
 
 //import * as d3 from 'd3';
 
+function getLineChartMaxY(lines) {
+  let max=0;
+  for (let i=0; i<lines.length;i++) {
+    for (let j=0; j<lines[i]["coords"].length; j++) {
+      if (lines[i]["coords"][j]["y"]>max) max=lines[i]["coords"][j]["y"];
+    }
+  }
+  return max;
+}
+
 class Visualization extends Component {
     render() {
       var { error, isLoaded, data, vtype } = this.props;
@@ -30,14 +40,10 @@ class Visualization extends Component {
             return(<DataViz vizType={VizType.StackChart} data={data.lines} />);
           case 'nsv':
             if (data.lines) { //ini harus dibenerin dibeda2in identifiernya
-              for (let i=0; i<data.lines.length; i++) {
-                data.lines[i]["labelPosition"]=LabelPosition.Center;
-                data.lines[i]["labelAnchor"]=LabelAnchor.Left;
-              }
-              console.log(data.lines);
+              //kayanya animasinya ngerender lebih lambat daripada react engine
               return(<DataViz vizType={VizType.LineChart} 
                 axisLabels={{left: 'Kontribusi terhadap Jumlah Paten Nasional (%)', bottom: 'Tahun'}}
-                axisMinMax={{minY: -1, maxY: 100, minX: 2000, maxX: 2019}}
+                axisMinMax={{minY: -1, maxY: getLineChartMaxY(data.lines)+5, minX: 2000, maxX: 2018}}
                 formatAxis={{x: n => n.toString()}}
                 data={data.lines} />);
             } else {

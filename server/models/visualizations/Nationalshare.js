@@ -13,8 +13,8 @@ const line = new Schema({
     color: String,
     labelColor: String,
     width: Number,
-    labelPosition: Object,
-    labelAnchor: Object
+    labelPosition: String,
+    labelAnchor: String
 });
 
 const lineChartSchema = new Schema({

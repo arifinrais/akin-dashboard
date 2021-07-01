@@ -67,41 +67,6 @@ function buildTreemap(fc, yr, rDim, iDim, cd, hid, res) {
   }
 }
 
-function getSharesInAYear(yr, rdim, cd, cds) {
-  model.Patent.find({year: yr}, function(err, patent){
-    let tempCoords = {};
-    for (const ptCd of cds) {
-      tempCoords[ptCd]=[];
-    }
-    if(err) {
-      /*res.send(err)
-      return;*/
-      //if it's assumed not yet assigned
-      for (let ptCd in cds) {
-        tempCoords[ptCd].push({x: yr, y: 0});
-      }
-    } else {
-      let defRec = rdim=='prov'? patent[0].provinces : patent[0].cities;
-      let totalNat = patent[0].total_nation;
-      if (!defRec[cd]) {
-        for (const ptCd of cds) {
-          tempCoords[ptCd].push({x: yr, y: 0});
-        }
-      } else {
-        for (const ptCd of cds) {
-          if (defRec[cd][ptCd]) {
-            tempCoords[ptCd].push({x: yr, 
-              y: parseFloat(defRec[cd][ptCd]["total_ctg"]*100/totalNat[ptCd]).toFixed(2)});
-          } else {
-            tempCoords[ptCd].push({x: yr, y: 0});
-          }
-        }
-      }
-    } 
-    return tempCoords;
-  });
-}
-
 exports.default = (req,res) => {
   var focusRec = req.query.focus;
     //if req.query.focus == ipr
@@ -169,13 +134,13 @@ exports.nationalshare = async(req, res) => {
       defReg.lines.push(
         {
           coords: tempCoords[ptCd],
-          animationDuration: 0.0,
+          animationDuration: 0,
           label: getPatent(ptCd),
           color: getColor(ptCd),
           labelColor: getColor(ptCd),
           width: 3,
-          //labelPosition="center" LabelPosition.Center bisa dicek di console.log browser viz
-          //labelAnchor="start" LabelPosition.Left
+          labelPosition:"center",
+          labelAnchor:"start"
         }
       )
     }
