@@ -75,7 +75,7 @@ class Dashboard extends Component {
     }
 
     updateVtype(vtp) {
-        console.log(vtp);
+        vtp=='otv'? this.setState({year: [2000, 2018]}): this.setState({year:2018});
         this.setState({vtype: vtp});
     }
 
