@@ -10,9 +10,8 @@ router.get('/explore',function(req, res) {
     var iprdimRec = req.query.iprdim;
     var codeRec = req.query.code;
     var vtypeRec = req.query.vtype;
-    var yearRec = req.query.year;
     
-    if(focusRec == null || regdimRec == null || iprdimRec == null || codeRec == null || vtypeRec == null || yearRec == null){
+    if(focusRec == null || regdimRec == null || iprdimRec == null || codeRec == null || vtypeRec == null){
       controller.PatentController.default(req,res);
       return;
     }

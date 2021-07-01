@@ -177,14 +177,13 @@ exports.overtime = async(req, res) => {
       tempStack["year"]=i;
       tempStacks.push(tempStack);
     }); 
-    await sleep(1);
+    if (i==2018) await sleep(1); //to stop 18/19 fethed items problems
   }
   let defReg = new model.OverTime();
   tempConfig = {primaryKey: 'year', groups: []};
-  console.log(typeof yr);
-  console.log(yr);
-  
-  tempStacks.filter((x) => x["year"]>=parseInt(yr[0]) || x["year"]<=parseInt(yr[1]));
+
+  //ini udah bener, tapi kenapa inputnya berubah2 ke default 2000-2018 yak
+  tempStacks = tempStacks.filter((x) => x["year"]>=parseInt(yr[0]) && x["year"]<=parseInt(yr[1]));
   for (const ptCd of patentCd) {
     if (hid.includes(ptCd)) {
       for (let i=0; i<tempStacks.length; i++) {
