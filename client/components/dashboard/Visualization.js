@@ -23,13 +23,11 @@ class Visualization extends Component {
       var { error, isLoaded, data, vtype } = this.props;
       
       if (error) {
-        return <div>Error: {error.message}</div>;
+        return <DataViz id={'errorMssg'} vizType={VizType.Error} message={error.message}/>;
       } else if (!isLoaded) {
-        return <div>Loading...</div>;
+        return <DataViz id={'loadMssg'} vizType={VizType.Error} message={'Loading...'}/>;
       } else {
-        if (data.vtype=='err') {
-          return(<DataViz id={'errorMssg'} vizType={VizType.Error} message={'Data tidak ditemukan'}/>);
-        }
+        if (data.vtype=='err') return <DataViz id={'errorMssg'} vizType={VizType.Error} message={'Data tidak ditemukan'}/>;
         switch (vtype) {
           case 'tmv':
             if (data.vtype=="tmv") {
@@ -42,11 +40,11 @@ class Visualization extends Component {
           case 'otv':
             return(<DataViz vizType={VizType.StackChart} data={data.lines} />);
           case 'nsv':
-            if (data.vtype=="nsv") { //ini harus dibenerin dibeda2in identifiernya misalnya data.vtype
+            if (data.vtype=="nsv") {
               let tempMaxY = getLineChartMaxY(data.lines);
               return (tempMaxY==0? <DataViz id={'errorMssg'} vizType={VizType.Error} message={'Data tidak ditemukan'}/>:
               <DataViz vizType={VizType.LineChart} 
-                axisLabels={{left: 'Kontribusi terhadap Jumlah Paten Nasional (%)', bottom: 'Tahun'}}
+                axisLabels={{left: 'Kontribusi (%)', bottom: 'Tahun'}}
                 axisMinMax={{minY: 0, maxY: getLineChartMaxY(data.lines)+5, minX: 2000, maxX: 2018}}
                 formatAxis={{x: n => n.toString()}}
                 data={data.lines} />);
