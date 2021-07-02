@@ -4,7 +4,7 @@ import {Nav, Navbar, NavDropdown} from 'react-bootstrap';
 
 const NavBar = props => {
     return(
-        <Navbar bg="light" expand="lg">
+        <Navbar bg="secondary" expand="lg" variant="dark">
             <Nav.Link href="/">
                 <img src="/res/logo-2.png" width="101.81" height="45" alt="" />
             </Nav.Link>

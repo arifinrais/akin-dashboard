@@ -190,10 +190,12 @@ const TimerangeSlider = withStyles({
     }
   },
   track: {
-    height: 8,
+    height: 3,
     opacity: 1,
     borderRadius: 5,
-    color: "#a9a9a9"
+    color: "#a9a9a9",
+    alignTracks:"center",
+    top: 11
   },
   rail: {
     height:8,
