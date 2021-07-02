@@ -16,6 +16,7 @@ const childSchema = new Schema({
 });
 
 const rootSchema = new Schema({
+    total_shown: Number,
     vtype: String,
     id: String,
     label: String,

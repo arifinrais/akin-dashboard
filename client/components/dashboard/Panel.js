@@ -12,7 +12,6 @@ import NativeSelect from '@material-ui/core/NativeSelect';
 import Resources from '../../../server/providers/resourceProvider';
 import MenuItem from '@material-ui/core/MenuItem';
 import Box from '@material-ui/core/Box';
-import { borderColor } from 'polished';
 
 const useStyles = makeStyles((theme) => ({
   button: {

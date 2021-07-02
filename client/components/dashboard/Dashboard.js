@@ -7,6 +7,7 @@ import Modifier from './Modifier';
 import routes from '../../../server/providers/routesProvider'; 
 import files from '../../../server/providers/resourceProvider';
 import Grid from "@material-ui/core/Grid";
+import Box from '@material-ui/core/Box';
 import {VizType} from 'react-fast-charts';
 //import axios from 'axios';
 
@@ -178,7 +179,16 @@ class Dashboard extends Component {
                                 <Grid item xs={6}>
                                     <Modifier {...this.state} updateModifier={this.updateModifier}/>
                                 </Grid>
-                                <Grid item xs={3}>
+                                <Grid item xs={3} >
+                                    <Box
+                                        display="flex"
+                                        flexWrap="wrap"
+                                        justifyContent="flex-end"
+                                        fontSize="12px"
+                                        fontWeight="fontWeightMedium"
+                                    >
+                                        Total Jumlah Paten: {this.state.data && this.state.vtype=='tmv'? this.state.data.total_shown:""}
+                                    </Box>
                                 </Grid>
                             </Grid>
                         </Grid>

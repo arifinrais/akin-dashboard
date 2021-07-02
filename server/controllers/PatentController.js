@@ -30,8 +30,8 @@ function buildTreemap(fc, yr, rDim, iDim, cd, hid, res) {
         res.json({vtype: 'err'});
         return;
       }
+      let totalProv = rDim=='prov'? defRec[code]["total_prov"]:defRec[code]["total_city"];
       for(let ctg in defRec[code]) {
-        let totalProv = rDim=='prov'? defRec[code]["total_prov"]:defRec[code]["total_city"];
         if (ctg.length == 1 && defRec[code][ctg]!=null) {
           let ptClass = getPatent(ctg);
           let ptColor = getColor(ctg);
@@ -61,9 +61,11 @@ function buildTreemap(fc, yr, rDim, iDim, cd, hid, res) {
       if (hid.length >= 1 && !hid.includes('')) {
         for (var x of hid) {
           defReg.children = defReg.children.filter((item) => item.fill != getColor(x));
+          totalProv-=defRec[code][x]['total_ctg'];
         }
       }
       defReg["vtype"]='tmv';
+      defReg["total_shown"]=totalProv;
       res.json(defReg);
       return;  
     });
