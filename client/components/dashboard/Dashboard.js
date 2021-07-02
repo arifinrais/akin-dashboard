@@ -143,6 +143,23 @@ class Dashboard extends Component {
         
     }
 
+    getTotal() {
+        if (this.state.vtype=='tmv' || this.state.vtype=='gmv' || this.state.vtype=='isv' || this.state.vtype=='rcv') {
+            return(<Box
+                        display="flex"
+                        flexWrap="wrap"
+                        justifyContent="flex-end"
+                        alignContent="flex-end"
+                        fontWeight="fontWeightMedium"
+                        fontSize="12px"
+                    >
+                        Jumlah Paten: {this.state.data.total_shown? 
+                            this.state.data.total_shown : "0"}
+                    </Box>);
+        }
+        return;
+    }
+
     componentDidMount(){
        fetch(routes.Explore)
         .then(res => res.json()) 
@@ -169,28 +186,13 @@ class Dashboard extends Component {
                     <Grid container spacing={1} direction="column" justify="space-evenly">
                         <Grid item>
                             {this.getTitle()}
+                            {this.getTotal()}
                         </Grid>
                         <Grid item>
                             <Visualization {...this.state}/>
                         </Grid>
                         <Grid item>
-                            <Grid container direction="row" justify="space-evenly">
-                                <Grid item xs={3}></Grid>
-                                <Grid item xs={6}>
-                                    <Modifier {...this.state} updateModifier={this.updateModifier}/>
-                                </Grid>
-                                <Grid item xs={3} >
-                                    <Box
-                                        display="flex"
-                                        flexWrap="wrap"
-                                        justifyContent="flex-end"
-                                        fontSize="12px"
-                                        fontWeight="fontWeightMedium"
-                                    >
-                                        Total Jumlah Paten: {this.state.data && this.state.vtype=='tmv'? this.state.data.total_shown:""}
-                                    </Box>
-                                </Grid>
-                            </Grid>
+                            <Modifier {...this.state} updateModifier={this.updateModifier}/>
                         </Grid>
                         <Grid item>
                             <Slider {...this.state} updateYear={this.updateYear}/>
