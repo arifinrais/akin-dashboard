@@ -4,12 +4,12 @@ import {Nav, Navbar, NavDropdown} from 'react-bootstrap';
 
 const NavBar = props => {
     return(
-        <Navbar bg="secondary" expand="lg" variant="dark">
+        <Navbar bg="dark" expand="lg" variant="dark">
             <Nav.Link href="/">
-                <img src="/res/logo-2.png" width="101.81" height="45" alt="" />
+                <img src="/res/logo-light.png" width="101.81" height="45" alt="" />
             </Nav.Link>
             <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="ml-auto">
+                <Nav className="ml-auto" >
                     <Nav.Link href="/explore">JELAJAHI</Nav.Link>
                     <NavDropdown alignRight title="DAERAH" id="basic-nav-dropdown">
                         <NavDropdown.Item href="/region">Profil Daerah</NavDropdown.Item>
