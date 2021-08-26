@@ -1,0 +1,5988 @@
+{
+    "city": [
+        {
+            "id": 0,
+            "city": "Kab. Aceh Barat",
+            "parent_id": 0
+        },
+        {
+            "id": 1,
+            "city": "Kab. Aceh Barat Daya",
+            "parent_id": 0
+        },
+        {
+            "id": 2,
+            "city": "Kab. Aceh Besar",
+            "parent_id": 0
+        },
+        {
+            "id": 3,
+            "city": "Kab. Aceh Jaya",
+            "parent_id": 0
+        },
+        {
+            "id": 4,
+            "city": "Kab. Aceh Selatan",
+            "parent_id": 0
+        },
+        {
+            "id": 5,
+            "city": "Kab. Aceh Singkil",
+            "parent_id": 0
+        },
+        {
+            "id": 6,
+            "city": "Kab. Aceh Tamiang",
+            "parent_id": 0
+        },
+        {
+            "id": 7,
+            "city": "Kab. Aceh Tengah",
+            "parent_id": 0
+        },
+        {
+            "id": 8,
+            "city": "Kab. Aceh Tenggara",
+            "parent_id": 0
+        },
+        {
+            "id": 9,
+            "city": "Kab. Aceh Timur",
+            "parent_id": 0
+        },
+        {
+            "id": 10,
+            "city": "Kab. Aceh Utara",
+            "parent_id": 0
+        },
+        {
+            "id": 11,
+            "city": "Kab. Bener Meriah",
+            "parent_id": 0
+        },
+        {
+            "id": 12,
+            "city": "Kab. Bireuen",
+            "parent_id": 0
+        },
+        {
+            "id": 13,
+            "city": "Kab. Gayo Lues",
+            "parent_id": 0
+        },
+        {
+            "id": 14,
+            "city": "Kab. Nagan Raya",
+            "parent_id": 0
+        },
+        {
+            "id": 15,
+            "city": "Kab. Pidie",
+            "parent_id": 0
+        },
+        {
+            "id": 16,
+            "city": "Kab. Pidie Jaya",
+            "parent_id": 0
+        },
+        {
+            "id": 17,
+            "city": "Kab. Simeulue",
+            "parent_id": 0
+        },
+        {
+            "id": 18,
+            "city": "Kota Banda Aceh",
+            "parent_id": 0
+        },
+        {
+            "id": 19,
+            "city": "Kota Langsa",
+            "parent_id": 0
+        },
+        {
+            "id": 20,
+            "city": "Kota Lhokseumawe",
+            "parent_id": 0
+        },
+        {
+            "id": 21,
+            "city": "Kota Sabang",
+            "parent_id": 0
+        },
+        {
+            "id": 22,
+            "city": "Kota Subulussalam",
+            "parent_id": 0
+        },
+        {
+            "id": 23,
+            "city": "Kab. Asahan",
+            "parent_id": 1
+        },
+        {
+            "id": 24,
+            "city": "Kab. Batu Bara",
+            "parent_id": 1
+        },
+        {
+            "id": 25,
+            "city": "Kab. Dairi",
+            "parent_id": 1
+        },
+        {
+            "id": 26,
+            "city": "Kab. Deli Serdang",
+            "parent_id": 1
+        },
+        {
+            "id": 27,
+            "city": "Kab. Humbang Hasundutan",
+            "parent_id": 1
+        },
+        {
+            "id": 28,
+            "city": "Kab. Karo",
+            "parent_id": 1
+        },
+        {
+            "id": 29,
+            "city": "Kab. Labuhanbatu",
+            "parent_id": 1
+        },
+        {
+            "id": 30,
+            "city": "Kab. Labuhanbatu Selatan",
+            "parent_id": 1
+        },
+        {
+            "id": 31,
+            "city": "Kab. Labuhanbatu Utara",
+            "parent_id": 1
+        },
+        {
+            "id": 32,
+            "city": "Kab. Langkat",
+            "parent_id": 1
+        },
+        {
+            "id": 33,
+            "city": "Kab. Mandailing Natal",
+            "parent_id": 1
+        },
+        {
+            "id": 34,
+            "city": "Kab. Nias",
+            "parent_id": 1
+        },
+        {
+            "id": 35,
+            "city": "Kab. Nias Barat",
+            "parent_id": 1
+        },
+        {
+            "id": 36,
+            "city": "Kab. Nias Selatan",
+            "parent_id": 1
+        },
+        {
+            "id": 37,
+            "city": "Kab. Nias Utara",
+            "parent_id": 1
+        },
+        {
+            "id": 38,
+            "city": "Kab. Padang Lawas",
+            "parent_id": 1
+        },
+        {
+            "id": 39,
+            "city": "Kab. Padang Lawas Utara",
+            "parent_id": 1
+        },
+        {
+            "id": 40,
+            "city": "Kab. Pakpak Bharat",
+            "parent_id": 1
+        },
+        {
+            "id": 41,
+            "city": "Kab. Samosir",
+            "parent_id": 1
+        },
+        {
+            "id": 42,
+            "city": "Kab. Serdang Bedagai",
+            "parent_id": 1
+        },
+        {
+            "id": 43,
+            "city": "Kab. Simalungun",
+            "parent_id": 1
+        },
+        {
+            "id": 44,
+            "city": "Kab. Tapanuli Selatan",
+            "parent_id": 1
+        },
+        {
+            "id": 45,
+            "city": "Kab. Tapanuli Tengah",
+            "parent_id": 1
+        },
+        {
+            "id": 46,
+            "city": "Kab. Tapanuli Utara",
+            "parent_id": 1
+        },
+        {
+            "id": 47,
+            "city": "Kab. Toba",
+            "parent_id": 1
+        },
+        {
+            "id": 48,
+            "city": "Kota Binjai",
+            "parent_id": 1
+        },
+        {
+            "id": 49,
+            "city": "Kota Gunung Sitoli",
+            "parent_id": 1
+        },
+        {
+            "id": 50,
+            "city": "Kota Medan",
+            "parent_id": 1
+        },
+        {
+            "id": 51,
+            "city": "Kota Padang Sidempuan",
+            "parent_id": 1
+        },
+        {
+            "id": 52,
+            "city": "Kota Pematang Siantar",
+            "parent_id": 1
+        },
+        {
+            "id": 53,
+            "city": "Kota Sibolga",
+            "parent_id": 1
+        },
+        {
+            "id": 54,
+            "city": "Kota Tanjungbalai",
+            "parent_id": 1
+        },
+        {
+            "id": 55,
+            "city": "Kota Tebing Tinggi",
+            "parent_id": 1
+        },
+        {
+            "id": 56,
+            "city": "Kab. Agam",
+            "parent_id": 2
+        },
+        {
+            "id": 57,
+            "city": "Kab. Dharmasraya",
+            "parent_id": 2
+        },
+        {
+            "id": 58,
+            "city": "Kab. Kepulauan Mentawai",
+            "parent_id": 2
+        },
+        {
+            "id": 59,
+            "city": "Kab. Lima Puluh Kota",
+            "parent_id": 2
+        },
+        {
+            "id": 60,
+            "city": "Kab. Padang Pariaman",
+            "parent_id": 2
+        },
+        {
+            "id": 61,
+            "city": "Kab. Pasaman",
+            "parent_id": 2
+        },
+        {
+            "id": 62,
+            "city": "Kab. Pasaman Barat",
+            "parent_id": 2
+        },
+        {
+            "id": 63,
+            "city": "Kab. Pesisir Selatan",
+            "parent_id": 2
+        },
+        {
+            "id": 64,
+            "city": "Kab. Sijunjung",
+            "parent_id": 2
+        },
+        {
+            "id": 65,
+            "city": "Kab. Solok",
+            "parent_id": 2
+        },
+        {
+            "id": 66,
+            "city": "Kab. Solok Selatan",
+            "parent_id": 2
+        },
+        {
+            "id": 67,
+            "city": "Kab. Tanah Datar",
+            "parent_id": 2
+        },
+        {
+            "id": 68,
+            "city": "Kota Bukittinggi",
+            "parent_id": 2
+        },
+        {
+            "id": 69,
+            "city": "Kota Padang",
+            "parent_id": 2
+        },
+        {
+            "id": 70,
+            "city": "Kota Padangpanjang",
+            "parent_id": 2
+        },
+        {
+            "id": 71,
+            "city": "Kota Pariaman",
+            "parent_id": 2
+        },
+        {
+            "id": 72,
+            "city": "Kota Payakumbuh",
+            "parent_id": 2
+        },
+        {
+            "id": 73,
+            "city": "Kota Sawahlunto",
+            "parent_id": 2
+        },
+        {
+            "id": 74,
+            "city": "Kota Solok",
+            "parent_id": 2
+        },
+        {
+            "id": 75,
+            "city": "Kab. Bengkalis",
+            "parent_id": 3
+        },
+        {
+            "id": 76,
+            "city": "Kab. Indragiri Hilir",
+            "parent_id": 3
+        },
+        {
+            "id": 77,
+            "city": "Kab. Indragiri Hulu",
+            "parent_id": 3
+        },
+        {
+            "id": 78,
+            "city": "Kab. Kampar",
+            "parent_id": 3
+        },
+        {
+            "id": 79,
+            "city": "Kab. Kepulauan Meranti",
+            "parent_id": 3
+        },
+        {
+            "id": 80,
+            "city": "Kab. Kuantan Singingi",
+            "parent_id": 3
+        },
+        {
+            "id": 81,
+            "city": "Kab. Pelalawan",
+            "parent_id": 3
+        },
+        {
+            "id": 82,
+            "city": "Kab. Rokan Hilir",
+            "parent_id": 3
+        },
+        {
+            "id": 83,
+            "city": "Kab. Rokan Hulu",
+            "parent_id": 3
+        },
+        {
+            "id": 84,
+            "city": "Kab. Siak",
+            "parent_id": 3
+        },
+        {
+            "id": 85,
+            "city": "Kota Dumai",
+            "parent_id": 3
+        },
+        {
+            "id": 86,
+            "city": "Kota Pekanbaru",
+            "parent_id": 3
+        },
+        {
+            "id": 87,
+            "city": "Kab. Bintan",
+            "parent_id": 4
+        },
+        {
+            "id": 88,
+            "city": "Kab. Karimun",
+            "parent_id": 4
+        },
+        {
+            "id": 89,
+            "city": "Kab. Kepulauan Anambas",
+            "parent_id": 4
+        },
+        {
+            "id": 90,
+            "city": "Kab. Lingga",
+            "parent_id": 4
+        },
+        {
+            "id": 91,
+            "city": "Kab. Natuna",
+            "parent_id": 4
+        },
+        {
+            "id": 92,
+            "city": "Kota Batam",
+            "parent_id": 4
+        },
+        {
+            "id": 93,
+            "city": "Kota Tanjungpinang",
+            "parent_id": 4
+        },
+        {
+            "id": 94,
+            "city": "Kab. Batanghari",
+            "parent_id": 5
+        },
+        {
+            "id": 95,
+            "city": "Kab. Bungo",
+            "parent_id": 5
+        },
+        {
+            "id": 96,
+            "city": "Kab. Kerinci",
+            "parent_id": 5
+        },
+        {
+            "id": 97,
+            "city": "Kab. Merangin",
+            "parent_id": 5
+        },
+        {
+            "id": 98,
+            "city": "Kab. Muaro Jambi",
+            "parent_id": 5
+        },
+        {
+            "id": 99,
+            "city": "Kab. Sarolangun",
+            "parent_id": 5
+        },
+        {
+            "id": 100,
+            "city": "Kab. Tanjung Jabung Barat",
+            "parent_id": 5
+        },
+        {
+            "id": 101,
+            "city": "Kab. Tanjung Jabung Timur",
+            "parent_id": 5
+        },
+        {
+            "id": 102,
+            "city": "Kab. Tebo",
+            "parent_id": 5
+        },
+        {
+            "id": 103,
+            "city": "Kota Jambi",
+            "parent_id": 5
+        },
+        {
+            "id": 104,
+            "city": "Kota Sungaipenuh",
+            "parent_id": 5
+        },
+        {
+            "id": 105,
+            "city": "Kab. Bengkulu Selatan",
+            "parent_id": 6
+        },
+        {
+            "id": 106,
+            "city": "Kab. Bengkulu Tengah",
+            "parent_id": 6
+        },
+        {
+            "id": 107,
+            "city": "Kab. Bengkulu Utara",
+            "parent_id": 6
+        },
+        {
+            "id": 108,
+            "city": "Kab. Kaur",
+            "parent_id": 6
+        },
+        {
+            "id": 109,
+            "city": "Kab. Kepahiang",
+            "parent_id": 6
+        },
+        {
+            "id": 110,
+            "city": "Kab. Lebong",
+            "parent_id": 6
+        },
+        {
+            "id": 111,
+            "city": "Kab. Mukomuko",
+            "parent_id": 6
+        },
+        {
+            "id": 112,
+            "city": "Kab. Rejang Lebong",
+            "parent_id": 6
+        },
+        {
+            "id": 113,
+            "city": "Kab. Seluma",
+            "parent_id": 6
+        },
+        {
+            "id": 114,
+            "city": "Kota Bengkulu",
+            "parent_id": 6
+        },
+        {
+            "id": 115,
+            "city": "Kab. Banyuasin",
+            "parent_id": 7
+        },
+        {
+            "id": 116,
+            "city": "Kab. Empat Lawang",
+            "parent_id": 7
+        },
+        {
+            "id": 117,
+            "city": "Kab. Lahat",
+            "parent_id": 7
+        },
+        {
+            "id": 118,
+            "city": "Kab. Muara Enim",
+            "parent_id": 7
+        },
+        {
+            "id": 119,
+            "city": "Kab. Musi Banyuasin",
+            "parent_id": 7
+        },
+        {
+            "id": 120,
+            "city": "Kab. Musi Rawas",
+            "parent_id": 7
+        },
+        {
+            "id": 121,
+            "city": "Kab. Musi Rawas Utara",
+            "parent_id": 7
+        },
+        {
+            "id": 122,
+            "city": "Kab. Ogan Ilir",
+            "parent_id": 7
+        },
+        {
+            "id": 123,
+            "city": "Kab. Ogan Komering Ilir",
+            "parent_id": 7
+        },
+        {
+            "id": 124,
+            "city": "Kab. Ogan Komering Ulu",
+            "parent_id": 7
+        },
+        {
+            "id": 125,
+            "city": "Kab. Ogan Komering Ulu Selatan",
+            "parent_id": 7
+        },
+        {
+            "id": 126,
+            "city": "Kab. Ogan Komering Ulu Timur",
+            "parent_id": 7
+        },
+        {
+            "id": 127,
+            "city": "Kab. Penukal Abab Lematang Ilir",
+            "parent_id": 7
+        },
+        {
+            "id": 128,
+            "city": "Kota Lubuklinggau",
+            "parent_id": 7
+        },
+        {
+            "id": 129,
+            "city": "Kota Pagar Alam",
+            "parent_id": 7
+        },
+        {
+            "id": 130,
+            "city": "Kota Palembang",
+            "parent_id": 7
+        },
+        {
+            "id": 131,
+            "city": "Kota Prabumulih",
+            "parent_id": 7
+        },
+        {
+            "id": 132,
+            "city": "Kab. Bangka",
+            "parent_id": 8
+        },
+        {
+            "id": 133,
+            "city": "Kab. Bangka Barat",
+            "parent_id": 8
+        },
+        {
+            "id": 134,
+            "city": "Kab. Bangka Selatan",
+            "parent_id": 8
+        },
+        {
+            "id": 135,
+            "city": "Kab. Bangka Tengah",
+            "parent_id": 8
+        },
+        {
+            "id": 136,
+            "city": "Kab. Belitung",
+            "parent_id": 8
+        },
+        {
+            "id": 137,
+            "city": "Kab. Belitung Timur",
+            "parent_id": 8
+        },
+        {
+            "id": 138,
+            "city": "Kota Pangkalpinang",
+            "parent_id": 8
+        },
+        {
+            "id": 139,
+            "city": "Kab. Lampung Barat",
+            "parent_id": 9
+        },
+        {
+            "id": 140,
+            "city": "Kab. Lampung Selatan",
+            "parent_id": 9
+        },
+        {
+            "id": 141,
+            "city": "Kab. Lampung Tengah",
+            "parent_id": 9
+        },
+        {
+            "id": 142,
+            "city": "Kab. Lampung Timur",
+            "parent_id": 9
+        },
+        {
+            "id": 143,
+            "city": "Kab. Lampung Utara",
+            "parent_id": 9
+        },
+        {
+            "id": 144,
+            "city": "Kab. Mesuji",
+            "parent_id": 9
+        },
+        {
+            "id": 145,
+            "city": "Kab. Pesawaran",
+            "parent_id": 9
+        },
+        {
+            "id": 146,
+            "city": "Kab. Pesisir Barat",
+            "parent_id": 9
+        },
+        {
+            "id": 147,
+            "city": "Kab. Pringsewu",
+            "parent_id": 9
+        },
+        {
+            "id": 148,
+            "city": "Kab. Tanggamus",
+            "parent_id": 9
+        },
+        {
+            "id": 149,
+            "city": "Kab. Tulang Bawang",
+            "parent_id": 9
+        },
+        {
+            "id": 150,
+            "city": "Kab. Tulang Bawang Barat",
+            "parent_id": 9
+        },
+        {
+            "id": 151,
+            "city": "Kab. Way Kanan",
+            "parent_id": 9
+        },
+        {
+            "id": 152,
+            "city": "Kota Bandar Lampung",
+            "parent_id": 9
+        },
+        {
+            "id": 153,
+            "city": "Kota Metro",
+            "parent_id": 9
+        },
+        {
+            "id": 154,
+            "city": "Kab. Lebak",
+            "parent_id": 10
+        },
+        {
+            "id": 155,
+            "city": "Kab. Pandeglang",
+            "parent_id": 10
+        },
+        {
+            "id": 156,
+            "city": "Kab. Serang",
+            "parent_id": 10
+        },
+        {
+            "id": 157,
+            "city": "Kab. Tangerang",
+            "parent_id": 10
+        },
+        {
+            "id": 158,
+            "city": "Kota Cilegon",
+            "parent_id": 10
+        },
+        {
+            "id": 159,
+            "city": "Kota Serang",
+            "parent_id": 10
+        },
+        {
+            "id": 160,
+            "city": "Kota Tangerang",
+            "parent_id": 10
+        },
+        {
+            "id": 161,
+            "city": "Kota Tangerang Selatan",
+            "parent_id": 10
+        },
+        {
+            "id": 162,
+            "city": "Kab. Bandung",
+            "parent_id": 11
+        },
+        {
+            "id": 163,
+            "city": "Kab. Bandung Barat",
+            "parent_id": 11
+        },
+        {
+            "id": 164,
+            "city": "Kab. Bekasi",
+            "parent_id": 11
+        },
+        {
+            "id": 165,
+            "city": "Kab. Bogor",
+            "parent_id": 11
+        },
+        {
+            "id": 166,
+            "city": "Kab. Ciamis",
+            "parent_id": 11
+        },
+        {
+            "id": 167,
+            "city": "Kab. Cianjur",
+            "parent_id": 11
+        },
+        {
+            "id": 168,
+            "city": "Kab. Cirebon",
+            "parent_id": 11
+        },
+        {
+            "id": 169,
+            "city": "Kab. Garut",
+            "parent_id": 11
+        },
+        {
+            "id": 170,
+            "city": "Kab. Indramayu",
+            "parent_id": 11
+        },
+        {
+            "id": 171,
+            "city": "Kab. Karawang",
+            "parent_id": 11
+        },
+        {
+            "id": 172,
+            "city": "Kab. Kuningan",
+            "parent_id": 11
+        },
+        {
+            "id": 173,
+            "city": "Kab. Majalengka",
+            "parent_id": 11
+        },
+        {
+            "id": 174,
+            "city": "Kab. Pangandaran",
+            "parent_id": 11
+        },
+        {
+            "id": 175,
+            "city": "Kab. Purwakarta",
+            "parent_id": 11
+        },
+        {
+            "id": 176,
+            "city": "Kab. Subang",
+            "parent_id": 11
+        },
+        {
+            "id": 177,
+            "city": "Kab. Sukabumi",
+            "parent_id": 11
+        },
+        {
+            "id": 178,
+            "city": "Kab. Sumedang",
+            "parent_id": 11
+        },
+        {
+            "id": 179,
+            "city": "Kab. Tasikmalaya",
+            "parent_id": 11
+        },
+        {
+            "id": 180,
+            "city": "Kota Bandung",
+            "parent_id": 11
+        },
+        {
+            "id": 181,
+            "city": "Kota Banjar",
+            "parent_id": 11
+        },
+        {
+            "id": 182,
+            "city": "Kota Bekasi",
+            "parent_id": 11
+        },
+        {
+            "id": 183,
+            "city": "Kota Bogor",
+            "parent_id": 11
+        },
+        {
+            "id": 184,
+            "city": "Kota Cimahi",
+            "parent_id": 11
+        },
+        {
+            "id": 185,
+            "city": "Kota Cirebon",
+            "parent_id": 11
+        },
+        {
+            "id": 186,
+            "city": "Kota Depok",
+            "parent_id": 11
+        },
+        {
+            "id": 187,
+            "city": "Kota Sukabumi",
+            "parent_id": 11
+        },
+        {
+            "id": 188,
+            "city": "Kota Tasikmalaya",
+            "parent_id": 11
+        },
+        {
+            "id": 189,
+            "city": "Kab. Kepulauan Seribu",
+            "parent_id": 12
+        },
+        {
+            "id": 190,
+            "city": "Kota Jakarta Barat",
+            "parent_id": 12
+        },
+        {
+            "id": 191,
+            "city": "Kota Jakarta Pusat",
+            "parent_id": 12
+        },
+        {
+            "id": 192,
+            "city": "Kota Jakarta Selatan",
+            "parent_id": 12
+        },
+        {
+            "id": 193,
+            "city": "Kota Jakarta Timur",
+            "parent_id": 12
+        },
+        {
+            "id": 194,
+            "city": "Kota Jakarta Utara",
+            "parent_id": 12
+        },
+        {
+            "id": 195,
+            "city": "Kab. Banjarnegara",
+            "parent_id": 13
+        },
+        {
+            "id": 196,
+            "city": "Kab. Banyumas",
+            "parent_id": 13
+        },
+        {
+            "id": 197,
+            "city": "Kab. Batang",
+            "parent_id": 13
+        },
+        {
+            "id": 198,
+            "city": "Kab. Blora",
+            "parent_id": 13
+        },
+        {
+            "id": 199,
+            "city": "Kab. Boyolali",
+            "parent_id": 13
+        },
+        {
+            "id": 200,
+            "city": "Kab. Brebes",
+            "parent_id": 13
+        },
+        {
+            "id": 201,
+            "city": "Kab. Cilacap",
+            "parent_id": 13
+        },
+        {
+            "id": 202,
+            "city": "Kab. Demak",
+            "parent_id": 13
+        },
+        {
+            "id": 203,
+            "city": "Kab. Grobogan",
+            "parent_id": 13
+        },
+        {
+            "id": 204,
+            "city": "Kab. Jepara",
+            "parent_id": 13
+        },
+        {
+            "id": 205,
+            "city": "Kab. Karanganyar",
+            "parent_id": 13
+        },
+        {
+            "id": 206,
+            "city": "Kab. Kebumen",
+            "parent_id": 13
+        },
+        {
+            "id": 207,
+            "city": "Kab. Kendal",
+            "parent_id": 13
+        },
+        {
+            "id": 208,
+            "city": "Kab. Klaten",
+            "parent_id": 13
+        },
+        {
+            "id": 209,
+            "city": "Kab. Kudus",
+            "parent_id": 13
+        },
+        {
+            "id": 210,
+            "city": "Kab. Magelang",
+            "parent_id": 13
+        },
+        {
+            "id": 211,
+            "city": "Kab. Pati",
+            "parent_id": 13
+        },
+        {
+            "id": 212,
+            "city": "Kab. Pekalongan",
+            "parent_id": 13
+        },
+        {
+            "id": 213,
+            "city": "Kab. Pemalang",
+            "parent_id": 13
+        },
+        {
+            "id": 214,
+            "city": "Kab. Purbalingga",
+            "parent_id": 13
+        },
+        {
+            "id": 215,
+            "city": "Kab. Purworejo",
+            "parent_id": 13
+        },
+        {
+            "id": 216,
+            "city": "Kab. Rembang",
+            "parent_id": 13
+        },
+        {
+            "id": 217,
+            "city": "Kab. Semarang",
+            "parent_id": 13
+        },
+        {
+            "id": 218,
+            "city": "Kab. Sragen",
+            "parent_id": 13
+        },
+        {
+            "id": 219,
+            "city": "Kab. Sukoharjo",
+            "parent_id": 13
+        },
+        {
+            "id": 220,
+            "city": "Kab. Tegal",
+            "parent_id": 13
+        },
+        {
+            "id": 221,
+            "city": "Kab. Temanggung",
+            "parent_id": 13
+        },
+        {
+            "id": 222,
+            "city": "Kab. Wonogiri",
+            "parent_id": 13
+        },
+        {
+            "id": 223,
+            "city": "Kab. Wonosobo",
+            "parent_id": 13
+        },
+        {
+            "id": 224,
+            "city": "Kota Magelang",
+            "parent_id": 13
+        },
+        {
+            "id": 225,
+            "city": "Kota Pekalongan",
+            "parent_id": 13
+        },
+        {
+            "id": 226,
+            "city": "Kota Salatiga",
+            "parent_id": 13
+        },
+        {
+            "id": 227,
+            "city": "Kota Semarang",
+            "parent_id": 13
+        },
+        {
+            "id": 228,
+            "city": "Kota Surakarta",
+            "parent_id": 13
+        },
+        {
+            "id": 229,
+            "city": "Kota Tegal",
+            "parent_id": 13
+        },
+        {
+            "id": 230,
+            "city": "Kab. Bantul",
+            "parent_id": 14
+        },
+        {
+            "id": 231,
+            "city": "Kab. Gunungkidul",
+            "parent_id": 14
+        },
+        {
+            "id": 232,
+            "city": "Kab. Kulon Progo",
+            "parent_id": 14
+        },
+        {
+            "id": 233,
+            "city": "Kab. Sleman",
+            "parent_id": 14
+        },
+        {
+            "id": 234,
+            "city": "Kota Yogyakarta",
+            "parent_id": 14
+        },
+        {
+            "id": 235,
+            "city": "Kab. Bangkalan",
+            "parent_id": 15
+        },
+        {
+            "id": 236,
+            "city": "Kab. Banyuwangi",
+            "parent_id": 15
+        },
+        {
+            "id": 237,
+            "city": "Kab. Blitar",
+            "parent_id": 15
+        },
+        {
+            "id": 238,
+            "city": "Kab. Bojonegoro",
+            "parent_id": 15
+        },
+        {
+            "id": 239,
+            "city": "Kab. Bondowoso",
+            "parent_id": 15
+        },
+        {
+            "id": 240,
+            "city": "Kab. Gresik",
+            "parent_id": 15
+        },
+        {
+            "id": 241,
+            "city": "Kab. Jember",
+            "parent_id": 15
+        },
+        {
+            "id": 242,
+            "city": "Kab. Jombang",
+            "parent_id": 15
+        },
+        {
+            "id": 243,
+            "city": "Kab. Kediri",
+            "parent_id": 15
+        },
+        {
+            "id": 244,
+            "city": "Kab. Lamongan",
+            "parent_id": 15
+        },
+        {
+            "id": 245,
+            "city": "Kab. Lumajang",
+            "parent_id": 15
+        },
+        {
+            "id": 246,
+            "city": "Kab. Madiun",
+            "parent_id": 15
+        },
+        {
+            "id": 247,
+            "city": "Kab. Magetan",
+            "parent_id": 15
+        },
+        {
+            "id": 248,
+            "city": "Kab. Malang",
+            "parent_id": 15
+        },
+        {
+            "id": 249,
+            "city": "Kab. Mojokerto",
+            "parent_id": 15
+        },
+        {
+            "id": 250,
+            "city": "Kab. Nganjuk",
+            "parent_id": 15
+        },
+        {
+            "id": 251,
+            "city": "Kab. Ngawi",
+            "parent_id": 15
+        },
+        {
+            "id": 252,
+            "city": "Kab. Pacitan",
+            "parent_id": 15
+        },
+        {
+            "id": 253,
+            "city": "Kab. Pamekasan",
+            "parent_id": 15
+        },
+        {
+            "id": 254,
+            "city": "Kab. Pasuruan",
+            "parent_id": 15
+        },
+        {
+            "id": 255,
+            "city": "Kab. Ponorogo",
+            "parent_id": 15
+        },
+        {
+            "id": 256,
+            "city": "Kab. Probolinggo",
+            "parent_id": 15
+        },
+        {
+            "id": 257,
+            "city": "Kab. Sampang",
+            "parent_id": 15
+        },
+        {
+            "id": 258,
+            "city": "Kab. Sidoarjo",
+            "parent_id": 15
+        },
+        {
+            "id": 259,
+            "city": "Kab. Situbondo",
+            "parent_id": 15
+        },
+        {
+            "id": 260,
+            "city": "Kab. Sumenep",
+            "parent_id": 15
+        },
+        {
+            "id": 261,
+            "city": "Kab. Trenggalek",
+            "parent_id": 15
+        },
+        {
+            "id": 262,
+            "city": "Kab. Tuban",
+            "parent_id": 15
+        },
+        {
+            "id": 263,
+            "city": "Kab. Tulungagung",
+            "parent_id": 15
+        },
+        {
+            "id": 264,
+            "city": "Kota Batu",
+            "parent_id": 15
+        },
+        {
+            "id": 265,
+            "city": "Kota Blitar",
+            "parent_id": 15
+        },
+        {
+            "id": 266,
+            "city": "Kota Kediri",
+            "parent_id": 15
+        },
+        {
+            "id": 267,
+            "city": "Kota Madiun",
+            "parent_id": 15
+        },
+        {
+            "id": 268,
+            "city": "Kota Malang",
+            "parent_id": 15
+        },
+        {
+            "id": 269,
+            "city": "Kota Mojokerto",
+            "parent_id": 15
+        },
+        {
+            "id": 270,
+            "city": "Kota Pasuruan",
+            "parent_id": 15
+        },
+        {
+            "id": 271,
+            "city": "Kota Probolinggo",
+            "parent_id": 15
+        },
+        {
+            "id": 272,
+            "city": "Kota Surabaya",
+            "parent_id": 15
+        },
+        {
+            "id": 273,
+            "city": "Kab. Badung",
+            "parent_id": 16
+        },
+        {
+            "id": 274,
+            "city": "Kab. Bangli",
+            "parent_id": 16
+        },
+        {
+            "id": 275,
+            "city": "Kab. Buleleng",
+            "parent_id": 16
+        },
+        {
+            "id": 276,
+            "city": "Kab. Gianyar",
+            "parent_id": 16
+        },
+        {
+            "id": 277,
+            "city": "Kab. Jembrana",
+            "parent_id": 16
+        },
+        {
+            "id": 278,
+            "city": "Kab. Karangasem",
+            "parent_id": 16
+        },
+        {
+            "id": 279,
+            "city": "Kab. Klungkung",
+            "parent_id": 16
+        },
+        {
+            "id": 280,
+            "city": "Kab. Tabanan",
+            "parent_id": 16
+        },
+        {
+            "id": 281,
+            "city": "Kota Denpasar",
+            "parent_id": 16
+        },
+        {
+            "id": 282,
+            "city": "Kab. Bima",
+            "parent_id": 17
+        },
+        {
+            "id": 283,
+            "city": "Kab. Dompu",
+            "parent_id": 17
+        },
+        {
+            "id": 284,
+            "city": "Kab. Lombok Barat",
+            "parent_id": 17
+        },
+        {
+            "id": 285,
+            "city": "Kab. Lombok Tengah",
+            "parent_id": 17
+        },
+        {
+            "id": 286,
+            "city": "Kab. Lombok Timur",
+            "parent_id": 17
+        },
+        {
+            "id": 287,
+            "city": "Kab. Lombok Utara",
+            "parent_id": 17
+        },
+        {
+            "id": 288,
+            "city": "Kab. Sumbawa",
+            "parent_id": 17
+        },
+        {
+            "id": 289,
+            "city": "Kab. Sumbawa Barat",
+            "parent_id": 17
+        },
+        {
+            "id": 290,
+            "city": "Kota Bima",
+            "parent_id": 17
+        },
+        {
+            "id": 291,
+            "city": "Kota Mataram",
+            "parent_id": 17
+        },
+        {
+            "id": 292,
+            "city": "Kab. Alor",
+            "parent_id": 18
+        },
+        {
+            "id": 293,
+            "city": "Kab. Belu",
+            "parent_id": 18
+        },
+        {
+            "id": 294,
+            "city": "Kab. Ende",
+            "parent_id": 18
+        },
+        {
+            "id": 295,
+            "city": "Kab. Flores Timur",
+            "parent_id": 18
+        },
+        {
+            "id": 296,
+            "city": "Kab. Kupang",
+            "parent_id": 18
+        },
+        {
+            "id": 297,
+            "city": "Kab. Lembata",
+            "parent_id": 18
+        },
+        {
+            "id": 298,
+            "city": "Kab. Malaka",
+            "parent_id": 18
+        },
+        {
+            "id": 299,
+            "city": "Kab. Manggarai",
+            "parent_id": 18
+        },
+        {
+            "id": 300,
+            "city": "Kab. Manggarai Barat",
+            "parent_id": 18
+        },
+        {
+            "id": 301,
+            "city": "Kab. Manggarai Timur",
+            "parent_id": 18
+        },
+        {
+            "id": 302,
+            "city": "Kab. Nagekeo",
+            "parent_id": 18
+        },
+        {
+            "id": 303,
+            "city": "Kab. Ngada",
+            "parent_id": 18
+        },
+        {
+            "id": 304,
+            "city": "Kab. Rote Ndao",
+            "parent_id": 18
+        },
+        {
+            "id": 305,
+            "city": "Kab. Sabu Raijua",
+            "parent_id": 18
+        },
+        {
+            "id": 306,
+            "city": "Kab. Sikka",
+            "parent_id": 18
+        },
+        {
+            "id": 307,
+            "city": "Kab. Sumba Barat",
+            "parent_id": 18
+        },
+        {
+            "id": 308,
+            "city": "Kab. Sumba Barat Daya",
+            "parent_id": 18
+        },
+        {
+            "id": 309,
+            "city": "Kab. Sumba Tengah",
+            "parent_id": 18
+        },
+        {
+            "id": 310,
+            "city": "Kab. Sumba Timur",
+            "parent_id": 18
+        },
+        {
+            "id": 311,
+            "city": "Kab. Timor Tengah Selatan",
+            "parent_id": 18
+        },
+        {
+            "id": 312,
+            "city": "Kab. Timor Tengah Utara",
+            "parent_id": 18
+        },
+        {
+            "id": 313,
+            "city": "Kota Kupang",
+            "parent_id": 18
+        },
+        {
+            "id": 314,
+            "city": "Kab. Bengkayang",
+            "parent_id": 19
+        },
+        {
+            "id": 315,
+            "city": "Kab. Kapuas Hulu",
+            "parent_id": 19
+        },
+        {
+            "id": 316,
+            "city": "Kab. Kayong Utara",
+            "parent_id": 19
+        },
+        {
+            "id": 317,
+            "city": "Kab. Ketapang",
+            "parent_id": 19
+        },
+        {
+            "id": 318,
+            "city": "Kab. Kubu Raya",
+            "parent_id": 19
+        },
+        {
+            "id": 319,
+            "city": "Kab. Landak",
+            "parent_id": 19
+        },
+        {
+            "id": 320,
+            "city": "Kab. Melawi",
+            "parent_id": 19
+        },
+        {
+            "id": 321,
+            "city": "Kab. Mempawah",
+            "parent_id": 19
+        },
+        {
+            "id": 322,
+            "city": "Kab. Sambas",
+            "parent_id": 19
+        },
+        {
+            "id": 323,
+            "city": "Kab. Sanggau",
+            "parent_id": 19
+        },
+        {
+            "id": 324,
+            "city": "Kab. Sekadau",
+            "parent_id": 19
+        },
+        {
+            "id": 325,
+            "city": "Kab. Sintang",
+            "parent_id": 19
+        },
+        {
+            "id": 326,
+            "city": "Kota Pontianak",
+            "parent_id": 19
+        },
+        {
+            "id": 327,
+            "city": "Kota Singkawang",
+            "parent_id": 19
+        },
+        {
+            "id": 328,
+            "city": "Kab. Balangan",
+            "parent_id": 20
+        },
+        {
+            "id": 329,
+            "city": "Kab. Banjar",
+            "parent_id": 20
+        },
+        {
+            "id": 330,
+            "city": "Kab. Barito Kuala",
+            "parent_id": 20
+        },
+        {
+            "id": 331,
+            "city": "Kab. Hulu Sungai Selatan",
+            "parent_id": 20
+        },
+        {
+            "id": 332,
+            "city": "Kab. Hulu Sungai Tengah",
+            "parent_id": 20
+        },
+        {
+            "id": 333,
+            "city": "Kab. Hulu Sungai Utara",
+            "parent_id": 20
+        },
+        {
+            "id": 334,
+            "city": "Kab. Kotabaru",
+            "parent_id": 20
+        },
+        {
+            "id": 335,
+            "city": "Kab. Tabalong",
+            "parent_id": 20
+        },
+        {
+            "id": 336,
+            "city": "Kab. Tanah Bumbu",
+            "parent_id": 20
+        },
+        {
+            "id": 337,
+            "city": "Kab. Tanah Laut",
+            "parent_id": 20
+        },
+        {
+            "id": 338,
+            "city": "Kab. Tapin",
+            "parent_id": 20
+        },
+        {
+            "id": 339,
+            "city": "Kota Banjarbaru",
+            "parent_id": 20
+        },
+        {
+            "id": 340,
+            "city": "Kota Banjarmasin",
+            "parent_id": 20
+        },
+        {
+            "id": 341,
+            "city": "Kab. Barito Selatan",
+            "parent_id": 21
+        },
+        {
+            "id": 342,
+            "city": "Kab. Barito Timur",
+            "parent_id": 21
+        },
+        {
+            "id": 343,
+            "city": "Kab. Barito Utara",
+            "parent_id": 21
+        },
+        {
+            "id": 344,
+            "city": "Kab. Gunung Mas",
+            "parent_id": 21
+        },
+        {
+            "id": 345,
+            "city": "Kab. Kapuas",
+            "parent_id": 21
+        },
+        {
+            "id": 346,
+            "city": "Kab. Katingan",
+            "parent_id": 21
+        },
+        {
+            "id": 347,
+            "city": "Kab. Kotawaringin Barat",
+            "parent_id": 21
+        },
+        {
+            "id": 348,
+            "city": "Kab. Kotawaringin Timur",
+            "parent_id": 21
+        },
+        {
+            "id": 349,
+            "city": "Kab. Lamandau",
+            "parent_id": 21
+        },
+        {
+            "id": 350,
+            "city": "Kab. Murung Raya",
+            "parent_id": 21
+        },
+        {
+            "id": 351,
+            "city": "Kab. Pulang Pisau",
+            "parent_id": 21
+        },
+        {
+            "id": 352,
+            "city": "Kab. Sukamara",
+            "parent_id": 21
+        },
+        {
+            "id": 353,
+            "city": "Kab. Seruyan",
+            "parent_id": 21
+        },
+        {
+            "id": 354,
+            "city": "Kota Palangka Raya",
+            "parent_id": 21
+        },
+        {
+            "id": 355,
+            "city": "Kab. Berau",
+            "parent_id": 22
+        },
+        {
+            "id": 356,
+            "city": "Kab. Kutai Barat",
+            "parent_id": 22
+        },
+        {
+            "id": 357,
+            "city": "Kab. Kutai Kartanegara",
+            "parent_id": 22
+        },
+        {
+            "id": 358,
+            "city": "Kab. Kutai Timur",
+            "parent_id": 22
+        },
+        {
+            "id": 359,
+            "city": "Kab. Mahakam Ulu",
+            "parent_id": 22
+        },
+        {
+            "id": 360,
+            "city": "Kab. Paser",
+            "parent_id": 22
+        },
+        {
+            "id": 361,
+            "city": "Kab. Penajam Paser Utara",
+            "parent_id": 22
+        },
+        {
+            "id": 362,
+            "city": "Kota Balikpapan",
+            "parent_id": 22
+        },
+        {
+            "id": 363,
+            "city": "Kota Bontang",
+            "parent_id": 22
+        },
+        {
+            "id": 364,
+            "city": "Kota Samarinda",
+            "parent_id": 22
+        },
+        {
+            "id": 365,
+            "city": "Kab. Bulungan",
+            "parent_id": 23
+        },
+        {
+            "id": 366,
+            "city": "Kab. Malinau",
+            "parent_id": 23
+        },
+        {
+            "id": 367,
+            "city": "Kab. Nunukan",
+            "parent_id": 23
+        },
+        {
+            "id": 368,
+            "city": "Kab. Tana Tidung",
+            "parent_id": 23
+        },
+        {
+            "id": 369,
+            "city": "Kota Tarakan",
+            "parent_id": 23
+        },
+        {
+            "id": 370,
+            "city": "Kab. Boalemo",
+            "parent_id": 24
+        },
+        {
+            "id": 371,
+            "city": "Kab. Bone Bolango",
+            "parent_id": 24
+        },
+        {
+            "id": 372,
+            "city": "Kab. Gorontalo",
+            "parent_id": 24
+        },
+        {
+            "id": 373,
+            "city": "Kab. Gorontalo Utara",
+            "parent_id": 24
+        },
+        {
+            "id": 374,
+            "city": "Kab. Pohuwato",
+            "parent_id": 24
+        },
+        {
+            "id": 375,
+            "city": "Kota Gorontalo",
+            "parent_id": 24
+        },
+        {
+            "id": 376,
+            "city": "Kab. Majene",
+            "parent_id": 25
+        },
+        {
+            "id": 377,
+            "city": "Kab. Mamasa",
+            "parent_id": 25
+        },
+        {
+            "id": 378,
+            "city": "Kab. Mamuju",
+            "parent_id": 25
+        },
+        {
+            "id": 379,
+            "city": "Kab. Mamuju Tengah",
+            "parent_id": 25
+        },
+        {
+            "id": 380,
+            "city": "Kab. Pasangkayu",
+            "parent_id": 25
+        },
+        {
+            "id": 381,
+            "city": "Kab. Polewali Mandar",
+            "parent_id": 25
+        },
+        {
+            "id": 382,
+            "city": "Kab. Bantaeng",
+            "parent_id": 26
+        },
+        {
+            "id": 383,
+            "city": "Kab. Barru",
+            "parent_id": 26
+        },
+        {
+            "id": 384,
+            "city": "Kab. Bone",
+            "parent_id": 26
+        },
+        {
+            "id": 385,
+            "city": "Kab. Bulukumba",
+            "parent_id": 26
+        },
+        {
+            "id": 386,
+            "city": "Kab. Enrekang",
+            "parent_id": 26
+        },
+        {
+            "id": 387,
+            "city": "Kab. Gowa",
+            "parent_id": 26
+        },
+        {
+            "id": 388,
+            "city": "Kab. Jeneponto",
+            "parent_id": 26
+        },
+        {
+            "id": 389,
+            "city": "Kab. Kepulauan Selayar",
+            "parent_id": 26
+        },
+        {
+            "id": 390,
+            "city": "Kab. Luwu",
+            "parent_id": 26
+        },
+        {
+            "id": 391,
+            "city": "Kab. Luwu Timur",
+            "parent_id": 26
+        },
+        {
+            "id": 392,
+            "city": "Kab. Luwu Utara",
+            "parent_id": 26
+        },
+        {
+            "id": 393,
+            "city": "Kab. Maros",
+            "parent_id": 26
+        },
+        {
+            "id": 394,
+            "city": "Kab. Pangkajene dan Kepulauan",
+            "parent_id": 26
+        },
+        {
+            "id": 395,
+            "city": "Kab. Pinrang",
+            "parent_id": 26
+        },
+        {
+            "id": 396,
+            "city": "Kab. Sidenreng Rappang",
+            "parent_id": 26
+        },
+        {
+            "id": 397,
+            "city": "Kab. Sinjai",
+            "parent_id": 26
+        },
+        {
+            "id": 398,
+            "city": "Kab. Soppeng",
+            "parent_id": 26
+        },
+        {
+            "id": 399,
+            "city": "Kab. Takalar",
+            "parent_id": 26
+        },
+        {
+            "id": 400,
+            "city": "Kab. Tana Toraja",
+            "parent_id": 26
+        },
+        {
+            "id": 401,
+            "city": "Kab. Toraja Utara",
+            "parent_id": 26
+        },
+        {
+            "id": 402,
+            "city": "Kab. Wajo",
+            "parent_id": 26
+        },
+        {
+            "id": 403,
+            "city": "Kota Makassar",
+            "parent_id": 26
+        },
+        {
+            "id": 404,
+            "city": "Kota Palopo",
+            "parent_id": 26
+        },
+        {
+            "id": 405,
+            "city": "Kota Parepare",
+            "parent_id": 26
+        },
+        {
+            "id": 406,
+            "city": "Kab. Bombana",
+            "parent_id": 27
+        },
+        {
+            "id": 407,
+            "city": "Kab. Buton",
+            "parent_id": 27
+        },
+        {
+            "id": 408,
+            "city": "Kab. Buton Selatan",
+            "parent_id": 27
+        },
+        {
+            "id": 409,
+            "city": "Kab. Buton Tengah",
+            "parent_id": 27
+        },
+        {
+            "id": 410,
+            "city": "Kab. Buton Utara",
+            "parent_id": 27
+        },
+        {
+            "id": 411,
+            "city": "Kab. Kolaka",
+            "parent_id": 27
+        },
+        {
+            "id": 412,
+            "city": "Kab. Kolaka Timur",
+            "parent_id": 27
+        },
+        {
+            "id": 413,
+            "city": "Kab. Kolaka Utara",
+            "parent_id": 27
+        },
+        {
+            "id": 414,
+            "city": "Kab. Konawe",
+            "parent_id": 27
+        },
+        {
+            "id": 415,
+            "city": "Kab. Konawe Kepulauan",
+            "parent_id": 27
+        },
+        {
+            "id": 416,
+            "city": "Kab. Konawe Selatan",
+            "parent_id": 27
+        },
+        {
+            "id": 417,
+            "city": "Kab. Konawe Utara",
+            "parent_id": 27
+        },
+        {
+            "id": 418,
+            "city": "Kab. Muna",
+            "parent_id": 27
+        },
+        {
+            "id": 419,
+            "city": "Kab. Muna Barat",
+            "parent_id": 27
+        },
+        {
+            "id": 420,
+            "city": "Kab. Wakatobi",
+            "parent_id": 27
+        },
+        {
+            "id": 421,
+            "city": "Kota Bau-Bau",
+            "parent_id": 27
+        },
+        {
+            "id": 422,
+            "city": "Kota Kendari",
+            "parent_id": 27
+        },
+        {
+            "id": 423,
+            "city": "Kab. Banggai",
+            "parent_id": 28
+        },
+        {
+            "id": 424,
+            "city": "Kab. Banggai Kepulauan",
+            "parent_id": 28
+        },
+        {
+            "id": 425,
+            "city": "Kab. Banggai Laut",
+            "parent_id": 28
+        },
+        {
+            "id": 426,
+            "city": "Kab. Buol",
+            "parent_id": 28
+        },
+        {
+            "id": 427,
+            "city": "Kab. Donggala",
+            "parent_id": 28
+        },
+        {
+            "id": 428,
+            "city": "Kab. Morowali",
+            "parent_id": 28
+        },
+        {
+            "id": 429,
+            "city": "Kab. Morowali Utara",
+            "parent_id": 28
+        },
+        {
+            "id": 430,
+            "city": "Kab. Parigi Moutong",
+            "parent_id": 28
+        },
+        {
+            "id": 431,
+            "city": "Kab. Poso",
+            "parent_id": 28
+        },
+        {
+            "id": 432,
+            "city": "Kab. Sigi",
+            "parent_id": 28
+        },
+        {
+            "id": 433,
+            "city": "Kab. Tojo Una-Una",
+            "parent_id": 28
+        },
+        {
+            "id": 434,
+            "city": "Kab. Tolitoli",
+            "parent_id": 28
+        },
+        {
+            "id": 435,
+            "city": "Kota Palu",
+            "parent_id": 28
+        },
+        {
+            "id": 436,
+            "city": "Kab. Bolaang Mongondow",
+            "parent_id": 29
+        },
+        {
+            "id": 437,
+            "city": "Kab. Bolaang Mongondow Selatan",
+            "parent_id": 29
+        },
+        {
+            "id": 438,
+            "city": "Kab. Bolaang Mongondow Timur",
+            "parent_id": 29
+        },
+        {
+            "id": 439,
+            "city": "Kab. Bolaang Mongondow Utara",
+            "parent_id": 29
+        },
+        {
+            "id": 440,
+            "city": "Kab. Kepulauan Sangihe",
+            "parent_id": 29
+        },
+        {
+            "id": 441,
+            "city": "Kab. Kepulauan Siau Tagulandang Biaro",
+            "parent_id": 29
+        },
+        {
+            "id": 442,
+            "city": "Kab. Kepulauan Talaud",
+            "parent_id": 29
+        },
+        {
+            "id": 443,
+            "city": "Kab. Minahasa",
+            "parent_id": 29
+        },
+        {
+            "id": 444,
+            "city": "Kab. Minahasa Selatan",
+            "parent_id": 29
+        },
+        {
+            "id": 445,
+            "city": "Kab. Minahasa Tenggara",
+            "parent_id": 29
+        },
+        {
+            "id": 446,
+            "city": "Kab. Minahasa Utara",
+            "parent_id": 29
+        },
+        {
+            "id": 447,
+            "city": "Kota Bitung",
+            "parent_id": 29
+        },
+        {
+            "id": 448,
+            "city": "Kota Kotamobagu",
+            "parent_id": 29
+        },
+        {
+            "id": 449,
+            "city": "Kota Manado",
+            "parent_id": 29
+        },
+        {
+            "id": 450,
+            "city": "Kota Tomohon",
+            "parent_id": 29
+        },
+        {
+            "id": 451,
+            "city": "Kab. Buru",
+            "parent_id": 30
+        },
+        {
+            "id": 452,
+            "city": "Kab. Buru Selatan",
+            "parent_id": 30
+        },
+        {
+            "id": 453,
+            "city": "Kab. Kepulauan Aru",
+            "parent_id": 30
+        },
+        {
+            "id": 454,
+            "city": "Kab. Maluku Barat Daya",
+            "parent_id": 30
+        },
+        {
+            "id": 455,
+            "city": "Kab. Maluku Tengah",
+            "parent_id": 30
+        },
+        {
+            "id": 456,
+            "city": "Kab. Maluku Tenggara",
+            "parent_id": 30
+        },
+        {
+            "id": 457,
+            "city": "Kab. Kepulauan Tanimbar",
+            "parent_id": 30
+        },
+        {
+            "id": 458,
+            "city": "Kab. Seram Bagian Barat",
+            "parent_id": 30
+        },
+        {
+            "id": 459,
+            "city": "Kab. Seram Bagian Timur",
+            "parent_id": 30
+        },
+        {
+            "id": 460,
+            "city": "Kota Ambon",
+            "parent_id": 30
+        },
+        {
+            "id": 461,
+            "city": "Kota Tual",
+            "parent_id": 30
+        },
+        {
+            "id": 462,
+            "city": "Kab. Halmahera Barat",
+            "parent_id": 31
+        },
+        {
+            "id": 463,
+            "city": "Kab. Halmahera Tengah",
+            "parent_id": 31
+        },
+        {
+            "id": 464,
+            "city": "Kab. Halmahera Timur",
+            "parent_id": 31
+        },
+        {
+            "id": 465,
+            "city": "Kab. Halmahera Selatan",
+            "parent_id": 31
+        },
+        {
+            "id": 466,
+            "city": "Kab. Halmahera Utara",
+            "parent_id": 31
+        },
+        {
+            "id": 467,
+            "city": "Kab. Kepulauan Sula",
+            "parent_id": 31
+        },
+        {
+            "id": 468,
+            "city": "Kab. Pulau Morotai",
+            "parent_id": 31
+        },
+        {
+            "id": 469,
+            "city": "Kab. Pulau Taliabu",
+            "parent_id": 31
+        },
+        {
+            "id": 470,
+            "city": "Kota Ternate",
+            "parent_id": 31
+        },
+        {
+            "id": 471,
+            "city": "Kota Tidore Kepulauan",
+            "parent_id": 31
+        },
+        {
+            "id": 472,
+            "city": "Kab. Asmat",
+            "parent_id": 32
+        },
+        {
+            "id": 473,
+            "city": "Kab. Biak Numfor",
+            "parent_id": 32
+        },
+        {
+            "id": 474,
+            "city": "Kab. Boven Digoel",
+            "parent_id": 32
+        },
+        {
+            "id": 475,
+            "city": "Kab. Deiyai",
+            "parent_id": 32
+        },
+        {
+            "id": 476,
+            "city": "Kab. Dogiyai",
+            "parent_id": 32
+        },
+        {
+            "id": 477,
+            "city": "Kab. Intan Jaya",
+            "parent_id": 32
+        },
+        {
+            "id": 478,
+            "city": "Kab. Jayapura",
+            "parent_id": 32
+        },
+        {
+            "id": 479,
+            "city": "Kab. Jayawijaya",
+            "parent_id": 32
+        },
+        {
+            "id": 480,
+            "city": "Kab. Keerom",
+            "parent_id": 32
+        },
+        {
+            "id": 481,
+            "city": "Kab. Kepulauan Yapen",
+            "parent_id": 32
+        },
+        {
+            "id": 482,
+            "city": "Kab. Lanny Jaya",
+            "parent_id": 32
+        },
+        {
+            "id": 483,
+            "city": "Kab. Mamberamo Raya",
+            "parent_id": 32
+        },
+        {
+            "id": 484,
+            "city": "Kab. Mamberamo Tengah",
+            "parent_id": 32
+        },
+        {
+            "id": 485,
+            "city": "Kab. Mappi",
+            "parent_id": 32
+        },
+        {
+            "id": 486,
+            "city": "Kab. Merauke",
+            "parent_id": 32
+        },
+        {
+            "id": 487,
+            "city": "Kab. Mimika",
+            "parent_id": 32
+        },
+        {
+            "id": 488,
+            "city": "Kab. Nabire",
+            "parent_id": 32
+        },
+        {
+            "id": 489,
+            "city": "Kab. Nduga",
+            "parent_id": 32
+        },
+        {
+            "id": 490,
+            "city": "Kab. Paniai",
+            "parent_id": 32
+        },
+        {
+            "id": 491,
+            "city": "Kab. Pegunungan Bintang",
+            "parent_id": 32
+        },
+        {
+            "id": 492,
+            "city": "Kab. Puncak",
+            "parent_id": 32
+        },
+        {
+            "id": 493,
+            "city": "Kab. Puncak Jaya",
+            "parent_id": 32
+        },
+        {
+            "id": 494,
+            "city": "Kab. Sarmi",
+            "parent_id": 32
+        },
+        {
+            "id": 495,
+            "city": "Kab. Supiori",
+            "parent_id": 32
+        },
+        {
+            "id": 496,
+            "city": "Kab. Tolikara",
+            "parent_id": 32
+        },
+        {
+            "id": 497,
+            "city": "Kab. Waropen",
+            "parent_id": 32
+        },
+        {
+            "id": 498,
+            "city": "Kab. Yahukimo",
+            "parent_id": 32
+        },
+        {
+            "id": 499,
+            "city": "Kab. Yalimo",
+            "parent_id": 32
+        },
+        {
+            "id": 500,
+            "city": "Kota Jayapura",
+            "parent_id": 32
+        },
+        {
+            "id": 501,
+            "city": "Kab. Fakfak",
+            "parent_id": 33
+        },
+        {
+            "id": 502,
+            "city": "Kab. Kaimana",
+            "parent_id": 33
+        },
+        {
+            "id": 503,
+            "city": "Kab. Manokwari",
+            "parent_id": 33
+        },
+        {
+            "id": 504,
+            "city": "Kab. Manokwari Selatan",
+            "parent_id": 33
+        },
+        {
+            "id": 505,
+            "city": "Kab. Maybrat",
+            "parent_id": 33
+        },
+        {
+            "id": 506,
+            "city": "Kab. Pegunungan Arfak",
+            "parent_id": 33
+        },
+        {
+            "id": 507,
+            "city": "Kab. Raja Ampat",
+            "parent_id": 33
+        },
+        {
+            "id": 508,
+            "city": "Kab. Sorong",
+            "parent_id": 33
+        },
+        {
+            "id": 509,
+            "city": "Kab. Sorong Selatan",
+            "parent_id": 33
+        },
+        {
+            "id": 510,
+            "city": "Kab. Tambrauw",
+            "parent_id": 33
+        },
+        {
+            "id": 511,
+            "city": "Kab. Teluk Bintuni",
+            "parent_id": 33
+        },
+        {
+            "id": 512,
+            "city": "Kab. Teluk Wondama",
+            "parent_id": 33
+        },
+        {
+            "id": 513,
+            "city": "Kota Sorong",
+            "parent_id": 33
+        }
+    ],
+    "dev_main": [
+        {
+            "id": 0,
+            "dev_main": "A"
+        },
+        {
+            "id": 1,
+            "dev_main": "B"
+        },
+        {
+            "id": 2,
+            "dev_main": "C"
+        },
+        {
+            "id": 3,
+            "dev_main": "D"
+        }
+    ],
+    "dev_econ": [
+        {
+            "id": 0,
+            "dev_econ": "1",
+            "parent_id": 0
+        },
+        {
+            "id": 1,
+            "dev_econ": "2",
+            "parent_id": 0
+        },
+        {
+            "id": 2,
+            "dev_econ": "3",
+            "parent_id": 1
+        },
+        {
+            "id": 3,
+            "dev_econ": "4",
+            "parent_id": 1
+        },
+        {
+            "id": 4,
+            "dev_econ": "5",
+            "parent_id": 1
+        },
+        {
+            "id": 5,
+            "dev_econ": "6",
+            "parent_id": 2
+        },
+        {
+            "id": 6,
+            "dev_econ": "7",
+            "parent_id": 2
+        },
+        {
+            "id": 7,
+            "dev_econ": "8",
+            "parent_id": 3
+        },
+        {
+            "id": 8,
+            "dev_econ": "9",
+            "parent_id": 3
+        },
+        {
+            "id": 9,
+            "dev_econ": "10",
+            "parent_id": 3
+        }
+    ],
+    "province": [
+        {
+            "id": 0,
+            "province": "Aceh",
+            "island_id": 0,
+            "parent_id": 0
+        },
+        {
+            "id": 1,
+            "province": "Sumatra Utara",
+            "island_id": 0,
+            "parent_id": 0
+        },
+        {
+            "id": 2,
+            "province": "Sumatra Barat",
+            "island_id": 0,
+            "parent_id": 1
+        },
+        {
+            "id": 3,
+            "province": "Riau",
+            "island_id": 0,
+            "parent_id": 1
+        },
+        {
+            "id": 4,
+            "province": "Kepulauan Riau",
+            "island_id": 0,
+            "parent_id": 1
+        },
+        {
+            "id": 5,
+            "province": "Jambi",
+            "island_id": 0,
+            "parent_id": 2
+        },
+        {
+            "id": 6,
+            "province": "Bengkulu",
+            "island_id": 0,
+            "parent_id": 2
+        },
+        {
+            "id": 7,
+            "province": "Sumatra Selatan",
+            "island_id": 0,
+            "parent_id": 2
+        },
+        {
+            "id": 8,
+            "province": "Kep. Bangka Belitung",
+            "island_id": 0,
+            "parent_id": 2
+        },
+        {
+            "id": 9,
+            "province": "Lampung",
+            "island_id": 0,
+            "parent_id": 3
+        },
+        {
+            "id": 10,
+            "province": "Banten",
+            "island_id": 1,
+            "parent_id": 3
+        },
+        {
+            "id": 11,
+            "province": "Jawa Barat",
+            "island_id": 1,
+            "parent_id": 3
+        },
+        {
+            "id": 12,
+            "province": "DKI Jakarta",
+            "island_id": 1,
+            "parent_id": 3
+        },
+        {
+            "id": 13,
+            "province": "Jawa Tengah",
+            "island_id": 1,
+            "parent_id": 3
+        },
+        {
+            "id": 14,
+            "province": "DI Yogyakarta",
+            "island_id": 1,
+            "parent_id": 3
+        },
+        {
+            "id": 15,
+            "province": "Jawa Timur",
+            "island_id": 1,
+            "parent_id": 5
+        },
+        {
+            "id": 16,
+            "province": "Bali",
+            "island_id": 2,
+            "parent_id": 5
+        },
+        {
+            "id": 17,
+            "province": "Nusa Tenggara Barat",
+            "island_id": 2,
+            "parent_id": 7
+        },
+        {
+            "id": 18,
+            "province": "Nusa Tenggara Timur",
+            "island_id": 2,
+            "parent_id": 7
+        },
+        {
+            "id": 19,
+            "province": "Kalimantan Barat",
+            "island_id": 3,
+            "parent_id": 4
+        },
+        {
+            "id": 20,
+            "province": "Kalimantan Selatan",
+            "island_id": 3,
+            "parent_id": 6
+        },
+        {
+            "id": 21,
+            "province": "Kalimantan Tengah",
+            "island_id": 3,
+            "parent_id": 6
+        },
+        {
+            "id": 22,
+            "province": "Kalimantan Timur",
+            "island_id": 3,
+            "parent_id": 6
+        },
+        {
+            "id": 23,
+            "province": "Kalimantan Utara",
+            "island_id": 3,
+            "parent_id": 6
+        },
+        {
+            "id": 24,
+            "province": "Gorontalo",
+            "island_id": 4,
+            "parent_id": 7
+        },
+        {
+            "id": 25,
+            "province": "Sulawesi Barat",
+            "island_id": 4,
+            "parent_id": 7
+        },
+        {
+            "id": 26,
+            "province": "Sulawesi Selatan",
+            "island_id": 4,
+            "parent_id": 7
+        },
+        {
+            "id": 27,
+            "province": "Sulawesi Tenggara",
+            "island_id": 4,
+            "parent_id": 7
+        },
+        {
+            "id": 28,
+            "province": "Sulawesi Tengah",
+            "island_id": 4,
+            "parent_id": 8
+        },
+        {
+            "id": 29,
+            "province": "Sulawesi Utara",
+            "island_id": 4,
+            "parent_id": 8
+        },
+        {
+            "id": 30,
+            "province": "Maluku",
+            "island_id": 5,
+            "parent_id": 9
+        },
+        {
+            "id": 31,
+            "province": "Maluku Utara",
+            "island_id": 5,
+            "parent_id": 9
+        },
+        {
+            "id": 32,
+            "province": "Papua",
+            "island_id": 6,
+            "parent_id": 9
+        },
+        {
+            "id": 33,
+            "province": "Papua Barat",
+            "island_id": 6,
+            "parent_id": 9
+        }
+    ],
+    "ipc_class2": [
+        {
+            "id": 0,
+            "class": "A01",
+            "parent_id": 0
+        },
+        {
+            "id": 1,
+            "class": "A21",
+            "parent_id": 1
+        },
+        {
+            "id": 2,
+            "class": "A22",
+            "parent_id": 1
+        },
+        {
+            "id": 3,
+            "class": "A23",
+            "parent_id": 1
+        },
+        {
+            "id": 4,
+            "class": "A24",
+            "parent_id": 1
+        },
+        {
+            "id": 5,
+            "class": "A41",
+            "parent_id": 2
+        },
+        {
+            "id": 6,
+            "class": "A42",
+            "parent_id": 2
+        },
+        {
+            "id": 7,
+            "class": "A43",
+            "parent_id": 2
+        },
+        {
+            "id": 8,
+            "class": "A44",
+            "parent_id": 2
+        },
+        {
+            "id": 9,
+            "class": "A45",
+            "parent_id": 2
+        },
+        {
+            "id": 10,
+            "class": "A46",
+            "parent_id": 2
+        },
+        {
+            "id": 11,
+            "class": "A47",
+            "parent_id": 2
+        },
+        {
+            "id": 12,
+            "class": "A61",
+            "parent_id": 3
+        },
+        {
+            "id": 13,
+            "class": "A62",
+            "parent_id": 3
+        },
+        {
+            "id": 14,
+            "class": "A63",
+            "parent_id": 3
+        },
+        {
+            "id": 15,
+            "class": "A99",
+            "parent_id": 4
+        },
+        {
+            "id": 16,
+            "class": "B01",
+            "parent_id": 5
+        },
+        {
+            "id": 17,
+            "class": "B02",
+            "parent_id": 5
+        },
+        {
+            "id": 18,
+            "class": "B03",
+            "parent_id": 5
+        },
+        {
+            "id": 19,
+            "class": "B04",
+            "parent_id": 5
+        },
+        {
+            "id": 20,
+            "class": "B05",
+            "parent_id": 5
+        },
+        {
+            "id": 21,
+            "class": "B06",
+            "parent_id": 5
+        },
+        {
+            "id": 22,
+            "class": "B07",
+            "parent_id": 5
+        },
+        {
+            "id": 23,
+            "class": "B08",
+            "parent_id": 5
+        },
+        {
+            "id": 24,
+            "class": "B09",
+            "parent_id": 5
+        },
+        {
+            "id": 25,
+            "class": "B21",
+            "parent_id": 6
+        },
+        {
+            "id": 26,
+            "class": "B22",
+            "parent_id": 6
+        },
+        {
+            "id": 27,
+            "class": "B23",
+            "parent_id": 6
+        },
+        {
+            "id": 28,
+            "class": "B24",
+            "parent_id": 6
+        },
+        {
+            "id": 29,
+            "class": "B25",
+            "parent_id": 6
+        },
+        {
+            "id": 30,
+            "class": "B26",
+            "parent_id": 6
+        },
+        {
+            "id": 31,
+            "class": "B27",
+            "parent_id": 6
+        },
+        {
+            "id": 32,
+            "class": "B28",
+            "parent_id": 6
+        },
+        {
+            "id": 33,
+            "class": "B29",
+            "parent_id": 6
+        },
+        {
+            "id": 34,
+            "class": "B30",
+            "parent_id": 7
+        },
+        {
+            "id": 35,
+            "class": "B31",
+            "parent_id": 7
+        },
+        {
+            "id": 36,
+            "class": "B32",
+            "parent_id": 7
+        },
+        {
+            "id": 37,
+            "class": "B33",
+            "parent_id": 7
+        },
+        {
+            "id": 38,
+            "class": "B41",
+            "parent_id": 8
+        },
+        {
+            "id": 39,
+            "class": "B42",
+            "parent_id": 8
+        },
+        {
+            "id": 40,
+            "class": "B43",
+            "parent_id": 8
+        },
+        {
+            "id": 41,
+            "class": "B44",
+            "parent_id": 8
+        },
+        {
+            "id": 42,
+            "class": "B60",
+            "parent_id": 9
+        },
+        {
+            "id": 43,
+            "class": "B61",
+            "parent_id": 9
+        },
+        {
+            "id": 44,
+            "class": "B62",
+            "parent_id": 9
+        },
+        {
+            "id": 45,
+            "class": "B63",
+            "parent_id": 9
+        },
+        {
+            "id": 46,
+            "class": "B64",
+            "parent_id": 9
+        },
+        {
+            "id": 47,
+            "class": "B65",
+            "parent_id": 9
+        },
+        {
+            "id": 48,
+            "class": "B66",
+            "parent_id": 9
+        },
+        {
+            "id": 49,
+            "class": "B67",
+            "parent_id": 9
+        },
+        {
+            "id": 50,
+            "class": "B68",
+            "parent_id": 9
+        },
+        {
+            "id": 51,
+            "class": "B81",
+            "parent_id": 10
+        },
+        {
+            "id": 52,
+            "class": "B82",
+            "parent_id": 10
+        },
+        {
+            "id": 53,
+            "class": "B99",
+            "parent_id": 11
+        },
+        {
+            "id": 54,
+            "class": "C01",
+            "parent_id": 12
+        },
+        {
+            "id": 55,
+            "class": "C02",
+            "parent_id": 12
+        },
+        {
+            "id": 56,
+            "class": "C03",
+            "parent_id": 12
+        },
+        {
+            "id": 57,
+            "class": "C04",
+            "parent_id": 12
+        },
+        {
+            "id": 58,
+            "class": "C05",
+            "parent_id": 12
+        },
+        {
+            "id": 59,
+            "class": "C06",
+            "parent_id": 12
+        },
+        {
+            "id": 60,
+            "class": "C07",
+            "parent_id": 12
+        },
+        {
+            "id": 61,
+            "class": "C08",
+            "parent_id": 12
+        },
+        {
+            "id": 62,
+            "class": "C09",
+            "parent_id": 12
+        },
+        {
+            "id": 63,
+            "class": "C10",
+            "parent_id": 13
+        },
+        {
+            "id": 64,
+            "class": "C11",
+            "parent_id": 13
+        },
+        {
+            "id": 65,
+            "class": "C12",
+            "parent_id": 13
+        },
+        {
+            "id": 66,
+            "class": "C13",
+            "parent_id": 13
+        },
+        {
+            "id": 67,
+            "class": "C14",
+            "parent_id": 13
+        },
+        {
+            "id": 68,
+            "class": "C21",
+            "parent_id": 14
+        },
+        {
+            "id": 69,
+            "class": "C22",
+            "parent_id": 14
+        },
+        {
+            "id": 70,
+            "class": "C23",
+            "parent_id": 14
+        },
+        {
+            "id": 71,
+            "class": "C25",
+            "parent_id": 14
+        },
+        {
+            "id": 72,
+            "class": "C30"
+        },
+        {
+            "id": 73,
+            "class": "C40",
+            "parent_id": 15
+        },
+        {
+            "id": 74,
+            "class": "C99",
+            "parent_id": 16
+        },
+        {
+            "id": 75,
+            "class": "D01",
+            "parent_id": 17
+        },
+        {
+            "id": 76,
+            "class": "D02",
+            "parent_id": 17
+        },
+        {
+            "id": 77,
+            "class": "D03",
+            "parent_id": 17
+        },
+        {
+            "id": 78,
+            "class": "D04",
+            "parent_id": 17
+        },
+        {
+            "id": 79,
+            "class": "D05",
+            "parent_id": 17
+        },
+        {
+            "id": 80,
+            "class": "D06",
+            "parent_id": 17
+        },
+        {
+            "id": 81,
+            "class": "D07",
+            "parent_id": 17
+        },
+        {
+            "id": 82,
+            "class": "D21",
+            "parent_id": 18
+        },
+        {
+            "id": 83,
+            "class": "D99",
+            "parent_id": 19
+        },
+        {
+            "id": 84,
+            "class": "E01",
+            "parent_id": 20
+        },
+        {
+            "id": 85,
+            "class": "E02",
+            "parent_id": 20
+        },
+        {
+            "id": 86,
+            "class": "E03",
+            "parent_id": 20
+        },
+        {
+            "id": 87,
+            "class": "E04",
+            "parent_id": 20
+        },
+        {
+            "id": 88,
+            "class": "E05",
+            "parent_id": 20
+        },
+        {
+            "id": 89,
+            "class": "E06",
+            "parent_id": 20
+        },
+        {
+            "id": 90,
+            "class": "E21",
+            "parent_id": 21
+        },
+        {
+            "id": 91,
+            "class": "E99",
+            "parent_id": 22
+        },
+        {
+            "id": 92,
+            "class": "F01",
+            "parent_id": 23
+        },
+        {
+            "id": 93,
+            "class": "F02",
+            "parent_id": 23
+        },
+        {
+            "id": 94,
+            "class": "F03",
+            "parent_id": 23
+        },
+        {
+            "id": 95,
+            "class": "F04",
+            "parent_id": 23
+        },
+        {
+            "id": 96,
+            "class": "F15",
+            "parent_id": 24
+        },
+        {
+            "id": 97,
+            "class": "F16",
+            "parent_id": 24
+        },
+        {
+            "id": 98,
+            "class": "F17",
+            "parent_id": 24
+        },
+        {
+            "id": 99,
+            "class": "F21",
+            "parent_id": 25
+        },
+        {
+            "id": 100,
+            "class": "F22",
+            "parent_id": 25
+        },
+        {
+            "id": 101,
+            "class": "F23",
+            "parent_id": 25
+        },
+        {
+            "id": 102,
+            "class": "F24",
+            "parent_id": 25
+        },
+        {
+            "id": 103,
+            "class": "F25",
+            "parent_id": 25
+        },
+        {
+            "id": 104,
+            "class": "F26",
+            "parent_id": 25
+        },
+        {
+            "id": 105,
+            "class": "F27",
+            "parent_id": 25
+        },
+        {
+            "id": 106,
+            "class": "F28",
+            "parent_id": 25
+        },
+        {
+            "id": 107,
+            "class": "F41",
+            "parent_id": 26
+        },
+        {
+            "id": 108,
+            "class": "F42",
+            "parent_id": 26
+        },
+        {
+            "id": 109,
+            "class": "F99",
+            "parent_id": 27
+        },
+        {
+            "id": 110,
+            "class": "G01",
+            "parent_id": 28
+        },
+        {
+            "id": 111,
+            "class": "G02",
+            "parent_id": 28
+        },
+        {
+            "id": 112,
+            "class": "G03",
+            "parent_id": 28
+        },
+        {
+            "id": 113,
+            "class": "G04",
+            "parent_id": 28
+        },
+        {
+            "id": 114,
+            "class": "G05",
+            "parent_id": 28
+        },
+        {
+            "id": 115,
+            "class": "G06",
+            "parent_id": 28
+        },
+        {
+            "id": 116,
+            "class": "G07",
+            "parent_id": 28
+        },
+        {
+            "id": 117,
+            "class": "G08",
+            "parent_id": 28
+        },
+        {
+            "id": 118,
+            "class": "G09",
+            "parent_id": 28
+        },
+        {
+            "id": 119,
+            "class": "G10",
+            "parent_id": 29
+        },
+        {
+            "id": 120,
+            "class": "G11",
+            "parent_id": 29
+        },
+        {
+            "id": 121,
+            "class": "G12",
+            "parent_id": 29
+        },
+        {
+            "id": 122,
+            "class": "G16",
+            "parent_id": 29
+        },
+        {
+            "id": 123,
+            "class": "G21",
+            "parent_id": 30
+        },
+        {
+            "id": 124,
+            "class": "G99",
+            "parent_id": 31
+        },
+        {
+            "id": 125,
+            "class": "H01",
+            "parent_id": 32
+        },
+        {
+            "id": 126,
+            "class": "H02",
+            "parent_id": 32
+        },
+        {
+            "id": 127,
+            "class": "H03",
+            "parent_id": 32
+        },
+        {
+            "id": 128,
+            "class": "H04",
+            "parent_id": 32
+        },
+        {
+            "id": 129,
+            "class": "H05",
+            "parent_id": 32
+        },
+        {
+            "id": 130,
+            "class": "H99",
+            "parent_id": 33
+        }
+    ],
+    "ipc_class1": [
+        {
+            "id": 0,
+            "class": "A0",
+            "parent_id": 0
+        },
+        {
+            "id": 1,
+            "class": "A2",
+            "parent_id": 0
+        },
+        {
+            "id": 2,
+            "class": "A4",
+            "parent_id": 0
+        },
+        {
+            "id": 3,
+            "class": "A6",
+            "parent_id": 0
+        },
+        {
+            "id": 4,
+            "class": "A9",
+            "parent_id": 0
+        },
+        {
+            "id": 5,
+            "class": "B0",
+            "parent_id": 1
+        },
+        {
+            "id": 6,
+            "class": "B2",
+            "parent_id": 1
+        },
+        {
+            "id": 7,
+            "class": "B3",
+            "parent_id": 1
+        },
+        {
+            "id": 8,
+            "class": "B4",
+            "parent_id": 1
+        },
+        {
+            "id": 9,
+            "class": "B6",
+            "parent_id": 1
+        },
+        {
+            "id": 10,
+            "class": "B8",
+            "parent_id": 1
+        },
+        {
+            "id": 11,
+            "class": "B9",
+            "parent_id": 1
+        },
+        {
+            "id": 12,
+            "class": "C0",
+            "parent_id": 2
+        },
+        {
+            "id": 13,
+            "class": "C1",
+            "parent_id": 2
+        },
+        {
+            "id": 14,
+            "class": "C2",
+            "parent_id": 2
+        },
+        {
+            "id": 15,
+            "class": "C4",
+            "parent_id": 2
+        },
+        {
+            "id": 16,
+            "class": "C9",
+            "parent_id": 2
+        },
+        {
+            "id": 17,
+            "class": "D0",
+            "parent_id": 3
+        },
+        {
+            "id": 18,
+            "class": "D2",
+            "parent_id": 3
+        },
+        {
+            "id": 19,
+            "class": "D9",
+            "parent_id": 3
+        },
+        {
+            "id": 20,
+            "class": "E0",
+            "parent_id": 4
+        },
+        {
+            "id": 21,
+            "class": "E2",
+            "parent_id": 4
+        },
+        {
+            "id": 22,
+            "class": "E9",
+            "parent_id": 4
+        },
+        {
+            "id": 23,
+            "class": "F0",
+            "parent_id": 5
+        },
+        {
+            "id": 24,
+            "class": "F1",
+            "parent_id": 5
+        },
+        {
+            "id": 25,
+            "class": "F2",
+            "parent_id": 5
+        },
+        {
+            "id": 26,
+            "class": "F4",
+            "parent_id": 5
+        },
+        {
+            "id": 27,
+            "class": "F9",
+            "parent_id": 5
+        },
+        {
+            "id": 28,
+            "class": "G0",
+            "parent_id": 6
+        },
+        {
+            "id": 29,
+            "class": "G1",
+            "parent_id": 6
+        },
+        {
+            "id": 30,
+            "class": "G2",
+            "parent_id": 6
+        },
+        {
+            "id": 31,
+            "class": "G9",
+            "parent_id": 6
+        },
+        {
+            "id": 32,
+            "class": "H0",
+            "parent_id": 7
+        },
+        {
+            "id": 33,
+            "class": "H9",
+            "parent_id": 7
+        }
+    ],
+    "island": [
+        {
+            "id": 0,
+            "island": "SM"
+        },
+        {
+            "id": 1,
+            "island": "JW"
+        },
+        {
+            "id": 2,
+            "island": "NU"
+        },
+        {
+            "id": 3,
+            "island": "KA"
+        },
+        {
+            "id": 4,
+            "island": "SL"
+        },
+        {
+            "id": 5,
+            "island": "ML"
+        },
+        {
+            "id": 6,
+            "island": "PP"
+        }
+    ],
+    "ipc_base": [
+        {
+            "id": 0,
+            "class": "A"
+        },
+        {
+            "id": 1,
+            "class": "B"
+        },
+        {
+            "id": 2,
+            "class": "C"
+        },
+        {
+            "id": 3,
+            "class": "D"
+        },
+        {
+            "id": 4,
+            "class": "E"
+        },
+        {
+            "id": 5,
+            "class": "F"
+        },
+        {
+            "id": 6,
+            "class": "G"
+        },
+        {
+            "id": 7,
+            "class": "H"
+        }
+    ],
+    "ncl_class1": [
+        {
+            "id": 0,
+            "class": "1",
+            "parent_id": 0
+        },
+        {
+            "id": 1,
+            "class": "2",
+            "parent_id": 0
+        },
+        {
+            "id": 2,
+            "class": "3",
+            "parent_id": 0
+        },
+        {
+            "id": 3,
+            "class": "4",
+            "parent_id": 0
+        },
+        {
+            "id": 4,
+            "class": "5",
+            "parent_id": 0
+        },
+        {
+            "id": 5,
+            "class": "6",
+            "parent_id": 0
+        },
+        {
+            "id": 6,
+            "class": "7",
+            "parent_id": 0
+        },
+        {
+            "id": 7,
+            "class": "8",
+            "parent_id": 0
+        },
+        {
+            "id": 8,
+            "class": "9",
+            "parent_id": 0
+        },
+        {
+            "id": 9,
+            "class": "10",
+            "parent_id": 0
+        },
+        {
+            "id": 10,
+            "class": "11",
+            "parent_id": 0
+        },
+        {
+            "id": 11,
+            "class": "12",
+            "parent_id": 0
+        },
+        {
+            "id": 12,
+            "class": "13",
+            "parent_id": 0
+        },
+        {
+            "id": 13,
+            "class": "14",
+            "parent_id": 0
+        },
+        {
+            "id": 14,
+            "class": "15",
+            "parent_id": 0
+        },
+        {
+            "id": 15,
+            "class": "16",
+            "parent_id": 0
+        },
+        {
+            "id": 16,
+            "class": "17",
+            "parent_id": 0
+        },
+        {
+            "id": 17,
+            "class": "18",
+            "parent_id": 0
+        },
+        {
+            "id": 18,
+            "class": "19",
+            "parent_id": 0
+        },
+        {
+            "id": 19,
+            "class": "20",
+            "parent_id": 0
+        },
+        {
+            "id": 20,
+            "class": "21",
+            "parent_id": 0
+        },
+        {
+            "id": 21,
+            "class": "22",
+            "parent_id": 0
+        },
+        {
+            "id": 22,
+            "class": "23",
+            "parent_id": 0
+        },
+        {
+            "id": 23,
+            "class": "24",
+            "parent_id": 0
+        },
+        {
+            "id": 24,
+            "class": "25",
+            "parent_id": 0
+        },
+        {
+            "id": 25,
+            "class": "26",
+            "parent_id": 0
+        },
+        {
+            "id": 26,
+            "class": "27",
+            "parent_id": 0
+        },
+        {
+            "id": 27,
+            "class": "28",
+            "parent_id": 0
+        },
+        {
+            "id": 28,
+            "class": "29",
+            "parent_id": 0
+        },
+        {
+            "id": 29,
+            "class": "30",
+            "parent_id": 0
+        },
+        {
+            "id": 30,
+            "class": "31",
+            "parent_id": 0
+        },
+        {
+            "id": 31,
+            "class": "32",
+            "parent_id": 0
+        },
+        {
+            "id": 32,
+            "class": "33",
+            "parent_id": 0
+        },
+        {
+            "id": 33,
+            "class": "34",
+            "parent_id": 0
+        },
+        {
+            "id": 34,
+            "class": "35",
+            "parent_id": 1
+        },
+        {
+            "id": 35,
+            "class": "36",
+            "parent_id": 1
+        },
+        {
+            "id": 36,
+            "class": "37",
+            "parent_id": 1
+        },
+        {
+            "id": 37,
+            "class": "38",
+            "parent_id": 1
+        },
+        {
+            "id": 38,
+            "class": "39",
+            "parent_id": 1
+        },
+        {
+            "id": 39,
+            "class": "40",
+            "parent_id": 1
+        },
+        {
+            "id": 40,
+            "class": "41",
+            "parent_id": 1
+        },
+        {
+            "id": 41,
+            "class": "42",
+            "parent_id": 1
+        },
+        {
+            "id": 42,
+            "class": "43",
+            "parent_id": 1
+        },
+        {
+            "id": 43,
+            "class": "44",
+            "parent_id": 1
+        },
+        {
+            "id": 44,
+            "class": "45",
+            "parent_id": 1
+        }
+    ],
+    "ncl_base": [
+        {
+            "id": 0,
+            "class": "Goods"
+        },
+        {
+            "id": 1,
+            "class": "Services"
+        }
+    ],
+    "kri_base": [
+        {
+            "id": 0,
+            "class": "100"
+        },
+        {
+            "id": 1,
+            "class": "140"
+        },
+        {
+            "id": 2,
+            "class": "200"
+        },
+        {
+            "id": 3,
+            "class": "260"
+        },
+        {
+            "id": 4,
+            "class": "340"
+        },
+        {
+            "id": 5,
+            "class": "410"
+        },
+        {
+            "id": 6,
+            "class": "500"
+        },
+        {
+            "id": 7,
+            "class": "550"
+        },
+        {
+            "id": 8,
+            "class": "580"
+        },
+        {
+            "id": 9,
+            "class": "630"
+        },
+        {
+            "id": 10,
+            "class": "660"
+        },
+        {
+            "id": 11,
+            "class": "710"
+        }
+    ],
+    "kri_class1": [
+        {
+            "id": 0,
+            "class": "110",
+            "parent_id": 0
+        },
+        {
+            "id": 1,
+            "class": "120",
+            "parent_id": 0
+        },
+        {
+            "id": 2,
+            "class": "130",
+            "parent_id": 0
+        },
+        {
+            "id": 3,
+            "class": "150",
+            "parent_id": 1
+        },
+        {
+            "id": 4,
+            "class": "160",
+            "parent_id": 1
+        },
+        {
+            "id": 5,
+            "class": "180",
+            "parent_id": 1
+        },
+        {
+            "id": 6,
+            "class": "190",
+            "parent_id": 1
+        },
+        {
+            "id": 7,
+            "class": "210",
+            "parent_id": 2
+        },
+        {
+            "id": 8,
+            "class": "230",
+            "parent_id": 2
+        },
+        {
+            "id": 9,
+            "class": "250",
+            "parent_id": 2
+        },
+        {
+            "id": 10,
+            "class": "270",
+            "parent_id": 3
+        },
+        {
+            "id": 11,
+            "class": "300",
+            "parent_id": 3
+        },
+        {
+            "id": 12,
+            "class": "320",
+            "parent_id": 3
+        },
+        {
+            "id": 13,
+            "class": "330",
+            "parent_id": 3
+        },
+        {
+            "id": 14,
+            "class": "350",
+            "parent_id": 4
+        },
+        {
+            "id": 15,
+            "class": "370",
+            "parent_id": 4
+        },
+        {
+            "id": 16,
+            "class": "390",
+            "parent_id": 4
+        },
+        {
+            "id": 17,
+            "class": "400",
+            "parent_id": 4
+        },
+        {
+            "id": 18,
+            "class": "420",
+            "parent_id": 5
+        },
+        {
+            "id": 19,
+            "class": "430",
+            "parent_id": 5
+        },
+        {
+            "id": 20,
+            "class": "450",
+            "parent_id": 5
+        },
+        {
+            "id": 21,
+            "class": "470",
+            "parent_id": 5
+        },
+        {
+            "id": 22,
+            "class": "480",
+            "parent_id": 5
+        },
+        {
+            "id": 23,
+            "class": "510",
+            "parent_id": 6
+        },
+        {
+            "id": 24,
+            "class": "520",
+            "parent_id": 6
+        },
+        {
+            "id": 25,
+            "class": "530",
+            "parent_id": 6
+        },
+        {
+            "id": 26,
+            "class": "560",
+            "parent_id": 7
+        },
+        {
+            "id": 27,
+            "class": "570",
+            "parent_id": 7
+        },
+        {
+            "id": 28,
+            "class": "590",
+            "parent_id": 8
+        },
+        {
+            "id": 29,
+            "class": "610",
+            "parent_id": 8
+        },
+        {
+            "id": 30,
+            "class": "620",
+            "parent_id": 8
+        },
+        {
+            "id": 31,
+            "class": "640",
+            "parent_id": 9
+        },
+        {
+            "id": 32,
+            "class": "650",
+            "parent_id": 9
+        },
+        {
+            "id": 33,
+            "class": "670",
+            "parent_id": 10
+        },
+        {
+            "id": 34,
+            "class": "680",
+            "parent_id": 10
+        },
+        {
+            "id": 35,
+            "class": "690",
+            "parent_id": 10
+        },
+        {
+            "id": 36,
+            "class": "700",
+            "parent_id": 10
+        },
+        {
+            "id": 37,
+            "class": "706",
+            "parent_id": 10
+        },
+        {
+            "id": 38,
+            "class": "720",
+            "parent_id": 11
+        },
+        {
+            "id": 39,
+            "class": "740",
+            "parent_id": 11
+        },
+        {
+            "id": 40,
+            "class": "760",
+            "parent_id": 11
+        },
+        {
+            "id": 41,
+            "class": "770",
+            "parent_id": 11
+        },
+        {
+            "id": 42,
+            "class": "780",
+            "parent_id": 11
+        },
+        {
+            "id": 43,
+            "class": "790",
+            "parent_id": 11
+        },
+        {
+            "id": 44,
+            "class": "810",
+            "parent_id": 11
+        }
+    ],
+    "kri_class2": [
+        {
+            "id": 0,
+            "class": "111",
+            "parent_id": 0
+        },
+        {
+            "id": 1,
+            "class": "112",
+            "parent_id": 0
+        },
+        {
+            "id": 2,
+            "class": "113",
+            "parent_id": 0
+        },
+        {
+            "id": 3,
+            "class": "121",
+            "parent_id": 1
+        },
+        {
+            "id": 4,
+            "class": "122",
+            "parent_id": 1
+        },
+        {
+            "id": 5,
+            "class": "123",
+            "parent_id": 1
+        },
+        {
+            "id": 6,
+            "class": "131",
+            "parent_id": 2
+        },
+        {
+            "id": 7,
+            "class": "132",
+            "parent_id": 2
+        },
+        {
+            "id": 8,
+            "class": "133",
+            "parent_id": 2
+        },
+        {
+            "id": 9,
+            "class": "134",
+            "parent_id": 2
+        },
+        {
+            "id": 10,
+            "class": "135",
+            "parent_id": 2
+        },
+        {
+            "id": 11,
+            "class": "151",
+            "parent_id": 3
+        },
+        {
+            "id": 12,
+            "class": "152",
+            "parent_id": 3
+        },
+        {
+            "id": 13,
+            "class": "153",
+            "parent_id": 3
+        },
+        {
+            "id": 14,
+            "class": "154",
+            "parent_id": 3
+        },
+        {
+            "id": 15,
+            "class": "155",
+            "parent_id": 3
+        },
+        {
+            "id": 16,
+            "class": "156",
+            "parent_id": 3
+        },
+        {
+            "id": 17,
+            "class": "161",
+            "parent_id": 4
+        },
+        {
+            "id": 18,
+            "class": "162",
+            "parent_id": 4
+        },
+        {
+            "id": 19,
+            "class": "163",
+            "parent_id": 4
+        },
+        {
+            "id": 20,
+            "class": "164",
+            "parent_id": 4
+        },
+        {
+            "id": 21,
+            "class": "165",
+            "parent_id": 4
+        },
+        {
+            "id": 22,
+            "class": "166",
+            "parent_id": 4
+        },
+        {
+            "id": 23,
+            "class": "167",
+            "parent_id": 4
+        },
+        {
+            "id": 24,
+            "class": "168",
+            "parent_id": 4
+        },
+        {
+            "id": 25,
+            "class": "169",
+            "parent_id": 4
+        },
+        {
+            "id": 26,
+            "class": "181",
+            "parent_id": 5
+        },
+        {
+            "id": 27,
+            "class": "182",
+            "parent_id": 5
+        },
+        {
+            "id": 28,
+            "class": "183",
+            "parent_id": 5
+        },
+        {
+            "id": 29,
+            "class": "184",
+            "parent_id": 5
+        },
+        {
+            "id": 30,
+            "class": "185",
+            "parent_id": 5
+        },
+        {
+            "id": 31,
+            "class": "186",
+            "parent_id": 5
+        },
+        {
+            "id": 32,
+            "class": "191",
+            "parent_id": 6
+        },
+        {
+            "id": 33,
+            "class": "192",
+            "parent_id": 6
+        },
+        {
+            "id": 34,
+            "class": "193",
+            "parent_id": 6
+        },
+        {
+            "id": 35,
+            "class": "194",
+            "parent_id": 6
+        },
+        {
+            "id": 36,
+            "class": "211",
+            "parent_id": 7
+        },
+        {
+            "id": 37,
+            "class": "212",
+            "parent_id": 7
+        },
+        {
+            "id": 38,
+            "class": "213",
+            "parent_id": 7
+        },
+        {
+            "id": 39,
+            "class": "214",
+            "parent_id": 7
+        },
+        {
+            "id": 40,
+            "class": "215",
+            "parent_id": 7
+        },
+        {
+            "id": 41,
+            "class": "216",
+            "parent_id": 7
+        },
+        {
+            "id": 42,
+            "class": "217",
+            "parent_id": 7
+        },
+        {
+            "id": 43,
+            "class": "218",
+            "parent_id": 7
+        },
+        {
+            "id": 44,
+            "class": "219",
+            "parent_id": 7
+        },
+        {
+            "id": 45,
+            "class": "221",
+            "parent_id": 7
+        },
+        {
+            "id": 46,
+            "class": "231",
+            "parent_id": 8
+        },
+        {
+            "id": 47,
+            "class": "232",
+            "parent_id": 8
+        },
+        {
+            "id": 48,
+            "class": "233",
+            "parent_id": 8
+        },
+        {
+            "id": 49,
+            "class": "234",
+            "parent_id": 8
+        },
+        {
+            "id": 50,
+            "class": "235",
+            "parent_id": 8
+        },
+        {
+            "id": 51,
+            "class": "236",
+            "parent_id": 8
+        },
+        {
+            "id": 52,
+            "class": "237",
+            "parent_id": 8
+        },
+        {
+            "id": 53,
+            "class": "238",
+            "parent_id": 8
+        },
+        {
+            "id": 54,
+            "class": "239",
+            "parent_id": 8
+        },
+        {
+            "id": 55,
+            "class": "251",
+            "parent_id": 9
+        },
+        {
+            "id": 56,
+            "class": "252",
+            "parent_id": 9
+        },
+        {
+            "id": 57,
+            "class": "272",
+            "parent_id": 10
+        },
+        {
+            "id": 58,
+            "class": "273",
+            "parent_id": 10
+        },
+        {
+            "id": 59,
+            "class": "274",
+            "parent_id": 10
+        },
+        {
+            "id": 60,
+            "class": "275",
+            "parent_id": 10
+        },
+        {
+            "id": 61,
+            "class": "276",
+            "parent_id": 10
+        },
+        {
+            "id": 62,
+            "class": "277",
+            "parent_id": 10
+        },
+        {
+            "id": 63,
+            "class": "278",
+            "parent_id": 10
+        },
+        {
+            "id": 64,
+            "class": "279",
+            "parent_id": 10
+        },
+        {
+            "id": 65,
+            "class": "281",
+            "parent_id": 10
+        },
+        {
+            "id": 66,
+            "class": "282",
+            "parent_id": 10
+        },
+        {
+            "id": 67,
+            "class": "283",
+            "parent_id": 10
+        },
+        {
+            "id": 68,
+            "class": "284",
+            "parent_id": 10
+        },
+        {
+            "id": 69,
+            "class": "285",
+            "parent_id": 10
+        },
+        {
+            "id": 70,
+            "class": "286",
+            "parent_id": 10
+        },
+        {
+            "id": 71,
+            "class": "287",
+            "parent_id": 10
+        },
+        {
+            "id": 72,
+            "class": "288",
+            "parent_id": 10
+        },
+        {
+            "id": 73,
+            "class": "289",
+            "parent_id": 10
+        },
+        {
+            "id": 74,
+            "class": "291",
+            "parent_id": 10
+        },
+        {
+            "id": 75,
+            "class": "293",
+            "parent_id": 10
+        },
+        {
+            "id": 76,
+            "class": "294",
+            "parent_id": 10
+        },
+        {
+            "id": 77,
+            "class": "295",
+            "parent_id": 10
+        },
+        {
+            "id": 78,
+            "class": "296",
+            "parent_id": 10
+        },
+        {
+            "id": 79,
+            "class": "297",
+            "parent_id": 10
+        },
+        {
+            "id": 80,
+            "class": "301",
+            "parent_id": 11
+        },
+        {
+            "id": 81,
+            "class": "303",
+            "parent_id": 11
+        },
+        {
+            "id": 82,
+            "class": "304",
+            "parent_id": 11
+        },
+        {
+            "id": 83,
+            "class": "305",
+            "parent_id": 11
+        },
+        {
+            "id": 84,
+            "class": "306",
+            "parent_id": 11
+        },
+        {
+            "id": 85,
+            "class": "307",
+            "parent_id": 11
+        },
+        {
+            "id": 86,
+            "class": "308",
+            "parent_id": 11
+        },
+        {
+            "id": 87,
+            "class": "309",
+            "parent_id": 11
+        },
+        {
+            "id": 88,
+            "class": "311",
+            "parent_id": 11
+        },
+        {
+            "id": 89,
+            "class": "312",
+            "parent_id": 11
+        },
+        {
+            "id": 90,
+            "class": "313",
+            "parent_id": 11
+        },
+        {
+            "id": 91,
+            "class": "314",
+            "parent_id": 11
+        },
+        {
+            "id": 92,
+            "class": "321",
+            "parent_id": 12
+        },
+        {
+            "id": 93,
+            "class": "322",
+            "parent_id": 12
+        },
+        {
+            "id": 94,
+            "class": "323",
+            "parent_id": 12
+        },
+        {
+            "id": 95,
+            "class": "324",
+            "parent_id": 12
+        },
+        {
+            "id": 96,
+            "class": "325",
+            "parent_id": 12
+        },
+        {
+            "id": 97,
+            "class": "326",
+            "parent_id": 12
+        },
+        {
+            "id": 98,
+            "class": "327",
+            "parent_id": 12
+        },
+        {
+            "id": 99,
+            "class": "331",
+            "parent_id": 13
+        },
+        {
+            "id": 100,
+            "class": "332",
+            "parent_id": 13
+        },
+        {
+            "id": 101,
+            "class": "333",
+            "parent_id": 13
+        },
+        {
+            "id": 102,
+            "class": "334",
+            "parent_id": 13
+        },
+        {
+            "id": 103,
+            "class": "351",
+            "parent_id": 14
+        },
+        {
+            "id": 104,
+            "class": "352",
+            "parent_id": 14
+        },
+        {
+            "id": 105,
+            "class": "353",
+            "parent_id": 14
+        },
+        {
+            "id": 106,
+            "class": "354",
+            "parent_id": 14
+        },
+        {
+            "id": 107,
+            "class": "355",
+            "parent_id": 14
+        },
+        {
+            "id": 108,
+            "class": "356",
+            "parent_id": 14
+        },
+        {
+            "id": 109,
+            "class": "357",
+            "parent_id": 14
+        },
+        {
+            "id": 110,
+            "class": "358",
+            "parent_id": 14
+        },
+        {
+            "id": 111,
+            "class": "359",
+            "parent_id": 14
+        },
+        {
+            "id": 112,
+            "class": "361",
+            "parent_id": 14
+        },
+        {
+            "id": 113,
+            "class": "371",
+            "parent_id": 15
+        },
+        {
+            "id": 114,
+            "class": "372",
+            "parent_id": 15
+        },
+        {
+            "id": 115,
+            "class": "373",
+            "parent_id": 15
+        },
+        {
+            "id": 116,
+            "class": "375",
+            "parent_id": 15
+        },
+        {
+            "id": 117,
+            "class": "376",
+            "parent_id": 15
+        },
+        {
+            "id": 118,
+            "class": "377",
+            "parent_id": 15
+        },
+        {
+            "id": 119,
+            "class": "378",
+            "parent_id": 15
+        },
+        {
+            "id": 120,
+            "class": "379",
+            "parent_id": 15
+        },
+        {
+            "id": 121,
+            "class": "381",
+            "parent_id": 15
+        },
+        {
+            "id": 122,
+            "class": "382",
+            "parent_id": 15
+        },
+        {
+            "id": 123,
+            "class": "383",
+            "parent_id": 15
+        },
+        {
+            "id": 124,
+            "class": "384",
+            "parent_id": 15
+        },
+        {
+            "id": 125,
+            "class": "391",
+            "parent_id": 16
+        },
+        {
+            "id": 126,
+            "class": "392",
+            "parent_id": 16
+        },
+        {
+            "id": 127,
+            "class": "393",
+            "parent_id": 16
+        },
+        {
+            "id": 128,
+            "class": "394",
+            "parent_id": 16
+        },
+        {
+            "id": 129,
+            "class": "401",
+            "parent_id": 17
+        },
+        {
+            "id": 130,
+            "class": "402",
+            "parent_id": 17
+        },
+        {
+            "id": 131,
+            "class": "403",
+            "parent_id": 17
+        },
+        {
+            "id": 132,
+            "class": "404",
+            "parent_id": 17
+        },
+        {
+            "id": 133,
+            "class": "405",
+            "parent_id": 17
+        },
+        {
+            "id": 134,
+            "class": "406",
+            "parent_id": 17
+        },
+        {
+            "id": 135,
+            "class": "421",
+            "parent_id": 18
+        },
+        {
+            "id": 136,
+            "class": "422",
+            "parent_id": 18
+        },
+        {
+            "id": 137,
+            "class": "423",
+            "parent_id": 18
+        },
+        {
+            "id": 138,
+            "class": "424",
+            "parent_id": 18
+        },
+        {
+            "id": 139,
+            "class": "425",
+            "parent_id": 18
+        },
+        {
+            "id": 140,
+            "class": "426",
+            "parent_id": 18
+        },
+        {
+            "id": 141,
+            "class": "427",
+            "parent_id": 18
+        },
+        {
+            "id": 142,
+            "class": "428",
+            "parent_id": 18
+        },
+        {
+            "id": 143,
+            "class": "431",
+            "parent_id": 19
+        },
+        {
+            "id": 144,
+            "class": "432",
+            "parent_id": 19
+        },
+        {
+            "id": 145,
+            "class": "433",
+            "parent_id": 19
+        },
+        {
+            "id": 146,
+            "class": "434",
+            "parent_id": 19
+        },
+        {
+            "id": 147,
+            "class": "435",
+            "parent_id": 19
+        },
+        {
+            "id": 148,
+            "class": "436",
+            "parent_id": 19
+        },
+        {
+            "id": 149,
+            "class": "437",
+            "parent_id": 19
+        },
+        {
+            "id": 150,
+            "class": "438",
+            "parent_id": 19
+        },
+        {
+            "id": 151,
+            "class": "439",
+            "parent_id": 19
+        },
+        {
+            "id": 152,
+            "class": "441",
+            "parent_id": 19
+        },
+        {
+            "id": 153,
+            "class": "442",
+            "parent_id": 19
+        },
+        {
+            "id": 154,
+            "class": "443",
+            "parent_id": 19
+        },
+        {
+            "id": 155,
+            "class": "444",
+            "parent_id": 19
+        },
+        {
+            "id": 156,
+            "class": "445",
+            "parent_id": 19
+        },
+        {
+            "id": 157,
+            "class": "451",
+            "parent_id": 20
+        },
+        {
+            "id": 158,
+            "class": "452",
+            "parent_id": 20
+        },
+        {
+            "id": 159,
+            "class": "453",
+            "parent_id": 20
+        },
+        {
+            "id": 160,
+            "class": "454",
+            "parent_id": 20
+        },
+        {
+            "id": 161,
+            "class": "455",
+            "parent_id": 20
+        },
+        {
+            "id": 162,
+            "class": "456",
+            "parent_id": 20
+        },
+        {
+            "id": 163,
+            "class": "457",
+            "parent_id": 20
+        },
+        {
+            "id": 164,
+            "class": "458",
+            "parent_id": 20
+        },
+        {
+            "id": 165,
+            "class": "459",
+            "parent_id": 20
+        },
+        {
+            "id": 166,
+            "class": "461",
+            "parent_id": 20
+        },
+        {
+            "id": 167,
+            "class": "462",
+            "parent_id": 20
+        },
+        {
+            "id": 168,
+            "class": "463",
+            "parent_id": 20
+        },
+        {
+            "id": 169,
+            "class": "464",
+            "parent_id": 20
+        },
+        {
+            "id": 170,
+            "class": "471",
+            "parent_id": 21
+        },
+        {
+            "id": 171,
+            "class": "472",
+            "parent_id": 21
+        },
+        {
+            "id": 172,
+            "class": "473",
+            "parent_id": 21
+        },
+        {
+            "id": 173,
+            "class": "474",
+            "parent_id": 21
+        },
+        {
+            "id": 174,
+            "class": "475",
+            "parent_id": 21
+        },
+        {
+            "id": 175,
+            "class": "476",
+            "parent_id": 21
+        },
+        {
+            "id": 176,
+            "class": "477",
+            "parent_id": 21
+        },
+        {
+            "id": 177,
+            "class": "481",
+            "parent_id": 22
+        },
+        {
+            "id": 178,
+            "class": "482",
+            "parent_id": 22
+        },
+        {
+            "id": 179,
+            "class": "483",
+            "parent_id": 22
+        },
+        {
+            "id": 180,
+            "class": "484",
+            "parent_id": 22
+        },
+        {
+            "id": 181,
+            "class": "485",
+            "parent_id": 22
+        },
+        {
+            "id": 182,
+            "class": "511",
+            "parent_id": 23
+        },
+        {
+            "id": 183,
+            "class": "512",
+            "parent_id": 23
+        },
+        {
+            "id": 184,
+            "class": "513",
+            "parent_id": 23
+        },
+        {
+            "id": 185,
+            "class": "521",
+            "parent_id": 24
+        },
+        {
+            "id": 186,
+            "class": "523",
+            "parent_id": 24
+        },
+        {
+            "id": 187,
+            "class": "524",
+            "parent_id": 24
+        },
+        {
+            "id": 188,
+            "class": "525",
+            "parent_id": 24
+        },
+        {
+            "id": 189,
+            "class": "531",
+            "parent_id": 25
+        },
+        {
+            "id": 190,
+            "class": "532",
+            "parent_id": 25
+        },
+        {
+            "id": 191,
+            "class": "533",
+            "parent_id": 25
+        },
+        {
+            "id": 192,
+            "class": "534",
+            "parent_id": 25
+        },
+        {
+            "id": 193,
+            "class": "535",
+            "parent_id": 25
+        },
+        {
+            "id": 194,
+            "class": "536",
+            "parent_id": 25
+        },
+        {
+            "id": 195,
+            "class": "537",
+            "parent_id": 25
+        },
+        {
+            "id": 196,
+            "class": "538",
+            "parent_id": 25
+        },
+        {
+            "id": 197,
+            "class": "539",
+            "parent_id": 25
+        },
+        {
+            "id": 198,
+            "class": "561",
+            "parent_id": 26
+        },
+        {
+            "id": 199,
+            "class": "562",
+            "parent_id": 26
+        },
+        {
+            "id": 200,
+            "class": "563",
+            "parent_id": 26
+        },
+        {
+            "id": 201,
+            "class": "564",
+            "parent_id": 26
+        },
+        {
+            "id": 202,
+            "class": "565",
+            "parent_id": 26
+        },
+        {
+            "id": 203,
+            "class": "566",
+            "parent_id": 26
+        },
+        {
+            "id": 204,
+            "class": "571",
+            "parent_id": 27
+        },
+        {
+            "id": 205,
+            "class": "572",
+            "parent_id": 27
+        },
+        {
+            "id": 206,
+            "class": "573",
+            "parent_id": 27
+        },
+        {
+            "id": 207,
+            "class": "574",
+            "parent_id": 27
+        },
+        {
+            "id": 208,
+            "class": "575",
+            "parent_id": 27
+        },
+        {
+            "id": 209,
+            "class": "576",
+            "parent_id": 27
+        },
+        {
+            "id": 210,
+            "class": "577",
+            "parent_id": 27
+        },
+        {
+            "id": 211,
+            "class": "578",
+            "parent_id": 27
+        },
+        {
+            "id": 212,
+            "class": "591",
+            "parent_id": 28
+        },
+        {
+            "id": 213,
+            "class": "593",
+            "parent_id": 28
+        },
+        {
+            "id": 214,
+            "class": "594",
+            "parent_id": 28
+        },
+        {
+            "id": 215,
+            "class": "597",
+            "parent_id": 28
+        },
+        {
+            "id": 216,
+            "class": "601",
+            "parent_id": 28
+        },
+        {
+            "id": 217,
+            "class": "605",
+            "parent_id": 28
+        },
+        {
+            "id": 218,
+            "class": "622",
+            "parent_id": 29
+        },
+        {
+            "id": 219,
+            "class": "522",
+            "parent_id": 29
+        },
+        {
+            "id": 220,
+            "class": "625",
+            "parent_id": 29
+        },
+        {
+            "id": 221,
+            "class": "626",
+            "parent_id": 29
+        },
+        {
+            "id": 222,
+            "class": "627",
+            "parent_id": 29
+        },
+        {
+            "id": 223,
+            "class": "628",
+            "parent_id": 29
+        },
+        {
+            "id": 224,
+            "class": "621",
+            "parent_id": 29
+        },
+        {
+            "id": 225,
+            "class": "611",
+            "parent_id": 29
+        },
+        {
+            "id": 226,
+            "class": "612",
+            "parent_id": 29
+        },
+        {
+            "id": 227,
+            "class": "623",
+            "parent_id": 29
+        },
+        {
+            "id": 228,
+            "class": "616",
+            "parent_id": 29
+        },
+        {
+            "id": 229,
+            "class": "617",
+            "parent_id": 29
+        },
+        {
+            "id": 230,
+            "class": "592",
+            "parent_id": 30
+        },
+        {
+            "id": 231,
+            "class": "596",
+            "parent_id": 30
+        },
+        {
+            "id": 232,
+            "class": "602",
+            "parent_id": 30
+        },
+        {
+            "id": 233,
+            "class": "603",
+            "parent_id": 30
+        },
+        {
+            "id": 234,
+            "class": "604",
+            "parent_id": 30
+        },
+        {
+            "id": 235,
+            "class": "613",
+            "parent_id": 30
+        },
+        {
+            "id": 236,
+            "class": "614",
+            "parent_id": 30
+        },
+        {
+            "id": 237,
+            "class": "615",
+            "parent_id": 30
+        },
+        {
+            "id": 238,
+            "class": "618",
+            "parent_id": 30
+        },
+        {
+            "id": 239,
+            "class": "619",
+            "parent_id": 30
+        },
+        {
+            "id": 240,
+            "class": "629",
+            "parent_id": 30
+        },
+        {
+            "id": 241,
+            "class": "699",
+            "parent_id": 30
+        },
+        {
+            "id": 242,
+            "class": "641",
+            "parent_id": 31
+        },
+        {
+            "id": 243,
+            "class": "642",
+            "parent_id": 31
+        },
+        {
+            "id": 244,
+            "class": "643",
+            "parent_id": 31
+        },
+        {
+            "id": 245,
+            "class": "644",
+            "parent_id": 31
+        },
+        {
+            "id": 246,
+            "class": "645",
+            "parent_id": 31
+        },
+        {
+            "id": 247,
+            "class": "646",
+            "parent_id": 31
+        },
+        {
+            "id": 248,
+            "class": "651",
+            "parent_id": 32
+        },
+        {
+            "id": 249,
+            "class": "652",
+            "parent_id": 32
+        },
+        {
+            "id": 250,
+            "class": "671",
+            "parent_id": 33
+        },
+        {
+            "id": 251,
+            "class": "672",
+            "parent_id": 33
+        },
+        {
+            "id": 252,
+            "class": "673",
+            "parent_id": 33
+        },
+        {
+            "id": 253,
+            "class": "674",
+            "parent_id": 33
+        },
+        {
+            "id": 254,
+            "class": "675",
+            "parent_id": 33
+        },
+        {
+            "id": 255,
+            "class": "681",
+            "parent_id": 34
+        },
+        {
+            "id": 256,
+            "class": "682",
+            "parent_id": 34
+        },
+        {
+            "id": 257,
+            "class": "683",
+            "parent_id": 34
+        },
+        {
+            "id": 258,
+            "class": "684",
+            "parent_id": 34
+        },
+        {
+            "id": 259,
+            "class": "685",
+            "parent_id": 34
+        },
+        {
+            "id": 260,
+            "class": "687",
+            "parent_id": 34
+        },
+        {
+            "id": 261,
+            "class": "688",
+            "parent_id": 34
+        },
+        {
+            "id": 262,
+            "class": "691",
+            "parent_id": 35
+        },
+        {
+            "id": 263,
+            "class": "692",
+            "parent_id": 35
+        },
+        {
+            "id": 264,
+            "class": "693",
+            "parent_id": 35
+        },
+        {
+            "id": 265,
+            "class": "694",
+            "parent_id": 35
+        },
+        {
+            "id": 266,
+            "class": "695",
+            "parent_id": 35
+        },
+        {
+            "id": 267,
+            "class": "696",
+            "parent_id": 35
+        },
+        {
+            "id": 268,
+            "class": "701",
+            "parent_id": 36
+        },
+        {
+            "id": 269,
+            "class": "702",
+            "parent_id": 36
+        },
+        {
+            "id": 270,
+            "class": "703",
+            "parent_id": 36
+        },
+        {
+            "id": 271,
+            "class": "704",
+            "parent_id": 36
+        },
+        {
+            "id": 272,
+            "class": "707",
+            "parent_id": 37
+        },
+        {
+            "id": 273,
+            "class": "708",
+            "parent_id": 37
+        },
+        {
+            "id": 274,
+            "class": "709",
+            "parent_id": 37
+        },
+        {
+            "id": 275,
+            "class": "721",
+            "parent_id": 38
+        },
+        {
+            "id": 276,
+            "class": "722",
+            "parent_id": 38
+        },
+        {
+            "id": 277,
+            "class": "723",
+            "parent_id": 38
+        },
+        {
+            "id": 278,
+            "class": "724",
+            "parent_id": 38
+        },
+        {
+            "id": 279,
+            "class": "725",
+            "parent_id": 38
+        },
+        {
+            "id": 280,
+            "class": "726",
+            "parent_id": 38
+        },
+        {
+            "id": 281,
+            "class": "727",
+            "parent_id": 38
+        },
+        {
+            "id": 282,
+            "class": "728",
+            "parent_id": 38
+        },
+        {
+            "id": 283,
+            "class": "729",
+            "parent_id": 38
+        },
+        {
+            "id": 284,
+            "class": "731",
+            "parent_id": 38
+        },
+        {
+            "id": 285,
+            "class": "732",
+            "parent_id": 38
+        },
+        {
+            "id": 286,
+            "class": "733",
+            "parent_id": 38
+        },
+        {
+            "id": 287,
+            "class": "734",
+            "parent_id": 38
+        },
+        {
+            "id": 288,
+            "class": "741",
+            "parent_id": 39
+        },
+        {
+            "id": 289,
+            "class": "742",
+            "parent_id": 39
+        },
+        {
+            "id": 290,
+            "class": "743",
+            "parent_id": 39
+        },
+        {
+            "id": 291,
+            "class": "744",
+            "parent_id": 39
+        },
+        {
+            "id": 292,
+            "class": "745",
+            "parent_id": 39
+        },
+        {
+            "id": 293,
+            "class": "746",
+            "parent_id": 39
+        },
+        {
+            "id": 294,
+            "class": "747",
+            "parent_id": 39
+        },
+        {
+            "id": 295,
+            "class": "748",
+            "parent_id": 39
+        },
+        {
+            "id": 296,
+            "class": "749",
+            "parent_id": 39
+        },
+        {
+            "id": 297,
+            "class": "761",
+            "parent_id": 40
+        },
+        {
+            "id": 298,
+            "class": "762",
+            "parent_id": 40
+        },
+        {
+            "id": 299,
+            "class": "763",
+            "parent_id": 40
+        },
+        {
+            "id": 300,
+            "class": "764",
+            "parent_id": 40
+        },
+        {
+            "id": 301,
+            "class": "765",
+            "parent_id": 40
+        },
+        {
+            "id": 302,
+            "class": "771",
+            "parent_id": 41
+        },
+        {
+            "id": 303,
+            "class": "772",
+            "parent_id": 41
+        },
+        {
+            "id": 304,
+            "class": "773",
+            "parent_id": 41
+        },
+        {
+            "id": 305,
+            "class": "774",
+            "parent_id": 41
+        },
+        {
+            "id": 306,
+            "class": "775",
+            "parent_id": 41
+        },
+        {
+            "id": 307,
+            "class": "776",
+            "parent_id": 41
+        },
+        {
+            "id": 308,
+            "class": "781",
+            "parent_id": 42
+        },
+        {
+            "id": 309,
+            "class": "782",
+            "parent_id": 42
+        },
+        {
+            "id": 310,
+            "class": "783",
+            "parent_id": 42
+        },
+        {
+            "id": 311,
+            "class": "784",
+            "parent_id": 42
+        },
+        {
+            "id": 312,
+            "class": "785",
+            "parent_id": 42
+        },
+        {
+            "id": 313,
+            "class": "786",
+            "parent_id": 42
+        },
+        {
+            "id": 314,
+            "class": "787",
+            "parent_id": 42
+        },
+        {
+            "id": 315,
+            "class": "788",
+            "parent_id": 42
+        },
+        {
+            "id": 316,
+            "class": "791",
+            "parent_id": 43
+        },
+        {
+            "id": 317,
+            "class": "792",
+            "parent_id": 43
+        },
+        {
+            "id": 318,
+            "class": "793",
+            "parent_id": 43
+        },
+        {
+            "id": 319,
+            "class": "794",
+            "parent_id": 43
+        },
+        {
+            "id": 320,
+            "class": "795",
+            "parent_id": 43
+        },
+        {
+            "id": 321,
+            "class": "796",
+            "parent_id": 43
+        },
+        {
+            "id": 322,
+            "class": "797",
+            "parent_id": 43
+        },
+        {
+            "id": 323,
+            "class": "798",
+            "parent_id": 43
+        },
+        {
+            "id": 324,
+            "class": "799",
+            "parent_id": 43
+        },
+        {
+            "id": 325,
+            "class": "801",
+            "parent_id": 43
+        },
+        {
+            "id": 326,
+            "class": "802",
+            "parent_id": 43
+        },
+        {
+            "id": 327,
+            "class": "803",
+            "parent_id": 43
+        },
+        {
+            "id": 328,
+            "class": "811",
+            "parent_id": 44
+        },
+        {
+            "id": 329,
+            "class": "812",
+            "parent_id": 44
+        },
+        {
+            "id": 330,
+            "class": "813",
+            "parent_id": 44
+        },
+        {
+            "id": 331,
+            "class": "814",
+            "parent_id": 44
+        },
+        {
+            "id": 332,
+            "class": "815",
+            "parent_id": 44
+        },
+        {
+            "id": 333,
+            "class": "816",
+            "parent_id": 44
+        },
+        {
+            "id": 334,
+            "class": "450",
+            "parent_id": 20
+        },
+        {
+            "id": 335,
+            "class": "710",
+            "parent_id": 43
+        },
+        {
+            "id": 336,
+            "class": "706",
+            "parent_id": 37
+        },
+        {
+            "id": 337,
+            "class": "100",
+            "parent_id": 0
+        },
+        {
+            "id": 338,
+            "class": "410",
+            "parent_id": 19
+        },
+        {
+            "id": 339,
+            "class": "330",
+            "parent_id": 13
+        },
+        {
+            "id": 340,
+            "class": "150",
+            "parent_id": 3
+        },
+        {
+            "id": 341,
+            "class": "130",
+            "parent_id": 2
+        },
+        {
+            "id": 342,
+            "class": "530",
+            "parent_id": 25
+        },
+        {
+            "id": 343,
+            "class": "690",
+            "parent_id": 35
+        },
+        {
+            "id": 344,
+            "class": "560",
+            "parent_id": 26
+        },
+        {
+            "id": 345,
+            "class": "620",
+            "parent_id": 30
+        }
+    ]
+}
