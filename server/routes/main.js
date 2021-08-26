@@ -13,4 +13,8 @@ router.get('/explore', function(req, res){
   res.render('explore')
 });
 
+router.get('/rankings', function(req, res){
+  res.render('rankings')
+});
+
 module.exports = router;

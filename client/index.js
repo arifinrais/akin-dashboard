@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './css/index.css';
 import Navbar from './components/Navbar';
 import Dashboard from './components/dashboard/Dashboard';
+import Rankings from './components/rankings/Rankings';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -16,6 +17,13 @@ ReactDOM.render(
     <Dashboard />
   </React.StrictMode>,
   document.getElementById('dashboard')
+);
+
+ReactDOM.render(
+  <React.StrictMode>
+    <Rankings />
+  </React.StrictMode>,
+  document.getElementById('rankings')
 );
 
 // If you want to start measuring performance in your app, pass a function

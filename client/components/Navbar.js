@@ -12,8 +12,8 @@ const NavBar = props => {
                 <Nav className="ml-auto" >
                     <Nav.Link href="/explore">JELAJAHI</Nav.Link>
                     <NavDropdown alignRight title="DAERAH" id="basic-nav-dropdown">
-                        <NavDropdown.Item href="/region">Profil Daerah</NavDropdown.Item>
-                        <NavDropdown.Item href="/ranking">Peringkat Daerah</NavDropdown.Item>
+                        <NavDropdown.Item href="/regions">Profil Daerah</NavDropdown.Item>
+                        <NavDropdown.Item href="/rankings">Peringkat Daerah</NavDropdown.Item>
                     </NavDropdown>
                     <NavDropdown alignRight title="DATA" id="basic-nav-dropdown">
                         <NavDropdown.Item href="/data#source">Sumber</NavDropdown.Item>
