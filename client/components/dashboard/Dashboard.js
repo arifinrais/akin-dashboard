@@ -171,7 +171,7 @@ class Dashboard extends Component {
                 focus: 'reg', 
                 reg_dimension: 'city', //prov
                 ipr_dimension: 'ptn',
-                code: '181', //12
+                code: '180', //12
                 modifier: []
             });
           })

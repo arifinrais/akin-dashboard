@@ -5,9 +5,9 @@ var router = express.Router();
 var controller = require('../providers/controllerProvider');
 var dataAPI = 'http://localhost:5000/api/';
 
-async function getData(url) {
+async function getData(url, res) {
   try {
-     let res = await axios({
+     let result = await axios({
           url: url,
           method: 'GET',
           timeout: 8000,
@@ -15,48 +15,49 @@ async function getData(url) {
               'Content-Type': 'application/json',
           }
       })
-      if(res.status == 200){
+      /*if(result.status == 200){
           // test for status you want, etc
-          console.log(res.status)
-      }    
+          console.log(result.status)
+      }    */
       // Don't forget to return something   
-      return res.data
+      return result.data
   }
   catch (err) {
-      console.error(err);
+      res.send(err)
   }
 }
 
 //explore
 router.get('/explore',function(req, res) {
-    var focusRec = req.query.focus? req.query.focus : 'reg';
-    var regdimRec = req.query.regdim? req.query.regdim : 'city';
-    var iprdimRec = req.query.iprdim? req.query.iprdim : 'ptn';
-    var codeRec = req.query.code? req.query.code : '181';
-    var yearRec = req.query.year !== 'null'? req.query.year : '2018';
-    var hideRec = req.query.hide? String(req.query.hide).split(',') : '';
-    var vtypeRec = req.query.vtype? req.query.vtype : 'tmv';
+  req.query.focus = req.query.focus? req.query.focus : 'reg';
+  req.query.regdim = req.query.regdim? req.query.regdim : 'city';
+  req.query.iprdim = req.query.iprdim? req.query.iprdim : 'ptn';
+  req.query.code = req.query.code? req.query.code : '180';
+  req.query.year = req.query.year !== 'null'? req.query.year : '2018';
+  req.query.hide = req.query.hide? String(req.query.hide).split(',') : '';
+  req.query.vtype = req.query.vtype? req.query.vtype : 'tmv';
     
-    iprdim = iprdimRec == 'ptn'? 'patent' : iprdimRec == 'trd'? 'trademark' : iprdimRec == 'pub' ? 'publication' : '';
-    year = yearRec? yearRec : '2018';
-    var dataurl = dataAPI+'visualization?ipr_dim='+iprdim+'&year='+year;
+  iprdim = req.query.iprdim == 'ptn'? 'patent' : req.query.iprdim == 'trd'? 'trademark' : req.query.iprdim == 'pub' ? 'publication' : '';
+  year = req.query.year? req.query.year : '2018';
+  var dataurl = dataAPI+'visualization?ipr_dim='+iprdim+'&year='+year;
 
-    getData(dataurl).then(result => {
-      req.data=result;
-      if (vtypeRec == 'nsv') { //specified case
-        controller.PatentController.nationalshare(req,res)
-        return;
-      } else if (vtypeRec == 'otv') { //specified case
-        controller.PatentController.overtime(req,res)
-        return;
-      } else if (vtypeRec == 'tmv') { //specified case
-        controller.PatentController.treemap(req,res)
-        return;
-      } else if (vtypeRec == 'gmv') { //specified case
-        controller.PatentController.geomap(req,res)
-        return;
-      }
-    })    
+  console.log(req.query.code)
+  getData(dataurl).then(result => {
+    req.data=result;
+    if (req.query.vtype == 'nsv') { //specified case
+      controller.PatentController.nationalshare(req,res)
+      return;
+    } else if (req.query.vtype == 'otv') { //specified case
+      controller.PatentController.overtime(req,res)
+      return;
+    } else if (req.query.vtype == 'tmv') { //specified case
+      controller.PatentController.treemap(req,res)
+      return;
+    } else if (req.query.vtype == 'gmv') { //specified case
+      controller.PatentController.geomap(req,res)
+      return;
+    }
+  })    
 });
 
 module.exports = router;

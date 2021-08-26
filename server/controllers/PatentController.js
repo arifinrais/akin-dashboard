@@ -13,72 +13,72 @@ function getColor(code) {
   return resources.ColorCode[code];
 }
 
-function buildTreemap(fc, yr, rDim, iDim, cd, hid, res) {
-  //fetch('http://example.com/movies.json')
-  //  .then(response => response.json())
+function isCodeExists(code, obj, dim) {
+  identifier = dim=='prov'? 'id_province' : dim=='city' ? 'id_city' : '';
+
+  for (const item of obj) {
+    if (item[identifier]==code) return item;
+  }
+  return false
+}
+
+function buildTreemap(fc, yr, rDim, iDim, cd, hid, data, res) {
   if (fc === 'reg') {
-    model.Patent.find({year: yr}, function(err, patent){
-      if(err) {
-        res.send(err)
-        return;
-      }
-      let code = parseInt(cd);
-      let defReg = new model.TreeMap();
-      let defRec = rDim=='prov'? patent[0].provinces : patent[0].cities;
-      defReg.id = "dfr";
-      defReg.label = "dfr";
-      defReg.children = [];
-      if (!defRec[code]) {
-        res.json({vtype: 'err'});
-        return;
-      }
-      let totalProv = rDim=='prov'? defRec[code]["total_prov"]:defRec[code]["total_city"];
-      for(let ctg in defRec[code]) {
-        if (ctg.length == 1 && defRec[code][ctg]!=null) {
-          let ptClass = getPatent(ctg);
-          let ptColor = getColor(ctg);
-          var child = {}
-          if (typeof ptClass === "string" && typeof ptColor === "string") {            
-            child["id"]=ptClass;
-            child["label"]=ptClass;
-            child["fill"]=ptColor;
-            child["children"]=[];
+    let code = parseInt(cd);
+    let defReg = new model.TreeMap();
+    let defRec = rDim=='prov'? data['province'] : data['city'];
+    defReg.id = "dfr";
+    defReg.label = "dfr";
+    defReg.children = [];
+    let region = isCodeExists(cd, defRec, rDim)
+    let iprBase = iDim=='ptn'? 'ipc_base': iDim=='trd'? 'ncl_base' : iDim=='pub'? 'kri_base' : '';
+    let iprChild = iDim=='ptn'? 'ipc_class2': iDim=='trd'? 'ncl_class1' : iDim=='pub'? 'kri_class2' : '';
+    if (!region) {
+      res.json({vtype: 'err'});
+      return;
+    }
+    console.log(region)
+    let total = region['total'];
+      for(const classes of region['class']) {
+        let classBase = getPatent(classes[iprBase])
+        let color = getPatent(classes[iprBase])
+        var child = {}
+        //if (typeof ptClass === "string" && typeof ptColor === "string") {            
+        child["id"]=classBase;
+        child["label"]=classBase;
+        child["fill"]=color;
+        child["children"]=[];
+        //}
+          for(const childClasses of classes['class2']) {
+            let classChild = getPatent(childClasses[iprChild]);
+            var grandchild = {}
+            //if (typeof subptClass === "string") {
+            grandchild["id"]=classChild;
+            grandchild["label"]=classChild;
+            grandchild["tooltipContent"]=classChild;
+            grandchild["size"]=parseFloat(childClasses['total']*100/total).toFixed(2);
+            child["children"].push(grandchild);
+            //}
           }
-          for(let subctg in defRec[code][ctg]){
-            if (subctg.length == 3 && subctg != '_id' && defRec[code][ctg][subctg]!=null) {
-              let subptClass = getPatent(subctg);
-              var grandchild = {}
-              if (typeof subptClass === "string") {
-                grandchild["id"]=subptClass;
-                grandchild["label"]=subptClass;
-                grandchild["tooltipContent"]=subptClass;
-                grandchild["size"]=parseFloat(defRec[code][ctg][subctg]*100/totalProv).toFixed(2);
-                child["children"].push(grandchild);
-              }
-            }
-          }
+          
           defReg.children.push(child);
         }
-      }
+      
+      console.log(defReg)
       if (hid.length >= 1 && !hid.includes('')) {
         for (var x of hid) {
           defReg.children = defReg.children.filter((item) => item.fill != getColor(x));
-          totalProv-=defRec[code][x]['total_ctg'];
+          total-=defRec[code][x]['total_ctg'];
         }
       }
       defReg["vtype"]='tmv';
-      defReg["total_shown"]=totalProv;
+      defReg["total_shown"]=total;
       res.json(defReg);
       return;  
-    });
+    
   } else if (fc === 'ipr') {
     //bikin model ipr duls, ada geomap inget
   }
-}
-
-exports.default = (req,res) => {
-  buildTreemap('reg', 2018, 'city', 'ptn', '181', [], res);
-  return;
 }
 
 exports.nationalshare = async(req, res) => {
@@ -215,8 +215,8 @@ exports.treemap = (req, res) => {
   var codeRec = req.query.code;
   var yearRec = req.query.year;
   var hideRec = String(req.query.hide).split(',');
-  console.log(req.data)
-  buildTreemap(focusRec, yearRec, regdimRec, iprdimRec, codeRec, hideRec, res);
+  var dataRec = req.data
+  buildTreemap(focusRec, yearRec, regdimRec, iprdimRec, codeRec, hideRec, dataRec, res);
   return;
 }
 
