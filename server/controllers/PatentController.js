@@ -253,7 +253,7 @@ exports.overtime = async(req, res) => {
   var tempStacks = []
   if (focusRec = 'reg') {
     let baseCode = iprBases[iprdimRec]
-    for (let i=2007; i<2019; i++) {
+    for (let i=2007; i<2019; i++) { //HARUSNYA dari 2000
       await getData(req.url_base+i, res).then(data => {
         let defRec = regdimRec=='prov'? data['province'] : data['city'];
         let region = isCodeExists(codeRec, defRec, regdimRec)
