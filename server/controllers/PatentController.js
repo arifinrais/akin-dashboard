@@ -253,7 +253,7 @@ exports.overtime = async(req, res) => {
   var tempStacks = []
   if (focusRec = 'reg') {
     let baseCode = iprBases[iprdimRec]
-    for (let i=2007; i<2019; i++) { //HARUSNYA dari 2000
+    for (let i=2000; i<2019; i++) { //HARUSNYA dari 2000
       await getData(req.url_base+i, res).then(data => {
         let defRec = regdimRec=='prov'? data['province'] : data['city'];
         let region = isCodeExists(codeRec, defRec, regdimRec)
@@ -270,13 +270,12 @@ exports.overtime = async(req, res) => {
       if (i==2018) await sleep(1); //to stop 18/19 fetched items problems
     }
   }
-  console.log(tempStacks)
   let defReg = new model.OverTime();
   tempConfig = {primaryKey: 'year', groups: []};
 
   //ini udah bener, tapi kenapa inputnya berubah2 ke default 2000-2018 yak
   tempStacks = tempStacks.filter((x) => x["year"]>=parseInt(yearRec[0]) && x["year"]<=parseInt(yearRec[1]));
-  for (const code of iprBase) {
+  for (const code of iprBases[iprdimRec]) {
     if (hideRec.includes(code)) {
       for (let i=0; i<tempStacks.length; i++) {
         tempStacks[i][code]=0;
@@ -293,6 +292,7 @@ exports.overtime = async(req, res) => {
   defReg.stacksReg = tempStacks;
   defReg["vtype"]='otv';
   console.log(defReg)
+  console.log(defReg.config.groups)
   res.json(defReg)
   return;
 }
