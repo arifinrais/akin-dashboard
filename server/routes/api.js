@@ -1,6 +1,5 @@
 //server/routes/routes.js
 var express = require('express');
-var axios = require('axios');
 var router = express.Router();
 var controller = require('../providers/controllerProvider');
 var dataAPI = 'http://localhost:5000/api/';

@@ -4,6 +4,7 @@ var router = require('./routes/main.js');
 var api = require('./routes/api.js');
 var path = require('path');
 var app = express();
+
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '../client'));
 
