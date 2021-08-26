@@ -10,7 +10,7 @@ const sleep = ms => {
   return new Promise(resolve => setTimeout(resolve, ms))
 }
 
-async function getData(url, res) {
+async function getData(url) {
   try {
     let result = await axios({
       url: url,
@@ -27,8 +27,7 @@ async function getData(url, res) {
     return result.data
   }
   catch (err) {
-    console.log(err)
-    res.send(err)
+    throw err
   }
 }
 
@@ -42,7 +41,6 @@ function getColor(code) {
 
 function isCodeExists(code, obj, dim) {
   identifier = dim=='prov'? 'id_province' : dim=='city' ? 'id_city' : '';
-
   for (const item of obj) {
     if (item[identifier]==code) return item;
   }
@@ -62,14 +60,14 @@ async function buildOvertime(url_base, fc, rDim, iDim, yr, cd, hid, res) {
     var tempStacks = []
     let baseCode = iprBases[iDim]
     for (let i=2000; i<2019; i++) { //HARUSNYA dari 2000
-      await getData(url_base+i, res).then(data => {
-        let defRec = rDim=='prov'? data['province'] : data['city'];
-        let region = isCodeExists(cd, defRec, rDim)
+      await getData(url_base+i).then((data, err) => {
         let tempStack = {};
         for (const code of baseCode) tempStack[code]=0.0;
-        if (region) {
-          for (const _class of region['class']) {
-            tempStack[_class[iprBase]]+=parseFloat(_class['total']).toFixed(2);
+        if (!err) {
+          let defRec = rDim=='prov'? data['province'] : data['city'];
+          let region = isCodeExists(cd, defRec, rDim)
+          if (region) {
+            for (const _class of region['class']) tempStack[_class[iprBase]]+=parseFloat(_class['total']).toFixed(2);
           }
         }
         tempStack["year"]=i;
@@ -82,11 +80,9 @@ async function buildOvertime(url_base, fc, rDim, iDim, yr, cd, hid, res) {
 
     //ini udah bener, tapi kenapa inputnya berubah2 ke default 2000-2018 yak
     tempStacks = tempStacks.filter((x) => x["year"]>=parseInt(yr[0]) && x["year"]<=parseInt(yr[1]));
-    for (const code of iprBases[iDim]) {
+    for (const code of baseCode) {
       if (hid.includes(code)) {
-        for (let i=0; i<tempStacks.length; i++) {
-          tempStacks[i][code]=0;
-        }
+        for (let i=0; i<tempStacks.length; i++) tempStacks[i][code]=0;
       }
       tempConf={
         key: code,
@@ -100,8 +96,9 @@ async function buildOvertime(url_base, fc, rDim, iDim, yr, cd, hid, res) {
     defReg["vtype"]='otv';
     res.json(defReg)
     return;
+  } else if (fc === 'ipr') {
+    //bikin model ipr duls, ada geomap inget
   }
-  
 }
 
 function buildTreemap(fc, rDim, iDim, cd, hid, data, res) {
@@ -159,60 +156,55 @@ function buildTreemap(fc, rDim, iDim, cd, hid, data, res) {
   }
 }
 
-exports.nationalshare = async(req, res) => {
-  var rDim = req.query.regdim;
-  //var iDim = req.query.iprdim;
-  var cd = parseInt(req.query.code);
-  var hid = String(req.query.hide).split(',');
-
-  let patentCd = ["A", "B", "C", "D", "E", "F", "G", "H"];
+async function buildNationalshare(url_base, rDim, iDim, cd, hid, res) {
+  let iprBase = getIPRBase(iDim)
+  let baseCode = iprBases[iDim]
   let tempCoords = {};
-  for (const ptCd of patentCd) {
-    tempCoords[ptCd]=[];
-  }
-
+  for (const code of baseCode) tempCoords[code]=[];
   for (let i=2000; i<2019; i++) {
-    await model.Patent.find({year: i}, function(err, patent){
-      if(err) {
-        //res.send(err)
-        //return;
-        //if it's assumed not yet assigned
-        for (let ptCd in patentCd) {
-          tempCoords[ptCd].push({x: i, y: 0});
-        }
+    await getData(url_base+i).then((data, err) => {
+      if (err) {
+        for (const code of baseCode) tempCoords[code].push({x: i, y: 0});
       } else {
-        let defRec = rDim=='prov'? patent[0].provinces : patent[0].cities;
-        let totalNat = patent[0].total_nation;
-        if (!defRec[cd]) {
-          for (const ptCd of patentCd) {
-            tempCoords[ptCd].push({x: i, y: 0});
-          }
+        let defRec = rDim=='prov'? data['province'] : data['city'];
+        let natTotal = data['national'];
+        let region = isCodeExists(cd, defRec, rDim);
+        if (!region) {
+          for (const code of baseCode) tempCoords[code].push({x: i, y: 0});
         } else {
-          for (const ptCd of patentCd) {
-            if (defRec[cd][ptCd]) {
-              tempCoords[ptCd].push({x: i, 
-                y: parseFloat(defRec[cd][ptCd]["total_ctg"]*100/totalNat[ptCd]).toFixed(2)});
-            } else {
-              tempCoords[ptCd].push({x: i, y: 0});
+          for (const code of baseCode) {
+            found=false
+            for (const _class of region['class']) {
+              if (_class[iprBase]==code) {
+                for (const _natclass of natTotal) {
+                  if (_natclass[iprBase]==code) {
+                    tempCoords[code].push({x: i, y: parseFloat(_class['total']*100/_natclass['total']).toFixed(2)});
+                    found=true
+                    break;
+                  }
+                }
+                break;
+              }
             }
+            if (!found) tempCoords[code].push({x: i, y: 0});
           }
         }
-      } 
-    });
-    if (i==2018) await sleep(1); //to stop 18/19 fethed items problems
-  }
+      }
 
+    });
+    if (i==2018) await sleep(1); //to stop 18/19 fetched items problems
+  }
   let defReg = new model.NationalShare();
   defReg.lines = []
-  for (let ptCd in tempCoords) {
-    if (!hid.includes(ptCd)) {
+  for (let code in tempCoords) {
+    if (!hid.includes(code)) {
       defReg.lines.push(
         {
-          coords: tempCoords[ptCd],
+          coords: tempCoords[code],
           animationDuration: 0,
           //label: getPatent(ptCd),
-          color: getColor(ptCd),
-          labelColor: getColor(ptCd),
+          color: getColor(code),
+          labelColor: getColor(code),
           width: 3,
           labelPosition:"center",
           labelAnchor:"start"
@@ -225,14 +217,24 @@ exports.nationalshare = async(req, res) => {
   return;
 }
 
+exports.nationalshare = (req, res) => {
+  var regdimRec = req.query.regdim;
+  var iprdimRec = req.query.iprdim;
+  var codeRec = req.query.code;
+  var hideRec = String(req.query.hide).split(',');
+  var url_base = req.url_base;
+  buildNationalshare(url_base, regdimRec, iprdimRec, codeRec, hideRec, res);
+  return;
+}
+
 exports.overtime = (req, res) => {
   var focusRec = req.query.focus;
   var regdimRec = req.query.regdim;
   var iprdimRec = req.query.iprdim;
-  var yearRec = String(req.query.year).split(',');;
+  var yearRec = String(req.query.year).split(',');
   var codeRec = req.query.code;
   var hideRec = String(req.query.hide).split(',');
-  var url_base = req.url_base
+  var url_base = req.url_base;
   buildOvertime(url_base, focusRec, regdimRec, iprdimRec, yearRec, codeRec, hideRec, res);
   return;
 }
@@ -244,7 +246,7 @@ exports.treemap = (req, res) => {
   var yearRec = req.query.year;
   var codeRec = req.query.code;
   var hideRec = String(req.query.hide).split(',');
-  getData(req.url_base+yearRec, res).then(data => {
+  getData(req.url_base+yearRec).then((data, err) => {
     buildTreemap(focusRec, regdimRec, iprdimRec, codeRec, hideRec, data, res);
   })
   return;
