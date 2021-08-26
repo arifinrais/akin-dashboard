@@ -55,71 +55,55 @@ function getIPRBase(iDim) {
 function getIPRChild(iDim) {
   return iDim=='ptn'? 'ipc_class2': iDim=='trd'? 'ncl_class1' : iDim=='pub'? 'kri_class2' : '';
 }
-/*
-function buildOvertime(fc, rDim, iDim, cd, hid, data, res) {
-  if (fc === 'reg') {
 
-  }
-  var rDim = req.query.regdim;
-  //var iDim = req.query.iprdim;
-  var cd = parseInt(req.query.code);
-  var hid = String(req.query.hide).split(',');
-  var yr = String(req.query.year).split(',');
-
-  //if ipr then different
-  let patentCd = ["A", "B", "C", "D", "E", "F", "G", "H"];
-  let tempStacks = [];
-  
-
-  for (let i=2000; i<2019; i++) {
-    await model.Patent.find({year: i}, function(err, patent){
-      let tempStack = {};
-      for (const ptCd of patentCd) {
-        tempStack[ptCd]=0.0;
-      }
-      if(err) {
-      } else {
-        let defRec = rDim=='prov'? patent[0].provinces : patent[0].cities;
-        if (defRec[cd]) {
-          for (const ptCd of patentCd) {
-            if (defRec[cd][ptCd]) {
-              tempStack[ptCd]=parseFloat(defRec[cd][ptCd]["total_ctg"]).toFixed(2);
-            } else {
-              tempStack[ptCd]=0.0;
-            }
+async function buildOvertime(url_base, fc, rDim, iDim, yr, cd, hid, res) {
+  if (fc = 'reg') {
+    let iprBase = getIPRBase(iDim)
+    var tempStacks = []
+    let baseCode = iprBases[iDim]
+    for (let i=2000; i<2019; i++) { //HARUSNYA dari 2000
+      await getData(url_base+i, res).then(data => {
+        let defRec = rDim=='prov'? data['province'] : data['city'];
+        let region = isCodeExists(cd, defRec, rDim)
+        let tempStack = {};
+        for (const code of baseCode) tempStack[code]=0.0;
+        if (region) {
+          for (const _class of region['class']) {
+            tempStack[_class[iprBase]]+=parseFloat(_class['total']).toFixed(2);
           }
         }
-      }
-      tempStack["year"]=i;
-      tempStacks.push(tempStack);
-    }); 
-    if (i==2018) await sleep(1); //to stop 18/19 fethed items problems
-  }
-  let defReg = new model.OverTime();
-  tempConfig = {primaryKey: 'year', groups: []};
+        tempStack["year"]=i;
+        tempStacks.push(tempStack);
+      });
+      if (i==2018) await sleep(1); //to stop 18/19 fetched items problems
+    }
+    let defReg = new model.OverTime();
+    tempConfig = {primaryKey: 'year', groups: []};
 
-  //ini udah bener, tapi kenapa inputnya berubah2 ke default 2000-2018 yak
-  tempStacks = tempStacks.filter((x) => x["year"]>=parseInt(yr[0]) && x["year"]<=parseInt(yr[1]));
-  for (const ptCd of patentCd) {
-    if (hid.includes(ptCd)) {
-      for (let i=0; i<tempStacks.length; i++) {
-        tempStacks[i][ptCd]=0;
+    //ini udah bener, tapi kenapa inputnya berubah2 ke default 2000-2018 yak
+    tempStacks = tempStacks.filter((x) => x["year"]>=parseInt(yr[0]) && x["year"]<=parseInt(yr[1]));
+    for (const code of iprBases[iDim]) {
+      if (hid.includes(code)) {
+        for (let i=0; i<tempStacks.length; i++) {
+          tempStacks[i][code]=0;
+        }
       }
+      tempConf={
+        key: code,
+        label: getPatent(code),
+        fill: getColor(code)
+      }
+      tempConfig.groups.push(tempConf);
     }
-    tempConf={
-      key: ptCd,
-      label: getPatent(ptCd),
-      fill: getColor(ptCd)
-    }
-    tempConfig.groups.push(tempConf);
+    defReg.config = tempConfig;
+    defReg.stacksReg = tempStacks;
+    defReg["vtype"]='otv';
+    res.json(defReg)
+    return;
   }
-  defReg.config = tempConfig;
-  defReg.stacksReg = tempStacks;
-  defReg["vtype"]='otv';
-  res.json(defReg)
-  return;
+  
 }
-*/
+
 function buildTreemap(fc, rDim, iDim, cd, hid, data, res) {
   if (fc === 'reg') {
     //set up variables
@@ -241,59 +225,15 @@ exports.nationalshare = async(req, res) => {
   return;
 }
 
-exports.overtime = async(req, res) => {
+exports.overtime = (req, res) => {
   var focusRec = req.query.focus;
   var regdimRec = req.query.regdim;
   var iprdimRec = req.query.iprdim;
   var yearRec = String(req.query.year).split(',');;
   var codeRec = req.query.code;
   var hideRec = String(req.query.hide).split(',');
-
-  let iprBase = getIPRBase(iprdimRec)
-  var tempStacks = []
-  if (focusRec = 'reg') {
-    let baseCode = iprBases[iprdimRec]
-    for (let i=2000; i<2019; i++) { //HARUSNYA dari 2000
-      await getData(req.url_base+i, res).then(data => {
-        let defRec = regdimRec=='prov'? data['province'] : data['city'];
-        let region = isCodeExists(codeRec, defRec, regdimRec)
-        let tempStack = {};
-        for (const code of baseCode) tempStack[code]=0.0;
-        if (region) {
-          for (const _class of region['class']) {
-            tempStack[_class[iprBase]]+=parseFloat(_class['total']).toFixed(2);
-          }
-        }
-        tempStack["year"]=i;
-        tempStacks.push(tempStack);
-      });
-      if (i==2018) await sleep(1); //to stop 18/19 fetched items problems
-    }
-  }
-  let defReg = new model.OverTime();
-  tempConfig = {primaryKey: 'year', groups: []};
-
-  //ini udah bener, tapi kenapa inputnya berubah2 ke default 2000-2018 yak
-  tempStacks = tempStacks.filter((x) => x["year"]>=parseInt(yearRec[0]) && x["year"]<=parseInt(yearRec[1]));
-  for (const code of iprBases[iprdimRec]) {
-    if (hideRec.includes(code)) {
-      for (let i=0; i<tempStacks.length; i++) {
-        tempStacks[i][code]=0;
-      }
-    }
-    tempConf={
-      key: code,
-      label: getPatent(code),
-      fill: getColor(code)
-    }
-    tempConfig.groups.push(tempConf);
-  }
-  defReg.config = tempConfig;
-  defReg.stacksReg = tempStacks;
-  defReg["vtype"]='otv';
-  console.log(defReg)
-  console.log(defReg.config.groups)
-  res.json(defReg)
+  var url_base = req.url_base
+  buildOvertime(url_base, focusRec, regdimRec, iprdimRec, yearRec, codeRec, hideRec, res);
   return;
 }
 
