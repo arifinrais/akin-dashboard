@@ -1,8 +1,7 @@
 const main = {};
 
-main.Patent = require("../models/documents/Patent");
-main.NationalShare = require("../models/visualizations/Nationalshare");
-main.OverTime = require("../models/visualizations/Overtime");
-main.TreeMap = require("../models/visualizations/Treemap");
+main.NationalShare = require("../models/Nationalshare");
+main.OverTime = require("../models/Overtime");
+main.TreeMap = require("../models/Treemap");
 
 module.exports = main;
