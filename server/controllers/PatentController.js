@@ -14,6 +14,8 @@ function getColor(code) {
 }
 
 function buildTreemap(fc, yr, rDim, iDim, cd, hid, res) {
+  //fetch('http://example.com/movies.json')
+  //  .then(response => response.json())
   if (fc === 'reg') {
     model.Patent.find({year: yr}, function(err, patent){
       if(err) {
@@ -213,6 +215,7 @@ exports.treemap = (req, res) => {
   var codeRec = req.query.code;
   var yearRec = req.query.year;
   var hideRec = String(req.query.hide).split(',');
+  console.log(req.data)
   buildTreemap(focusRec, yearRec, regdimRec, iprdimRec, codeRec, hideRec, res);
   return;
 }
