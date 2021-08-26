@@ -27,8 +27,8 @@ async function getData(url, res) {
     return result.data
   }
   catch (err) {
+    console.log(err)
     res.send(err)
-    return;
   }
 }
 
@@ -249,23 +249,19 @@ exports.overtime = async(req, res) => {
   var codeRec = req.query.code;
   var hideRec = String(req.query.hide).split(',');
 
-  let iprBase = getIPRBase(iprdim)
+  let iprBase = getIPRBase(iprdimRec)
   var tempStacks = []
   if (focusRec = 'reg') {
     let baseCode = iprBases[iprdimRec]
-    for (let i=2018; i<2019; i++) {
-      getData(req.url_base).then(data => {
-        let defRec = rDim=='prov'? data['province'] : data['city'];
+    for (let i=2007; i<2019; i++) {
+      await getData(req.url_base+i, res).then(data => {
+        let defRec = regdimRec=='prov'? data['province'] : data['city'];
         let region = isCodeExists(codeRec, defRec, regdimRec)
-        if (!region) {res.json({vtype: 'err'});return;}
         let tempStack = {};
-        for (const code of baseCode) {
-          tempStack[code]=0.0
+        for (const code of baseCode) tempStack[code]=0.0;
+        if (region) {
           for (const _class of region['class']) {
-            if (_class[iprBase]==code) {
-              tempStack[code]+=parseFloat(_class['total']).toFixed(2);
-              break;
-            }
+            tempStack[_class[iprBase]]+=parseFloat(_class['total']).toFixed(2);
           }
         }
         tempStack["year"]=i;
@@ -274,13 +270,14 @@ exports.overtime = async(req, res) => {
       if (i==2018) await sleep(1); //to stop 18/19 fetched items problems
     }
   }
+  console.log(tempStacks)
   let defReg = new model.OverTime();
   tempConfig = {primaryKey: 'year', groups: []};
 
   //ini udah bener, tapi kenapa inputnya berubah2 ke default 2000-2018 yak
   tempStacks = tempStacks.filter((x) => x["year"]>=parseInt(yearRec[0]) && x["year"]<=parseInt(yearRec[1]));
   for (const code of iprBase) {
-    if (hid.includes(code)) {
+    if (hideRec.includes(code)) {
       for (let i=0; i<tempStacks.length; i++) {
         tempStacks[i][code]=0;
       }
@@ -295,6 +292,7 @@ exports.overtime = async(req, res) => {
   defReg.config = tempConfig;
   defReg.stacksReg = tempStacks;
   defReg["vtype"]='otv';
+  console.log(defReg)
   res.json(defReg)
   return;
 }
