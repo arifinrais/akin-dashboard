@@ -50,6 +50,7 @@ function isCodeExists(code, obj, dim) {
 function getIPRBase(iDim) {
   return iDim=='ptn'? 'ipc_base': iDim=='trd'? 'ncl_base' : iDim=='pub'? 'kri_base' : '';
 }
+
 function getIPRChild(iDim) {
   return iDim=='ptn'? 'ipc_class2': iDim=='trd'? 'ncl_class1' : iDim=='pub'? 'kri_class2' : '';
 }
@@ -59,7 +60,7 @@ async function buildOvertime(url_base, fc, rDim, iDim, yr, cd, hid, res) {
     let iprBase = getIPRBase(iDim)
     var tempStacks = []
     let baseCode = iprBases[iDim]
-    for (let i=2000; i<2019; i++) { //HARUSNYA dari 2000
+    for (let i=2000; i<2019; i++) {
       await getData(url_base+i).then((data, err) => {
         let tempStack = {};
         for (const code of baseCode) tempStack[code]=0.0;
@@ -77,8 +78,6 @@ async function buildOvertime(url_base, fc, rDim, iDim, yr, cd, hid, res) {
     }
     let defReg = new model.OverTime();
     tempConfig = {primaryKey: 'year', groups: []};
-
-    //ini udah bener, tapi kenapa inputnya berubah2 ke default 2000-2018 yak
     tempStacks = tempStacks.filter((x) => x["year"]>=parseInt(yr[0]) && x["year"]<=parseInt(yr[1]));
     for (const code of baseCode) {
       if (hid.includes(code)) {
@@ -190,7 +189,6 @@ async function buildNationalshare(url_base, rDim, iDim, cd, hid, res) {
           }
         }
       }
-
     });
     if (i==2018) await sleep(1); //to stop 18/19 fetched items problems
   }
