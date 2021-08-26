@@ -41,7 +41,7 @@ function buildTreemap(fc, yr, rDim, iDim, cd, hid, data, res) {
     let total = region['total'];
       for(const classes of region['class']) {
         let classBase = getPatent(classes[iprBase])
-        let color = getPatent(classes[iprBase])
+        let color = getColor(classes[iprBase])
         var child = {}
         //if (typeof ptClass === "string" && typeof ptColor === "string") {            
         child["id"]=classBase;
@@ -64,11 +64,15 @@ function buildTreemap(fc, yr, rDim, iDim, cd, hid, data, res) {
           defReg.children.push(child);
         }
       
-      console.log(defReg)
       if (hid.length >= 1 && !hid.includes('')) {
         for (var x of hid) {
           defReg.children = defReg.children.filter((item) => item.fill != getColor(x));
-          total-=defRec[code][x]['total_ctg'];
+          for (const classes of region['class']) {
+            if (classes[iprBase]==x) {
+              total-=classes['total'];
+              break;
+            }
+          }
         }
       }
       defReg["vtype"]='tmv';
