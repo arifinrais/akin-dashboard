@@ -24,7 +24,7 @@ class Dashboard extends Component {
             data: {},
             modifier: [],
             vtype: '',
-            year: null,
+            year: '',
             focus: '',
             reg_dimension: '',
             ipr_dimension: '',
