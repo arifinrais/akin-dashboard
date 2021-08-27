@@ -9,6 +9,7 @@ main.PatentCode = require("../res/stdIpc.json");
 main.TrademarkCode = require("../res/stdNcl.json");
 main.PublicationCode = require("../res/stdKri.json");
 main.ColorCode = require("../res/stdColor.json");
+main.ColorRange = require("../res/stdColorRange.json")
 
 
 module.exports = main;

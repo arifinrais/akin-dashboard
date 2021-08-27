@@ -29,7 +29,19 @@ router.get('/explore',function(req, res) {
   } else if (req.query.vtype == 'gmv') { //specified case
     controller.PatentController.geomap(req,res)
     return;
+  } else {
+    throw 'Unrecognized Visualization Type'; 
   }   
+});
+
+router.get('/rankings',function(req, res) {
+  req.query.regdim = req.query.regdim? req.query.regdim : 'city';
+  req.query.iprdim = req.query.iprdim? req.query.iprdim : 'ptn';
+  req.query.year = req.query.year? req.query.year : '2018';
+
+  iprdim = req.query.iprdim == 'ptn'? 'patent' : req.query.iprdim == 'trd'? 'trademark' : req.query.iprdim == 'pub' ? 'publication' : '';
+  req.url_base = dataAPI+'analysis?ipr_dim='+iprdim+'&year=';
+  controller.RankingController.rankings(req,res);
 });
 
 module.exports = router;
