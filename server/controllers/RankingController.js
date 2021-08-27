@@ -89,19 +89,7 @@ function getIPRChild(iDim) {
     return iDim=='ptn'? 'ipc_class2': iDim=='trd'? 'ncl_class1' : iDim=='pub'? 'kri_class2' : '';
 }
 
-function buildRankings(rDim, iDim, yr, data, prevData, res) {
-    prevData.sort(function(a, b) {
-        var keyA = a.value, keyB = b.value;
-        if (keyA < keyB) return 1;
-        if (keyA > keyB) return -1;
-        return 0;
-    });
-    data['kci'].sort(function(a, b) {
-        var keyA = a.value, keyB = b.value;
-        if (keyA < keyB) return 1;
-        if (keyA > keyB) return -1;
-        return 0;
-    });
+function buildRankings(rDim, iDim, data, prevData, res) {
     var i=1, identifier = rDim=='prov'? 'id_province' : rDim=='city' ? 'id_city' : '';
     let defReg = new model.Rankings();
     let range = data['kci'][0]['value']-data['kci'][data['kci'].length-1]['value']
@@ -109,7 +97,7 @@ function buildRankings(rDim, iDim, yr, data, prevData, res) {
     let getRegion = rDim=='prov'? getProvince : rDim=='city' ? getCity : null;
     for (const region of data['kci']) {
         rank = {};
-        let prevRanking = prevData.findIndex(x => x[identifier]==region[identifier])+1;
+        let prevRanking = prevData.length? prevData.findIndex(x => x[identifier]==region[identifier])+1 : 0;
         rank['color']=getColor(gradient, region['value']);
         rank['rank']=i;
         rank['name']=getRegion(region[identifier]);
@@ -118,12 +106,6 @@ function buildRankings(rDim, iDim, yr, data, prevData, res) {
         defReg.regList.push(rank);
         i+=1;
     }
-    data['ipci'].sort(function(a, b) {
-        var keyA = a.value, keyB = b.value;
-        if (keyA < keyB) return 1;
-        if (keyA > keyB) return -1;
-        return 0;
-    });
     i=1, identifier = getIPRChild(iDim);
     range = data['ipci'][0]['value']-data['ipci'][data['ipci'].length-1]['value']
     gradient = getGradient(resources.ColorRange, range, data['ipci'][0]['value'])
@@ -138,7 +120,7 @@ function buildRankings(rDim, iDim, yr, data, prevData, res) {
         defReg.iprList.push(rank);
         i+=1;
     }
-    console.log(defReg)
+    res.json(defReg)
 }
 
 exports.rankings = (req, res) => {
@@ -150,11 +132,29 @@ exports.rankings = (req, res) => {
     if (parseInt(yearRec)>2004) {
         getData(req.url_base+(yearRec-5)).then((data, err) => {
             previousData = regdimRec=='prov'? data['province']['kci'] : data['city']['kci'];
+            previousData.sort(function(a, b) {
+                var keyA = a.value, keyB = b.value;
+                if (keyA < keyB) return 1;
+                if (keyA > keyB) return -1;
+                return 0;
+            });
         })
     }
     getData(req.url_base+yearRec).then((data, err) => {
         newData = regdimRec=='prov'? data['province'] : data['city'];
-        buildRankings(regdimRec, iprdimRec, yearRec, newData, previousData, res)
+        newData['kci'].sort(function(a, b) {
+            var keyA = a.value, keyB = b.value;
+            if (keyA < keyB) return 1;
+            if (keyA > keyB) return -1;
+            return 0;
+        });
+        newData['ipci'].sort(function(a, b) {
+            var keyA = a.value, keyB = b.value;
+            if (keyA < keyB) return 1;
+            if (keyA > keyB) return -1;
+            return 0;
+        });
+        buildRankings(regdimRec, iprdimRec, newData, previousData, res)
     })
     return;
 }
