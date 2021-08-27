@@ -112,7 +112,7 @@ class Rankings extends Component {
         this.updateData();
         return(
             <Grid container direction="row" justify="space-evenly">
-                <Grid item xs={8}>
+                <Grid item xs={6}>
                     <Grid container spacing={1} direction="column" justify="space-evenly">
                         <Grid item>
                             {this.getTitle()}
@@ -139,23 +139,19 @@ class Rankings extends Component {
                             </Box>
                         </Grid>
                         <Grid item>
-                            <RankingList {...this.state}
-                            
-                            />
-
+                            <Grid container direction="row" justify="space-evenly" /*style={{width: '100%', gridTemplateColumns: "1fr 7fr" }}>*/>
+                                <Grid item >
+                                </Grid>
+                                <Grid item>
+                                    <RankingList {...this.state} />
+                                </Grid>
+                            </Grid>
                         </Grid>
                     </Grid>
                 </Grid>
             </Grid>
         )
     }
-    /*
-    updateFocus={this.updateFocus} 
-                                updateRegDim={this.updateRegDim}
-                                updateIprDim={this.updateIprDim}
-                                updateCode={this.updateCode} 
-                                updateVtype={this.updateVtype} 
-    */
 }
 
 export default Rankings;

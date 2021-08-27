@@ -35,17 +35,17 @@ const RankingList = props => {
         let list = props.data['regList'];
         let name = props.reg_dimension=='prov'? 'Province' : props.reg_dimension=='city'? 'City' : '';
         return (<Table
-            width={400}
-            height={600}
+            width={700}
+            height={500}
             headerHeight={20}
             rowHeight={30}
             rowCount={list.length}
             rowGetter={({index}) => list[index]}>
-            <Column dataKey="color" width={10} />
-            <Column label="Rank" dataKey="rank" width={40} />
-            <Column label={name} dataKey="name" width={150} />
-            <Column label="KCI" dataKey="index" width={50} />
-            <Column label="Growth" dataKey="growth" width={50} />
+            <Column dataKey="color" width={50} />
+            <Column label="Rank" dataKey="rank" width={100} />
+            <Column label={name} dataKey="name" width={350} />
+            <Column label="KCI" dataKey="index" width={100} />
+            <Column label="Growth" dataKey="growth" width={100} />
         </Table>)
     } else if (props.focus=='ipr') {
         let list = props.data['iprList'];
