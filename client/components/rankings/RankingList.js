@@ -31,19 +31,22 @@ const iprRecord = new Schema({
 */
 
 const RankingList = props => {
+    const getColor = (clr) => {
+        return <div style={{color: clr, backgroundColor: clr}}>-</div>
+    }
     if (props.focus=='reg') {
         let list = props.data['regList'];
         let name = props.reg_dimension=='prov'? 'Province' : props.reg_dimension=='city'? 'City' : '';
         return (<Table
-            width={700}
+            width={650}
             height={500}
             headerHeight={20}
             rowHeight={30}
             rowCount={list.length}
             rowGetter={({index}) => list[index]}>
-            <Column dataKey="color" width={50} />
+            <Column cellRenderer={({ cellData }) => getColor(cellData)} dataKey='color' width={50} />
             <Column label="Rank" dataKey="rank" width={100} />
-            <Column label={name} dataKey="name" width={350} />
+            <Column label={name} dataKey="name" width={300} />
             <Column label="KCI" dataKey="index" width={100} />
             <Column label="Growth" dataKey="growth" width={100} />
         </Table>)

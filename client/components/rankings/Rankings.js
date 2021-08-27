@@ -140,7 +140,8 @@ class Rankings extends Component {
                         </Grid>
                         <Grid item>
                             <Grid container direction="row" justify="space-evenly" /*style={{width: '100%', gridTemplateColumns: "1fr 7fr" }}>*/>
-                                <Grid item >
+                                <Grid item>
+                                    <img src={'../res/color-range.png'}/>
                                 </Grid>
                                 <Grid item>
                                     <RankingList {...this.state} />
