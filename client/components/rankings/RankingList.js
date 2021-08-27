@@ -31,13 +31,9 @@ const iprRecord = new Schema({
 */
 
 const RankingList = props => {
-
-    console.log(props.data)
     if (props.focus=='reg') {
-        console.log(props.data)
         let list = props.data['regList'];
         let name = props.reg_dimension=='prov'? 'Province' : props.reg_dimension=='city'? 'City' : '';
-        console.log(list)
         return (<Table
             width={400}
             height={600}

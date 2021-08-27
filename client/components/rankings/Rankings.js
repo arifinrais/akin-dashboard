@@ -21,7 +21,7 @@ class Rankings extends Component {
         this.state = {
             error: null,
             isLoaded: false,
-            data: [],
+            data: {},
             year: '',
             focus: '',
             reg_dimension: '',
@@ -34,9 +34,10 @@ class Rankings extends Component {
         this.updateIprDim = this.updateIprDim.bind(this);
     }
 
-    updateYear(yr) {
+    updateYear(event) {
         //this.loading();
-        this.setState({year: yr});
+        console.log(event.target.value);
+        this.setState({year: event.target.value});
     }
     
     loading() {
@@ -87,7 +88,7 @@ class Rankings extends Component {
     getYears() {
         let temp = []
         for (let i=2000; i<2019; i++) {
-            temp.push(<MenuItem value={i}>{i}</MenuItem>);
+            temp.push(<MenuItem value={i.toString()}>{i}</MenuItem>);
         }
         return temp;
     }
@@ -109,7 +110,6 @@ class Rankings extends Component {
 
     render(){
         this.updateData();
-        console.log(this.state.data)
         return(
             <Grid container direction="row" justify="space-evenly">
                 <Grid item xs={8}>
