@@ -9,18 +9,12 @@ import Select from '@material-ui/core/Select';
 import Resources from '../../../server/providers/resourceProvider';
 import MenuItem from '@material-ui/core/MenuItem';
 import RankingList from './RankingList';
-import {Column, Table} from 'react-virtualized';
-import 'react-virtualized/styles.css';
 //import axios from 'axios';
 
 const defaultParam = {
     //define if needed
 }
 
-const list = [
-    {name: 'Brian Vaughn', description: 'Software engineer'},
-    // And so on...
-  ];
 
 class Rankings extends Component {
     constructor(props) {
@@ -149,16 +143,10 @@ class Rankings extends Component {
                             </Box>
                         </Grid>
                         <Grid item>
-                        <Table
-                            width={300}
-                            height={300}
-                            headerHeight={20}
-                            rowHeight={30}
-                            rowCount={list.length}
-                            rowGetter={({index}) => list[index]}>
-                            <Column label="Name" dataKey="name" width={100} />
-                            <Column width={200} label="Description" dataKey="description" />
-                        </Table>
+                            <RankingList {...this.state}
+                            
+                            />
+
                         </Grid>
                     </Grid>
                 </Grid>
