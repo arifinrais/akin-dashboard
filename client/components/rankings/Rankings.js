@@ -15,7 +15,6 @@ const defaultParam = {
     //define if needed
 }
 
-
 class Rankings extends Component {
     constructor(props) {
         super(props);
@@ -27,8 +26,6 @@ class Rankings extends Component {
             focus: '',
             reg_dimension: '',
             ipr_dimension: '',
-            sortby: ''/*,
-            search: ''*/
         };
         this.updateYear = this.updateYear.bind(this);
         this.loading = this.loading.bind(this);
@@ -61,7 +58,7 @@ class Rankings extends Component {
     }
 
     updateData() {
-        fetch(`${routes.Rankings}?year=${this.state.year}&focus=${this.state.focus}&regdim=${this.state.reg_dimension}&iprdim=${this.state.ipr_dimension}&sortby=${this.state.sortby}`)
+        fetch(`${routes.Rankings}?year=${this.state.year}&regdim=${this.state.reg_dimension}&iprdim=${this.state.ipr_dimension}`)
         .then(res => res.json())
         .then((res) => {
             //console.log(res);
@@ -70,8 +67,7 @@ class Rankings extends Component {
                 year: this.state.year,
                 focus: this.state.focus,
                 reg_dimension: this.state.reg_dimension,
-                ipr_dimension: this.state.ipr_dimension,
-                sortby: this.state.sortby
+                ipr_dimension: this.state.ipr_dimension
             });
           })
         .catch( err => this.setState({error: err}));      
@@ -97,7 +93,7 @@ class Rankings extends Component {
     }
 
     componentDidMount(){
-       fetch(routes.Explore)
+       fetch(routes.Rankings)
         .then(res => res.json()) 
         .then((res) => {
             this.setState({data: res, 
@@ -106,7 +102,6 @@ class Rankings extends Component {
                 focus: 'reg', 
                 reg_dimension: 'city', //prov
                 ipr_dimension: 'ptn',
-                sortby: 'rank'
             });
           })
         .catch( err => this.setState({error: err}));
@@ -114,6 +109,7 @@ class Rankings extends Component {
 
     render(){
         this.updateData();
+        console.log(this.state.data)
         return(
             <Grid container direction="row" justify="space-evenly">
                 <Grid item xs={8}>
