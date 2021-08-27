@@ -17,14 +17,13 @@ class Rankings extends Component {
         this.state = {
             error: null,
             isLoaded: false,
-            data: {},
-            modifier: [],
-            vtype: '',
+            data: [],
             year: '',
             focus: '',
             reg_dimension: '',
             ipr_dimension: '',
-            code: ''
+            sortby: ''/*,
+            search: ''*/
         };
         this.updateYear = this.updateYear.bind(this);
         this.loading = this.loading.bind(this);
@@ -57,19 +56,17 @@ class Rankings extends Component {
     }
 
     updateData() {
-        fetch(`${routes.Explore}?vtype=${this.state.vtype}&year=${this.state.year}&focus=${this.state.focus}&regdim=${this.state.reg_dimension}&iprdim=${this.state.ipr_dimension}&code=${this.state.code}&hide=${this.state.modifier}`)
+        fetch(`${routes.Rankings}?year=${this.state.year}&focus=${this.state.focus}&regdim=${this.state.reg_dimension}&iprdim=${this.state.ipr_dimension}&sortby=${this.state.sortby}`)
         .then(res => res.json())
         .then((res) => {
             //console.log(res);
             this.setState({data: res,
                 isLoaded : true,
-                vtype: this.state.vtype,
                 year: this.state.year,
                 focus: this.state.focus,
                 reg_dimension: this.state.reg_dimension,
                 ipr_dimension: this.state.ipr_dimension,
-                code: this.state.code,
-                modifier: this.state.modifier
+                sortby: this.state.sortby
             });
           })
         .catch( err => this.setState({error: err}));      
