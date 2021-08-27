@@ -109,20 +109,7 @@ class Rankings extends Component {
           })
         .catch( err => this.setState({error: err}));
       }
-    /*
-    <Grid item>
-                            <FormControl style={{width:120}}/*className={classes.formControl}>
-                            <Select
-                            value={this.state.year}
-                            onChange={this.updateYear}
-                            /*className={classes.selectEmpty}
-                        >
-                            <MenuItem value={""}><em>Tingkat Daerah</em></MenuItem>
-                            {this.getYears()}
-                        </Select>
-                    </FormControl>
-                </Grid>
-    */ 
+
     render(){
         this.updateData();
         return(
@@ -133,16 +120,25 @@ class Rankings extends Component {
                             {this.getTitle()}
                         </Grid>
                         <Grid item>
-                            <FormControl style={{width:120}}/*className={classes.formControl}*/>
-                                <Select
-                                value={this.state.year}
-                                onChange={this.updateYear}
-                                /*className={classes.selectEmpty}*/
-                                >
-                                    <MenuItem value={""}><em>Tingkat Daerah</em></MenuItem>
-                                    {this.getYears()}
-                                </Select>
-                            </FormControl>
+                            <Box
+                            display="flex"
+                            flexWrap="wrap"
+                            justifyContent="flex-end"
+                            alignContent="flex-end"
+                            fontWeight="fontWeightMedium"
+                            fontSize="12px"
+                            >
+                                <FormControl style={{width:80}}/*className={classes.formControl}*/>
+                                    <Select
+                                    value={this.state.year}
+                                    onChange={this.updateYear}
+                                    /*className={classes.selectEmpty}*/
+                                    >
+                                        <MenuItem value={2018}><em>Pilih Tahun</em></MenuItem>
+                                        {this.getYears()}
+                                    </Select>
+                                </FormControl>
+                            </Box>
                         </Grid>
                     </Grid>
                 </Grid>
