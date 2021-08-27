@@ -4,7 +4,10 @@ import routes from '../../../server/providers/routesProvider';
 import files from '../../../server/providers/resourceProvider';
 import Grid from "@material-ui/core/Grid";
 import Box from '@material-ui/core/Box';
-import {VizType} from 'react-fast-charts';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import Resources from '../../../server/providers/resourceProvider';
+import MenuItem from '@material-ui/core/MenuItem';
 //import axios from 'axios';
 
 const defaultParam = {
@@ -74,46 +77,21 @@ class Rankings extends Component {
 
     getTitle() {
         let region = this.state.reg_dimension=='prov'? "Provinsi" : "Kabupaten/Kota";
-        let iprop =  ""
-        if (this.state.ipr_dimension=='ptn') {
-            iprop="Paten";
-        } if (this.state.ipr_dimension=='trd') {
-            iprop="Merek dagang";
-        } if (this.state.ipr_dimension=='pub') {
-            iprop="Publikasi ilmiah";
-        }
+        let iprop = this.state.ipr_dimension=='ptn'? "Paten": this.state.ipr_dimension=='trd'? "Merek dagang" : 
+            this.state.ipr_dimension=='pub'? "Publikasi ilmiah" : '';
         if (this.state.focus == 'reg') {
-            switch (this.state.vtype) {
-                case 'tmv':
-                    return(<h3>{iprop} apa saja yang dihasilkan di {region=='Provinsi'? files.ProvinceCode[this.state.code] :
-                        files.CityCode[this.state.code]} pada tahun {this.state.year}?</h3>); 
-                case 'otv':
-                    return(<h3>{iprop} apa saja yang dihasilkan di {region=='Provinsi'? files.ProvinceCode[this.state.code] :
-                        files.CityCode[this.state.code]} pada tahun {this.state.year[0]} hingga {this.state.year[1]}?</h3>); 
-                case 'nsv':
-                    return(<h3>Berapa persen kontribusi {region=='Provinsi'? files.ProvinceCode[this.state.code] :
-                        files.CityCode[this.state.code]} terhadap jumlah {iprop.toLowerCase()} nasional?</h3>);
-                case 'isv':
-                    return(<h3>{iprop} apa saja yang dihasilkan di {region=='Provinsi'? files.ProvinceCode[this.state.code] :
-                        files.CityCode[this.state.code]} pada tahun {this.state.year}?</h3>);
-                case 'rcv':
-                    return(<h3>{iprop} apa saja yang dihasilkan di {region=='Provinsi'? files.ProvinceCode[this.state.code] :
-                        files.CityCode[this.state.code]} pada tahun {this.state.year}?</h3>);
-            }
+            return(<h3>Ranking Kompleksitas {region} pada Tahun {this.state.year}</h3>);
         } else if (this.state.focus == 'ipr') {
-            switch (this.state.vtype) {
-                case 'tmv':
-                    return(<h3>{region} apa saja yang menghasilkan {iprop.toLowerCase()} {iprop=="Paten"? files.PatentCode[this.state.code] : 
-                        iprop=="Merek Dagang"? "placeholder trd" : "placeholder pub"} pada tahun {this.state.year}?</h3>);     
-                case 'gmv':
-                    return(<h3>{region} apa saja yang menghasilkan {iprop.toLowerCase()} {iprop=="Paten"? files.PatentCode[this.state.code] : 
-                        iprop=="Merek Dagang"? "placeholder trd" : "placeholder pub"} pada tahun {this.state.year}?</h3>);
-                case 'otv':
-                    return(<h3>{region} apa saja yang menghasilkan {iprop.toLowerCase()} {iprop=="Paten"? files.PatentCode[this.state.code] : 
-                        iprop=="Merek Dagang"? "placeholder trd" : "placeholder pub"} pada tahun {this.state.year[0]} hingga {this.state.year[1]}?</h3>); 
-            }
+            return(<h3>Ranking Kompleksitas {iprop} pada Tahun {this.state.year}</h3>);
         }
-        
+    }
+
+    getYears() {
+        let temp = []
+        for (let i=2000; i<2019; i++) {
+            temp.push(<MenuItem value={i}>{i}</MenuItem>);
+        }
+        return temp;
     }
 
     componentDidMount(){
@@ -122,18 +100,29 @@ class Rankings extends Component {
         .then((res) => {
             this.setState({data: res, 
                 isLoaded : true,
-                vtype: 'tmv',
                 year: 2018,
                 focus: 'reg', 
                 reg_dimension: 'city', //prov
                 ipr_dimension: 'ptn',
-                code: '180', //12
-                modifier: []
+                sortby: 'rank'
             });
           })
         .catch( err => this.setState({error: err}));
       }
-      
+    /*
+    <Grid item>
+                            <FormControl style={{width:120}}/*className={classes.formControl}>
+                            <Select
+                            value={this.state.year}
+                            onChange={this.updateYear}
+                            /*className={classes.selectEmpty}
+                        >
+                            <MenuItem value={""}><em>Tingkat Daerah</em></MenuItem>
+                            {this.getYears()}
+                        </Select>
+                    </FormControl>
+                </Grid>
+    */ 
     render(){
         this.updateData();
         return(
@@ -144,24 +133,18 @@ class Rankings extends Component {
                             {this.getTitle()}
                         </Grid>
                         <Grid item>
-                            <Visualization {...this.state}/>
-                        </Grid>
-                        <Grid item>
-                            <Modifier {...this.state} updateModifier={this.updateModifier}/>
-                        </Grid>
-                        <Grid item>
-                            <Slider {...this.state} updateYear={this.updateYear}/>
+                            <FormControl style={{width:120}}/*className={classes.formControl}*/>
+                                <Select
+                                value={this.state.year}
+                                onChange={this.updateYear}
+                                /*className={classes.selectEmpty}*/
+                                >
+                                    <MenuItem value={""}><em>Tingkat Daerah</em></MenuItem>
+                                    {this.getYears()}
+                                </Select>
+                            </FormControl>
                         </Grid>
                     </Grid>
-                </Grid>
-                <Grid item xs={2.5}>
-                    <Panel {...this.state}
-                        updateFocus={this.updateFocus} 
-                        updateRegDim={this.updateRegDim}
-                        updateIprDim={this.updateIprDim}
-                        updateCode={this.updateCode} 
-                        updateVtype={this.updateVtype} 
-                    />
                 </Grid>
             </Grid>
         )

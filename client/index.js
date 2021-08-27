@@ -12,19 +12,25 @@ ReactDOM.render(
   document.getElementById('navbar')
 );
 
-ReactDOM.render(
-  <React.StrictMode>
-    <Dashboard />
-  </React.StrictMode>,
-  document.getElementById('dashboard')
-);
+var element = document.getElementById('dashboard');
+if(typeof(element) != 'undefined' && element != null){
+  ReactDOM.render(
+    <React.StrictMode>
+      <Dashboard />
+    </React.StrictMode>,
+    element
+  );
+}
 
-ReactDOM.render(
-  <React.StrictMode>
-    <Rankings />
-  </React.StrictMode>,
-  document.getElementById('rankings')
-);
+element = document.getElementById('rankings');
+if(typeof(element) != 'undefined' && element != null){
+  ReactDOM.render(
+    <React.StrictMode>
+      <Rankings />
+    </React.StrictMode>,
+    element
+  );
+}
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
