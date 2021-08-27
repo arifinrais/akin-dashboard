@@ -5,7 +5,7 @@ const regRecord = new Schema({
     color: String,
     rank: Number,
     name: String,
-    c_index: Number,
+    index: Number,
     growth: Number
 });
 
@@ -14,7 +14,7 @@ const iprRecord = new Schema({
     rank: Number,
     code: String,
     name: String,
-    c_index: Number
+    index: Number
 });
 
 const ListSchema = new Schema({

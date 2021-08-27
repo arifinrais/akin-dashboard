@@ -31,6 +31,10 @@ function getProvince(code) {
     return resources.ProvinceCode[code];
 }
 
+function getPatent(code) {
+    return resources.PatentCode[code];
+}
+
 function getGradient(colors, range, end) {
     let numOfPoints = colors.length-1;
     let step = range/numOfPoints;
@@ -100,28 +104,41 @@ function buildRankings(rDim, iDim, yr, data, prevData, res) {
     });
     var i=1, identifier = rDim=='prov'? 'id_province' : rDim=='city' ? 'id_city' : '';
     let defReg = new model.Rankings();
-    let regRange = data['kci'][0]['value']-data['kci'][data['kci'].length-1]['value']
-    let regGradient = getGradient(resources.ColorRange, regRange, data['kci'][0]['value'])
+    let range = data['kci'][0]['value']-data['kci'][data['kci'].length-1]['value']
+    let gradient = getGradient(resources.ColorRange, range, data['kci'][0]['value'])
     let getRegion = rDim=='prov'? getProvince : rDim=='city' ? getCity : null;
     for (const region of data['kci']) {
         rank = {};
         let prevRanking = prevData.findIndex(x => x[identifier]==region[identifier])+1;
-        rank['color']=getColor(regGradient, region['value']);
+        rank['color']=getColor(gradient, region['value']);
         rank['rank']=i;
         rank['name']=getRegion(region[identifier]);
-        rank['c_index']=region['value'];
+        rank['index']=region['value'];
         rank['growth']=prevRanking>0? i-prevRanking: null;
         defReg.regList.push(rank);
         i+=1;
     }
-    console.log(defReg.regList[defReg.regList.length-1])
-    console.log(defReg.regList[12])
     data['ipci'].sort(function(a, b) {
         var keyA = a.value, keyB = b.value;
         if (keyA < keyB) return 1;
         if (keyA > keyB) return -1;
         return 0;
     });
+    i=1, identifier = getIPRChild(iDim);
+    range = data['ipci'][0]['value']-data['ipci'][data['ipci'].length-1]['value']
+    gradient = getGradient(resources.ColorRange, range, data['ipci'][0]['value'])
+    getIPR = iDim=='ptn'? getPatent : null; //tar tambahin yang laen
+    for (const _class of data['ipci']) {
+        rank = {};
+        rank['color']=getColor(gradient, _class['value']);
+        rank['rank']=i;
+        rank['code']=_class[identifier]
+        rank['name']=getPatent(_class[identifier]);
+        rank['index']=_class['value'];
+        defReg.iprList.push(rank);
+        i+=1;
+    }
+    console.log(defReg)
 }
 
 exports.rankings = (req, res) => {
