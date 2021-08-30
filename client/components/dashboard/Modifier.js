@@ -48,6 +48,9 @@ export default function CustomizedToggler(props) {
           onChange={handleChange}
           aria-label="text alignment"
         >
+        {
+          props.focus=="reg"? 
+          <div>
           <Tooltip title={files.PatentCode["A"]}>
             <ToggleButton value="A" aria-label="Human Necessities">
               <img src={props.modifier.includes("A")?"/res/classicon/A_.png":"/res/classicon/A.png"} height="25" alt="" />
@@ -88,6 +91,44 @@ export default function CustomizedToggler(props) {
               <img src={props.modifier.includes("H")?"/res/classicon/H_.png":"/res/classicon/H.png"} height="25" alt="" />
             </ToggleButton>
           </Tooltip>
+          </div> : <div>
+          <Tooltip title={files.IslandCode["0"]}>
+            <ToggleButton value="0" aria-label="Sumatera">
+              <img src={props.modifier.includes("0")?"/res/isldicon/0_.png":"/res/isldicon/0.png"} height="25" alt="" />
+            </ToggleButton>
+          </Tooltip>
+          <Tooltip title={files.IslandCode["1"]}>
+            <ToggleButton value="1" aria-label="Jawa">
+              <img src={props.modifier.includes("1")?"/res/isldicon/1_.png":"/res/isldicon/1.png"} height="25" alt="" />
+            </ToggleButton>
+          </Tooltip>
+          <Tooltip title={files.IslandCode["2"]}>
+            <ToggleButton value="2" aria-label="Nusa Tenggara">
+              <img src={props.modifier.includes("2")?"/res/isldicon/2_.png":"/res/isldicon/2.png"} height="25" alt="" />
+            </ToggleButton>
+          </Tooltip>
+          <Tooltip title={files.IslandCode["3"]}>
+            <ToggleButton value="3" aria-label="Kalimantan">
+              <img src={props.modifier.includes("3")?"/res/isldicon/3_.png":"/res/isldicon/3.png"} height="25" alt="" />
+            </ToggleButton>
+          </Tooltip>
+          <Tooltip title={files.IslandCode["4"]}>
+            <ToggleButton value="4" aria-label="Sulawesi">
+              <img src={props.modifier.includes("4")?"/res/isldicon/4_.png":"/res/isldicon/4.png"} height="25" alt="" />
+            </ToggleButton>
+          </Tooltip>
+          <Tooltip title={files.IslandCode["5"]}>
+            <ToggleButton value="5" aria-label="Maluku">
+              <img src={props.modifier.includes("5")?"/res/isldicon/5_.png":"/res/isldicon/5.png"} height="25" alt="" />
+            </ToggleButton>
+          </Tooltip>
+          <Tooltip title={files.IslandCode["6"]}>
+            <ToggleButton value="6" aria-label="Papua">
+              <img src={props.modifier.includes("6")?"/res/isldicon/6_.png":"/res/isldicon/6.png"} height="25" alt="" />
+            </ToggleButton>
+          </Tooltip>
+          </div>
+        }
         </StyledToggleButtonGroup>
       </Paper>
     </Grid>

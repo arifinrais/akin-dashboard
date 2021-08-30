@@ -247,20 +247,20 @@ function buildTreemap(fc, rDim, iDim, cd, hid, data, res) {
         }
       }
     }
-    console.log(defReg)
     for (const _child of defReg.children) {
       for (const _grandchild of _child['children']) {
         _grandchild["size"]=parseFloat( _grandchild["size"]/total).toFixed(2);
       }
     }
     //filter treemap by hide
+    let iprBase = getIPRBase(iDim)
     if (hid.length >= 1 && !hid.includes('')) {
       for (var x of hid) {
-        defReg.children = defReg.children.filter((item) => item.fill != getColor(x));
-        for (const _class of region['class']) {
-          if (_class[iprBase]==x) {
-            total-=_class['total'];
-            break;
+        defReg.children = defReg.children.filter((item) => item.fill != getRegionColor(x));
+        for (const _island of data['island']) {
+          if (x==_island.id_island.toString()) {
+            index = _island.class.findIndex(x => x[iprBase]==cd);
+            total-=_island.class[index].total;
           }
         }
       }
