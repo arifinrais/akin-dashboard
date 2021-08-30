@@ -50,6 +50,9 @@ const AkinPanel = props => {
 
     const handleFocus = (ev, newFocus) => {
         props.updateFocus(newFocus);
+        if (props.ipr_dimension == "ptn") {
+            props.updateCode("A");
+        }
     };
 
     const handleRegDim = (ev, newRegDim) => {
