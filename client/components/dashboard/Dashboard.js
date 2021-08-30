@@ -197,7 +197,7 @@ class Dashboard extends Component {
                             {this.getTotal()}
                         </Grid>
                         <Grid item>
-                            <Visualization {...this.state}/>
+                            <Visualization {...this.state} updateData={this.updateData}/>
                         </Grid>
                         <Grid item>
                             <Modifier {...this.state} updateModifier={this.updateModifier}/>

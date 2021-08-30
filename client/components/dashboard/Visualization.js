@@ -16,7 +16,7 @@ function getLineChartMaxY(lines) {
 
 class Visualization extends Component {
     render() {
-      var { error, isLoaded, data, vtype, focus } = this.props;
+      var { error, isLoaded, data, vtype, focus, updateData } = this.props;
       
       if (error) {
         return <DataViz id={'errorMssg'} vizType={VizType.Error} message={error.message}/>;
@@ -29,7 +29,7 @@ class Visualization extends Component {
             if (data.vtype=="tmv") {
               return(<DataViz vizType={VizType.TreeMap} data={data} />);
             } else {
-              return <DataViz id={'loadMssg'} vizType={VizType.Error} message={'Loading...'}/>;
+              updateData();
             }
           case 'gmv':
             return(<DataViz id={'wipMssg'} vizType={VizType.Error} message={'Visualisasi Geo Map masih dalam tahap pengembangan'}/>);
@@ -37,7 +37,7 @@ class Visualization extends Component {
             if (data.vtype=="otv") {
               return(<DataViz vizType={VizType.StackChart} data={focus=='reg'?data.stacksReg:data.stacksIpr} config={data.config} />);
             } else {
-              return <DataViz id={'loadMssg'} vizType={VizType.Error} message={'Loading...'}/>;
+              updateData();
             }
           case 'nsv':
             if (data.vtype=="nsv") {
@@ -49,7 +49,7 @@ class Visualization extends Component {
                 formatAxis={{x: n => n.toString()}}
                 data={data.lines} />);
             } else {
-              return <DataViz id={'loadMssg'} vizType={VizType.Error} message={'Loading...'}/>;
+              updateData();
             }
           case 'isv':
             return(<DataViz id={'wipMssg'} vizType={VizType.Error} message={'Visualisasi KI Space masih dalam tahap pengembangan'}/>); 
