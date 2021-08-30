@@ -258,9 +258,9 @@ function buildTreemap(fc, rDim, iDim, cd, hid, data, res) {
       for (var x of hid) {
         defReg.children = defReg.children.filter((item) => item.fill != getRegionColor(x));
         for (const _island of data['island']) {
-          if (x==_island.id_island.toString()) {
-            index = _island.class.findIndex(x => x[iprBase]==cd);
-            total-=_island.class[index].total;
+          if (x==_island['id_island'].toString()) {
+            index = _island['class'].findIndex(z => z[iprBase]==cd);
+            if (index>=0) total-=_island.class[index]['total'];
           }
         }
       }

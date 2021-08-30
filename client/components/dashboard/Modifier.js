@@ -42,15 +42,14 @@ export default function CustomizedToggler(props) {
   return (
     <Grid container justify="center" alignItems="center">
       <Paper elevation={0} className={classes.paper}>
+      {
+          props.focus=="reg"? 
         <StyledToggleButtonGroup
           size="small"
           value={activeModifier}
           onChange={handleChange}
           aria-label="text alignment"
         >
-        {
-          props.focus=="reg"? 
-          <div>
           <Tooltip title={files.PatentCode["A"]}>
             <ToggleButton value="A" aria-label="Human Necessities">
               <img src={props.modifier.includes("A")?"/res/classicon/A_.png":"/res/classicon/A.png"} height="25" alt="" />
@@ -91,7 +90,13 @@ export default function CustomizedToggler(props) {
               <img src={props.modifier.includes("H")?"/res/classicon/H_.png":"/res/classicon/H.png"} height="25" alt="" />
             </ToggleButton>
           </Tooltip>
-          </div> : <div>
+        </StyledToggleButtonGroup>:
+        <StyledToggleButtonGroup
+        size="small"
+        value={activeModifier}
+        onChange={handleChange}
+        aria-label="text alignment"
+        >
           <Tooltip title={files.IslandCode["0"]}>
             <ToggleButton value="0" aria-label="Sumatera">
               <img src={props.modifier.includes("0")?"/res/isldicon/0_.png":"/res/isldicon/0.png"} height="25" alt="" />
@@ -127,9 +132,9 @@ export default function CustomizedToggler(props) {
               <img src={props.modifier.includes("6")?"/res/isldicon/6_.png":"/res/isldicon/6.png"} height="25" alt="" />
             </ToggleButton>
           </Tooltip>
-          </div>
-        }
+
         </StyledToggleButtonGroup>
+        }
       </Paper>
     </Grid>
   );
