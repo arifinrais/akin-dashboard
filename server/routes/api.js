@@ -16,18 +16,20 @@ router.get('/explore',function(req, res) {
 
   iprdim = req.query.iprdim == 'ptn'? 'patent' : req.query.iprdim == 'trd'? 'trademark' : req.query.iprdim == 'pub' ? 'publication' : '';
   req.url_base = dataAPI+'visualization?ipr_dim='+iprdim+'&year=';
+  _controller = req.query.iprdim == 'ptn'? controller.PatentController : req.query.iprdim == 'trd'?
+    controller.TrademarkController : req.query.iprdim == 'pub' ? controller.PublicationController : null;
 
   if (req.query.vtype == 'nsv') { //specified case
-    controller.PatentController.nationalshare(req,res)
+    _controller.nationalshare(req,res)
     return;
   } else if (req.query.vtype == 'otv') { //specified case
-    controller.PatentController.overtime(req,res)
+    _controller.overtime(req,res)
     return;
   } else if (req.query.vtype == 'tmv') { //specified case
-    controller.PatentController.treemap(req,res)
+    _controller.treemap(req,res)
     return;
   } else if (req.query.vtype == 'gmv') { //specified case
-    controller.PatentController.geomap(req,res)
+    _controller.geomap(req,res)
     return;
   } else {
     throw 'Unrecognized Visualization Type'; 

@@ -84,7 +84,7 @@ const AkinPanel = props => {
             }
         } else if (props.focus == "ipr") {
             if (props.ipr_dimension == "ptn") {
-                code_options = Resources.PatentCode;
+                code_options = Resources.PatentChooser;
             } else if (props.ipr_dimension == "trd") {
                 code_options = {};
             } else if (props.ipr_dimension == "pub") {

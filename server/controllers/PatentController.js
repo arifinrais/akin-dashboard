@@ -1,9 +1,15 @@
 var resources = require('../providers/resourceProvider');
 var model = require('../providers/modelProvider');
 var axios = require('axios');
+const { unstable_createPortal } = require('react-dom');
+const { __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED } = require('react-dom/cjs/react-dom.development');
 
 const iprBases = {
   'ptn' : ["A", "B", "C", "D", "E", "F", "G", "H"]
+}
+
+const regBases = {
+  'island' : ["SM", "JW", "NU", "KA", "SL", "PP"]
 }
 
 const sleep = ms => {
@@ -39,12 +45,48 @@ function getColor(code) {
   return resources.ColorCode[code];
 }
 
+function getRegionColor(code) {
+  return resources.RegionColorCode[code];
+}
+
+function getIsland(code) {
+  return resources.IslandCode[code];
+}
+
+function getIslandId(code, rDim) {
+  var _code = code
+  if (rDim=='city') {
+    for (const _city of resources.Dictionary['city']) {
+      
+      if (_code==_city['id']) {
+        _code = _city['parent_id'];
+        break;
+      }
+    }
+  }
+  for (const _province of resources.Dictionary['province']) {
+    if (_code==_province['id']) {
+      return _province['island_id'];
+    }
+  }
+}
+
 function isCodeExists(code, obj, dim) {
-  identifier = dim=='prov'? 'id_province' : dim=='city' ? 'id_city' : '';
+  identifier = getRegionKey(dim)
   for (const item of obj) {
     if (item[identifier]==code) return item;
   }
   return false
+}
+
+function isIPRExists(code, obj, dim) {
+  identifier = getIPRBase(dim)
+  for (const item of obj) {
+    if (item[identifier]==code) {
+      return item['total'];
+    }
+  }
+  return -1;
 }
 
 function getIPRBase(iDim) {
@@ -53,6 +95,14 @@ function getIPRBase(iDim) {
 
 function getIPRChild(iDim) {
   return iDim=='ptn'? 'ipc_class2': iDim=='trd'? 'ncl_class1' : iDim=='pub'? 'kri_class2' : '';
+}
+
+function getRegion(code, rDim) {
+  return rDim=='prov'? resources.ProvinceCode[code] : rDim=='city'? resources.CityCode[code] : '';
+}
+
+function getRegionKey(rDim) {
+  return rDim=='prov'? 'id_province' : rDim=='city'? 'id_city' : '';
 }
 
 async function buildOvertime(url_base, fc, rDim, iDim, yr, cd, hid, res) {
@@ -151,7 +201,73 @@ function buildTreemap(fc, rDim, iDim, cd, hid, data, res) {
     res.json(defReg);
     return;  
   } else if (fc === 'ipr') {
-    //bikin model ipr duls, ada geomap inget
+    //set up variables
+    let defRec = rDim=='prov'? data['province'] : data['city'];
+    let rKey = getRegionKey(rDim);
+    let defReg = new model.TreeMap();
+    defReg.id = "dfr";
+    defReg.label = "dfr";
+    defReg.children = [];
+    var total = 0;
+    for (const _region of defRec) {
+      let _total = isIPRExists(cd, _region['class'], iDim);
+      if (_total>0) {
+        total+=_total;
+        let island_id = getIslandId(_region[rKey], rDim)
+        let grandchild = {}
+        let region = getRegion(_region[rKey], rDim)
+        grandchild["id"]=region;
+        grandchild["label"]=region;
+        grandchild["tooltipContent"]=region;
+        grandchild["size"]=_total*100;
+        if (defReg.children.length==0) {
+          let child = {}
+          let island = getIsland(island_id);
+          child['id'] = island;
+          child["label"] = island;
+          child["fill"] = getRegionColor(island_id)
+          child["children"]=[];
+          child["children"].push(grandchild);
+          defReg.children.push(child);
+        } else {
+          let found = false;
+          index = defReg.children.findIndex(x => x.id==getIsland(island_id));
+          if (index>=0) {
+            defReg.children[index]['children'].push(grandchild);
+          } else {
+            let child = {}
+            let island = getIsland(island_id);
+            child['id'] = island;
+            child["label"] = island;
+            child["fill"] = getRegionColor(island_id)
+            child["children"]=[];
+            child["children"].push(grandchild);
+            defReg.children.push(child);
+          }
+        }
+      }
+    }
+    console.log(defReg)
+    for (const _child of defReg.children) {
+      for (const _grandchild of _child['children']) {
+        _grandchild["size"]=parseFloat( _grandchild["size"]/total).toFixed(2);
+      }
+    }
+    //filter treemap by hide
+    if (hid.length >= 1 && !hid.includes('')) {
+      for (var x of hid) {
+        defReg.children = defReg.children.filter((item) => item.fill != getColor(x));
+        for (const _class of region['class']) {
+          if (_class[iprBase]==x) {
+            total-=_class['total'];
+            break;
+          }
+        }
+      }
+    }
+    defReg["vtype"]='tmv';
+    defReg["total_shown"]=total;
+    res.json(defReg);
   }
 }
 
