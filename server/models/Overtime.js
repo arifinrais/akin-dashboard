@@ -26,10 +26,13 @@ const datumFocusReg = new Schema({
 
 const datumFocusIpr = new Schema({
     year: Number,
-    A: Number,
-    B: Number,
-    C: Number,
-    D: Number
+    '0': Number,
+    '1': Number,
+    '2': Number,
+    '3': Number,
+    '4': Number,
+    '5': Number,
+    '6': Number,
 });
 
 const stackChartSchema = new Schema({

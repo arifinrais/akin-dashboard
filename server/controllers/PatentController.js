@@ -9,7 +9,7 @@ const iprBases = {
 }
 
 const regBases = {
-  'island' : ["SM", "JW", "NU", "KA", "SL", "PP"]
+  'island' : ["0", "1", "2", "3", "4", "5", "6"]
 }
 
 const sleep = ms => {
@@ -106,7 +106,7 @@ function getRegionKey(rDim) {
 }
 
 async function buildOvertime(url_base, fc, rDim, iDim, yr, cd, hid, res) {
-  if (fc = 'reg') {
+  if (fc == 'reg') {
     let iprBase = getIPRBase(iDim)
     var tempStacks = []
     let baseCode = iprBases[iDim]
@@ -145,8 +145,45 @@ async function buildOvertime(url_base, fc, rDim, iDim, yr, cd, hid, res) {
     defReg["vtype"]='otv';
     res.json(defReg)
     return;
-  } else if (fc === 'ipr') {
-    //bikin model ipr duls, ada geomap inget
+  } else if (fc == 'ipr') {
+    var tempStacks = [];
+    let baseCode = regBases['island'];
+    for (let i=2000; i<2019; i++) {
+      await getData(url_base+i).then((data, err) => {
+        let tempStack = {};
+        for (const code of baseCode) tempStack[code]=0.0;
+        if (!err) {
+          let defRec = data['island'];
+          for (const _island of defRec) {
+            total = isIPRExists(cd, _island['class'], iDim);
+            if (total>0) tempStack[_island['id_island']]+=parseFloat(total).toFixed(2);
+          }
+        }
+        tempStack["year"]=i;
+        tempStacks.push(tempStack);
+      });
+      if (i==2018) await sleep(1); //to stop 18/19 fetched items problems
+    }
+    let defReg = new model.OverTime();
+    tempConfig = {primaryKey: 'year', groups: []};
+    tempStacks = tempStacks.filter((x) => x["year"]>=parseInt(yr[0]) && x["year"]<=parseInt(yr[1]));
+    for (const code of baseCode) {
+      if (hid.includes(code)) {
+        for (let i=0; i<tempStacks.length; i++) tempStacks[i][code]=0;
+      }
+      tempConf={
+        key: code,
+        label: getIsland(code),
+        fill: getRegionColor(code)
+      }
+      tempConfig.groups.push(tempConf);
+    }
+    defReg.config = tempConfig;
+    defReg.stacksIpr = tempStacks;
+    defReg["vtype"]='otv';
+    console.log(defReg);
+    res.json(defReg)
+    return;
   }
 }
 

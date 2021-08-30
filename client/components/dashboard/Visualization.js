@@ -16,7 +16,7 @@ function getLineChartMaxY(lines) {
 
 class Visualization extends Component {
     render() {
-      var { error, isLoaded, data, vtype } = this.props;
+      var { error, isLoaded, data, vtype, focus } = this.props;
       
       if (error) {
         return <DataViz id={'errorMssg'} vizType={VizType.Error} message={error.message}/>;
@@ -35,7 +35,7 @@ class Visualization extends Component {
             return(<DataViz id={'wipMssg'} vizType={VizType.Error} message={'Visualisasi Geo Map masih dalam tahap pengembangan'}/>);
           case 'otv':
             if (data.vtype=="otv") {
-              return(<DataViz vizType={VizType.StackChart} data={data.stacksReg} config={data.config} />);
+              return(<DataViz vizType={VizType.StackChart} data={focus=='reg'?data.stacksReg:data.stacksIpr} config={data.config} />);
             } else {
               return <DataViz id={'loadMssg'} vizType={VizType.Error} message={'Loading...'}/>;
             }
