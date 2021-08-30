@@ -266,7 +266,7 @@ function buildTreemap(fc, rDim, iDim, cd, hid, data, res) {
       }
     }
     defReg["vtype"]='tmv';
-    defReg["total_shown"]=total;
+    defReg["total_shown"]=total.toFixed(2);
     res.json(defReg);
   }
 }
