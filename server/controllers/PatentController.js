@@ -181,7 +181,6 @@ async function buildOvertime(url_base, fc, rDim, iDim, yr, cd, hid, res) {
     defReg.config = tempConfig;
     defReg.stacksIpr = tempStacks;
     defReg["vtype"]='otv';
-    console.log(defReg);
     res.json(defReg)
     return;
   }
