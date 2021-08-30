@@ -53,22 +53,27 @@ const AkinPanel = props => {
         if (props.ipr_dimension == "ptn") {
             props.updateCode("A");
         }
+        props.updateData();
     };
 
     const handleRegDim = (ev, newRegDim) => {
         props.updateRegDim(newRegDim.props.value);
+        props.updateData();
     };
 
     const handleIprDim = (ev, newIprDim) => {
         props.updateIprDim(newIprDim.props.value);
+        props.updateData();
     };
 
     const handleCode = (ev, newCode) => {
         props.updateCode(newCode.props.value);
+        props.updateData();
     };
 
     const handleVtype = (ev) => {
         props.updateVtype(ev.currentTarget.value);
+        props.updateData();
     }
 
     const updateOptions = () => {

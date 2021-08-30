@@ -38,11 +38,13 @@ class Dashboard extends Component {
         this.updateIprDim = this.updateIprDim.bind(this);
         this.updateCode = this.updateCode.bind(this);
         this.updateVtype = this.updateVtype.bind(this);
+        this.updateData = this.updateData.bind(this);
     }
 
     updateYear(yr) {
         //this.loading();
         this.setState({year: yr});
+        this.updateData();
     }
     
     loading() {
@@ -57,27 +59,33 @@ class Dashboard extends Component {
         } else {
             this.state.modifier.push(lst[0]);
         }
+        this.updateData();
     }
 
     updateFocus(foc) {
         this.setState({focus: foc});
+        this.updateData();
     }
 
     updateRegDim(regdim) {
         this.setState({reg_dimension: regdim});
+        this.updateData();
     }
 
     updateIprDim(iprdim) {
         this.setState({ipr_dimension: iprdim});
+        this.updateData();
     }
 
     updateCode(cd) {
         this.setState({code: cd});
+        this.updateData();
     }
 
     updateVtype(vtp) {
         vtp=='otv'? this.setState({year: [2000, 2018]}): this.setState({year:2018});
         this.setState({vtype: vtp});
+        this.updateData();
     }
 
     updateData() {
@@ -95,6 +103,7 @@ class Dashboard extends Component {
                 code: this.state.code,
                 modifier: this.state.modifier
             });
+            this.render();
           })
         .catch( err => this.setState({error: err}));      
     }
@@ -179,7 +188,6 @@ class Dashboard extends Component {
       }
       
     render(){
-        this.updateData();
         return(
             <Grid container direction="row" justify="space-evenly">
                 <Grid item xs={8}>
@@ -206,6 +214,7 @@ class Dashboard extends Component {
                         updateIprDim={this.updateIprDim}
                         updateCode={this.updateCode} 
                         updateVtype={this.updateVtype} 
+                        updateData={this.updateData}
                     />
                 </Grid>
             </Grid>
