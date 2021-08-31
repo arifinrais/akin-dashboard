@@ -353,6 +353,8 @@ async function buildNationalshare(url_base, rDim, iDim, cd, hid, res) {
           }
         }
       }
+    }).catch(err => {
+      for (const code of baseCode) tempCoords[code].push({x: i, y: 0});
     });
     if (i==2018) await sleep(1); //to stop 18/19 fetched items problems
   }
