@@ -27,10 +27,9 @@ class Visualization extends Component {
         switch (vtype) {
           case 'tmv':
             if (data.vtype=="tmv") {
-              return(<DataViz vizType={VizType.TreeMap} data={data} />);
-            } else {
-              updateData();
+              if (data.children.length>0) return(<DataViz vizType={VizType.TreeMap} data={data} />);
             }
+            updateData();
           case 'gmv':
             return(<DataViz id={'wipMssg'} vizType={VizType.Error} message={'Visualisasi Geo Map masih dalam tahap pengembangan'}/>);
           case 'otv':

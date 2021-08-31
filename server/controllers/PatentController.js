@@ -412,7 +412,9 @@ exports.treemap = (req, res) => {
   var hideRec = String(req.query.hide).split(',');
   getData(req.url_base+yearRec).then((data, err) => {
     buildTreemap(focusRec, regdimRec, iprdimRec, codeRec, hideRec, data, res);
-  })
+  }).catch(err=> {
+    res.json({'vtype': 'err'})
+  });
   return;
 }
 

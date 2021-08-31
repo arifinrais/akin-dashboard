@@ -139,14 +139,14 @@ class Dashboard extends Component {
         } else if (this.state.focus == 'ipr') {
             switch (this.state.vtype) {
                 case 'tmv':
-                    return(<h3>{region} apa saja yang menghasilkan {iprop.toLowerCase()} {iprop=="Paten"? files.PatentCode[this.state.code] : 
-                        iprop=="Merek Dagang"? "placeholder trd" : "placeholder pub"} pada tahun {this.state.year}?</h3>);     
+                    return(<h3>{region} apa saja yang menghasilkan {iprop.toLowerCase()} {iprop=="Paten"? files.PatentChooser[this.state.code] : 
+                        iprop=="Merek Dagang"? files.TrademarkChooser[this.state.code] : files.PublicationChooser[this.state.code]} pada tahun {this.state.year}?</h3>);     
                 case 'gmv':
-                    return(<h3>{region} apa saja yang menghasilkan {iprop.toLowerCase()} {iprop=="Paten"? files.PatentCode[this.state.code] : 
-                        iprop=="Merek Dagang"? "placeholder trd" : "placeholder pub"} pada tahun {this.state.year}?</h3>);
+                    return(<h3>{region} apa saja yang menghasilkan {iprop.toLowerCase()} {iprop=="Paten"? files.PatentChooser[this.state.code] : 
+                    iprop=="Merek Dagang"? files.TrademarkChooser[this.state.code] : files.PublicationChooser[this.state.code]} pada tahun {this.state.year}?</h3>);
                 case 'otv':
-                    return(<h3>{region} apa saja yang menghasilkan {iprop.toLowerCase()} {iprop=="Paten"? files.PatentCode[this.state.code] : 
-                        iprop=="Merek Dagang"? "placeholder trd" : "placeholder pub"} pada tahun {this.state.year[0]} hingga {this.state.year[1]}?</h3>); 
+                    return(<h3>{region} apa saja yang menghasilkan {iprop.toLowerCase()} {iprop=="Paten"? files.PatentChooser[this.state.code] : 
+                    iprop=="Merek Dagang"? files.TrademarkChooser[this.state.code] : files.PublicationChooser[this.state.code]} pada tahun {this.state.year[0]} hingga {this.state.year[1]}?</h3>); 
             }
         }
         

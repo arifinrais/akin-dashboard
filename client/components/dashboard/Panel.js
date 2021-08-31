@@ -103,9 +103,9 @@ const AkinPanel = props => {
             if (props.ipr_dimension == "ptn") {
                 code_options = Resources.PatentChooser;
             } else if (props.ipr_dimension == "trd") {
-                code_options = {};
+                code_options = Resources.TrademarkChooser;
             } else if (props.ipr_dimension == "pub") {
-                code_options = {};
+                code_options = Resources.PublicationChooser;
             }
         }
     };
@@ -169,8 +169,8 @@ const AkinPanel = props => {
                                 >
                                     <MenuItem value={""}><em>Jenis KI</em></MenuItem>
                                     <MenuItem value={"ptn"}>Paten</MenuItem>
-                                    <MenuItem disabled value={"pub"}>Publikasi Ilmiah (WIP)</MenuItem>
-                                    <MenuItem disabled value={"trd"}>Merek Dagang (WIP)</MenuItem>
+                                    <MenuItem value={"pub"}>Publikasi Ilmiah</MenuItem>
+                                    <MenuItem value={"trd"}>Merek Dagang</MenuItem>
                                 </Select>
                             </FormControl>
                         </Grid>

@@ -12,6 +12,8 @@ main.PublicationCode = require("../res/stdKri.json");
 main.ColorRange = require("../res/stdColorRange.json")
 
 main.PatentChooser = require("../res/stdIpcChooser.json");
+main.PublicationChooser = require("../res/stdKriChooser.json");
+main.TrademarkChooser = require("../res/stdNclChooser.json");
 main.RegionColorCode = require("../res/stdRegColor");
 main.PatentColorCode = require("../res/stdPtnColor.json");
 main.TrademarkColorCode = require("../res/stdTrdColor.json");
