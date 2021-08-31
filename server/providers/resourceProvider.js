@@ -9,11 +9,12 @@ main.CityCode = require("../res/stdCity.json");
 main.PatentCode = require("../res/stdIpc.json");
 main.TrademarkCode = require("../res/stdNcl.json");
 main.PublicationCode = require("../res/stdKri.json");
-main.ColorCode = require("../res/stdColor.json");
 main.ColorRange = require("../res/stdColorRange.json")
 
 main.PatentChooser = require("../res/stdIpcChooser.json");
 main.RegionColorCode = require("../res/stdRegColor");
-
+main.PatentColorCode = require("../res/stdPtnColor.json");
+main.TrademarkColorCode = require("../res/stdTrdColor.json");
+main.PublicationColorCode = require("../res/stdPubColor.json");
 
 module.exports = main;

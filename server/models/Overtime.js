@@ -21,7 +21,9 @@ const datumFocusReg = new Schema({
     E: Number,
     F: Number,
     G: Number,
-    H: Number
+    H: Number,
+    Goods: Number,
+    Services: Number
 });
 
 const datumFocusIpr = new Schema({

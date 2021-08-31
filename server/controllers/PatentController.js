@@ -5,7 +5,8 @@ const { unstable_createPortal } = require('react-dom');
 const { __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED } = require('react-dom/cjs/react-dom.development');
 
 const iprBases = {
-  'ptn' : ["A", "B", "C", "D", "E", "F", "G", "H"]
+  'ptn' : ["A", "B", "C", "D", "E", "F", "G", "H"],
+  'trd' : ["Goods", "Services"]
 }
 
 const regBases = {
@@ -37,12 +38,12 @@ async function getData(url) {
   }
 }
 
-function getPatent(code) {
-  return resources.PatentCode[code];
+function getIPR(code, iDim) {
+  return iDim=='ptn'? resources.PatentCode[code] : iDim=='trd'? resources.TrademarkCode[code]: iDim=='pub'? resources.PublicationCode[code]: '';
 }
 
-function getColor(code) {
-  return resources.ColorCode[code];
+function getColor(code, iDim) {
+  return iDim=='ptn'? resources.PatentColorCode[code] : iDim=='trd'? resources.TrademarkColorCode[code]: iDim=='pub'? resources.PublicationColorCode[code]: '';
 }
 
 function getRegionColor(code) {
@@ -111,18 +112,25 @@ async function buildOvertime(url_base, fc, rDim, iDim, yr, cd, hid, res) {
     var tempStacks = []
     let baseCode = iprBases[iDim]
     for (let i=2000; i<2019; i++) {
-      await getData(url_base+i).then((data, err) => {
+      await getData(url_base+i).then((data) => {
         let tempStack = {};
         for (const code of baseCode) tempStack[code]=0.0;
-        if (!err) {
-          let defRec = rDim=='prov'? data['province'] : data['city'];
-          let region = isCodeExists(cd, defRec, rDim)
-          if (region) {
-            for (const _class of region['class']) tempStack[_class[iprBase]]+=parseFloat(_class['total']).toFixed(2);
-          }
+        let defRec = rDim=='prov'? data['province'] : data['city'];
+        let region = isCodeExists(cd, defRec, rDim);
+
+        if (region) {
+          for (const _class of region['class'])
+
+            tempStack[_class[iprBase]]+=parseFloat(_class['total']).toFixed(2);
         }
+        console.log(tempStack)
         tempStack["year"]=i;
         tempStacks.push(tempStack);
+      }).catch(err => {
+          let tempStack = {};
+          for (const code of baseCode) tempStack[code]=0.0;
+          tempStack["year"]=i;
+          tempStacks.push(tempStack);
       });
       if (i==2018) await sleep(1); //to stop 18/19 fetched items problems
     }
@@ -135,8 +143,8 @@ async function buildOvertime(url_base, fc, rDim, iDim, yr, cd, hid, res) {
       }
       tempConf={
         key: code,
-        label: getPatent(code),
-        fill: getColor(code)
+        label: iDim=='trd'? code : getIPR(code, iDim),
+        fill: getColor(code,iDim)
       }
       tempConfig.groups.push(tempConf);
     }
@@ -159,6 +167,11 @@ async function buildOvertime(url_base, fc, rDim, iDim, yr, cd, hid, res) {
             if (total>0) tempStack[_island['id_island']]+=parseFloat(total).toFixed(2);
           }
         }
+        tempStack["year"]=i;
+        tempStacks.push(tempStack);
+      }).catch(err => {
+        let tempStack = {};
+        for (const code of baseCode) tempStack[code]=0.0;
         tempStack["year"]=i;
         tempStacks.push(tempStack);
       });
@@ -202,15 +215,15 @@ function buildTreemap(fc, rDim, iDim, cd, hid, data, res) {
     defReg.children = [];
     //populate treemap
     for(const _class of region['class']) {
-      let classBase = getPatent(_class[iprBase])
-      let color = getColor(_class[iprBase])
+      let classBase = getIPR(_class[iprBase], iDim)
+      let color = getColor(_class[iprBase], iDim)
       var child = {}        
       child["id"]=classBase;
       child["label"]=classBase;
       child["fill"]=color;
       child["children"]=[];
       for(const _childClass of _class['class2']) {
-        let classChild = getPatent(_childClass[iprChild]);
+        let classChild = getIPR(_childClass[iprChild], iDim);
         var grandchild = {}
         grandchild["id"]=classChild;
         grandchild["label"]=classChild;
@@ -223,7 +236,7 @@ function buildTreemap(fc, rDim, iDim, cd, hid, data, res) {
     //filter treemap by hide
     if (hid.length >= 1 && !hid.includes('')) {
       for (var x of hid) {
-        defReg.children = defReg.children.filter((item) => item.fill != getColor(x));
+        defReg.children = defReg.children.filter((item) => item.fill != getColor(x, iDim));
         for (const _class of region['class']) {
           if (_class[iprBase]==x) {
             total-=_class['total'];
@@ -352,9 +365,9 @@ async function buildNationalshare(url_base, rDim, iDim, cd, hid, res) {
         {
           coords: tempCoords[code],
           animationDuration: 0,
-          //label: getPatent(ptCd),
-          color: getColor(code),
-          labelColor: getColor(code),
+          //label: getIPR(ptCd, iDim),
+          color: getColor(code,iDim),
+          labelColor: getColor(code,iDim),
           width: 3,
           labelPosition:"center",
           labelAnchor:"start"

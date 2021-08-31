@@ -16,9 +16,10 @@ router.get('/explore',function(req, res) {
 
   iprdim = req.query.iprdim == 'ptn'? 'patent' : req.query.iprdim == 'trd'? 'trademark' : req.query.iprdim == 'pub' ? 'publication' : '';
   req.url_base = dataAPI+'visualization?ipr_dim='+iprdim+'&year=';
-  _controller = req.query.iprdim == 'ptn'? controller.PatentController : req.query.iprdim == 'trd'?
-    controller.TrademarkController : req.query.iprdim == 'pub' ? controller.PublicationController : null;
+  //_controller = req.query.iprdim == 'ptn'? controller.PatentController : req.query.iprdim == 'trd'?
+  //  controller.TrademarkController : req.query.iprdim == 'pub' ? controller.PublicationController : null;
 
+  _controller = controller.PatentController
   if (req.query.vtype == 'nsv') { //specified case
     _controller.nationalshare(req,res)
     return;
