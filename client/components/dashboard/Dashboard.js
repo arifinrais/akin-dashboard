@@ -109,7 +109,7 @@ class Dashboard extends Component {
     }
 
     getTitle() {
-        let region = this.state.reg_dimension=='prov'? "Provinsi" : "Kabupaten/Kota";
+        let region = this.state.focus=='ipr'? "Daerah" : this.state.reg_dimension=='prov'? "Provinsi" : "Kabupaten/Kota";
         let iprop =  ""
         if (this.state.ipr_dimension=='ptn') {
             iprop="Paten";
@@ -139,13 +139,13 @@ class Dashboard extends Component {
         } else if (this.state.focus == 'ipr') {
             switch (this.state.vtype) {
                 case 'tmv':
-                    return(<h3>{region} apa saja yang menghasilkan {iprop.toLowerCase()} {iprop=="Paten"? files.PatentChooser[this.state.code] : 
+                    return(<h3>{region} mana saja yang menghasilkan {iprop.toLowerCase()} {iprop=="Paten"? files.PatentChooser[this.state.code] : 
                         iprop=="Merek Dagang"? files.TrademarkChooser[this.state.code] : files.PublicationChooser[this.state.code]} pada tahun {this.state.year}?</h3>);     
                 case 'gmv':
-                    return(<h3>{region} apa saja yang menghasilkan {iprop.toLowerCase()} {iprop=="Paten"? files.PatentChooser[this.state.code] : 
+                    return(<h3>{region} mana saja yang menghasilkan {iprop.toLowerCase()} {iprop=="Paten"? files.PatentChooser[this.state.code] : 
                     iprop=="Merek Dagang"? files.TrademarkChooser[this.state.code] : files.PublicationChooser[this.state.code]} pada tahun {this.state.year}?</h3>);
                 case 'otv':
-                    return(<h3>{region} apa saja yang menghasilkan {iprop.toLowerCase()} {iprop=="Paten"? files.PatentChooser[this.state.code] : 
+                    return(<h3>{region} mana saja yang menghasilkan {iprop.toLowerCase()} {iprop=="Paten"? files.PatentChooser[this.state.code] : 
                     iprop=="Merek Dagang"? files.TrademarkChooser[this.state.code] : files.PublicationChooser[this.state.code]} pada tahun {this.state.year[0]} hingga {this.state.year[1]}?</h3>); 
             }
         }
