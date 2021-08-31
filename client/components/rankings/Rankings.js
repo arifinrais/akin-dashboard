@@ -36,8 +36,8 @@ class Rankings extends Component {
 
     updateYear(event) {
         //this.loading();
-        console.log(event.target.value);
         this.setState({year: event.target.value});
+        this.updateData();
     }
     
     loading() {
@@ -48,14 +48,17 @@ class Rankings extends Component {
 
     updateFocus(foc) {
         this.setState({focus: foc});
+        this.updateData();
     }
 
     updateRegDim(regdim) {
         this.setState({reg_dimension: regdim});
+        this.updateData();
     }
 
     updateIprDim(iprdim) {
         this.setState({ipr_dimension: iprdim});
+        this.updateData();
     }
 
     updateData() {
@@ -109,7 +112,6 @@ class Rankings extends Component {
       }
 
     render(){
-        this.updateData();
         return(
             <Grid container direction="row" justify="space-evenly">
                 <Grid item xs={6}>
