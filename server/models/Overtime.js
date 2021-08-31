@@ -23,7 +23,19 @@ const datumFocusReg = new Schema({
     G: Number,
     H: Number,
     Goods: Number,
-    Services: Number
+    Services: Number,
+    "100" : Number,
+    "140" : Number,
+    "200" : Number,
+    "260" : Number,
+    "340" : Number,
+    "410" : Number,
+    "500" : Number,
+    "550" : Number,
+    "580" : Number,
+    "630" : Number,
+    "660" : Number,
+    "710" : Number
 });
 
 const datumFocusIpr = new Schema({

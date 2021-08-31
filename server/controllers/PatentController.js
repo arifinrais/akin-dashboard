@@ -6,7 +6,8 @@ const { __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED } = require('react-do
 
 const iprBases = {
   'ptn' : ["A", "B", "C", "D", "E", "F", "G", "H"],
-  'trd' : ["Goods", "Services"]
+  'trd' : ["Goods", "Services"],
+  'pub' : ["100","140","200","260","340","410","500","550","580","630","660","710"]
 }
 
 const regBases = {
@@ -120,10 +121,8 @@ async function buildOvertime(url_base, fc, rDim, iDim, yr, cd, hid, res) {
 
         if (region) {
           for (const _class of region['class'])
-
             tempStack[_class[iprBase]]+=parseFloat(_class['total']).toFixed(2);
         }
-        console.log(tempStack)
         tempStack["year"]=i;
         tempStacks.push(tempStack);
       }).catch(err => {
