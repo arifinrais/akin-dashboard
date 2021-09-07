@@ -79,12 +79,12 @@ class Rankings extends Component {
 
     getTitle() {
         let region = this.state.reg_dimension=='prov'? "Provinsi" : "Kabupaten/Kota";
-        let iprop = this.state.ipr_dimension=='ptn'? "Paten": this.state.ipr_dimension=='trd'? "Merek dagang" : 
-            this.state.ipr_dimension=='pub'? "Publikasi ilmiah" : '';
+        let iprop = this.state.ipr_dimension=='ptn'? "Paten": this.state.ipr_dimension=='trd'? "Merek Dagang" : 
+            this.state.ipr_dimension=='pub'? "Publikasi Ilmiah" : '';
         if (this.state.focus == 'reg') {
-            return(<h3>Ranking Kompleksitas {region} pada Tahun {this.state.year}</h3>);
+            return(<h3>Ranking Kompleksitas {region} pada Tahun {this.state.year} berdasarkan {iprop}</h3>);
         } else if (this.state.focus == 'ipr') {
-            return(<h3>Ranking Kompleksitas {iprop} pada Tahun {this.state.year}</h3>);
+            return(<h3>Ranking Kompleksitas {iprop} pada Tahun {this.state.year} berdasarkan {region}</h3>);
         }
     }
 

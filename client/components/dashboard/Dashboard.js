@@ -108,16 +108,21 @@ class Dashboard extends Component {
         .catch( err => this.setState({error: err}));      
     }
 
-    getTitle() {
-        let region = this.state.focus=='ipr'? "Daerah" : this.state.reg_dimension=='prov'? "Provinsi" : "Kabupaten/Kota";
-        let iprop =  ""
+    getIPR() {
         if (this.state.ipr_dimension=='ptn') {
-            iprop="Paten";
+            return "Paten";
         } if (this.state.ipr_dimension=='trd') {
-            iprop="Merek dagang";
+            return "Merek Dagang";
         } if (this.state.ipr_dimension=='pub') {
-            iprop="Publikasi ilmiah";
+            return "Publikasi Ilmiah";
+        } else {
+            return "";
         }
+    }
+
+    getTitle() {
+        let region = this.state.reg_dimension=='prov'? "Provinsi" : "Kabupaten/Kota";
+        let iprop = this.getIPR()
         if (this.state.focus == 'reg') {
             switch (this.state.vtype) {
                 case 'tmv':
@@ -128,7 +133,7 @@ class Dashboard extends Component {
                         files.CityCode[this.state.code]} pada tahun {this.state.year[0]} hingga {this.state.year[1]}?</h3>); 
                 case 'nsv':
                     return(<h3>Berapa persen kontribusi {region=='Provinsi'? files.ProvinceCode[this.state.code] :
-                        files.CityCode[this.state.code]} terhadap jumlah {iprop.toLowerCase()} nasional?</h3>);
+                        files.CityCode[this.state.code]} terhadap jumlah {iprop/*.toLowerCase()*/} nasional?</h3>);
                 case 'isv':
                     return(<h3>{iprop} apa saja yang dihasilkan di {region=='Provinsi'? files.ProvinceCode[this.state.code] :
                         files.CityCode[this.state.code]} pada tahun {this.state.year}?</h3>);
@@ -139,13 +144,13 @@ class Dashboard extends Component {
         } else if (this.state.focus == 'ipr') {
             switch (this.state.vtype) {
                 case 'tmv':
-                    return(<h3>{region} mana saja yang menghasilkan {iprop.toLowerCase()} {iprop=="Paten"? files.PatentChooser[this.state.code] : 
+                    return(<h3>{region} mana saja yang menghasilkan {iprop} {iprop=="Paten"? files.PatentChooser[this.state.code] : 
                         iprop=="Merek Dagang"? files.TrademarkChooser[this.state.code] : files.PublicationChooser[this.state.code]} pada tahun {this.state.year}?</h3>);     
                 case 'gmv':
-                    return(<h3>{region} mana saja yang menghasilkan {iprop.toLowerCase()} {iprop=="Paten"? files.PatentChooser[this.state.code] : 
+                    return(<h3>{region} mana saja yang menghasilkan {iprop} {iprop=="Paten"? files.PatentChooser[this.state.code] : 
                     iprop=="Merek Dagang"? files.TrademarkChooser[this.state.code] : files.PublicationChooser[this.state.code]} pada tahun {this.state.year}?</h3>);
                 case 'otv':
-                    return(<h3>{region} mana saja yang menghasilkan {iprop.toLowerCase()} {iprop=="Paten"? files.PatentChooser[this.state.code] : 
+                    return(<h3>{region} mana saja yang menghasilkan {iprop} {iprop=="Paten"? files.PatentChooser[this.state.code] : 
                     iprop=="Merek Dagang"? files.TrademarkChooser[this.state.code] : files.PublicationChooser[this.state.code]} pada tahun {this.state.year[0]} hingga {this.state.year[1]}?</h3>); 
             }
         }
@@ -162,7 +167,7 @@ class Dashboard extends Component {
                         fontWeight="fontWeightMedium"
                         fontSize="12px"
                     >
-                        Jumlah Paten: {this.state.data.total_shown? 
+                        Jumlah {this.getIPR()}: {this.state.data.total_shown? 
                             this.state.data.total_shown : "0"}
                     </Box>);
         }

@@ -129,7 +129,6 @@ exports.rankings = (req, res) => {
     var regdimRec = req.query.regdim;
     var iprdimRec = req.query.iprdim;
     var yearRec = req.query.year;
-    console.log(req.query)
     var previousData = {};//set to be 5 years earlier
     if (parseInt(yearRec)>2004) {
         getData(req.url_base+(yearRec-5)).then((data, err) => {

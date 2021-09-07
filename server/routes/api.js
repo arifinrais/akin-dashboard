@@ -43,9 +43,8 @@ router.get('/rankings',function(req, res) {
   req.query.year = req.query.year? req.query.year : '2018';
 
   iprdim = req.query.iprdim == 'ptn'? 'patent' : req.query.iprdim == 'trd'? 'trademark' : req.query.iprdim == 'pub' ? 'publication' : '';
-  console.log(iprdim)
   req.url_base = dataAPI+'analysis?ipr_dim='+iprdim+'&year=';
-  console.log(req.url_base)
+
   controller.RankingController.rankings(req,res);
 });
 
