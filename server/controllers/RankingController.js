@@ -1,6 +1,7 @@
 var resources = require('../providers/resourceProvider');
 var model = require('../providers/modelProvider');
 var axios = require('axios');
+const { defaultOverscanIndicesGetter } = require('react-virtualized');
 
 async function getData(url) {
     try {
@@ -31,8 +32,8 @@ function getProvince(code) {
     return resources.ProvinceCode[code];
 }
 
-function getPatent(code) {
-    return resources.PatentCode[code];
+function getIPR(code, iDim) {
+    return iDim=='ptn'? resources.PatentCode[code] : iDim=='trd'? resources.TrademarkCode[code]: iDim=='pub'? resources.PublicationCode[code]: '';
 }
 
 function getGradient(colors, range, end) {
@@ -85,6 +86,7 @@ function getColor(gradient, value) {
     }
 }
 
+
 function getIPRChild(iDim) {
     return iDim=='ptn'? 'ipc_class2': iDim=='trd'? 'ncl_class1' : iDim=='pub'? 'kri_class2' : '';
 }
@@ -92,6 +94,7 @@ function getIPRChild(iDim) {
 function buildRankings(rDim, iDim, data, prevData, res) {
     var i=1, identifier = rDim=='prov'? 'id_province' : rDim=='city' ? 'id_city' : '';
     let defReg = new model.Rankings();
+
     let range = data['kci'][0]['value']-data['kci'][data['kci'].length-1]['value']
     let gradient = getGradient(resources.ColorRange, range, data['kci'][0]['value'])
     let getRegion = rDim=='prov'? getProvince : rDim=='city' ? getCity : null;
@@ -109,13 +112,12 @@ function buildRankings(rDim, iDim, data, prevData, res) {
     i=1, identifier = getIPRChild(iDim);
     range = data['ipci'][0]['value']-data['ipci'][data['ipci'].length-1]['value']
     gradient = getGradient(resources.ColorRange, range, data['ipci'][0]['value'])
-    getIPR = iDim=='ptn'? getPatent : null; //tar tambahin yang laen
     for (const _class of data['ipci']) {
         rank = {};
         rank['color']=getColor(gradient, _class['value']);
         rank['rank']=i;
         rank['code']=_class[identifier]
-        rank['name']=getPatent(_class[identifier]);
+        rank['name']=getIPR(_class[identifier],iDim);
         rank['index']=_class['value'];
         defReg.iprList.push(rank);
         i+=1;
@@ -127,7 +129,7 @@ exports.rankings = (req, res) => {
     var regdimRec = req.query.regdim;
     var iprdimRec = req.query.iprdim;
     var yearRec = req.query.year;
-
+    console.log(req.query)
     var previousData = {};//set to be 5 years earlier
     if (parseInt(yearRec)>2004) {
         getData(req.url_base+(yearRec-5)).then((data, err) => {

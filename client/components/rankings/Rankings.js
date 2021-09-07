@@ -46,18 +46,18 @@ class Rankings extends Component {
             isLoaded: false});
     }
 
-    updateFocus(foc) {
-        this.setState({focus: foc});
+    updateFocus(event) {
+        this.setState({focus: event.target.value});
         this.updateData();
     }
 
-    updateRegDim(regdim) {
-        this.setState({reg_dimension: regdim});
+    updateRegDim(event) {
+        this.setState({reg_dimension: event.target.value});
         this.updateData();
     }
 
-    updateIprDim(iprdim) {
-        this.setState({ipr_dimension: iprdim});
+    updateIprDim(event) {
+        this.setState({ipr_dimension: event.target.value});
         this.updateData();
     }
 
@@ -73,8 +73,8 @@ class Rankings extends Component {
                 reg_dimension: this.state.reg_dimension,
                 ipr_dimension: this.state.ipr_dimension
             });
-          })
-        .catch( err => this.setState({error: err}));      
+            })
+        .catch( err => this.setState({error: err}));  
     }
 
     getTitle() {
@@ -120,25 +120,99 @@ class Rankings extends Component {
                             {this.getTitle()}
                         </Grid>
                         <Grid item>
-                            <Box
-                            display="flex"
-                            flexWrap="wrap"
-                            justifyContent="flex-end"
-                            alignContent="flex-end"
-                            fontWeight="fontWeightMedium"
-                            fontSize="12px"
-                            >
-                                <FormControl style={{width:80}}/*className={classes.formControl}*/>
-                                    <Select
-                                    value={this.state.year}
-                                    onChange={this.updateYear}
-                                    /*className={classes.selectEmpty}*/
+                            <Grid container direction="row" justify="flex-end">
+                                <Grid item>
+                                    <Box
+                                    display="flex"
+                                    flexWrap="wrap"
+                                    justifyContent="flex-end"
+                                    alignContent="flex-end"
+                                    fontWeight="fontWeightMedium"
+                                    fontSize="12px"
                                     >
-                                        <MenuItem value={2018}><em>Pilih Tahun</em></MenuItem>
-                                        {this.getYears()}
-                                    </Select>
-                                </FormControl>
-                            </Box>
+                                        <FormControl style={{width:80}}/*className={classes.formControl}*/>
+                                            <Select
+                                            value={this.state.focus}
+                                            onChange={this.updateFocus}
+                                            /*className={classes.selectEmpty}*/
+                                            >
+                                                <MenuItem value={''}><em>Pilih Indeks</em></MenuItem>
+                                                <MenuItem value={'reg'}>KCI</MenuItem>
+                                                <MenuItem value={'ipr'}>IPCI</MenuItem>
+                                            </Select>
+                                        </FormControl>
+                                    </Box>
+                                </Grid>
+                                &nbsp;&nbsp;&nbsp;
+                                <Grid item>
+                                    <Box
+                                    display="flex"
+                                    flexWrap="wrap"
+                                    justifyContent="flex-end"
+                                    alignContent="flex-end"
+                                    fontWeight="fontWeightMedium"
+                                    fontSize="12px"
+                                    >
+                                        <FormControl style={{width:80}}/*className={classes.formControl}*/>
+                                            <Select
+                                            value={this.state.reg_dimension}
+                                            onChange={this.updateRegDim}
+                                            /*className={classes.selectEmpty}*/
+                                            >
+                                                <MenuItem value={''}><em>Tingkat Daerah</em></MenuItem>
+                                                <MenuItem value={'city'}>Kabupaten/Kota</MenuItem>
+                                                <MenuItem value={'prov'}>Provinsi</MenuItem>
+                                            </Select>
+                                        </FormControl>
+                                    </Box>
+                                </Grid>
+                                &nbsp;&nbsp;&nbsp;
+                                <Grid item>
+                                    <Box
+                                    display="flex"
+                                    flexWrap="wrap"
+                                    justifyContent="flex-end"
+                                    alignContent="flex-end"
+                                    fontWeight="fontWeightMedium"
+                                    fontSize="12px"
+                                    >
+                                        <FormControl style={{width:80}}/*className={classes.formControl}*/>
+                                            <Select
+                                            value={this.state.ipr_dimension}
+                                            onChange={this.updateIprDim}
+                                            /*className={classes.selectEmpty}*/
+                                            >
+                                                <MenuItem value={''}><em>Jenis KI</em></MenuItem>
+                                                <MenuItem value={'ptn'}>Paten</MenuItem>
+                                                <MenuItem value={'pub'}>Publikasi Ilmiah</MenuItem>
+                                                <MenuItem value={'trd'}>Merek Dagang</MenuItem>
+                                            </Select>
+                                        </FormControl>
+                                    </Box>
+                                </Grid>
+                                &nbsp;&nbsp;&nbsp;
+                                <Grid item>
+                                    <Box
+                                    display="flex"
+                                    flexWrap="wrap"
+                                    justifyContent="flex-end"
+                                    alignContent="flex-end"
+                                    fontWeight="fontWeightMedium"
+                                    fontSize="12px"
+                                    >
+                                        <FormControl style={{width:80}}/*className={classes.formControl}*/>
+                                            <Select
+                                            value={this.state.year}
+                                            onChange={this.updateYear}
+                                            /*className={classes.selectEmpty}*/
+                                            >
+                                                <MenuItem value={2018}><em>Pilih Tahun</em></MenuItem>
+                                                {this.getYears()}
+                                            </Select>
+                                        </FormControl>
+                                    </Box>
+                                </Grid>
+                            </Grid>
                         </Grid>
                         <Grid item>
                             <Grid container direction="row" justify="space-evenly" /*style={{width: '100%', gridTemplateColumns: "1fr 7fr" }}>*/>

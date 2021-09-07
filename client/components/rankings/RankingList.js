@@ -52,22 +52,22 @@ const RankingList = props => {
         </Table>)
     } else if (props.focus=='ipr') {
         let list = props.data['iprList'];
-        let name = props.ipr_dimension=='ptn'? 'Patent' : props.reg_dimension=='pub'? 'Publication' : 
-            props.reg_dimension=='trd'? 'Trademark' : '';
-        let code = props.ipr_dimension=='ptn'? 'IPC Code' : props.reg_dimension=='pub'? 'KRI Code' : 
-            props.reg_dimension=='trd'? 'NCL Code' : '';
+        let name = props.ipr_dimension=='ptn'? 'Patent' : props.ipr_dimension=='pub'? 'Publication' : 
+            props.ipr_dimension=='trd'? 'Trademark' : '';
+        let code = props.ipr_dimension=='ptn'? 'IPC Code' : props.ipr_dimension=='pub'? 'KRI Code' : 
+            props.ipr_dimension=='trd'? 'NCL Code' : '';
         return (<Table
-            width={400}
-            height={600}
+            width={650}
+            height={500}
             headerHeight={20}
             rowHeight={30}
             rowCount={list.length}
             rowGetter={({index}) => list[index]}>
-            <Column dataKey="color" width={10} />
-            <Column label="Rank" dataKey="rank" width={40} />
-            <Column label={code} dataKey="code" width={40} />
-            <Column label={name} dataKey="name" width={150} />
-            <Column label="IPCI" dataKey="index" width={50} />
+            <Column cellRenderer={({ cellData }) => getColor(cellData)} dataKey='color' width={50} />
+            <Column label="Rank" dataKey="rank" width={100} />
+            <Column label={code} dataKey="code" width={100} />
+            <Column label={name} dataKey="name" width={300} />
+            <Column label="IPCI" dataKey="index" width={100} />
         </Table>)
     } else {
         return <h1>ERROR!</h1>
