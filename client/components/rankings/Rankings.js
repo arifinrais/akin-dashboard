@@ -109,6 +109,7 @@ class Rankings extends Component {
             });
           })
         .catch( err => this.setState({error: err}));
+        this.render();
       }
 
     render(){

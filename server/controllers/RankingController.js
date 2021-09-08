@@ -100,12 +100,12 @@ function buildRankings(rDim, iDim, data, prevData, res) {
     let getRegion = rDim=='prov'? getProvince : rDim=='city' ? getCity : null;
     for (const region of data['kci']) {
         rank = {};
-        let prevRanking = prevData.length? prevData.findIndex(x => x[identifier]==region[identifier])+1 : 0;
+        let prevRanking = prevData.length? prevData.findIndex(x => x[identifier]==region[identifier])+1 : -1;
         rank['color']=getColor(gradient, region['value']);
         rank['rank']=i;
         rank['name']=getRegion(region[identifier]);
         rank['index']=region['value'];
-        rank['growth']=prevRanking>0? i-prevRanking: null;
+        rank['growth']=prevRanking>0? prevRanking-i: prevRanking>-1? prevData.length+1-i: null;
         defReg.regList.push(rank);
         i+=1;
     }
