@@ -12,6 +12,7 @@ import NativeSelect from '@material-ui/core/NativeSelect';
 import Resources from '../../../server/providers/resourceProvider';
 import MenuItem from '@material-ui/core/MenuItem';
 import Box from '@material-ui/core/Box';
+import ScrollDialog from './UserGuide';
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -112,6 +113,7 @@ const AkinPanel = props => {
 
     updateOptions();
     return(
+        <>
         <Box
             display="flex"
             flexWrap="wrap"
@@ -292,8 +294,25 @@ const AkinPanel = props => {
                         </Grid>
                     </Grid> : <Grid item></Grid>
                 }    
-            </Grid> 
+            </Grid>
         </Box>
+        <Box
+            display="flex"
+            flexWrap="wrap"
+            alignContent="space-between"
+            m={1}
+            bgcolor="#343a40"
+            border="1px solid"
+            borderColor="#000000"
+            css={{ maxWidth: 300, maxHeight: 100}}
+        >
+            <Grid container direction="column" alignItems="center">
+                <Grid item>
+                <ScrollDialog/>
+                </Grid>
+            </Grid>
+        </Box>
+        </>
     )
 }
 
