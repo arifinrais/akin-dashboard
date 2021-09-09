@@ -150,7 +150,7 @@ class Dashboard extends Component {
                     return(<h3>{region} mana saja yang menghasilkan {iprop} {iprop=="Paten"? files.PatentChooser[this.state.code] : 
                     iprop=="Merek Dagang"? files.TrademarkChooser[this.state.code] : files.PublicationChooser[this.state.code]} pada tahun {this.state.year}?</h3>);
                 case 'otv':
-                    return(<h3>{region} mana saja yang menghasilkan {iprop} {iprop=="Paten"? files.PatentChooser[this.state.code] : 
+                    return(<h3>Daerah mana saja yang menghasilkan {iprop} {iprop=="Paten"? files.PatentChooser[this.state.code] : 
                     iprop=="Merek Dagang"? files.TrademarkChooser[this.state.code] : files.PublicationChooser[this.state.code]} pada tahun {this.state.year[0]} hingga {this.state.year[1]}?</h3>); 
             }
         }
